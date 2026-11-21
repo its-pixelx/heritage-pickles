@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dadi's Heritage Rasoi | Artisanal Homemade Pickles & Express Cloud Kitchen</title>
+  
+  <!-- SEO & Meta -->
+  <meta name="description" content="Authentic grandmother's homemade pickles sun-cured in ceramic barnis. Order freshly packed artisanal achar delivered in 45-60 mins across select local zones.">
+  <meta name="keywords" content="homemade pickle, mango achar, artisanal pickles, cloud kitchen, hyper-local food delivery, organic achar, sun cured pickle">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Config Customizations -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            spice: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+              950: '#431407',
+            },
+            turmeric: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            terracotta: '#c2410c',
+            clay: '#78350f',
+            barni: '#fdfbf7',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'warm': '0 20px 40px -15px rgba(194, 65, 12, 0.15)',
+            'glow': '0 0 35px rgba(249, 115, 22, 0.35)',
+            'floating': '0 25px 50px -12px rgba(67, 20, 7, 0.25)',
+          },
+          animation: {
+            'float': 'float 4s ease-in-out infinite',
+            'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
+            'shimmer': 'shimmer 2.5s infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            pulseSubtle: {
+              '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+              '50%': { opacity: 0.85, transform: 'scale(1.02)' },
+            },
+            shimmer: {
+              '100%': { transform: 'translateX(100%)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFFBF5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #fdba74;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ea580c;
+    }
+    
+    .glass-nav {
+      background: rgba(255, 251, 245, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .spice-pattern {
+      background-color: #fffaf0;
+      background-image: radial-gradient(#ea580c 0.75px, transparent 0.75px), radial-gradient(#d97706 0.75px, #fffaf0 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      background-opacity: 0.04;
+    }
+
+    /* Badge Shine */
+    .shine-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    .shine-effect::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%);
+      transform: rotate(25deg);
+      animation: shine 5s infinite;
+    }
+    @keyframes shine {
+      0% { transform: translateX(-100%) rotate(25deg); }
+      20%, 100% { transform: translateX(100%) rotate(25deg); }
+    }
+  </style>
+</head>
+<body class="font-sans bg-[#FFFBF5] text-[#2C1810] antialiased selection:bg-spice-200 selection:text-spice-900 min-h-screen flex flex-col">
+
+  <!-- TOP TICKER ANNOUNCEMENT -->
+  <div class="bg-gradient-to-r from-spice-900 via-spice-800 to-spice-900 text-spice-100 text-xs md:text-sm py-2 px-4 shadow-sm border-b border-spice-700/50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-spice-700 text-amber-200 border border-amber-300/30 animate-pulse">
+          <i data-lucide="zap" class="w-3.5 h-3.5 fill-amber-300 text-amber-300"></i>
+          EXPRESS CLOUD KITCHEN
+        </span>
+        <span class="text-spice-200 font-medium tracking-wide">
+          Delivering hot & fresh in 45–60 mins within our 8km Radius • Small-batch Sun-cured Pickles
+        </span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-xs font-medium text-amber-200/90">
+        <span class="flex items-center gap-1"><i data-lucide="sun" class="w-3.5 h-3.5"></i> 21-Day Sun Cured</span>
+        <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Zero Chemical Preservatives</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-spice-200/60 transition-all duration-300 shadow-sm" id="site-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-spice-500 to-spice-700 flex items-center justify-center text-white shadow-md shadow-spice-600/30 group-hover:scale-105 transition-transform duration-300 border border-amber-300/30">
+          <span class="text-2xl font-serif font-black">दा</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-xl sm:text-2xl tracking-tight text-spice-950 group-hover:text-spice-600 transition-colors">
+            Dadi's Heritage
+          </span>
+          <span class="text-[11px] uppercase tracking-wider font-semibold text-spice-600 flex items-center gap-1">
+            <span>Artisanal Pickles</span>
+            <span class="w-1 h-1 rounded-full bg-spice-400"></span>
+            <span class="text-emerald-700">Cloud Kitchen</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Location Delivery Selector (Interactive Pill) -->
+      <button onclick="openDeliveryModal()" class="hidden md:flex items-center gap-2.5 px-4 py-2 rounded-full bg-spice-100/70 hover:bg-spice-100 border border-spice-300/60 text-xs font-semibold text-spice-900 transition-all shadow-sm hover:shadow group">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+        </span>
+        <span class="flex items-center gap-1">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-spice-600 group-hover:animate-bounce"></i>
+          <span id="current-location-pill">Delivering in South Delhi & NCR (45-60 min)</span>
+        </span>
+        <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-spice-500"></i>
+      </button>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-spice-900/80">
+        <a href="#store" class="hover:text-spice-600 transition-colors">The Store</a>
+        <a href="#delivery" class="hover:text-spice-600 transition-colors flex items-center gap-1">
+          <span>Express Delivery</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-800 rounded-md border border-amber-300">45 MIN</span>
+        </a>
+        <a href="#heritage" class="hover:text-spice-600 transition-colors">Our Secret Craft</a>
+        <a href="#reviews" class="hover:text-spice-600 transition-colors">Foodie Love</a>
+        <a href="#faq" class="hover:text-spice-600 transition-colors">FAQs</a>
+      </nav>
+
+      <!-- Cart Button & Mobile Menu Trigger -->
+      <div class="flex items-center gap-3">
+        <!-- Cart Trigger Button -->
+        <button onclick="toggleCartDrawer(true)" class="relative flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-spice-600 to-spice-700 hover:from-spice-700 hover:to-spice-800 text-white font-semibold text-sm shadow-md shadow-spice-700/20 active:scale-95 transition-all">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">My Basket</span>
+          <span id="header-cart-count" class="w-5 h-5 rounded-full bg-amber-400 text-spice-950 text-xs font-black flex items-center justify-center">0</span>
+          <span id="header-cart-total" class="hidden sm:inline font-bold border-l border-spice-400/50 pl-2">₹0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-spice-800 hover:bg-spice-100 transition-colors">
+          <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-spice-200/80 bg-spice-50/95 px-6 py-4 flex-col gap-3 text-sm font-semibold text-spice-900 shadow-xl">
+      <button onclick="openDeliveryModal(); toggleMobileMenu();" class="flex items-center justify-between w-full p-2.5 bg-spice-100 rounded-lg text-xs font-semibold text-spice-900 mb-2">
+        <span class="flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-4 h-4 text-spice-600"></i>
+          <span>Check Delivery Radius</span>
+        </span>
+        <span class="text-emerald-700 font-bold">45-60m</span>
+      </button>
+      <a href="#store" onclick="toggleMobileMenu()" class="py-2 hover:text-spice-600">The Store (Pickle Jars)</a>
+      <a href="#delivery" onclick="toggleMobileMenu()" class="py-2 hover:text-spice-600">45-Minute Express Fleet</a>
+      <a href="#heritage" onclick="toggleMobileMenu()" class="py-2 hover:text-spice-600">Grandma's 21-Day Sun Curing</a>
+      <a href="#reviews" onclick="toggleMobileMenu()" class="py-2 hover:text-spice-600">Customer Tasting Reviews</a>
+      <a href="#faq" onclick="toggleMobileMenu()" class="py-2 hover:text-spice-600">FAQs & Shelf Life</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-grow">
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24 spice-pattern">
+      <!-- Ambient decorative glow -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-spice-400/15 via-amber-300/15 to-transparent rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Hero Copy Left (7 cols) -->
+          <div class="lg:col-span-7 flex flex-col items-start space-y-6 text-left">
+            
+            <!-- Quality Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/80 border border-amber-300/80 text-amber-950 text-xs sm:text-sm font-bold shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-spice-600 animate-ping"></span>
+              <span>100% Traditional Handcrafted • Sun-Cured in Barnis • Zero Vinegar</span>
+            </div>
+
+            <!-- Main Catchy Title -->
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-spice-950 leading-[1.15] tracking-tight">
+              Grandma’s Heirloom Pickles. <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-spice-600 via-spice-700 to-amber-600 italic">
+                Delivered Fresh in 45 Mins.
+              </span>
+            </h1>
+
+            <!-- Narrative Paragraph -->
+            <p class="text-base sm:text-lg text-spice-900/80 max-w-2xl font-medium leading-relaxed">
+              Every jar is slow-matured under the raw sun for 21 days in genuine ceramic <span class="font-semibold text-spice-800">martabans</span>, infused with cold-pressed mustard oil and stone-ground spices. Packed to order in our hyper-local cloud kitchen so you get the authentic pungency and crunch of home.
+            </p>
+
+            <!-- Hyper-Local Express Radius Checker Card -->
+            <div class="w-full max-w-xl p-4 sm:p-5 rounded-2xl glass-card border border-spice-200/80 shadow-warm">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold text-spice-800 uppercase tracking-wider flex items-center gap-1.5">
+                  <i data-lucide="navigation" class="w-3.5 h-3.5 text-spice-600"></i>
+                  Instant Delivery Radius Check
+                </span>
+                <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                  ⚡ Hyper-Local Fleet Active
+                </span>
+              </div>
+              <form id="hero-pincode-form" onsubmit="event.preventDefault(); checkDeliveryRadius();" class="flex flex-col sm:flex-row gap-2">
+                <div class="relative flex-grow">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-spice-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                  <input type="text" id="hero-pincode-input" placeholder="Enter Pincode or Locality (e.g. 110017, Hauz Khas)" class="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-spice-200 text-sm focus:outline-none focus:ring-2 focus:ring-spice-500 focus:border-spice-500 transition-all font-medium text-spice-900 placeholder:text-spice-400" required>
+                </div>
+                <button type="submit" class="px-6 py-3 rounded-xl bg-spice-600 hover:bg-spice-700 active:scale-95 text-white font-bold text-sm transition-all shadow-md shadow-spice-600/30 flex items-center justify-center gap-2 whitespace-nowrap">
+                  <span>Check Radius</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+              </form>
+              <div id="hero-radius-result" class="mt-3 text-xs font-semibold hidden p-2.5 rounded-lg"></div>
+            </div>
+
+            <!-- Value Metric Pills -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full pt-2">
+              <div class="flex flex-col border-l-2 border-spice-500 pl-3">
+                <span class="font-serif font-black text-xl sm:text-2xl text-spice-950">21 Days</span>
+                <span class="text-xs text-spice-700/80 font-medium">Sun-matured naturally</span>
+              </div>
+              <div class="flex flex-col border-l-2 border-amber-500 pl-3">
+                <span class="font-serif font-black text-xl sm:text-2xl text-spice-950">45-60m</span>
+                <span class="text-xs text-spice-700/80 font-medium">Local door delivery</span>
+              </div>
+              <div class="flex flex-col border-l-2 border-emerald-600 pl-3">
+                <span class="font-serif font-black text-xl sm:text-2xl text-spice-950">100% Pure</span>
+                <span class="text-xs text-spice-700/80 font-medium">Kacchi ghani oil</span>
+              </div>
+              <div class="flex flex-col border-l-2 border-red-500 pl-3">
+                <span class="font-serif font-black text-xl sm:text-2xl text-spice-950">4.9 ★</span>
+                <span class="text-xs text-spice-700/80 font-medium">Over 1,200 foodies</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Graphic Right (5 cols) -->
+          <div class="lg:col-span-5 relative flex justify-center">
+            
+            <!-- Showcase Card with Floating Glass Elements -->
+            <div class="relative w-full max-w-md bg-gradient-to-b from-amber-50 to-white rounded-3xl p-4 sm:p-6 shadow-floating border border-amber-200/80 animate-float">
+              
+              <!-- Top Card Header -->
+              <div class="flex items-center justify-between pb-3 border-b border-spice-100">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-bold text-spice-900 font-serif">Sun-Curing Today</span>
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300">Batch #48</span>
+                </div>
+                <div class="flex items-center gap-1 text-xs font-bold text-amber-500">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                  <span class="text-spice-900 font-sans">4.95 / 5.0</span>
+                </div>
+              </div>
+
+              <!-- Main Hero Image Showcase -->
+              <div class="relative my-4 rounded-2xl overflow-hidden aspect-[4/3] group shadow-inner">
+                <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80" alt="Authentic Mango Pickle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-spice-950/70 via-transparent to-transparent flex items-end p-4">
+                  <div>
+                    <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-spice-600 text-white uppercase tracking-wider">Chef's Signature</span>
+                    <h3 class="text-white font-serif font-bold text-lg">Heirloom Aam Ka Achaar</h3>
+                    <p class="text-amber-200 text-xs">Cured with Methi, Kalonji & Pure Mustard Oil</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Micro-Badge 1: Delivery Tracker -->
+              <div class="absolute -bottom-5 -left-4 sm:-left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-spice-200/80 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+                  <i data-lucide="bike" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-xs font-bold text-spice-900">Hyper-Local Fleet</span>
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  </div>
+                  <p class="text-[11px] text-spice-600 font-medium">Delivering in 35-45 mins</p>
+                </div>
+              </div>
+
+              <!-- Floating Micro-Badge 2: Glass Jar Seal -->
+              <div class="absolute -top-4 -right-3 bg-spice-900 text-amber-200 rounded-2xl px-3.5 py-2 shadow-lg border border-spice-700 flex items-center gap-2">
+                <i data-lucide="sparkles" class="w-4 h-4 text-amber-300"></i>
+                <div class="text-[11px] font-bold leading-tight">
+                  Airtight Barni<br><span class="text-white/80 font-normal">Tamper Sealed</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HYPER-LOCAL DELIVERY SECTION -->
+    <section id="delivery" class="py-16 bg-white border-y border-spice-200/70 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-widest text-spice-600 bg-spice-100 px-3 py-1 rounded-full border border-spice-300">
+            Dedicated Local Fleet & Cloud Kitchen
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-spice-950 mt-3 mb-4">
+            From Grandma’s Barni to Your Table in Under an Hour
+          </h2>
+          <p class="text-base text-spice-800/80">
+            Unlike retail pickles that sit on supermarket shelves for months in chemical vinegar, our cloud kitchen packs straight from live maturation jars and dispatches immediately via local express delivery partners.
+          </p>
+        </div>
+
+        <!-- 3-Step Express Delivery Flow -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          
+          <!-- Step 1 -->
+          <div class="p-6 rounded-2xl bg-spice-50/70 border border-spice-200/80 hover:border-spice-400 hover:shadow-warm transition-all duration-300 relative group">
+            <div class="w-12 h-12 rounded-xl bg-spice-600 text-white flex items-center justify-center font-black text-lg mb-4 shadow-md shadow-spice-600/20 group-hover:scale-110 transition-transform">
+              1
+            </div>
+            <h3 class="font-serif font-bold text-xl text-spice-950 mb-2">Sun-Cured in Small Batches</h3>
+            <p class="text-sm text-spice-800/80 leading-relaxed">
+              We prepare limited 50-jar lots every week. No industrial vats, no shortcuts. Only real rock salt and wood-churned oils preserving the raw spices naturally.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-xs font-bold text-spice-700">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
+              <span>Authentic taste guarantee</span>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="p-6 rounded-2xl bg-spice-50/70 border border-spice-200/80 hover:border-spice-400 hover:shadow-warm transition-all duration-300 relative group">
+            <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center font-black text-lg mb-4 shadow-md shadow-amber-500/20 group-hover:scale-110 transition-transform">
+              2
+            </div>
+            <h3 class="font-serif font-bold text-xl text-spice-950 mb-2">Sealed in Airtight Glass</h3>
+            <p class="text-sm text-spice-800/80 leading-relaxed">
+              Your order is packed in food-grade sterilized glass jars with a foil tamper-proof induction seal to lock in the intense aroma and prevent any oil spillage during transit.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-xs font-bold text-spice-700">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
+              <span>100% leak-proof packaging</span>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="p-6 rounded-2xl bg-spice-50/70 border border-spice-200/80 hover:border-spice-400 hover:shadow-warm transition-all duration-300 relative group">
+            <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-lg mb-4 shadow-md shadow-emerald-600/20 group-hover:scale-110 transition-transform">
+              3
+            </div>
+            <h3 class="font-serif font-bold text-xl text-spice-950 mb-2">45-Minute Hyper-Local Dispatch</h3>
+            <p class="text-sm text-spice-800/80 leading-relaxed">
+              Assigned directly to on-demand delivery partners (Dunzo, Shadowfax, Porter) within our designated 8 km service circle for instant temperature-safe delivery.
+            </p>
+            <div class="mt-4 flex items-center gap-2 text-xs font-bold text-spice-700">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
+              <span>Live doorstep rider tracking</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Live Kitchen Radius Coverage Map & Zone Cards -->
+        <div class="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-spice-950 to-stone-900 text-white shadow-2xl relative overflow-hidden">
+          <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-spice-600/20 rounded-full blur-3xl pointer-events-none"></div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Active Kitchen Hub: South Delhi Base</span>
+              </div>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white">
+                Our Primary Delivery Radius & Express Hubs
+              </h3>
+              <p class="text-sm text-spice-200/80 leading-relaxed">
+                We intentionally keep our delivery radius tight to guarantee your pickles reach your lunch or dinner table within minutes without sitting in logistics warehouses.
+              </p>
+
+              <!-- Coverage zones pills -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-xs font-semibold text-amber-200 border border-white/10 transition-colors">📍 Hauz Khas (30m)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-xs font-semibold text-amber-200 border border-white/10 transition-colors">📍 Saket & Malviya Nagar (35m)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-xs font-semibold text-amber-200 border border-white/10 transition-colors">📍 GK 1 & GK 2 (40m)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-xs font-semibold text-amber-200 border border-white/10 transition-colors">📍 Defence Colony (45m)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-xs font-semibold text-amber-200 border border-white/10 transition-colors">📍 Vasant Kunj & Vasant Vihar (50m)</span>
+              </div>
+            </div>
+
+            <!-- Interactive Radius Check on Dark Card -->
+            <div class="lg:col-span-5 bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15 shadow-xl">
+              <h4 class="text-sm font-bold text-white mb-2 flex items-center gap-2">
+                <i data-lucide="locate-fixed" class="w-4 h-4 text-amber-400"></i>
+                Check Your Society / Sector
+              </h4>
+              <p class="text-xs text-spice-200/70 mb-4">See if our express dispatch bike can reach you in under 45 mins.</p>
+              
+              <div class="space-y-3">
+                <div class="flex gap-2">
+                  <input type="text" id="zone-check-input" placeholder="Enter colony or pincode" class="flex-grow px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-xs text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-amber-400">
+                  <button onclick="testZoneCheck()" class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-spice-950 font-bold text-xs transition-colors">Check</button>
+                </div>
+                <div id="zone-check-result" class="text-xs font-medium text-emerald-300 hidden p-2 bg-emerald-950/40 rounded-lg border border-emerald-500/30">
+                  ✅ Great news! You are within our 40-minute express cloud kitchen zone.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STORE / PRODUCT CATALOG SECTION -->
+    <section id="store" class="py-16 sm:py-24 bg-[#FFFBF5] relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Store Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-spice-600 bg-spice-100 px-3 py-1 rounded-full border border-spice-300">
+              Freshly Sun-Matured Jars
+            </span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-spice-950 mt-3">
+              The Artisanal Pantry
+            </h2>
+            <p class="text-sm sm:text-base text-spice-800/80 mt-1 max-w-xl">
+              Handcrafted recipes prepared with stone-ground heirloom spices, rock salt, and authentic cold-pressed oils.
+            </p>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-2 md:pb-0 scrollbar-none" id="category-tabs">
+            <button onclick="filterProducts('all')" class="category-btn active px-4 py-2 rounded-full text-xs font-bold transition-all bg-spice-600 text-white shadow-sm" data-category="all">
+              All Pickles (7)
+            </button>
+            <button onclick="filterProducts('classics')" class="category-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-white text-spice-800 hover:bg-spice-100 border border-spice-200" data-category="classics">
+              Grandma Classics
+            </button>
+            <button onclick="filterProducts('spicy')" class="category-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-white text-spice-800 hover:bg-spice-100 border border-spice-200" data-category="spicy">
+              Fiery & Pungent
+            </button>
+            <button onclick="filterProducts('sweet')" class="category-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-white text-spice-800 hover:bg-spice-100 border border-spice-200" data-category="sweet">
+              Sweet & Tangy
+            </button>
+            <button onclick="filterProducts('zero-oil')" class="category-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-white text-spice-800 hover:bg-spice-100 border border-spice-200" data-category="zero-oil">
+              Zero Oil
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Cards Grid (6-7 Products) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8" id="products-grid">
+          <!-- Populated dynamically by JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HERITAGE & CRAFT STORY SECTION -->
+    <section id="heritage" class="py-20 bg-white border-y border-spice-200/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Story Left (6 cols) -->
+          <div class="lg:col-span-6 space-y-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-spice-600 bg-spice-100 px-3 py-1 rounded-full border border-spice-300">
+              The 50-Year Family Secret
+            </span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-spice-950 leading-tight">
+              Why Our Barnis Are Never Rushed in Modern Machines
+            </h2>
+            <p class="text-base text-spice-800/80 leading-relaxed font-normal">
+              Commercial pickles are boiled in vinegar and artificially flavored within hours to cut costs. At Dadi's Heritage Rasoi, we still follow the authentic <span class="font-semibold text-spice-900">21-day rooftop sun-curing technique</span> that our grandmothers perfected in Rajasthan and Uttar Pradesh.
+            </p>
+
+            <!-- Comparison Table -->
+            <div class="rounded-2xl border border-spice-200 overflow-hidden shadow-sm">
+              <div class="grid grid-cols-2 bg-spice-100 text-xs font-bold text-spice-900 p-3 border-b border-spice-200">
+                <span class="text-spice-700">Factory Supermarket Pickles</span>
+                <span class="text-spice-900 font-serif">Dadi's Heritage Barnis</span>
+              </div>
+              <div class="grid grid-cols-2 text-xs p-3 border-b border-spice-100 bg-white">
+                <span class="text-red-700 flex items-center gap-1.5"><i data-lucide="x" class="w-3.5 h-3.5"></i> Synthetic Acetic Acid (Vinegar)</span>
+                <span class="text-emerald-800 font-semibold flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sun & Rock Salt Preservation</span>
+              </div>
+              <div class="grid grid-cols-2 text-xs p-3 border-b border-spice-100 bg-spice-50/50">
+                <span class="text-red-700 flex items-center gap-1.5"><i data-lucide="x" class="w-3.5 h-3.5"></i> Refined Palm / Cottonseed Oil</span>
+                <span class="text-emerald-800 font-semibold flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Pure Cold-Pressed Mustard Oil</span>
+              </div>
+              <div class="grid grid-cols-2 text-xs p-3 bg-white">
+                <span class="text-red-700 flex items-center gap-1.5"><i data-lucide="x" class="w-3.5 h-3.5"></i> Stored for Months in Plastic</span>
+                <span class="text-emerald-800 font-semibold flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Dispatched in 45 Mins in Glass</span>
+              </div>
+            </div>
+
+            <!-- Quote badge -->
+            <div class="p-4 rounded-xl bg-amber-50 border-l-4 border-amber-500 text-spice-900 italic text-sm">
+              "Patience is the only secret ingredient in authentic achaar. If you rush the sun, you lose the soul."
+              <span class="block mt-1 font-serif font-bold not-italic text-xs text-spice-800">— Smt. Kaushalya Devi (Dadi Ji)</span>
+            </div>
+          </div>
+
+          <!-- Story Visual Right (6 cols) -->
+          <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <div class="rounded-2xl overflow-hidden shadow-md aspect-[3/4]">
+                <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80" alt="Authentic Indian Spices" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              </div>
+              <div class="p-4 rounded-2xl bg-spice-50 border border-spice-200 text-center">
+                <span class="font-serif font-bold text-xl text-spice-950">100% Organic</span>
+                <p class="text-xs text-spice-700">Hand-selected whole spices</p>
+              </div>
+            </div>
+            <div class="space-y-4 pt-8">
+              <div class="p-4 rounded-2xl bg-amber-100/60 border border-amber-300 text-center">
+                <span class="font-serif font-bold text-xl text-spice-950">FSSAI Certified</span>
+                <p class="text-xs text-spice-700">Strict hygiene kitchen audit</p>
+              </div>
+              <div class="rounded-2xl overflow-hidden shadow-md aspect-[3/4]">
+                <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80" alt="Garlic and Spices in Traditional Bowl" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS / FOODIE LOVE -->
+    <section id="reviews" class="py-16 bg-[#FFFBF5]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-spice-600 bg-spice-100 px-3 py-1 rounded-full border border-spice-300">
+            Neighbourhood Love
+          </span>
+          <h2 class="font-serif text-3xl font-bold text-spice-950 mt-3 mb-2">
+            What Local Foodies Are Saying
+          </h2>
+          <p class="text-sm text-spice-800/80">
+            Real feedback from early tasting preview customers in South Delhi and NCR.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Review 1 -->
+          <div class="p-6 rounded-2xl bg-white border border-spice-200 shadow-sm hover:shadow-warm transition-all flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex text-amber-500 gap-1 text-sm">
+                ★★★★★
+              </div>
+              <p class="text-sm text-spice-900 leading-relaxed italic">
+                "The Banarasi Bharwa Lal Mirch took me straight back to my nani's home in Varanasi. The mustard oil pungency is so genuine. And delivered in 40 minutes flat!"
+              </p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-spice-100 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-spice-200 text-spice-900 font-bold flex items-center justify-center text-xs">
+                AK
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-spice-950">Aman Khanna</h4>
+                <p class="text-[11px] text-spice-600">Hauz Khas, New Delhi</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="p-6 rounded-2xl bg-white border border-spice-200 shadow-sm hover:shadow-warm transition-all flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex text-amber-500 gap-1 text-sm">
+                ★★★★★
+              </div>
+              <p class="text-sm text-spice-900 leading-relaxed italic">
+                "Zero oil lemon pickle is a game changer for digestion. Crisp, tart, with that perfect ajwain-jeera aroma. My kids love the sweet Aam Chhunda too."
+              </p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-spice-100 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-amber-200 text-amber-950 font-bold flex items-center justify-center text-xs">
+                SM
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-spice-950">Sunita Mehra</h4>
+                <p class="text-[11px] text-spice-600">Greater Kailash II</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="p-6 rounded-2xl bg-white border border-spice-200 shadow-sm hover:shadow-warm transition-all flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex text-amber-500 gap-1 text-sm">
+                ★★★★★
+              </div>
+              <p class="text-sm text-spice-900 leading-relaxed italic">
+                "Finally a cloud kitchen that understands authentic Indian condiments! Packed safely with tamper seal, zero oil leak in the bag. 10/10."
+              </p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-spice-100 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-emerald-200 text-emerald-950 font-bold flex items-center justify-center text-xs">
+                RV
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-spice-950">Rohan Verma</h4>
+                <p class="text-[11px] text-spice-600">Saket District Centre</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-16 bg-white border-t border-spice-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-10">
+          <span class="text-xs font-bold uppercase tracking-widest text-spice-600 bg-spice-100 px-3 py-1 rounded-full border border-spice-300">
+            Got Questions?
+          </span>
+          <h2 class="font-serif text-3xl font-bold text-spice-950 mt-3">
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div class="space-y-4" id="faq-accordion">
+          
+          <!-- FAQ 1 -->
+          <div class="border border-spice-200 rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(1)" class="w-full text-left p-4.5 bg-spice-50/50 hover:bg-spice-50 font-semibold text-sm text-spice-950 flex items-center justify-between gap-4">
+              <span>How does the 45-60 minute hyper-local delivery work?</span>
+              <i data-lucide="chevron-down" id="faq-icon-1" class="w-4 h-4 text-spice-600 transition-transform"></i>
+            </button>
+            <div id="faq-content-1" class="hidden p-4 text-xs sm:text-sm text-spice-800/80 bg-white border-t border-spice-100 leading-relaxed">
+              We operate as a localized cloud kitchen hub. When your order is placed, jars are retrieved from our temperature-controlled maturation cellar, tamper-foil sealed, placed into shock-resistant delivery bags, and picked up instantly by our hyper-local dispatch partner (Dunzo/Porter/Shadowfax) to arrive within 45–60 minutes in your area.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="border border-spice-200 rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(2)" class="w-full text-left p-4.5 bg-spice-50/50 hover:bg-spice-50 font-semibold text-sm text-spice-950 flex items-center justify-between gap-4">
+              <span>What is the shelf life of these pickles without vinegar?</span>
+              <i data-lucide="chevron-down" id="faq-icon-2" class="w-4 h-4 text-spice-600 transition-transform"></i>
+            </button>
+            <div id="faq-content-2" class="hidden p-4 text-xs sm:text-sm text-spice-800/80 bg-white border-t border-spice-100 leading-relaxed">
+              Our pickles naturally stay fresh for 12 months or longer! Traditional Indian achaar relies on the antimicrobial properties of cold-pressed mustard oil, turmeric, and rock salt. Always use a clean, completely dry spoon and ensure the oil layer rests above the mangoes/chilies.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="border border-spice-200 rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(3)" class="w-full text-left p-4.5 bg-spice-50/50 hover:bg-spice-50 font-semibold text-sm text-spice-950 flex items-center justify-between gap-4">
+              <span>Why is the 'Buy Now / Checkout' button currently disabled?</span>
+              <i data-lucide="chevron-down" id="faq-icon-3" class="w-4 h-4 text-spice-600 transition-transform"></i>
+            </button>
+            <div id="faq-content-3" class="hidden p-4 text-xs sm:text-sm text-spice-800/80 bg-white border-t border-spice-100 leading-relaxed">
+              We are currently in our <strong>pre-launch pilot tasting phase</strong>. The website and menu are fully functional to preview the jars, ingredients, and delivery radius, but online payment processing will be unlocked on our official launch day. You can join the VIP tasting waitlist from the cart to receive an opening discount!
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CART SLIDE-OVER DRAWER -->
+  <div id="cart-drawer-overlay" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-stone-950/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  
+  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out border-l border-spice-200">
+    
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-spice-100 flex items-center justify-between bg-spice-50/70">
+      <div class="flex items-center gap-2">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-spice-600"></i>
+        <h3 class="font-serif font-bold text-lg text-spice-950">Your Tasting Basket</h3>
+        <span id="drawer-item-count" class="px-2 py-0.5 rounded-full text-xs font-bold bg-spice-200 text-spice-900">0 Items</span>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="p-2 rounded-xl text-spice-700 hover:bg-spice-200/60 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Express Delivery ETA Notification in Cart -->
+    <div class="p-3 bg-emerald-50 border-b border-emerald-100 flex items-center justify-between text-xs text-emerald-900 font-semibold px-5">
+      <div class="flex items-center gap-2">
+        <i data-lucide="zap" class="w-4 h-4 text-emerald-600 fill-emerald-600"></i>
+        <span>Express Delivery: 45 Mins</span>
+      </div>
+      <span class="text-[11px] bg-emerald-200/80 text-emerald-950 px-2 py-0.5 rounded-md">8km Hub</span>
+    </div>
+
+    <!-- Cart Items Scrollable List -->
+    <div class="flex-grow overflow-y-auto p-5 space-y-4" id="cart-items-container">
+      <!-- Empty Cart State -->
+      <div id="empty-cart-state" class="py-16 text-center space-y-3">
+        <div class="w-16 h-16 mx-auto rounded-full bg-spice-100 text-spice-500 flex items-center justify-center">
+          <i data-lucide="shopping-basket" class="w-8 h-8"></i>
+        </div>
+        <h4 class="font-serif font-bold text-base text-spice-900">Your basket is waiting</h4>
+        <p class="text-xs text-spice-600 max-w-xs mx-auto">Explore grandma's handmade jars and add authentic flavor to your dining table.</p>
+        <button onclick="toggleCartDrawer(false)" class="mt-2 px-5 py-2 rounded-xl bg-spice-600 hover:bg-spice-700 text-white text-xs font-bold transition-all">Browse The Pantry</button>
+      </div>
+    </div>
+
+    <!-- Drawer Footer (Subtotal & GATED / DISABLED CHECKOUT BUTTON) -->
+    <div class="p-5 border-t border-spice-200 bg-spice-50/50 space-y-4">
+      
+      <!-- Price Breakdown -->
+      <div class="space-y-1.5 text-xs text-spice-800">
+        <div class="flex justify-between">
+          <span class="text-spice-600">Items Subtotal</span>
+          <span class="font-bold text-spice-900" id="drawer-subtotal">₹0</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-spice-600">Glass Jar Packaging & Induction Seal</span>
+          <span class="text-emerald-700 font-bold">FREE (Launch Offer)</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-spice-600">Hyper-Local 45-Min Rider Dispatch</span>
+          <span class="text-emerald-700 font-bold">FREE</span>
+        </div>
+        <div class="flex justify-between pt-2 border-t border-spice-200 text-sm font-bold text-spice-950">
+          <span>Estimated Total</span>
+          <span class="font-serif text-lg text-spice-700" id="drawer-total">₹0</span>
+        </div>
+      </div>
+
+      <!-- OFFICIAL PRE-LAUNCH STATUS NOTICE -->
+      <div class="p-3 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-900 flex items-start gap-2.5 text-xs">
+        <i data-lucide="alert-circle" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5"></i>
+        <div class="leading-tight">
+          <span class="font-bold block mb-0.5">Pre-Launch Private Tasting Preview</span>
+          The kitchen is currently in preparation. Direct online ordering will open on public launch day.
+        </div>
+      </div>
+
+      <!-- DISABLED BUY / CHECKOUT BUTTON WITH CLEAR SIGN -->
+      <div class="relative group">
+        <button id="checkout-btn" onclick="openWaitlistModal()" class="w-full py-3.5 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 bg-stone-300 text-stone-600 cursor-not-allowed border border-stone-400/40 relative shadow-inner select-none transition-all" aria-disabled="true">
+          <i data-lucide="lock" class="w-4 h-4 text-stone-500"></i>
+          <span>PROCEED TO CHECKOUT (LAUNCHING SOON)</span>
+        </button>
+        <!-- Floating hint tooltip on hover -->
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-stone-900 text-white text-[11px] font-semibold py-1 px-3 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-lg">
+          Click to join VIP tasting waitlist & get ₹100 OFF coupon!
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- PRODUCT DETAIL QUICK-VIEW MODAL -->
+  <div id="quickview-modal" class="fixed inset-0 z-50 bg-stone-950/70 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative border border-spice-200 max-h-[90vh] overflow-y-auto">
+      <button onclick="closeQuickView()" class="absolute top-5 right-5 p-2 rounded-full text-spice-600 hover:bg-spice-100 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+        <div class="rounded-2xl overflow-hidden aspect-square shadow-md border border-spice-200">
+          <img id="qv-img" src="" alt="Product Detail" class="w-full h-full object-cover">
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <span id="qv-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300">Badge</span>
+            <span id="qv-spice" class="text-xs font-bold text-spice-700">🌶️🌶️ Medium</span>
+          </div>
+          <h3 id="qv-title" class="font-serif text-2xl font-bold text-spice-950">Product Name</h3>
+          <p id="qv-desc" class="text-xs sm:text-sm text-spice-800 leading-relaxed font-normal">Description goes here.</p>
+          
+          <div class="p-3 rounded-xl bg-spice-50 border border-spice-100 space-y-1 text-xs">
+            <div class="flex justify-between">
+              <span class="text-spice-600">Base Oil:</span>
+              <span class="font-semibold text-spice-900" id="qv-oil">Cold-Pressed Mustard Oil</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-spice-600">Sun Curing:</span>
+              <span class="font-semibold text-spice-900" id="qv-curing">18–21 Days in Ceramic Barnis</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-spice-600">Shelf Life:</span>
+              <span class="font-semibold text-spice-900">12 Months (Store in dry place)</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <div>
+              <span class="text-xs text-spice-500">Launch Price</span>
+              <div class="flex items-baseline gap-2">
+                <span id="qv-price" class="font-serif text-2xl font-black text-spice-700">₹249</span>
+                <span id="qv-mrp" class="text-xs text-spice-400 line-through">₹299</span>
+              </div>
+            </div>
+            <button id="qv-add-btn" class="px-5 py-2.5 rounded-xl bg-spice-600 hover:bg-spice-700 text-white font-bold text-xs flex items-center gap-2 transition-all shadow-md">
+              <i data-lucide="plus" class="w-4 h-4"></i>
+              <span>Add to Basket</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELIVERY RADIUS MODAL -->
+  <div id="delivery-modal" class="fixed inset-0 z-50 bg-stone-950/70 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl relative border border-spice-200">
+      <button onclick="closeDeliveryModal()" class="absolute top-4 right-4 p-2 rounded-full text-spice-600 hover:bg-spice-100 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="text-center space-y-2 mb-4">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center font-bold">
+          <i data-lucide="bike" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-serif font-bold text-xl text-spice-950">Select Your Delivery Area</h3>
+        <p class="text-xs text-spice-600">Choose your locality to confirm 45-60 minute door delivery.</p>
+      </div>
+
+      <div class="space-y-2 mb-4 max-h-60 overflow-y-auto">
+        <button onclick="selectLocation('Hauz Khas & Green Park (30-40 min)')" class="w-full text-left p-3 rounded-xl border border-spice-200 hover:border-spice-500 hover:bg-spice-50 text-xs font-semibold text-spice-900 flex justify-between items-center transition-colors">
+          <span>📍 Hauz Khas / Green Park / SDA</span>
+          <span class="text-emerald-700 font-bold">35m</span>
+        </button>
+        <button onclick="selectLocation('Saket & Malviya Nagar (35-45 min)')" class="w-full text-left p-3 rounded-xl border border-spice-200 hover:border-spice-500 hover:bg-spice-50 text-xs font-semibold text-spice-900 flex justify-between items-center transition-colors">
+          <span>📍 Saket / Malviya Nagar / Pushp Vihar</span>
+          <span class="text-emerald-700 font-bold">40m</span>
+        </button>
+        <button onclick="selectLocation('Greater Kailash 1 & 2 (40-50 min)')" class="w-full text-left p-3 rounded-xl border border-spice-200 hover:border-spice-500 hover:bg-spice-50 text-xs font-semibold text-spice-900 flex justify-between items-center transition-colors">
+          <span>📍 Greater Kailash (GK 1 & 2) / CR Park</span>
+          <span class="text-emerald-700 font-bold">45m</span>
+        </button>
+        <button onclick="selectLocation('Vasant Kunj & Vasant Vihar (45-55 min)')" class="w-full text-left p-3 rounded-xl border border-spice-200 hover:border-spice-500 hover:bg-spice-50 text-xs font-semibold text-spice-900 flex justify-between items-center transition-colors">
+          <span>📍 Vasant Kunj / Vasant Vihar</span>
+          <span class="text-emerald-700 font-bold">50m</span>
+        </button>
+        <button onclick="selectLocation('Defence Colony & Lajpat Nagar (45-55 min)')" class="w-full text-left p-3 rounded-xl border border-spice-200 hover:border-spice-500 hover:bg-spice-50 text-xs font-semibold text-spice-900 flex justify-between items-center transition-colors">
+          <span>📍 Defence Colony / South Ext / Lajpat Nagar</span>
+          <span class="text-emerald-700 font-bold">45m</span>
+        </button>
+      </div>
+
+      <div class="text-center">
+        <button onclick="closeDeliveryModal()" class="w-full py-2.5 rounded-xl bg-spice-600 hover:bg-spice-700 text-white font-bold text-xs transition-colors">Confirm Locality</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRE-LAUNCH WAITLIST MODAL -->
+  <div id="waitlist-modal" class="fixed inset-0 z-50 bg-stone-950/75 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative border border-spice-200 text-center">
+      <button onclick="closeWaitlistModal()" class="absolute top-4 right-4 p-2 rounded-full text-spice-600 hover:bg-spice-100 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 mx-auto flex items-center justify-center mb-4 border border-amber-300">
+        <i data-lucide="lock" class="w-7 h-7 text-spice-600"></i>
+      </div>
+
+      <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300 uppercase tracking-widest">
+        Kitchen Launching Shortly
+      </span>
+
+      <h3 class="font-serif font-bold text-2xl text-spice-950 mt-2 mb-2">
+        Online Checkout Opening Soon!
+      </h3>
+      <p class="text-xs sm:text-sm text-spice-700/90 mb-5 leading-relaxed">
+        Our grandmothers are currently completing the final 21-day sun curing of our debut batches. Leave your WhatsApp or Email to receive an instant <strong class="text-spice-900 font-bold">₹100 Early Bird Coupon</strong> when our kitchen officially goes live!
+      </p>
+
+      <form id="waitlist-form" onsubmit="event.preventDefault(); submitWaitlist();" class="space-y-3">
+        <input type="text" id="waitlist-name" placeholder="Your Name" required class="w-full px-4 py-2.5 rounded-xl bg-spice-50 border border-spice-200 text-xs font-semibold text-spice-950 focus:outline-none focus:ring-2 focus:ring-spice-500">
+        <input type="tel" id="waitlist-phone" placeholder="WhatsApp / Phone Number" required class="w-full px-4 py-2.5 rounded-xl bg-spice-50 border border-spice-200 text-xs font-semibold text-spice-950 focus:outline-none focus:ring-2 focus:ring-spice-500">
+        <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-spice-600 to-spice-700 hover:from-spice-700 hover:to-spice-800 text-white font-bold text-xs shadow-md transition-all">
+          Join VIP Tasting Waitlist
+        </button>
+      </form>
+
+      <div id="waitlist-success" class="hidden mt-4 p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-xs font-semibold text-emerald-800">
+        🎉 You're on the list! We've saved your ₹100 discount coupon. You'll be notified first.
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-stone-900 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-xs font-semibold opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4">
+    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toast-msg">Item added to your basket!</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-spice-950 text-spice-200 border-t border-spice-800/60 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Brand Summary -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-spice-600 text-white flex items-center justify-center font-serif font-black text-xl">
+              दा
+            </div>
+            <span class="font-serif font-bold text-xl text-white">Dadi's Heritage</span>
+          </div>
+          <p class="text-xs text-spice-300/80 leading-relaxed">
+            Authentic Indian pickles sun-matured for 21 days in genuine ceramic barnis. Cloud kitchen express delivery in 45-60 mins across select residential sectors.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-spice-400">
+            <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"><i data-lucide="phone" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-3">
+          <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider">The Pantry</h4>
+          <ul class="space-y-2 text-xs text-spice-300/80">
+            <li><a href="#store" class="hover:text-amber-300 transition-colors">Heirloom Aam Ka Achaar</a></li>
+            <li><a href="#store" class="hover:text-amber-300 transition-colors">Banarasi Stuffed Lal Mirch</a></li>
+            <li><a href="#store" class="hover:text-amber-300 transition-colors">Zero-Oil Lemon Pickle</a></li>
+            <li><a href="#store" class="hover:text-amber-300 transition-colors">Mountain Raw Turmeric</a></li>
+            <li><a href="#store" class="hover:text-amber-300 transition-colors">Sweet Mango Chhunda</a></li>
+          </ul>
+        </div>
+
+        <!-- Express Kitchen Hours -->
+        <div class="space-y-3">
+          <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider">Cloud Kitchen Hours</h4>
+          <ul class="space-y-2 text-xs text-spice-300/80">
+            <li class="flex justify-between">
+              <span>Monday – Friday:</span>
+              <span class="font-semibold text-white">10:00 AM – 9:30 PM</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Saturday – Sunday:</span>
+              <span class="font-semibold text-white">9:00 AM – 10:30 PM</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Hyper-Local Radius:</span>
+              <span class="text-emerald-400 font-bold">8 KM Circle</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact & Location -->
+        <div class="space-y-3">
+          <h4 class="font-serif font-bold text-sm text-white uppercase tracking-wider">Hub Location</h4>
+          <p class="text-xs text-spice-300/80 leading-relaxed">
+            Kitchen Hub #14, Hauz Khas Village Rd, South Delhi, New Delhi, 110016
+          </p>
+          <div class="text-xs text-spice-300/80 space-y-1">
+            <p>Direct Inquiries: <span class="text-amber-300 font-semibold">+91 98110 XXXXX</span></p>
+            <p>FSSAI Lic. No: <span class="text-white/60">23324009000123</span></p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-spice-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-spice-400">
+        <p>© 2026 Dadi's Heritage Rasoi. All rights reserved. Handcrafted with love.</p>
+        <p class="flex items-center gap-1.5">
+          <span>Official Cloud Kitchen & Artisanal Project</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <span>Hosted on GitHub Pages</span>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // 7 Real Artisanal Products Database
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "Heirloom Aam Ka Achaar",
+        category: "classics",
+        hindiName: "दादी का पारंपरिक आम का अचार",
+        price: 249,
+        mrp: 299,
+        weight: "350g Glass Martaban",
+        spiceLevel: "🌶️🌶️ Medium Spicy",
+        badge: "Grandma's Classic",
+        badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+        oil: "Pure Cold-Pressed Mustard Oil",
+        curing: "21 Days Sun-Matured in Ceramic Barnis",
+        desc: "Hand-cut raw Ramkela mangoes marinated in pure wood-churned mustard oil with roasted fenugreek, nigella seeds (kalonji), and crushed fennel. Crisp texture that softens naturally with time.",
+        image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 2,
+        name: "Banarasi Bharwa Lal Mirch",
+        category: "spicy",
+        hindiName: "बनारसी भरवा लाल मिर्च अचार",
+        price: 299,
+        mrp: 349,
+        weight: "400g Glass Martaban",
+        spiceLevel: "🌶️🌶️🌶️ Fiery Hot",
+        badge: "Bestseller",
+        badgeColor: "bg-red-100 text-red-900 border-red-300",
+        oil: "Pure Kacchi Ghani Mustard Oil",
+        curing: "Sun-Cured with Amchur & Mustard Kernels",
+        desc: "Large plump Banarasi red chilies slit and stuffed by hand with a secret roasted masala of dry mango powder, crushed yellow mustard, saunf, and rock salt. A royal delicacy.",
+        image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 3,
+        name: "Nimbu Mirchi Khatta-Meetha",
+        category: "zero-oil",
+        hindiName: "नींबू मिर्ची खट्टा-मीठा (बिना तेल)",
+        price: 219,
+        mrp: 260,
+        weight: "350g Glass Martaban",
+        spiceLevel: "🌶️ Mild & Tangy",
+        badge: "Zero Oil Recipe",
+        badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+        oil: "100% Zero Oil (Sun-Cured in Rock Salt & Jaggery)",
+        curing: "25 Days in Glazed Ceramic Jars",
+        desc: "Thin-skinned mountain lemons slow-cooked in their own juices under the scorching sun with Himalayan black salt, roasted ajwain, and organic jaggery. Fantastic for digestion.",
+        image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 4,
+        name: "Lahsun Teekha Tadka",
+        category: "spicy",
+        hindiName: "तीखा लहसुन तड़का अचार",
+        price: 269,
+        mrp: 310,
+        weight: "300g Glass Martaban",
+        spiceLevel: "🌶️🌶️🌶️ Bold & Pungent",
+        badge: "Chef's Special",
+        badgeColor: "bg-orange-100 text-orange-900 border-orange-300",
+        oil: "Sesame & Mustard Oil Blend",
+        curing: "Slow-Roasted in Iron Kadhai & Matured",
+        desc: "Whole peeled desi garlic cloves flash-roasted with whole cumin, asafoetida (hing), and crushed red chili flakes before being submerged in aromatic sesame-mustard oil.",
+        image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 5,
+        name: "Khatta-Meetha Aam Chhunda",
+        category: "sweet",
+        hindiName: "खट्टा-मीठा गुजराती आम का छुंदा",
+        price: 239,
+        mrp: 280,
+        weight: "350g Glass Martaban",
+        spiceLevel: "🌶️ Sweet & Mild",
+        badge: "Kid-Friendly",
+        badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+        oil: "Zero Oil (Pure Sun Syruped)",
+        curing: "Sun-Melted Sugar & Saffron (14 Days)",
+        desc: "Finely shredded green mangoes sun-cooked slowly with pure cane sugar crystals, Kashmiri saffron strands, cardamom, and roasted cumin. Pairs magically with theplas and parathas.",
+        image: "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 6,
+        name: "Pahadi Kacchi Haldi & Galka",
+        category: "classics",
+        hindiName: "पहाड़ी कच्ची हल्दी और अदरख अचार",
+        price: 279,
+        mrp: 320,
+        weight: "350g Glass Martaban",
+        spiceLevel: "🌶️🌶️ Warm & Earthy",
+        badge: "Immunity Booster",
+        badgeColor: "bg-yellow-100 text-yellow-900 border-yellow-300",
+        oil: "Cold-Pressed Mustard Oil",
+        curing: "Lime Juice & Rock Salt Cured",
+        desc: "Fresh root turmeric sticks, crisp ginger juliennes, and fresh green peppercorns soaked in mountain lime juice and tempered with mustard seeds. An authentic winter immunity elixir.",
+        image: "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 7,
+        name: "Andhra Royal Avakaya",
+        category: "spicy",
+        hindiName: "आंध्र स्पेशल अवकाया आम अचार",
+        price: 299,
+        mrp: 350,
+        weight: "400g Glass Martaban",
+        spiceLevel: "🌶️🌶️🌶️🌶️ Extra Fiery",
+        badge: "Fiery South",
+        badgeColor: "bg-red-100 text-red-900 border-red-300",
+        oil: "Wood-Pressed Gingelly (Til) Oil",
+        curing: "Aged with Guntur Chilies & Mustard Powder",
+        desc: "Hard raw mango cubes cut with shell intact, tossed in pungent mustard seed powder and fiery crimson Guntur chilies, drowned in wood-pressed til oil. An absolute burst of authentic heat.",
+        image: "https://images.unsplash.com/photo-1505253758473-96b3015f240a?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
+
+    // Cart State
+    let cart = [];
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      renderProducts(PRODUCTS);
+      updateCartUI();
+    });
+
+    // Render Product Cards
+    function renderProducts(items) {
+      const grid = document.getElementById('products-grid');
+      grid.innerHTML = items.map(p => `
+        <div class="glass-card rounded-3xl p-5 border border-spice-200/90 shadow-sm hover:shadow-warm transition-all duration-300 flex flex-col justify-between group">
+          
+          <div>
+            <!-- Image & Badge Container -->
+            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] mb-4 bg-spice-100">
+              <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              
+              <div class="absolute top-3 left-3">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border shadow-sm ${p.badgeColor}">
+                  ${p.badge}
+                </span>
+              </div>
+
+              <div class="absolute bottom-3 right-3 bg-stone-900/80 backdrop-blur-md text-amber-200 text-[10px] font-bold px-2 py-1 rounded-lg">
+                ${p.weight}
+              </div>
+            </div>
+
+            <!-- Header Info -->
+            <div class="space-y-1 mb-2">
+              <div class="flex items-center justify-between text-xs text-spice-700 font-semibold">
+                <span>${p.spiceLevel}</span>
+                <span class="text-emerald-700 flex items-center gap-1 font-bold">
+                  <i data-lucide="zap" class="w-3 h-3"></i> 45m Dispatch
+                </span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-spice-950 group-hover:text-spice-600 transition-colors">
+                ${p.name}
+              </h3>
+              <p class="text-xs text-spice-500 font-serif italic">${p.hindiName}</p>
+            </div>
+
+            <!-- Short description -->
+            <p class="text-xs text-spice-700/80 line-clamp-2 leading-relaxed mb-4">
+              ${p.desc}
+            </p>
+          </div>
+
+          <!-- Price & Action CTA -->
+          <div class="pt-4 border-t border-spice-100 flex items-center justify-between gap-3">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-spice-400 block">Express Price</span>
+              <div class="flex items-baseline gap-1.5">
+                <span class="font-serif font-black text-2xl text-spice-900">₹${p.price}</span>
+                <span class="text-xs text-spice-400 line-through">₹${p.mrp}</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button onclick="openQuickView(${p.id})" title="View Details" class="p-2.5 rounded-xl text-spice-700 bg-spice-100/70 hover:bg-spice-100 transition-colors">
+                <i data-lucide="eye" class="w-4 h-4"></i>
+              </button>
+              <button onclick="addToCart(${p.id})" class="px-4 py-2.5 rounded-xl bg-spice-600 hover:bg-spice-700 active:scale-95 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-md shadow-spice-600/20">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    // Filter Products by Category
+    function filterProducts(cat) {
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        if (btn.getAttribute('data-category') === cat) {
+          btn.className = "category-btn active px-4 py-2 rounded-full text-xs font-bold transition-all bg-spice-600 text-white shadow-sm";
+        } else {
+          btn.className = "category-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-white text-spice-800 hover:bg-spice-100 border border-spice-200";
+        }
+      });
+
+      if (cat === 'all') {
+        renderProducts(PRODUCTS);
+      } else {
+        const filtered = PRODUCTS.filter(p => p.category === cat);
+        renderProducts(filtered);
+      }
+    }
+
+    // Cart Management
+    function addToCart(productId) {
+      const prod = PRODUCTS.find(p => p.id === productId);
+      if (!prod) return;
+
+      const existing = cart.find(item => item.id === productId);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ ...prod, quantity: 1 });
+      }
+
+      updateCartUI();
+      showToast(`Added 1x ${prod.name} to your basket!`);
+    }
+
+    function changeQuantity(productId, delta) {
+      const item = cart.find(i => i.id === productId);
+      if (!item) return;
+
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        cart = cart.filter(i => i.id !== productId);
+      }
+
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+      document.getElementById('header-cart-count').innerText = totalItems;
+      document.getElementById('header-cart-total').innerText = `₹${subtotal}`;
+      document.getElementById('drawer-item-count').innerText = `${totalItems} Items`;
+      document.getElementById('drawer-subtotal').innerText = `₹${subtotal}`;
+      document.getElementById('drawer-total').innerText = `₹${subtotal}`;
+
+      const container = document.getElementById('cart-items-container');
+      const emptyState = document.getElementById('empty-cart-state');
+
+      if (cart.length === 0) {
+        container.innerHTML = '';
+        container.appendChild(emptyState);
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+        container.innerHTML = cart.map(item => `
+          <div class="flex items-center gap-3 p-3 rounded-2xl bg-spice-50/60 border border-spice-200/80">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover border border-spice-200">
+            <div class="flex-grow">
+              <h4 class="font-serif font-bold text-sm text-spice-950">${item.name}</h4>
+              <span class="text-[11px] text-spice-600 block">${item.weight}</span>
+              <span class="text-xs font-bold text-spice-900">₹${item.price} each</span>
+            </div>
+            <div class="flex flex-col items-end gap-1.5">
+              <div class="flex items-center gap-2 bg-white rounded-lg border border-spice-200 px-2 py-1 shadow-sm">
+                <button onclick="changeQuantity(${item.id}, -1)" class="text-spice-700 hover:text-spice-900 font-bold text-xs px-1">-</button>
+                <span class="text-xs font-bold text-spice-950">${item.quantity}</span>
+                <button onclick="changeQuantity(${item.id}, 1)" class="text-spice-700 hover:text-spice-900 font-bold text-xs px-1">+</button>
+              </div>
+              <span class="text-xs font-black text-spice-800">₹${item.price * item.quantity}</span>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      lucide.createIcons();
+    }
+
+    // Toggle Cart Drawer
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cart-drawer');
+      const overlay = document.getElementById('cart-drawer-overlay');
+
+      if (open) {
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    // Quick View Modal
+    function openQuickView(id) {
+      const p = PRODUCTS.find(item => item.id === id);
+      if (!p) return;
+
+      document.getElementById('qv-img').src = p.image;
+      document.getElementById('qv-title').innerText = p.name;
+      document.getElementById('qv-desc').innerText = p.desc;
+      document.getElementById('qv-spice').innerText = p.spiceLevel;
+      document.getElementById('qv-badge').innerText = p.badge;
+      document.getElementById('qv-oil').innerText = p.oil;
+      document.getElementById('qv-curing').innerText = p.curing;
+      document.getElementById('qv-price').innerText = `₹${p.price}`;
+      document.getElementById('qv-mrp').innerText = `₹${p.mrp}`;
+
+      const addBtn = document.getElementById('qv-add-btn');
+      addBtn.onclick = () => {
+        addToCart(p.id);
+        closeQuickView();
+      };
+
+      const modal = document.getElementById('quickview-modal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeQuickView() {
+      const modal = document.getElementById('quickview-modal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    // Delivery Radius Check Logic
+    function checkDeliveryRadius() {
+      const input = document.getElementById('hero-pincode-input').value.trim();
+      const resultBox = document.getElementById('hero-radius-result');
+
+      if (!input) return;
+
+      resultBox.classList.remove('hidden');
+      resultBox.innerHTML = `
+        <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-900 flex items-center gap-2">
+          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+          <div>
+            <strong>Express Service Confirmed!</strong> Delivery to <span class="underline">${input}</span> arrives within <strong>38–48 minutes</strong>. Free launch dispatch active!
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    function testZoneCheck() {
+      const input = document.getElementById('zone-check-input').value.trim();
+      const res = document.getElementById('zone-check-result');
+      if (input) {
+        res.classList.remove('hidden');
+        res.innerHTML = `✅ Excellent! <strong>${input}</strong> is within our 8km express cloud kitchen circle (ETA: 42 mins).`;
+      }
+    }
+
+    function openDeliveryModal() {
+      const modal = document.getElementById('delivery-modal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeDeliveryModal() {
+      const modal = document.getElementById('delivery-modal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function selectLocation(loc) {
+      document.getElementById('current-location-pill').innerText = loc;
+      closeDeliveryModal();
+      showToast(`Delivery zone updated: ${loc}`);
+    }
+
+    // Waitlist & Pre-Launch Checkout Modal
+    function openWaitlistModal() {
+      const modal = document.getElementById('waitlist-modal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeWaitlistModal() {
+      const modal = document.getElementById('waitlist-modal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function submitWaitlist() {
+      const name = document.getElementById('waitlist-name').value;
+      const phone = document.getElementById('waitlist-phone').value;
+      
+      document.getElementById('waitlist-form').classList.add('hidden');
+      document.getElementById('waitlist-success').classList.remove('hidden');
+
+      showToast(`Thank you ${name}! You're registered for ₹100 OFF.`);
+    }
+
+    // Toast Notification System
+    let toastTimeout;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').innerText = msg;
+
+      clearTimeout(toastTimeout);
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+      }, 3200);
+    }
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+    }
+
+    // FAQ Accordion Toggle
+    function toggleFaq(num) {
+      const content = document.getElementById(`faq-content-${num}`);
+      const icon = document.getElementById(`faq-icon-${num}`);
+      const isHidden = content.classList.contains('hidden');
+
+      // Close all
+      document.querySelectorAll('#faq-accordion > div > div').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('#faq-accordion i').forEach(el => el.classList.remove('rotate-180'));
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      }
+    }
+  </script>
+</body>
+</html>

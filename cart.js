@@ -38,6 +38,7 @@
       saveCart(cart);
       if (window.VKCart.onUpdate) window.VKCart.onUpdate(cart);
       updateAllCartUI();
+      showToast(product.name);
     },
 
     removeItem(id) {
@@ -290,6 +291,56 @@
         transition:color .15s;
       }
       .cart-del-btn:hover{color:#DC2626}
+
+      /* Dynamic Toast Notification */
+      .vk-toast{
+        position:fixed;
+        bottom:28px;
+        left:50%;
+        transform:translateX(-50%) translateY(80px);
+        background:#103D14;
+        color:#FFF;
+        padding:12px 20px;
+        border-radius:50px;
+        display:flex;
+        align-items:center;
+        gap:14px;
+        box-shadow:0 8px 30px rgba(0,0,0,0.22);
+        z-index:99999;
+        font-size:0.86rem;
+        opacity:0;
+        transition:all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events:none;
+        border:1px solid rgba(255,255,255,0.12);
+      }
+      .vk-toast.visible{
+        transform:translateX(-50%) translateY(0);
+        opacity:1;
+        pointer-events:all;
+      }
+      .vk-toast-btn{
+        background:rgba(255,255,255,0.2);
+        color:#FFF;
+        border:none;
+        padding:5px 12px;
+        border-radius:50px;
+        font-weight:600;
+        font-size:0.78rem;
+        cursor:pointer;
+        transition:background .15s;
+        white-space:nowrap;
+      }
+      .vk-toast-btn:hover{background:#FFF;color:#103D14}
+      @media(max-width:680px){
+        .vk-toast{
+          bottom:82px;
+          width:calc(100% - 32px);
+          max-width:380px;
+          justify-content:space-between;
+          font-size:0.8rem;
+          padding:10px 16px;
+        }
+      }
     `;
     document.head.appendChild(style);
   }
@@ -423,6 +474,26 @@
     }
   };
 
+  function showToast(productName) {
+    let toast = document.getElementById('vkToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'vkToast';
+      toast.className = 'vk-toast';
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = `
+      <span>🫙 <strong>${productName}</strong> added to basket</span>
+      <button class="vk-toast-btn" onclick="openCart()">View Basket →</button>
+    `;
+    toast.classList.add('visible');
+    clearTimeout(window._vkToastTimer);
+    window._vkToastTimer = setTimeout(() => {
+      toast.classList.remove('visible');
+    }, 2800);
+  }
+  window.showToast = showToast;
+
   window.openCart = function () {
     injectCartStyles();
     injectCartDrawerHTML();
@@ -492,6 +563,14 @@
         window.closeCart();
       }
     });
+
+    // Graceful Image Fallback for any dropped network connections
+    document.addEventListener('error', function (e) {
+      if (e.target && e.target.tagName === 'IMG' && !e.target.dataset.fallbackApplied) {
+        e.target.dataset.fallbackApplied = 'true';
+        e.target.src = 'https://images.unsplash.com/photo-1632239108478-568f362ac3ac?auto=format&fit=crop&w=700&q=80';
+      }
+    }, true);
   }
 
   if (document.readyState === 'loading') {

@@ -12,7 +12,7 @@
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',sans-serif;background:#FAFAF5;color:#1a1a1a;line-height:1.6;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:#FAFAF5;color:#1a1a1a;line-height:1.6;overflow-x:hidden;width:100%}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;border:none;outline:none}
@@ -53,182 +53,187 @@ ul{list-style:none}
 .section-sub{font-size:0.95rem;color:var(--text-mid);max-width:520px}
 
 /* ===== ANNOUNCEMENT BAR ===== */
-.announcement{background:var(--green-dark);color:var(--white);text-align:center;font-size:0.78rem;padding:8px 20px;letter-spacing:0.03em}
+.announcement{background:var(--green-dark);color:var(--white);text-align:center;font-size:0.78rem;padding:7px 16px;letter-spacing:0.02em}
 .announcement strong{color:var(--gold-light)}
 
-/* ===== HEADER ===== */
-header{background:var(--white);border-bottom:1px solid var(--cream-dark);position:sticky;top:0;z-index:1000;box-shadow:var(--shadow-sm)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.logo-mark{width:44px;height:44px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);font-weight:700;flex-shrink:0}
-.logo-text{display:flex;flex-direction:column;line-height:1}
-.logo-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--green-dark)}
-.logo-sub{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-soft)}
+/* ===== HEADER (MOBILE OPTIMIZED, NO OVERFLOW) ===== */
+header{background:var(--white);border-bottom:1px solid var(--cream-dark);position:sticky;top:0;z-index:1000;box-shadow:var(--shadow-sm);width:100%}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:66px;gap:10px;width:100%}
+.logo{display:flex;align-items:center;gap:8px;flex-shrink:0;min-width:0}
+.logo-mark{width:40px;height:40px;background:var(--green);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--white);font-weight:700;flex-shrink:0}
+.logo-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.logo-name{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;color:var(--green-dark);white-space:nowrap}
+.logo-sub{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);white-space:nowrap}
 nav{display:flex;align-items:center;gap:4px}
-nav a{padding:8px 14px;border-radius:8px;font-size:0.88rem;font-weight:500;color:var(--text-mid);transition:all .15s}
+nav a{padding:8px 12px;border-radius:8px;font-size:0.86rem;font-weight:500;color:var(--text-mid);transition:all .15s}
 nav a:hover,nav a.active{background:var(--cream-mid);color:var(--green)}
-.header-actions{display:flex;align-items:center;gap:10px}
-.basket-btn{display:flex;align-items:center;gap:8px;background:var(--green);color:var(--white);padding:10px 18px;border-radius:var(--radius);font-size:0.88rem;font-weight:600;transition:all .2s;position:relative}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.basket-btn{display:flex;align-items:center;gap:6px;background:var(--green);color:var(--white);padding:8px 14px;border-radius:var(--radius);font-size:0.85rem;font-weight:600;transition:all .2s;position:relative}
 .basket-btn:hover{background:var(--green-dark)}
-.basket-count{background:var(--gold);color:var(--white);border-radius:50%;width:20px;height:20px;font-size:0.7rem;display:flex;align-items:center;justify-content:center;font-weight:700}
-.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;background:none;border:1px solid var(--cream-dark);border-radius:8px}
-.hamburger span{width:22px;height:2px;background:var(--green);border-radius:2px;transition:all .3s}
-.mobile-nav{display:none;flex-direction:column;background:var(--white);border-top:1px solid var(--cream-dark);padding:16px 20px;gap:4px}
-.mobile-nav a{padding:12px 14px;border-radius:8px;font-size:0.95rem;font-weight:500;color:var(--text-mid);transition:background .15s}
+.basket-count{background:var(--gold);color:var(--white);border-radius:50%;width:19px;height:19px;font-size:0.68rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:38px;height:38px;background:none;border:1.5px solid var(--cream-dark);border-radius:8px;padding:6px;flex-shrink:0}
+.hamburger span{width:20px;height:2px;background:var(--green);border-radius:2px;display:block}
+.mobile-nav{display:none;flex-direction:column;background:var(--white);border-top:1px solid var(--cream-dark);padding:14px 16px;gap:4px}
+.mobile-nav a{padding:10px 12px;border-radius:8px;font-size:0.92rem;font-weight:500;color:var(--text-mid)}
 .mobile-nav a:hover{background:var(--cream-mid);color:var(--green)}
 .mobile-nav.open{display:flex}
 
 /* ===== HERO ===== */
 .hero{background:var(--cream-mid);overflow:hidden}
-.hero-inner{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:calc(100vh - 100px);max-height:700px;gap:0}
-.hero-content{padding:60px 48px 60px 0;display:flex;flex-direction:column;gap:0}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(29,92,46,0.1);border:1px solid rgba(29,92,46,0.2);color:var(--green);font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:7px 14px;border-radius:50px;width:fit-content;margin-bottom:22px}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:calc(100vh - 100px);max-height:680px;gap:0}
+.hero-content{padding:48px 40px 48px 0;display:flex;flex-direction:column;gap:0}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(29,92,46,0.1);border:1px solid rgba(29,92,46,0.2);color:var(--green);font-size:0.76rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:6px 12px;border-radius:50px;width:fit-content;margin-bottom:20px}
 .hero-badge span{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);color:var(--green-dark);line-height:1.15;margin-bottom:18px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4.5vw,3.2rem);color:var(--green-dark);line-height:1.15;margin-bottom:16px}
 .hero-title em{color:var(--gold);font-style:normal}
-.hero-desc{font-size:1rem;color:var(--text-mid);line-height:1.7;max-width:440px;margin-bottom:30px}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
-.hero-trust{display:flex;flex-wrap:wrap;gap:20px}
-.trust-pill{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--text-mid);font-weight:500}
+.hero-desc{font-size:0.96rem;color:var(--text-mid);line-height:1.7;max-width:440px;margin-bottom:28px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.hero-trust{display:flex;flex-wrap:wrap;gap:18px}
+.trust-pill{display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-mid);font-weight:500}
 .trust-pill svg{flex-shrink:0;color:var(--green)}
-.hero-image{position:relative;height:100%;min-height:450px;overflow:hidden}
+.hero-image{position:relative;height:100%;min-height:440px;overflow:hidden}
 .hero-image img{width:100%;height:100%;object-fit:cover}
 .hero-image-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--cream-mid) 0%,transparent 25%)}
-.hero-card{position:absolute;bottom:28px;left:28px;background:var(--white);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:12px;border-left:3px solid var(--gold)}
-.hero-card-icon{width:40px;height:40px;background:var(--cream-mid);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
-.hero-card-text strong{display:block;font-size:0.88rem;color:var(--green-dark);font-weight:700}
-.hero-card-text span{font-size:0.75rem;color:var(--text-soft)}
+.hero-card{position:absolute;bottom:24px;left:24px;background:var(--white);border-radius:var(--radius);padding:12px 16px;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:12px;border-left:3px solid var(--gold)}
+.hero-card-icon{width:38px;height:38px;background:var(--cream-mid);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.hero-card-text strong{display:block;font-size:0.85rem;color:var(--green-dark);font-weight:700}
+.hero-card-text span{font-size:0.72rem;color:var(--text-soft)}
 
 /* ===== TRUST STRIP ===== */
-.trust-strip{background:var(--green);padding:20px 0}
+.trust-strip{background:var(--green);padding:18px 0}
 .trust-strip-inner{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap}
-.trust-item{display:flex;align-items:center;gap:10px;padding:12px 28px;color:var(--white)}
+.trust-item{display:flex;align-items:center;gap:10px;padding:10px 24px;color:var(--white)}
 .trust-item:not(:last-child){border-right:1px solid rgba(255,255,255,0.2)}
 .trust-item svg{color:var(--gold-light);flex-shrink:0}
-.trust-item strong{font-size:0.88rem;font-weight:600;display:block}
-.trust-item span{font-size:0.75rem;opacity:0.8}
+.trust-item strong{font-size:0.85rem;font-weight:600;display:block}
+.trust-item span{font-size:0.72rem;opacity:0.8}
 
 /* ===== SECTION GENERIC ===== */
-.section{padding:72px 0}
+.section{padding:68px 0}
 .section.alt{background:var(--cream-mid)}
 
 /* ===== ABOUT / WHY US ===== */
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px}
-.why-card{background:var(--white);border-radius:var(--radius-lg);padding:30px 24px;border:1px solid var(--cream-dark);transition:box-shadow .2s}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.why-card{background:var(--white);border-radius:var(--radius-lg);padding:28px 22px;border:1px solid var(--cream-dark);transition:box-shadow .2s}
 .why-card:hover{box-shadow:var(--shadow-md)}
-.why-icon{width:52px;height:52px;background:var(--cream-mid);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px}
-.why-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--green-dark);margin-bottom:10px}
-.why-card p{font-size:0.88rem;color:var(--text-mid);line-height:1.65}
+.why-icon{width:48px;height:48px;background:var(--cream-mid);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px}
+.why-card h3{font-family:'Playfair Display',serif;font-size:1.08rem;color:var(--green-dark);margin-bottom:8px}
+.why-card p{font-size:0.86rem;color:var(--text-mid);line-height:1.6}
 
 /* ===== FEATURED PRODUCTS ===== */
-.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.product-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--cream-dark);transition:box-shadow .2s,transform .2s}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+.product-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--cream-dark);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
 .product-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
-.product-img{height:200px;overflow:hidden;position:relative;background:var(--cream-mid)}
+.product-img{height:200px;overflow:hidden;position:relative;background:var(--cream-mid);display:block}
 .product-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .product-card:hover .product-img img{transform:scale(1.04)}
-.product-badge{position:absolute;top:12px;left:12px;background:var(--green);color:var(--white);font-size:0.7rem;font-weight:700;padding:4px 10px;border-radius:50px;letter-spacing:0.06em;text-transform:uppercase}
-.product-body{padding:18px 18px 20px}
-.product-name{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--green-dark);margin-bottom:6px}
-.product-meta{font-size:0.78rem;color:var(--text-soft);margin-bottom:12px}
-.product-footer{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.product-price{font-size:1.1rem;font-weight:700;color:var(--green)}
-.product-weight{font-size:0.75rem;color:var(--text-soft)}
+.product-badge{position:absolute;top:10px;left:10px;background:var(--green);color:var(--white);font-size:0.68rem;font-weight:700;padding:4px 9px;border-radius:50px;letter-spacing:0.06em;text-transform:uppercase}
+.product-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.product-name{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--green-dark);margin-bottom:4px}
+.product-meta{font-size:0.76rem;color:var(--text-soft);margin-bottom:10px}
+.health-badge-link{display:inline-flex;align-items:center;gap:4px;font-size:0.75rem;color:var(--green);font-weight:600;margin-bottom:12px}
+.product-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}
+.product-price{font-size:1.15rem;font-weight:700;color:var(--green)}
+.product-weight{font-size:0.72rem;color:var(--text-soft)}
 .product-price-block{display:flex;flex-direction:column}
 
 /* ===== PROCESS SECTION ===== */
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;position:relative}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;position:relative}
 .process-grid::before{content:'';position:absolute;top:28px;left:12.5%;right:12.5%;height:1px;background:var(--cream-dark)}
-.process-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 16px}
-.step-num{width:56px;height:56px;background:var(--white);border:2px solid var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--green);font-weight:700;margin-bottom:16px;position:relative;z-index:1}
-.process-step h4{font-size:0.9rem;font-weight:600;color:var(--green-dark);margin-bottom:6px}
-.process-step p{font-size:0.8rem;color:var(--text-mid)}
+.process-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 14px}
+.step-num{width:54px;height:54px;background:var(--white);border:2px solid var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--green);font-weight:700;margin-bottom:14px;position:relative;z-index:1}
+.process-step h4{font-size:0.88rem;font-weight:600;color:var(--green-dark);margin-bottom:6px}
+.process-step p{font-size:0.78rem;color:var(--text-mid)}
 
 /* ===== DELIVERY ===== */
-.delivery-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:40px}
-.delivery-zones{display:flex;flex-direction:column;gap:0}
-.zone-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--cream-dark);gap:12px}
+.delivery-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:36px}
+.delivery-zones{display:flex;flex-direction:column}
+.zone-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--cream-dark);gap:10px}
 .zone-row:first-child{border-top:1px solid var(--cream-dark)}
-.zone-name{font-weight:600;font-size:0.9rem;color:var(--text)}
-.zone-distance{font-size:0.8rem;color:var(--text-soft)}
-.zone-time{background:var(--cream-mid);color:var(--green);font-size:0.78rem;font-weight:700;padding:4px 12px;border-radius:50px}
-.delivery-info{display:flex;flex-direction:column;gap:16px}
-.delivery-info-card{background:var(--white);border-radius:var(--radius);padding:20px;border:1px solid var(--cream-dark)}
-.delivery-info-card h4{font-size:0.9rem;font-weight:600;color:var(--green-dark);margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.delivery-info-card p,.delivery-info-card li{font-size:0.85rem;color:var(--text-mid);line-height:1.6}
+.zone-name{font-weight:600;font-size:0.88rem;color:var(--text)}
+.zone-distance{font-size:0.78rem;color:var(--text-soft)}
+.zone-time{background:var(--cream-mid);color:var(--green);font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:50px}
+.delivery-info{display:flex;flex-direction:column;gap:14px}
+.delivery-info-card{background:var(--white);border-radius:var(--radius);padding:18px;border:1px solid var(--cream-dark)}
+.delivery-info-card h4{font-size:0.88rem;font-weight:600;color:var(--green-dark);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.delivery-info-card p,.delivery-info-card li{font-size:0.82rem;color:var(--text-mid);line-height:1.6}
 .delivery-info-card ul{padding-left:16px;list-style:disc}
-.delivery-info-card ul li{margin-bottom:4px}
+.delivery-info-card ul li{margin-bottom:3px}
 
 /* ===== TESTIMONIALS ===== */
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.review-card{background:var(--white);border-radius:var(--radius-lg);padding:26px 22px;border:1px solid var(--cream-dark)}
-.stars{color:var(--gold);font-size:0.95rem;margin-bottom:12px;letter-spacing:2px}
-.review-text{font-size:0.9rem;color:var(--text-mid);line-height:1.7;margin-bottom:16px;font-style:italic}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+.review-card{background:var(--white);border-radius:var(--radius-lg);padding:24px 20px;border:1px solid var(--cream-dark)}
+.stars{color:var(--gold);font-size:0.92rem;margin-bottom:10px;letter-spacing:1px}
+.review-text{font-size:0.88rem;color:var(--text-mid);line-height:1.65;margin-bottom:14px;font-style:italic}
 .reviewer{display:flex;align-items:center;gap:10px}
-.reviewer-avatar{width:38px;height:38px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:0.9rem;flex-shrink:0}
-.reviewer-name{font-weight:600;font-size:0.88rem;color:var(--text)}
-.reviewer-loc{font-size:0.75rem;color:var(--text-soft)}
+.reviewer-avatar{width:36px;height:36px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:0.85rem;flex-shrink:0}
+.reviewer-name{font-weight:600;font-size:0.85rem;color:var(--text)}
+.reviewer-loc{font-size:0.72rem;color:var(--text-soft)}
 
 /* ===== LAUNCH NOTICE ===== */
-.launch-notice{background:var(--cream-dark);border:1px solid var(--gold);border-radius:var(--radius-lg);padding:28px 24px;display:flex;align-items:flex-start;gap:16px;margin:40px 0}
-.launch-notice-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px}
-.launch-notice h4{font-weight:700;color:var(--green-dark);margin-bottom:6px;font-size:0.95rem}
-.launch-notice p{font-size:0.85rem;color:var(--text-mid)}
+.launch-notice{background:var(--cream-dark);border:1px solid var(--gold);border-radius:var(--radius-lg);padding:24px 20px;display:flex;align-items:flex-start;gap:14px;margin:36px 0}
+.launch-notice-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.launch-notice h4{font-weight:700;color:var(--green-dark);margin-bottom:4px;font-size:0.92rem}
+.launch-notice p{font-size:0.82rem;color:var(--text-mid)}
 .launch-notice a{color:var(--green);font-weight:600;text-decoration:underline}
 
 /* ===== CTA SECTION ===== */
-.cta-section{background:var(--green-dark);color:var(--white);text-align:center;padding:72px 20px}
+.cta-section{background:var(--green-dark);color:var(--white);text-align:center;padding:64px 20px}
 .cta-section .section-title{color:var(--white)}
-.cta-section .section-sub{color:rgba(255,255,255,0.75);margin:0 auto 32px}
-.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-section .section-sub{color:rgba(255,255,255,0.75);margin:0 auto 28px}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn-white{background:var(--white);color:var(--green-dark)}
 .btn-white:hover{background:var(--cream-mid)}
 .btn-gold-outline{background:transparent;color:var(--gold-light);border:2px solid var(--gold-light)}
 .btn-gold-outline:hover{background:var(--gold);color:var(--white);border-color:var(--gold)}
 
 /* ===== FOOTER ===== */
-footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:52px 0 0}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:40px}
+footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:48px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:36px;padding-bottom:36px}
 .footer-brand .logo-name{color:var(--white)}
 .footer-brand .logo-sub{color:rgba(255,255,255,0.5)}
-.footer-brand p{font-size:0.85rem;line-height:1.65;margin-top:14px;color:rgba(255,255,255,0.65)}
-.footer-brand .fssai{margin-top:14px;font-size:0.75rem;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.15);display:inline-block;padding:6px 12px;border-radius:6px}
-.footer-col h5{font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold-light);margin-bottom:16px}
-.footer-col a,.footer-col li,.footer-col p{font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:2;display:block;transition:color .15s}
+.footer-brand p{font-size:0.82rem;line-height:1.65;margin-top:12px;color:rgba(255,255,255,0.65)}
+.footer-brand .fssai{margin-top:12px;font-size:0.72rem;color:rgba(255,255,255,0.4);border:1px solid rgba(255,255,255,0.15);display:inline-block;padding:5px 10px;border-radius:6px}
+.footer-col h5{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold-light);margin-bottom:14px}
+.footer-col a,.footer-col li,.footer-col p{font-size:0.82rem;color:rgba(255,255,255,0.65);line-height:1.9;display:block;transition:color .15s}
 .footer-col a:hover{color:var(--white)}
-.footer-col address{font-style:normal;font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:1.75}
-.footer-col .phone{font-size:1rem;font-weight:700;color:var(--gold-light);margin-bottom:8px}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:18px 0;text-align:center;font-size:0.78rem;color:rgba(255,255,255,0.35)}
+.footer-col address{font-style:normal;font-size:0.82rem;color:rgba(255,255,255,0.65);line-height:1.7}
+.footer-col .phone{font-size:0.95rem;font-weight:700;color:var(--gold-light);margin-bottom:6px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:16px 0;text-align:center;font-size:0.75rem;color:rgba(255,255,255,0.35)}
 
 /* ===== ANIMATIONS ===== */
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{animation:fadeUp .5s ease both}
-.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}
 
 /* ===== MOBILE ===== */
 @media(max-width:900px){
   .why-grid{grid-template-columns:1fr 1fr}
   .products-grid{grid-template-columns:1fr 1fr}
   .reviews-grid{grid-template-columns:1fr 1fr}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
   .delivery-layout{grid-template-columns:1fr}
-  .process-grid{grid-template-columns:repeat(2,1fr);gap:28px}
+  .process-grid{grid-template-columns:repeat(2,1fr);gap:24px}
   .process-grid::before{display:none}
-  .trust-item{padding:10px 18px}
+  .trust-item{padding:8px 16px}
   .trust-item:not(:last-child){border-right:none;border-bottom:1px solid rgba(255,255,255,0.15)}
   .trust-strip-inner{flex-direction:column;gap:0}
 }
 
 @media(max-width:768px){
+  .container{padding:0 12px}
+  .header-inner{height:60px;gap:8px}
   nav{display:none}
   .hamburger{display:flex}
+  .basket-label{display:none}
+  .basket-btn{padding:8px 10px}
+  .logo-sub{display:none}
+  .logo-name{font-size:1.02rem}
+  .logo-mark{width:36px;height:36px;font-size:1.15rem}
   .hero-inner{grid-template-columns:1fr;min-height:auto;max-height:none}
-  .hero-content{padding:40px 0 32px;order:2}
-  .hero-image{min-height:260px;order:1}
+  .hero-content{padding:32px 0 24px;order:2}
+  .hero-image{min-height:240px;order:1}
   .hero-image-overlay{background:linear-gradient(to bottom,transparent 70%,var(--cream-mid) 100%)}
   .hero-card{display:none}
-  .hero-title{font-size:1.9rem}
+  .hero-title{font-size:1.8rem}
   .hero-ctas{flex-direction:column}
   .hero-ctas .btn{width:100%;justify-content:center}
   .why-grid{grid-template-columns:1fr}
@@ -236,16 +241,14 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:52px 0 0}
   .reviews-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .delivery-layout{grid-template-columns:1fr}
-  .process-grid{grid-template-columns:1fr;gap:20px}
-  .section{padding:48px 0}
-  .logo-sub{display:none}
+  .process-grid{grid-template-columns:1fr;gap:18px}
+  .section{padding:44px 0}
 }
 
 @media(max-width:480px){
-  .hero-trust{flex-direction:column;gap:12px}
-  .trust-strip-inner{padding:0 10px}
-  .hero-title{font-size:1.65rem}
-  .section-title{font-size:1.5rem}
+  .hero-trust{flex-direction:column;gap:10px}
+  .hero-title{font-size:1.6rem}
+  .section-title{font-size:1.45rem}
   .launch-notice{flex-direction:column}
 }
 </style>
@@ -277,11 +280,11 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:52px 0 0}
       </nav>
       <div class="header-actions">
         <a href="store.html" class="basket-btn" id="basketBtn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          Basket
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="basket-label">Basket</span>
           <span class="basket-count" id="cartCount">0</span>
         </a>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -289,10 +292,10 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:52px 0 0}
   </div>
   <div class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
-    <a href="store.html">Our Pickles</a>
-    <a href="#delivery">Delivery Coverage</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact</a>
+    <a href="store.html">Our Pickles (Store)</a>
+    <a href="#delivery">Delivery Coverage (8 km)</a>
+    <a href="#about">About Our Kitchen</a>
+    <a href="#contact">Contact Us</a>
   </div>
 </header>
 
@@ -300,7 +303,7 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:52px 0 0}
 <section class="hero">
   <div class="container" style="padding:0 20px;max-width:none">
     <div class="hero-inner" style="max-width:1140px;margin:0 auto">
-      <div class="hero-content fade-up">
+      <div class="hero-content">
         <div class="hero-badge"><span></span> Now Taking Pre-Launch Orders</div>
         <h1 class="hero-title">India's Finest<br/><em>Homemade Pickles</em><br/>At Your Doorstep</h1>
         <p class="hero-desc">Crafted in small batches using traditional recipes, sun-cured for 21 days, packed in food-grade glass jars — delivered fresh to your home within 45 minutes.</p>
@@ -406,67 +409,83 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:52px 0 0}
   </div>
 </section>
 
-<!-- Featured Products -->
+<!-- Featured Products (Links directly to PDP) -->
 <section class="section alt">
   <div class="container">
     <span class="section-label">Our Bestsellers</span>
     <h2 class="section-title">Most Loved Pickles</h2>
-    <p class="section-sub">From the classic raw mango to the bold garlic pickle — here are what our customers order again and again.</p>
+    <p class="section-sub">Click any pickle below to see detailed ingredients, curing process, and doctor-verified health & dietary advisories.</p>
     <div class="products-grid">
+      
+      <!-- Product 1: Raw Mango -->
       <div class="product-card">
-        <div class="product-img">
+        <a href="product.html?id=p1" class="product-img" title="View Traditional Raw Mango Pickle details">
           <img src="https://images.unsplash.com/photo-1632239108478-568f362ac3ac?auto=format&fit=crop&w=600&q=80" alt="Raw Mango Pickle" loading="lazy"/>
           <span class="product-badge">Bestseller</span>
-        </div>
+        </a>
         <div class="product-body">
-          <h3 class="product-name">Traditional Raw Mango</h3>
+          <a href="product.html?id=p1">
+            <h3 class="product-name">Traditional Raw Mango</h3>
+          </a>
           <p class="product-meta">Aam Ka Achar · Medium Spice · 500g</p>
+          <a href="product.html?id=p1" class="health-badge-link">🩺 Health & Dietary Guide →</a>
           <div class="product-footer">
             <div class="product-price-block">
               <span class="product-price">₹240</span>
               <span class="product-weight">500g jar</span>
             </div>
-            <a href="store.html" class="btn btn-primary" style="padding:10px 18px;font-size:0.82rem">View in Store</a>
+            <a href="product.html?id=p1" class="btn btn-primary" style="padding:8px 14px;font-size:0.8rem">View Details</a>
           </div>
         </div>
       </div>
+
+      <!-- Product 2: Red Chilli -->
       <div class="product-card">
-        <div class="product-img">
+        <a href="product.html?id=p2" class="product-img" title="View Banarasi Stuffed Red Chilli details">
           <img src="https://images.unsplash.com/photo-1645679059045-65ff3a440554?auto=format&fit=crop&w=600&q=80" alt="Red Chilli Pickle" loading="lazy"/>
           <span class="product-badge">Popular</span>
-        </div>
+        </a>
         <div class="product-body">
-          <h3 class="product-name">Banarasi Stuffed Red Chilli</h3>
+          <a href="product.html?id=p2">
+            <h3 class="product-name">Banarasi Stuffed Red Chilli</h3>
+          </a>
           <p class="product-meta">Bharwa Lal Mirch · Hot · 400g</p>
+          <a href="product.html?id=p2" class="health-badge-link">🩺 Health & Dietary Guide →</a>
           <div class="product-footer">
             <div class="product-price-block">
               <span class="product-price">₹280</span>
               <span class="product-weight">400g jar</span>
             </div>
-            <a href="store.html" class="btn btn-primary" style="padding:10px 18px;font-size:0.82rem">View in Store</a>
+            <a href="product.html?id=p2" class="btn btn-primary" style="padding:8px 14px;font-size:0.8rem">View Details</a>
           </div>
         </div>
       </div>
+
+      <!-- Product 6: Garlic -->
       <div class="product-card">
-        <div class="product-img">
+        <a href="product.html?id=p6" class="product-img" title="View Slow-Tempered Garlic Pickle details">
           <img src="https://images.unsplash.com/photo-1706167754852-128daa40126a?auto=format&fit=crop&w=600&q=80" alt="Garlic Pickle" loading="lazy"/>
           <span class="product-badge">New</span>
-        </div>
+        </a>
         <div class="product-body">
-          <h3 class="product-name">Slow-Tempered Garlic</h3>
+          <a href="product.html?id=p6">
+            <h3 class="product-name">Slow-Tempered Garlic</h3>
+          </a>
           <p class="product-meta">Lahsun Ka Achar · Medium · 350g</p>
+          <a href="product.html?id=p6" class="health-badge-link">🩺 Health & Dietary Guide →</a>
           <div class="product-footer">
             <div class="product-price-block">
               <span class="product-price">₹260</span>
               <span class="product-weight">350g jar</span>
             </div>
-            <a href="store.html" class="btn btn-primary" style="padding:10px 18px;font-size:0.82rem">View in Store</a>
+            <a href="product.html?id=p6" class="btn btn-primary" style="padding:8px 14px;font-size:0.8rem">View Details</a>
           </div>
         </div>
       </div>
+
     </div>
     <div style="text-align:center;margin-top:36px">
-      <a href="store.html" class="btn btn-outline">View All 7 Pickles →</a>
+      <a href="store.html" class="btn btn-outline">Browse All 7 Varieties in Store →</a>
     </div>
   </div>
 </section>
@@ -632,22 +651,22 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:52px 0 0}
       </div>
       <div class="footer-col">
         <h5>Products</h5>
-        <a href="store.html">Raw Mango Pickle</a>
-        <a href="store.html">Red Chilli Pickle</a>
-        <a href="store.html">Lemon Pickle</a>
-        <a href="store.html">Garlic Pickle</a>
+        <a href="product.html?id=p1">Raw Mango Pickle</a>
+        <a href="product.html?id=p2">Red Chilli Pickle</a>
+        <a href="product.html?id=p4">Lemon Pickle</a>
+        <a href="product.html?id=p6">Garlic Pickle</a>
         <a href="store.html">View All →</a>
       </div>
       <div class="footer-col" id="contact">
         <h5>Contact Us</h5>
         <div class="phone">+91 98765 43210</div>
         <a href="https://wa.me/919876543210" target="_blank" style="color:var(--gold-light)">WhatsApp Order →</a>
-        <address style="margin-top:12px">
+        <address style="margin-top:10px">
           Sector 15 Commercial Hub<br/>
           South Enclave<br/>
           New Delhi – 110017
         </address>
-        <p style="margin-top:10px">Mon–Sun: 9 AM – 8 PM</p>
+        <p style="margin-top:8px">Mon–Sun: 9 AM – 8 PM</p>
       </div>
     </div>
   </div>

@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="favicon.svg"/>
 
 <!-- Universal Cart Engine -->
-<script src="cart.js?v=2.2"></script>
+<script src="cart.js?v=2.3"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -1266,7 +1266,7 @@ footer{
   </div>
 </footer>
 
-<script src="cart.js?v=2.2"></script>
+<script src="cart.js?v=2.3"></script>
 <script>
 // Cart Drawer Controller
 function openCart() {
@@ -1697,7 +1697,7 @@ btnAdd.addEventListener('click', () => {
 });
 
 // Related Pickles (Horizontal scroll on mobile with arrows)
-const relatedIds = Object.keys(CATALOG).filter(id => id !== currentId).slice(0, 4);
+const relatedIds = Object.keys(CATALOG).filter(id => id !== currentId);
 document.getElementById('relatedGrid').innerHTML = relatedIds.map(rid => {
   const r = CATALOG[rid];
   return `
@@ -1760,6 +1760,13 @@ if (relLeftBtn && relRightBtn && relScroller) {
 // Hamburger
 document.getElementById('hamburger').addEventListener('click', () => {
   document.getElementById('mobileNav').classList.toggle('open');
+});
+
+// Close Mobile Nav on Link Tap
+document.querySelectorAll('#mobileNav a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('mobileNav').classList.remove('open');
+  });
 });
 
 function updateCartUI() {

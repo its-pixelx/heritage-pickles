@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="favicon.svg"/>
 
 <!-- Universal Cart Engine -->
-<script src="cart.js?v=2.2"></script>
+<script src="cart.js?v=2.3"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -623,6 +623,65 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
 .del-card h4{font-size:0.92rem;color:var(--green-dark);margin-bottom:6px}
 .del-card p{font-size:0.84rem;color:var(--text-secondary);line-height:1.55}
 
+/* Pincode & Sector Checker */
+.pincode-checker-box{
+  margin-top:16px;
+  background:#FFF;
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-md);
+  padding:16px;
+}
+.checker-title{
+  font-size:0.86rem;
+  font-weight:700;
+  color:var(--green-dark);
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.checker-input-row{
+  display:flex;
+  gap:8px;
+}
+.checker-input-row input{
+  flex:1;
+  padding:10px 14px;
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-sm);
+  font-family:inherit;
+  font-size:0.88rem;
+  outline:none;
+}
+.checker-input-row input:focus{border-color:var(--green)}
+.checker-btn{
+  background:var(--green);
+  color:#FFF;
+  font-weight:600;
+  font-size:0.86rem;
+  padding:10px 18px;
+  border-radius:var(--radius-sm);
+  transition:background .15s;
+}
+.checker-btn:hover{background:var(--green-dark)}
+.checker-result{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:var(--radius-sm);
+  font-size:0.82rem;
+  line-height:1.45;
+}
+.checker-result.success{
+  background:#F2FAF3;
+  color:#1B5E20;
+  border:1px solid #C8E6C9;
+}
+.checker-result.info{
+  background:var(--gold-subtle);
+  color:#634608;
+  border:1px solid rgba(196,154,69,0.3);
+}
+
 /* ===== TESTIMONIALS CAROUSEL ===== */
 .reviews-scroll{
   display:flex;
@@ -1229,6 +1288,17 @@ footer{
         <div class="cov-row"><span class="cov-name">Saket & Pushp Vihar</span><span class="cov-time">50–60 min</span></div>
         <div class="cov-row"><span class="cov-name">Hauz Khas Village</span><span class="cov-time">55–65 min</span></div>
       </div>
+      <div class="pincode-checker-box">
+        <div class="checker-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Check Instant Delivery to Your Sector
+        </div>
+        <div class="checker-input-row">
+          <input type="text" id="pincodeInput" placeholder="Enter sector, colony or pincode (e.g. Saket, 110017)" aria-label="Enter sector or pincode"/>
+          <button type="button" id="pincodeCheckBtn" class="checker-btn">Check</button>
+        </div>
+        <div id="pincodeResult" class="checker-result" style="display:none"></div>
+      </div>
       <div class="delivery-cards">
         <div class="del-card">
           <h4>🛵 Delivery Partners</h4>
@@ -1379,7 +1449,7 @@ footer{
   </div>
 </footer>
 
-<script src="cart.js?v=2.2"></script>
+<script src="cart.js?v=2.3"></script>
 <script>
 // Hamburger
 document.getElementById('hamburger').addEventListener('click', () => {
@@ -1553,6 +1623,41 @@ setupScrollArrows('bestsellersGrid', 'bestsellerScrollLeft', 'bestsellerScrollRi
 
 // 3. Customer Reviews Carousel
 setupScrollArrows('reviewsScroll', 'reviewScrollLeft', 'reviewScrollRight', 310);
+
+// Close Mobile Nav on Link Tap
+document.querySelectorAll('#mobileNav a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('mobileNav').classList.remove('open');
+  });
+});
+
+// Sector & Pincode Checker
+const pincodeBtn = document.getElementById('pincodeCheckBtn');
+const pincodeInput = document.getElementById('pincodeInput');
+const pincodeRes = document.getElementById('pincodeResult');
+
+function checkPincode() {
+  const query = (pincodeInput.value || '').trim().toLowerCase();
+  if (!query) return;
+  const served = [
+    'sector 15', 'south enclave', 'sector 12', 'sector 14', 'green park', 
+    'malviya', 'saket', 'pushp vihar', 'hauz khas', '110017', '110016', '110029', '110049'
+  ];
+  const matched = served.some(a => query.includes(a));
+  pincodeRes.style.display = 'block';
+  if (matched) {
+    pincodeRes.className = 'checker-result success';
+    pincodeRes.innerHTML = '✅ <strong>Express Delivery Available!</strong> Fresh dispatch from our South Enclave kitchen within 35–45 minutes in airtight glass jars.';
+  } else {
+    pincodeRes.className = 'checker-result info';
+    pincodeRes.innerHTML = '📍 <strong>Custom Courier Delivery:</strong> We deliver local 45-min orders within 8 km. For your area, please WhatsApp us at <strong>+91 98765 43210</strong> to arrange direct delivery!';
+  }
+}
+
+if (pincodeBtn && pincodeInput) {
+  pincodeBtn.addEventListener('click', checkPincode);
+  pincodeInput.addEventListener('keydown', e => { if (e.key === 'Enter') checkPincode(); });
+}
 </script>
 </body>
 </html>

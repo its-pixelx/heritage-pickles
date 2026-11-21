@@ -1,557 +1,672 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Pickle Store (7 Jars) | Venu's Kitchen</title>
-  
-  <meta name="description" content="Explore Venu's Kitchen artisanal pickle store - 7 genuine homemade pickle varieties cured in glass jars with cold-pressed oils. Local 45-60m delivery.">
-  <meta name="theme-color" content="#FF642F">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Our Pickles – Venu's Kitchen</title>
+<meta name="description" content="Browse all 7 authentic homemade pickle varieties by Venu's Kitchen. Sun-cured, chemical-free, delivered fresh within 45 minutes."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:#FAFAF5;color:#1a1a1a;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none;outline:none}
+ul{list-style:none}
 
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+/* ===== TOKENS ===== */
+:root{
+  --green:#1D5C2E;
+  --green-dark:#153F20;
+  --green-light:#2D7A42;
+  --gold:#C9A84C;
+  --gold-light:#E8C97A;
+  --cream:#FAFAF5;
+  --cream-mid:#F3F0E6;
+  --cream-dark:#E8E2D0;
+  --text:#1a1a1a;
+  --text-mid:#4a4a4a;
+  --text-soft:#7a7a6a;
+  --white:#ffffff;
+  --shadow-sm:0 1px 4px rgba(0,0,0,0.08);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg:0 8px 32px rgba(0,0,0,0.13);
+  --radius:10px;
+  --radius-lg:16px;
+}
 
-  <!-- Google Fonts: Plus Jakarta Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+/* ===== UTILITY ===== */
+.container{width:100%;max-width:1140px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:var(--radius);font-size:0.9rem;font-weight:600;transition:all .2s ease;white-space:nowrap}
+.btn-primary{background:var(--green);color:var(--white)}
+.btn-primary:hover{background:var(--green-dark);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--green);border:2px solid var(--green)}
+.btn-outline:hover{background:var(--green);color:var(--white)}
+.btn-sm{padding:9px 16px;font-size:0.82rem}
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+/* ===== ANNOUNCEMENT BAR ===== */
+.announcement{background:var(--green-dark);color:var(--white);text-align:center;font-size:0.78rem;padding:8px 20px;letter-spacing:0.03em}
+.announcement strong{color:var(--gold-light)}
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#FFF5F0',
-              100: '#FFE8DF',
-              200: '#FFD1BF',
-              400: '#FF885A',
-              500: '#FF642F', // Tastebite Coral Orange
-              600: '#E84E18',
-              700: '#C73807',
-              900: '#541500',
-            }
-          },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-          },
-          boxShadow: {
-            'card': '0 4px 20px -2px rgba(24, 24, 27, 0.06)',
-            'card-hover': '0 12px 30px -4px rgba(255, 100, 47, 0.15)',
-          }
-        }
-      }
-    }
-  </script>
+/* ===== HEADER ===== */
+header{background:var(--white);border-bottom:1px solid var(--cream-dark);position:sticky;top:0;z-index:1000;box-shadow:var(--shadow-sm)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{width:44px;height:44px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);font-weight:700;flex-shrink:0}
+.logo-text{display:flex;flex-direction:column;line-height:1}
+.logo-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--green-dark)}
+.logo-sub{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-soft)}
+nav{display:flex;align-items:center;gap:4px}
+nav a{padding:8px 14px;border-radius:8px;font-size:0.88rem;font-weight:500;color:var(--text-mid);transition:all .15s}
+nav a:hover,nav a.active{background:var(--cream-mid);color:var(--green)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.basket-btn{display:flex;align-items:center;gap:8px;background:var(--green);color:var(--white);padding:10px 18px;border-radius:var(--radius);font-size:0.88rem;font-weight:600;transition:all .2s;cursor:pointer;border:none}
+.basket-btn:hover{background:var(--green-dark)}
+.basket-count{background:var(--gold);color:var(--white);border-radius:50%;width:20px;height:20px;font-size:0.7rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;background:none;border:1px solid var(--cream-dark);border-radius:8px}
+.hamburger span{width:22px;height:2px;background:var(--green);border-radius:2px}
+.mobile-nav{display:none;flex-direction:column;background:var(--white);border-top:1px solid var(--cream-dark);padding:16px 20px;gap:4px}
+.mobile-nav a{padding:12px 14px;border-radius:8px;font-size:0.95rem;font-weight:500;color:var(--text-mid)}
+.mobile-nav a:hover{background:var(--cream-mid);color:var(--green)}
+.mobile-nav.open{display:flex}
 
-  <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .hide-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .hide-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  </style>
+/* ===== STORE BANNER ===== */
+.store-banner{background:var(--green-dark);padding:36px 0 32px}
+.store-banner h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);color:var(--white);margin-bottom:8px}
+.store-banner p{font-size:0.9rem;color:rgba(255,255,255,0.7)}
+.store-banner-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.store-stats{display:flex;gap:24px;flex-wrap:wrap}
+.store-stat{text-align:center;background:rgba(255,255,255,0.08);border-radius:var(--radius);padding:10px 20px}
+.store-stat strong{display:block;font-size:1.3rem;font-weight:700;color:var(--gold-light)}
+.store-stat span{font-size:0.75rem;color:rgba(255,255,255,0.6)}
+
+/* ===== PRE-LAUNCH NOTICE ===== */
+.prelaunch-bar{background:var(--cream-mid);border-bottom:1px solid var(--cream-dark);padding:14px 0}
+.prelaunch-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.prelaunch-text{display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-mid)}
+.prelaunch-text .badge{background:#FFF3CD;border:1px solid #FFCD39;color:#856404;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:50px;text-transform:uppercase;letter-spacing:0.07em;white-space:nowrap}
+.prelaunch-text strong{color:var(--green-dark)}
+.prelaunch-actions{display:flex;gap:10px;align-items:center}
+.wa-btn{display:inline-flex;align-items:center;gap:7px;background:#25D366;color:var(--white);padding:9px 16px;border-radius:var(--radius);font-size:0.82rem;font-weight:600;transition:background .2s}
+.wa-btn:hover{background:#1DB954}
+
+/* ===== FILTER BAR ===== */
+.filter-bar{background:var(--white);border-bottom:1px solid var(--cream-dark);padding:14px 0;position:sticky;top:68px;z-index:100}
+.filter-inner{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.filter-label{font-size:0.8rem;font-weight:600;color:var(--text-soft);flex-shrink:0}
+.filter-pills{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.filter-pill{padding:7px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;border:1.5px solid var(--cream-dark);background:var(--white);color:var(--text-mid);cursor:pointer;transition:all .15s}
+.filter-pill:hover,.filter-pill.active{background:var(--green);color:var(--white);border-color:var(--green)}
+.search-box{display:flex;align-items:center;gap:8px;border:1.5px solid var(--cream-dark);border-radius:var(--radius);padding:7px 14px;background:var(--white);min-width:180px;flex-shrink:0}
+.search-box input{border:none;outline:none;font-family:inherit;font-size:0.85rem;color:var(--text);background:transparent;width:100%}
+.search-box input::placeholder{color:var(--text-soft)}
+.search-box svg{color:var(--text-soft);flex-shrink:0}
+
+/* ===== PRODUCT GRID ===== */
+.store-main{padding:40px 0 72px}
+.products-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+.products-header h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--green-dark)}
+.products-count{font-size:0.85rem;color:var(--text-soft)}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
+/* ===== PRODUCT CARD ===== */
+.product-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--cream-dark);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+.product-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.product-img{height:220px;overflow:hidden;position:relative;background:var(--cream-mid);flex-shrink:0}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.product-card:hover .product-img img{transform:scale(1.05)}
+.product-badge{position:absolute;top:12px;left:12px;font-size:0.7rem;font-weight:700;padding:4px 10px;border-radius:50px;letter-spacing:0.06em;text-transform:uppercase}
+.badge-bestseller{background:var(--green);color:var(--white)}
+.badge-popular{background:var(--gold);color:var(--white)}
+.badge-new{background:#2563EB;color:var(--white)}
+.badge-zero-oil{background:#0F766E;color:var(--white)}
+.spice-row{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.6);color:var(--white);border-radius:50px;font-size:0.68rem;font-weight:600;padding:4px 10px;display:flex;align-items:center;gap:5px}
+.product-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:0;flex:1}
+.product-name{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--green-dark);margin-bottom:4px;line-height:1.3}
+.product-hindi{font-size:0.78rem;color:var(--text-soft);margin-bottom:8px}
+.product-desc{font-size:0.82rem;color:var(--text-mid);line-height:1.6;margin-bottom:12px;flex:1}
+.product-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tag{background:var(--cream-mid);color:var(--text-mid);font-size:0.72rem;font-weight:500;padding:3px 10px;border-radius:50px}
+.product-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid var(--cream-dark);padding-top:14px;margin-top:auto}
+.product-price-block{display:flex;flex-direction:column}
+.product-price{font-size:1.15rem;font-weight:700;color:var(--green)}
+.product-weight{font-size:0.75rem;color:var(--text-soft)}
+.add-btn{background:var(--green);color:var(--white);border:none;padding:10px 16px;border-radius:var(--radius);font-size:0.82rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s;white-space:nowrap}
+.add-btn:hover{background:var(--green-dark);transform:scale(1.03)}
+.add-btn.added{background:var(--gold)}
+.qty-ctrl{display:none;align-items:center;gap:0;border:1.5px solid var(--green);border-radius:var(--radius);overflow:hidden}
+.qty-ctrl.visible{display:flex}
+.qty-btn{background:var(--green);color:var(--white);border:none;width:34px;height:34px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;display:flex;align-items:center;justify-content:center}
+.qty-btn:hover{background:var(--green-dark)}
+.qty-num{padding:0 14px;font-size:0.9rem;font-weight:600;color:var(--green);background:var(--white);min-width:36px;text-align:center}
+
+/* ===== CART DRAWER ===== */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:9000;opacity:0;pointer-events:none;transition:opacity .25s}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cart-drawer{position:fixed;top:0;right:-420px;width:min(420px,100vw);height:100%;background:var(--white);z-index:9001;display:flex;flex-direction:column;transition:right .3s cubic-bezier(0.4,0,0.2,1);box-shadow:-8px 0 32px rgba(0,0,0,0.12)}
+.cart-drawer.open{right:0}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:20px 20px;border-bottom:1px solid var(--cream-dark)}
+.cart-header h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--green-dark)}
+.cart-close{background:var(--cream-mid);border:none;width:36px;height:36px;border-radius:8px;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-mid)}
+.cart-close:hover{background:var(--cream-dark)}
+.cart-items{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:14px}
+.cart-empty{text-align:center;padding:60px 20px;color:var(--text-soft)}
+.cart-empty p{margin-top:12px;font-size:0.9rem}
+.cart-item{display:flex;gap:12px;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid var(--cream-dark)}
+.cart-item-img{width:60px;height:60px;border-radius:8px;overflow:hidden;flex-shrink:0;background:var(--cream-mid)}
+.cart-item-img img{width:100%;height:100%;object-fit:cover}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-name{font-weight:600;font-size:0.88rem;color:var(--text);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cart-item-weight{font-size:0.75rem;color:var(--text-soft)}
+.cart-item-footer{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.cart-item-price{font-weight:700;font-size:0.95rem;color:var(--green)}
+.cart-qty{display:flex;align-items:center;gap:0;border:1.5px solid var(--cream-dark);border-radius:8px;overflow:hidden}
+.cq-btn{background:var(--cream-mid);border:none;width:28px;height:28px;font-size:1rem;font-weight:700;cursor:pointer;color:var(--text)}
+.cq-btn:hover{background:var(--cream-dark)}
+.cq-num{padding:0 10px;font-size:0.85rem;font-weight:600;color:var(--text);min-width:30px;text-align:center}
+.cart-remove{background:none;border:none;color:var(--text-soft);cursor:pointer;font-size:0.75rem;padding:0 6px;margin-left:4px}
+.cart-remove:hover{color:#dc2626}
+.cart-footer{padding:16px 20px;border-top:1px solid var(--cream-dark);background:var(--cream-mid)}
+.cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.cart-total-label{font-size:0.85rem;color:var(--text-mid)}
+.cart-total-val{font-weight:700;font-size:1.1rem;color:var(--green-dark)}
+.cart-delivery-note{font-size:0.75rem;color:var(--text-soft);margin-bottom:14px}
+.btn-checkout-disabled{width:100%;padding:15px;background:#ccc;color:#666;border-radius:var(--radius);font-weight:700;font-size:0.95rem;cursor:not-allowed;border:none;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px}
+.checkout-notice{background:var(--white);border-left:3px solid var(--gold);border-radius:var(--radius);padding:12px 14px;font-size:0.78rem;color:var(--text-mid);line-height:1.5}
+.checkout-notice strong{color:var(--green-dark);display:block;margin-bottom:4px}
+.checkout-notice a{color:var(--green);font-weight:600;text-decoration:underline}
+.cart-wa-btn{width:100%;padding:13px;background:#25D366;color:var(--white);border-radius:var(--radius);font-weight:700;font-size:0.9rem;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;transition:background .2s}
+.cart-wa-btn:hover{background:#1DB954}
+
+/* ===== FOOTER STRIP ===== */
+.store-footer-strip{background:var(--green-dark);color:rgba(255,255,255,0.75);padding:28px 0}
+.store-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.store-footer-inner p{font-size:0.85rem}
+.store-footer-inner strong{color:var(--gold-light)}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.product-card{animation:slideIn .4s ease both}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  nav{display:none}
+  .hamburger{display:flex}
+  .store-banner-inner{flex-direction:column;align-items:flex-start}
+  .store-stats{gap:12px}
+  .filter-inner{gap:8px}
+  .search-box{width:100%;min-width:0}
+  .prelaunch-inner{flex-direction:column;align-items:flex-start}
+  .store-footer-inner{flex-direction:column;text-align:center}
+  .filter-bar{top:68px}
+}
+@media(max-width:600px){
+  .products-grid{grid-template-columns:1fr}
+  .product-img{height:200px}
+  .store-stats{width:100%;justify-content:space-around}
+  .logo-sub{display:none}
+}
+@media(max-width:420px){
+  .cart-drawer{width:100vw}
+}
+</style>
 </head>
-<body class="bg-[#FBF9F5] text-zinc-900 antialiased min-h-screen flex flex-col pb-16 md:pb-0 overflow-x-hidden">
+<body>
 
-  <!-- TOP COMPACT TICKER -->
-  <div class="bg-zinc-900 text-white text-[11px] sm:text-xs py-2 px-3 sm:px-6">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
-      <div class="flex items-center gap-1.5 truncate">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
-        <span class="truncate font-medium text-zinc-200">
-          <strong>Venu's Kitchen Pantry:</strong> 7 Homemade Pickle Varieties in Stock
-        </span>
-      </div>
-      <div class="hidden sm:flex items-center gap-4 text-zinc-300 font-medium text-[11px] flex-shrink-0">
-        <span>⚡ 45–60 Min Express Delivery</span>
-        <span>•</span>
-        <span>100% Glass Jars</span>
-        <span>•</span>
-        <a href="tel:+919876543210" class="text-brand-400 hover:text-brand-300 font-bold">
-          Call: +91 98765 43210
-        </a>
-      </div>
-    </div>
-  </div>
+<!-- Announcement Bar -->
+<div class="announcement">
+  🚚 <strong>Free delivery</strong> within 8 km · Orders above ₹299 · Delivered in 45–60 minutes
+</div>
 
-  <!-- MAIN HEADER -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-zinc-100 shadow-sm transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-4">
-      
-      <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
-        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-500 text-white flex items-center justify-center font-black text-xl shadow-md shadow-brand-500/25">
-          V
-        </div>
-        <div>
-          <span class="font-extrabold text-xl sm:text-2xl text-zinc-950 tracking-tight block leading-tight">
-            Venu's<span class="text-brand-500">Kitchen</span>
-          </span>
-          <span class="text-[10px] sm:text-[11px] font-bold text-zinc-400 uppercase tracking-wider block">
-            Artisanal Homemade Pickles
-          </span>
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">V</div>
+        <div class="logo-text">
+          <span class="logo-name">Venu's Kitchen</span>
+          <span class="logo-sub">Homemade Pickles</span>
         </div>
       </a>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-zinc-600">
-        <a href="index.html" class="hover:text-brand-500 transition-colors flex items-center gap-1.5">
-          <i data-lucide="arrow-left" class="w-4 h-4 text-zinc-400"></i>
-          <span>Home</span>
-        </a>
-        <a href="store.html" class="text-brand-500 font-extrabold flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-50 border border-brand-200">
-          <i data-lucide="store" class="w-4 h-4"></i>
-          <span>Pickle Store (Active)</span>
-        </a>
-        <a href="index.html#delivery" class="hover:text-brand-500 transition-colors">45-Min Delivery</a>
-        <a href="index.html#craft" class="hover:text-brand-500 transition-colors">The Craft</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="store.html" class="active">Our Pickles</a>
+        <a href="index.html#delivery">Delivery</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
-
-      <!-- Cart Button & Mobile Menu Toggle -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        <button onclick="toggleCartDrawer(true)" class="flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 active:scale-95 text-white font-bold text-xs sm:text-sm shadow-md shadow-brand-500/20 transition-all">
-          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-          <span class="hidden sm:inline">Basket</span>
-          <span class="cart-counter-badge bg-white text-brand-600 font-extrabold text-[11px] w-5 h-5 rounded-full flex items-center justify-center">0</span>
+      <div class="header-actions">
+        <button class="basket-btn" id="basketBtn" onclick="openCart()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Basket
+          <span class="basket-count" id="cartCount">0</span>
         </button>
-
-        <button onclick="toggleMobileNav()" class="md:hidden p-2 rounded-xl text-zinc-700 hover:bg-zinc-100 border border-zinc-200">
-          <i data-lucide="menu" class="w-5 h-5"></i>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
         </button>
       </div>
-
     </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="store.html">Our Pickles</a>
+    <a href="index.html#delivery">Delivery Coverage</a>
+    <a href="index.html#about">About Us</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</header>
 
-    <!-- Mobile Nav Drawer -->
-    <div id="mobile-nav" class="hidden md:hidden border-t border-zinc-100 bg-white px-5 py-4 space-y-3 text-sm font-bold shadow-lg">
-      <a href="index.html" class="py-2 text-zinc-700 flex items-center gap-2 border-b border-zinc-100">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i>
-        <span>Return to Home (Hero Page)</span>
-      </a>
-      <a href="store.html" class="flex items-center justify-between p-3 rounded-xl bg-brand-50 text-brand-600 font-extrabold border border-brand-200">
-        <span>Pickle Store (7 Jars)</span>
-        <span class="text-xs bg-brand-500 text-white px-2 py-0.5 rounded-full">Active</span>
-      </a>
-      <a href="index.html#delivery" class="block py-2 text-zinc-700 border-b border-zinc-100">45-Minute Delivery Details</a>
-      <a href="index.html#craft" class="block py-2 text-zinc-700">Traditional Sun-Curing</a>
+<!-- Store Banner -->
+<div class="store-banner">
+  <div class="container">
+    <div class="store-banner-inner">
+      <div>
+        <h1>Our Pickle Collection</h1>
+        <p>7 authentic varieties · Sun-cured · Chemical-free · Delivered fresh</p>
+      </div>
+      <div class="store-stats">
+        <div class="store-stat"><strong>7</strong><span>Varieties</span></div>
+        <div class="store-stat"><strong>21</strong><span>Days Cured</span></div>
+        <div class="store-stat"><strong>45min</strong><span>Delivery</span></div>
+      </div>
     </div>
-  </header>
+  </div>
+</div>
 
-  <!-- STORE CONTENT -->
-  <main class="flex-grow py-8 sm:py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Store Header Banner (Clean Tastebite Banner) -->
-      <div class="p-6 sm:p-10 rounded-3xl bg-white border border-zinc-200 shadow-card mb-8">
-        <div class="max-w-2xl space-y-2">
-          <span class="text-xs font-bold text-brand-500 uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full border border-brand-100 inline-block">
-            Artisanal Domestic Pantry
-          </span>
-          <h1 class="text-3xl sm:text-4xl font-black text-zinc-950 tracking-tight">
-            Venu's Pickle Store
-          </h1>
-          <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed font-medium">
-            Choose from our 7 signature homemade recipes. Slow-cured in ceramic martabans under natural sunlight with cold-pressed mustard oil, and sealed in sterilized food-grade glass jars.
-          </p>
-        </div>
+<!-- Pre-launch Notice -->
+<div class="prelaunch-bar">
+  <div class="container">
+    <div class="prelaunch-inner">
+      <div class="prelaunch-text">
+        <span class="badge">Pre-Launch</span>
+        <span>🔔 <strong>Online checkout is coming soon.</strong> Browse & add to basket — place your order directly via WhatsApp for now.</span>
       </div>
-
-      <!-- Search & Category Filters Bar -->
-      <div class="bg-white rounded-2xl p-4 border border-zinc-200 shadow-card mb-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-        
-        <!-- Filter Pills (Tastebite Style) -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 hide-scrollbar" id="store-filters">
-          <button onclick="filterStore('all')" class="store-filter-btn active px-4 py-2 rounded-xl text-xs font-bold bg-brand-500 text-white shadow-sm flex-shrink-0" data-filter="all">
-            All Pickles (7)
-          </button>
-          <button onclick="filterStore('mango')" class="store-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition-colors flex-shrink-0" data-filter="mango">
-            Raw Mango
-          </button>
-          <button onclick="filterStore('chilli')" class="store-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition-colors flex-shrink-0" data-filter="chilli">
-            Chilli & Garlic
-          </button>
-          <button onclick="filterStore('lemon')" class="store-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition-colors flex-shrink-0" data-filter="lemon">
-            Zero-Oil Lemon
-          </button>
-          <button onclick="filterStore('mixed')" class="store-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition-colors flex-shrink-0" data-filter="mixed">
-            Mixed Veg
-          </button>
-        </div>
-
-        <!-- Search Input -->
-        <div class="relative w-full sm:w-64 flex-shrink-0">
-          <i data-lucide="search" class="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-          <input type="text" id="store-search" oninput="searchStore()" placeholder="Search pickle or spice..." class="w-full pl-9 pr-3 py-2 rounded-xl border border-zinc-200 text-xs font-medium text-zinc-900 bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-brand-500">
-        </div>
-
-      </div>
-
-      <!-- Products Grid (7 Genuine Pickle Jars) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="store-products-grid"></div>
-
-    </div>
-  </main>
-
-  <!-- CART SLIDE-OVER DRAWER -->
-  <div id="cart-overlay" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-zinc-950/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-  
-  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out border-l border-zinc-200">
-    
-    <!-- Drawer Header -->
-    <div class="p-4 sm:p-5 border-b border-zinc-100 flex items-center justify-between bg-zinc-50">
-      <div class="flex items-center gap-2">
-        <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-500"></i>
-        <h3 class="font-extrabold text-base text-zinc-950">Your Order Basket</h3>
-        <span class="cart-counter-badge px-2 py-0.5 rounded-full text-xs font-bold bg-brand-100 text-brand-800">0</span>
-      </div>
-      <button onclick="toggleCartDrawer(false)" class="p-2 rounded-xl text-zinc-500 hover:bg-zinc-200/60 transition-colors">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-    </div>
-
-    <!-- Express ETA Notification -->
-    <div class="px-4 py-2 bg-emerald-50 border-b border-emerald-100 flex items-center justify-between text-xs text-emerald-900 font-semibold">
-      <span class="flex items-center gap-1.5">
-        <i data-lucide="zap" class="w-4 h-4 text-emerald-600 fill-emerald-600"></i>
-        <span>Doorstep Express: 45–60 Mins</span>
-      </span>
-      <span class="text-[10px] bg-emerald-200 px-2 py-0.5 rounded font-bold">8km Hub</span>
-    </div>
-
-    <!-- Items List -->
-    <div id="cart-drawer-items" class="flex-grow overflow-y-auto p-4 space-y-3 custom-scrollbar"></div>
-
-    <!-- Drawer Footer with REQUIRED DISABLED BUY BUTTON & OFFICIAL SIGN -->
-    <div class="p-4 border-t border-zinc-200 bg-zinc-50 space-y-3">
-      
-      <div class="space-y-1 text-xs text-zinc-600">
-        <div class="flex justify-between">
-          <span>Items Total:</span>
-          <span class="font-bold text-zinc-900" id="drawer-subtotal">₹0</span>
-        </div>
-        <div class="flex justify-between">
-          <span>Glass Jar Packaging:</span>
-          <span class="text-emerald-700 font-bold">Standard Compliant</span>
-        </div>
-        <div class="flex justify-between pt-1 border-t border-zinc-200 text-sm font-bold text-zinc-950">
-          <span>Total:</span>
-          <span class="text-brand-600 text-base" id="drawer-grand-total">₹0</span>
-        </div>
-      </div>
-
-      <!-- OFFICIAL PRE-LAUNCH NOTICE -->
-      <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-950 text-xs space-y-1">
-        <div class="font-bold flex items-center gap-1.5">
-          <i data-lucide="info" class="w-4 h-4 text-amber-600"></i>
-          <span>Official Notice: Store Setup & Pre-Launch Phase</span>
-        </div>
-        <p class="text-[11px] text-amber-900/90 leading-relaxed">
-          Online automated payment gateway is currently under testing. Direct checkout is disabled until public release.
-        </p>
-      </div>
-
-      <!-- DISABLED BUY / CHECKOUT BUTTON WITH PROMINENT NOTICE -->
-      <button disabled class="w-full py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wide bg-zinc-200 text-zinc-500 cursor-not-allowed border border-zinc-300 flex items-center justify-center gap-2 select-none" aria-disabled="true">
-        <i data-lucide="lock" class="w-4 h-4 text-zinc-400"></i>
-        <span>Proceed to Checkout (Disabled • Store Under Setup)</span>
-      </button>
-
-      <!-- Direct Assistance Option -->
-      <div class="text-center pt-1">
-        <a href="https://wa.me/919876543210?text=Hello%20Venu's%20Kitchen,%20I%20am%20interested%20in%20ordering%20homemade%20pickles" target="_blank" class="text-xs text-brand-600 hover:text-brand-700 font-bold underline flex items-center justify-center gap-1.5">
-          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
-          <span>Direct Orders via WhatsApp (+91 98765 43210)</span>
+      <div class="prelaunch-actions">
+        <a href="https://wa.me/919876543210" class="wa-btn" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Order via WhatsApp
         </a>
       </div>
-
     </div>
-
   </div>
+</div>
 
-  <!-- PRODUCT QUICK-VIEW MODAL -->
-  <div id="quickview-modal" class="fixed inset-0 z-50 bg-zinc-950/70 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-    <div class="bg-white rounded-3xl max-w-lg w-full p-5 sm:p-6 shadow-2xl relative border border-zinc-200 max-h-[90vh] overflow-y-auto">
-      <button onclick="closeQuickView()" class="absolute top-4 right-4 p-2 rounded-full text-zinc-400 hover:bg-zinc-100 transition-colors">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-
-      <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-100 mb-4 border border-zinc-100">
-        <img id="qv-img" src="" alt="Pickle Jar" class="w-full h-full object-cover">
+<!-- Filter Bar -->
+<div class="filter-bar">
+  <div class="container">
+    <div class="filter-inner">
+      <span class="filter-label">Filter:</span>
+      <div class="filter-pills">
+        <button class="filter-pill active" data-filter="all">All (7)</button>
+        <button class="filter-pill" data-filter="mango">Mango</button>
+        <button class="filter-pill" data-filter="chilli">Chilli</button>
+        <button class="filter-pill" data-filter="lemon">Lemon</button>
+        <button class="filter-pill" data-filter="garlic">Garlic</button>
+        <button class="filter-pill" data-filter="mixed">Mixed</button>
       </div>
-
-      <div class="space-y-3">
-        <div class="flex items-center gap-2">
-          <span id="qv-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border shadow-sm">Badge</span>
-          <span id="qv-spice" class="text-xs font-bold text-zinc-700">Spice</span>
-        </div>
-        <h3 id="qv-title" class="font-extrabold text-xl sm:text-2xl text-zinc-950">Product Name</h3>
-        <p id="qv-hindi" class="text-xs text-zinc-500 italic"></p>
-        <p id="qv-desc" class="text-xs text-zinc-600 leading-relaxed font-normal"></p>
-        
-        <div class="p-3 bg-zinc-50 rounded-xl border border-zinc-200 space-y-1.5 text-xs">
-          <div class="flex justify-between">
-            <span class="text-zinc-500">Base Oil:</span>
-            <span class="font-bold text-zinc-900" id="qv-oil">Mustard Oil</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-zinc-500">Pack Weight:</span>
-            <span class="font-bold text-zinc-900" id="qv-weight">500g</span>
-          </div>
-          <div class="pt-1 border-t border-zinc-200 text-zinc-600">
-            <strong class="text-zinc-900 block mb-0.5">Ingredients:</strong>
-            <span id="qv-ingredients"></span>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-between pt-2">
-          <div>
-            <span class="text-[10px] text-zinc-400 uppercase font-bold block">Jar Price</span>
-            <span id="qv-price" class="font-black text-2xl text-zinc-900">₹0</span>
-          </div>
-          <button id="qv-add-btn" class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs flex items-center gap-2 transition-all shadow-md">
-            <i data-lucide="plus" class="w-4 h-4"></i>
-            <span>Add to Basket</span>
-          </button>
-        </div>
+      <div class="search-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="searchInput" placeholder="Search pickles..."/>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- FIXED MOBILE BOTTOM APP BAR (SWIGGY/ZOMATO STYLE FOR 100% MOBILE EXPERIENCE) -->
-  <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-zinc-200 px-6 py-2.5 flex items-center justify-between shadow-lg">
-    <a href="index.html" class="flex flex-col items-center text-zinc-600 hover:text-brand-500">
-      <i data-lucide="home" class="w-5 h-5"></i>
-      <span class="text-[10px] font-bold mt-0.5">Home</span>
-    </a>
-    <a href="store.html" class="flex flex-col items-center text-brand-500">
-      <i data-lucide="store" class="w-5 h-5"></i>
-      <span class="text-[10px] font-bold mt-0.5">Store</span>
-    </a>
-    <a href="index.html#delivery" class="flex flex-col items-center text-zinc-600 hover:text-brand-500">
-      <i data-lucide="bike" class="w-5 h-5"></i>
-      <span class="text-[10px] font-bold mt-0.5">Delivery</span>
-    </a>
-    <button onclick="toggleCartDrawer(true)" class="flex flex-col items-center text-zinc-600 hover:text-brand-500 relative">
-      <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-      <span class="cart-counter-badge absolute -top-1 -right-2 bg-brand-500 text-white font-extrabold text-[9px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
-      <span class="text-[10px] font-bold mt-0.5">Basket</span>
+<!-- Products -->
+<main class="store-main">
+  <div class="container">
+    <div class="products-header">
+      <h2>All Pickle Varieties</h2>
+      <span class="products-count" id="productsCount">Showing 7 products</span>
+    </div>
+    <div class="products-grid" id="productsGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </div>
+</main>
+
+<!-- Footer Strip -->
+<div class="store-footer-strip">
+  <div class="container">
+    <div class="store-footer-inner">
+      <p>© 2025 <strong>Venu's Kitchen</strong> · FSSAI Reg: 23324009000123</p>
+      <p><strong>+91 98765 43210</strong> · Mon–Sun 9 AM – 8 PM</p>
+      <a href="index.html" style="color:var(--gold-light);font-size:0.85rem;font-weight:600">← Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<!-- Cart Drawer -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Your Basket</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div style="font-size:2.5rem">🛒</div>
+      <p>Your basket is empty.<br/>Add some pickles!</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Item Total</span>
+      <span class="cart-total-val" id="cartTotal">₹0</span>
+    </div>
+    <div class="cart-delivery-note" id="cartDeliveryNote">Add ₹299 worth to get free delivery</div>
+    <button class="btn-checkout-disabled" disabled>
+      🔒 Online Checkout — Coming Soon
+    </button>
+    <div class="checkout-notice">
+      <strong>🔔 Online payments launching soon!</strong>
+      Your basket is ready. Place this order now via WhatsApp and we'll confirm delivery within 10 minutes.
+      <br/><a href="#" id="cartWhatsApp" target="_blank">Order on WhatsApp →</a>
+    </div>
+    <button class="cart-wa-btn" id="cartWaBtn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      Send Order via WhatsApp
     </button>
   </div>
+</div>
 
-  <!-- FOOTER -->
-  <footer class="bg-zinc-950 text-zinc-300 text-xs py-10 border-t border-zinc-800 mt-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-zinc-800">
-        <div class="space-y-3">
-          <span class="font-black text-xl text-white">Venu's<span class="text-brand-500">Kitchen</span></span>
-          <p class="text-zinc-400 text-xs leading-relaxed">
-            Authentic traditional homemade pickles slow sun-matured for 21 days in genuine ceramic barnis. Express doorstep delivery within 45–60 mins.
-          </p>
-        </div>
+<script src="cart.js"></script>
+<script>
+// ===== PRODUCT DATA =====
+const PRODUCTS = [
+  {
+    id: 'p1',
+    name: 'Traditional Raw Mango',
+    hindi: 'Aam Ka Achar',
+    desc: 'Sun-dried raw mango pieces in mustard oil with hand-ground spices. The authentic north Indian style pickle with deep, tangy flavour.',
+    price: 240,
+    weight: '500g',
+    spice: '🌶️🌶️ Medium',
+    image: 'https://images.unsplash.com/photo-1632239108478-568f362ac3ac?auto=format&fit=crop&w=600&q=80',
+    badge: 'bestseller',
+    badgeText: 'Bestseller',
+    category: 'mango',
+    tags: ['Mustard Oil', 'Vegan', 'Sun-Cured']
+  },
+  {
+    id: 'p2',
+    name: 'Banarasi Stuffed Red Chilli',
+    hindi: 'Bharwa Lal Mirch',
+    desc: 'Whole red chillis stuffed with mustard, fennel & coriander mix, slow-cured in mustard oil. A Banarasi household classic.',
+    price: 280,
+    weight: '400g',
+    spice: '🌶️🌶️🌶️ Hot',
+    image: 'https://images.unsplash.com/photo-1645679059045-65ff3a440554?auto=format&fit=crop&w=600&q=80',
+    badge: 'popular',
+    badgeText: 'Popular',
+    category: 'chilli',
+    tags: ['Stuffed', 'Mustard Oil', 'No Oil Added']
+  },
+  {
+    id: 'p3',
+    name: 'Spicy Green Chilli',
+    hindi: 'Hari Mirch Ka Achar',
+    desc: 'Fresh green chillis pickled with asafoetida, fenugreek, and mustard seeds. Ready in 7 days, tastes like it was made for years.',
+    price: 190,
+    weight: '350g',
+    spice: '🌶️🌶️🌶️🌶️ Very Hot',
+    image: 'https://images.unsplash.com/photo-1643594697730-bb034a399a4b?auto=format&fit=crop&w=600&q=80',
+    badge: null,
+    badgeText: '',
+    category: 'chilli',
+    tags: ['Sesame Oil', 'Vegan', 'Spicy']
+  },
+  {
+    id: 'p4',
+    name: 'Sun-Cured Lemon (Zero Oil)',
+    hindi: 'Nimbu Ka Achar – Bina Tel',
+    desc: 'Quartered lemons preserved with salt, turmeric, and spices — no oil added at all. Light, zesty, and perfect with dal-rice.',
+    price: 210,
+    weight: '400g',
+    spice: '🌶️ Mild',
+    image: 'https://images.unsplash.com/photo-1525027684690-6de2d445842b?auto=format&fit=crop&w=600&q=80',
+    badge: 'zero-oil',
+    badgeText: 'Zero Oil',
+    category: 'lemon',
+    tags: ['Zero Oil', 'Vegan', 'Digestive']
+  },
+  {
+    id: 'p5',
+    name: 'Mixed Vegetable Pachranga',
+    hindi: 'Panch Rang Achar',
+    desc: 'Five vegetables — raw mango, carrot, turnip, lotus stem, and lemon — pickled together in one traditional jar. A complete achar.',
+    price: 230,
+    weight: '500g',
+    spice: '🌶️🌶️ Medium',
+    image: 'https://images.unsplash.com/photo-1519147683487-66e0c2d0b5a0?auto=format&fit=crop&w=600&q=80',
+    badge: null,
+    badgeText: '',
+    category: 'mixed',
+    tags: ['5 Vegetables', 'Mustard Oil', 'Sun-Cured']
+  },
+  {
+    id: 'p6',
+    name: 'Slow-Tempered Garlic',
+    hindi: 'Lahsun Ka Achar',
+    desc: 'Whole garlic cloves slow-tempered in spiced mustard oil for 21 days. Rich, slightly pungent, and deeply savoury.',
+    price: 260,
+    weight: '350g',
+    spice: '🌶️🌶️ Medium',
+    image: 'https://images.unsplash.com/photo-1706167754852-128daa40126a?auto=format&fit=crop&w=600&q=80',
+    badge: 'new',
+    badgeText: 'New',
+    category: 'garlic',
+    tags: ['Garlic', 'Mustard Oil', '21-Day Cure']
+  },
+  {
+    id: 'p7',
+    name: 'Sweet Mango Chhunda',
+    hindi: 'Aam Ka Meetha Achar',
+    desc: 'Grated raw mango cooked with jaggery and spices into a sweet-sour relish. Great with parathas and puris.',
+    price: 220,
+    weight: '400g',
+    spice: '🌶️ Mild',
+    image: 'https://images.unsplash.com/photo-1576920803950-3f066b308938?auto=format&fit=crop&w=600&q=80',
+    badge: 'popular',
+    badgeText: 'Popular',
+    category: 'mango',
+    tags: ['Sweet', 'Jaggery', 'Kids Love It']
+  }
+];
 
-        <div class="space-y-2">
-          <h4 class="font-bold text-white uppercase text-[11px] tracking-wider">Navigation</h4>
-          <ul class="space-y-1.5 text-zinc-400 text-xs">
-            <li><a href="index.html" class="hover:text-white">Home (Hero Experience)</a></li>
-            <li><a href="store.html" class="text-brand-400 font-bold">Pickle Store (7 Varieties)</a></li>
-            <li><a href="index.html#delivery" class="hover:text-white">45-Minute Delivery Fleet</a></li>
-          </ul>
-        </div>
+// ===== RENDER PRODUCTS =====
+let activeFilter = 'all';
+let searchQuery = '';
 
-        <div class="space-y-2">
-          <h4 class="font-bold text-white uppercase text-[11px] tracking-wider">Kitchen Hours</h4>
-          <ul class="space-y-1.5 text-zinc-400 text-xs">
-            <li>Mon – Sat: 10:00 AM – 8:30 PM</li>
-            <li>Sunday: 10:00 AM – 7:00 PM</li>
-            <li class="text-emerald-400 font-bold">Local Radius: 8 KM Operating Circle</li>
-          </ul>
-        </div>
-
-        <div class="space-y-2">
-          <h4 class="font-bold text-white uppercase text-[11px] tracking-wider">Contact</h4>
-          <p class="text-zinc-400 text-xs">Sector 15 Commercial Hub, South Enclave, New Delhi - 110017</p>
-          <p class="text-white font-bold">Phone: +91 98765 43210</p>
-        </div>
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  const filtered = PRODUCTS.filter(p => {
+    const matchFilter = activeFilter === 'all' || p.category === activeFilter;
+    const matchSearch = !searchQuery || p.name.toLowerCase().includes(searchQuery) || p.hindi.toLowerCase().includes(searchQuery);
+    return matchFilter && matchSearch;
+  });
+  document.getElementById('productsCount').textContent = `Showing ${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = filtered.map((p, i) => {
+    const cartItems = window.VKCart.getItems();
+    const inCart = cartItems.find(c => c.id === p.id);
+    const qty = inCart ? inCart.qty : 0;
+    return `
+    <div class="product-card" style="animation-delay:${i * 0.07}s" data-id="${p.id}">
+      <div class="product-img">
+        <img src="${p.image}" alt="${p.name}" loading="lazy"/>
+        ${p.badge ? `<span class="product-badge badge-${p.badge}">${p.badgeText}</span>` : ''}
+        <div class="spice-row">${p.spice}</div>
       </div>
-
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-zinc-500 text-[11px]">
-        <p>© 2026 Venu's Kitchen. All rights reserved. Registered Domestic Food Operator.</p>
-        <p>Published on GitHub Pages via Main Branch</p>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- SCRIPT -->
-  <script src="cart.js"></script>
-  <script>
-    let currentFilter = 'all';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // Check URL parameters for initial category filter
-      const urlParams = new URLSearchParams(window.location.search);
-      const catParam = urlParams.get('cat');
-      if (catParam) {
-        filterStore(catParam);
-      } else {
-        renderStoreCards(VENU_PRODUCTS);
-      }
-      if (window.lucide) lucide.createIcons();
-    });
-
-    function renderStoreCards(items) {
-      const grid = document.getElementById('store-products-grid');
-      if (!grid) return;
-
-      if (items.length === 0) {
-        grid.innerHTML = `
-          <div class="col-span-full py-16 text-center text-zinc-500">
-            <i data-lucide="search-x" class="w-10 h-10 mx-auto mb-2 text-zinc-400"></i>
-            <p class="font-semibold text-sm">No pickle varieties found matching your search.</p>
-            <button onclick="filterStore('all')" class="mt-2 text-xs text-brand-600 underline font-bold">Clear Filters</button>
+      <div class="product-body">
+        <h3 class="product-name">${p.name}</h3>
+        <p class="product-hindi">${p.hindi}</p>
+        <p class="product-desc">${p.desc}</p>
+        <div class="product-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        <div class="product-footer">
+          <div class="product-price-block">
+            <span class="product-price">₹${p.price}</span>
+            <span class="product-weight">${p.weight} jar</span>
           </div>
-        `;
-        if (window.lucide) lucide.createIcons();
-        return;
-      }
-
-      grid.innerHTML = items.map(p => `
-        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-zinc-200 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group">
           <div>
-            <!-- Jar Image Container -->
-            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-100 mb-3 relative">
-              <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <span class="absolute top-2.5 left-2.5 ${p.badgeBg} border text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-sm">${p.badge}</span>
-              <span class="absolute bottom-2.5 right-2.5 bg-zinc-900/80 text-white text-[10px] font-bold px-2 py-0.5 rounded">${p.weight}</span>
-            </div>
-
-            <!-- Content -->
-            <div class="space-y-1 mb-2">
-              <div class="flex items-center justify-between text-xs font-semibold text-brand-600">
-                <span>${p.spice}</span>
-                <span class="text-emerald-700 flex items-center gap-1 font-bold">
-                  <i data-lucide="zap" class="w-3 h-3"></i> 45m Dispatch
-                </span>
-              </div>
-              <h3 class="font-extrabold text-lg text-zinc-950 group-hover:text-brand-500 transition-colors">
-                ${p.title}
-              </h3>
-              <p class="text-xs text-zinc-500 italic">${p.hindi}</p>
-              <p class="text-xs text-zinc-600 line-clamp-2 leading-relaxed pt-1">
-                ${p.desc}
-              </p>
-            </div>
-          </div>
-
-          <!-- Bottom Actions -->
-          <div class="pt-3 mt-3 border-t border-zinc-100 flex items-center justify-between gap-3">
-            <div>
-              <span class="text-[10px] uppercase font-bold text-zinc-400 block">Jar Price</span>
-              <div class="flex items-baseline gap-1.5">
-                <span class="font-black text-2xl text-zinc-900">₹${p.price}</span>
-                <span class="text-xs text-zinc-400 line-through">₹${p.mrp}</span>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <button onclick="openQuickView(${p.id})" title="View Details" class="p-2.5 rounded-xl text-zinc-700 bg-zinc-100 hover:bg-zinc-200 transition-colors">
-                <i data-lucide="eye" class="w-4 h-4"></i>
-              </button>
-              <button onclick="addToCart(${p.id})" class="px-4 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 active:scale-95 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all">
-                <i data-lucide="plus" class="w-4 h-4"></i>
-                <span>Add</span>
-              </button>
+            <button class="add-btn ${qty > 0 ? 'added' : ''}" id="add-${p.id}" onclick="addToCart('${p.id}')" ${qty > 0 ? 'style="display:none"' : ''}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add to Basket
+            </button>
+            <div class="qty-ctrl ${qty > 0 ? 'visible' : ''}" id="qty-${p.id}">
+              <button class="qty-btn" onclick="changeQty('${p.id}',-1)">−</button>
+              <span class="qty-num" id="qnum-${p.id}">${qty}</span>
+              <button class="qty-btn" onclick="changeQty('${p.id}',1)">+</button>
             </div>
           </div>
         </div>
-      `).join('');
+      </div>
+    </div>`;
+  }).join('');
+}
 
-      if (window.lucide) lucide.createIcons();
+function addToCart(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  window.VKCart.addItem({ id: p.id, name: p.name, price: p.price, weight: p.weight, image: p.image });
+  document.getElementById(`add-${id}`).style.display = 'none';
+  const qc = document.getElementById(`qty-${id}`);
+  qc.classList.add('visible');
+  document.getElementById(`qnum-${id}`).textContent = window.VKCart.getItems().find(c => c.id === id)?.qty || 1;
+  updateCartUI();
+}
+
+function changeQty(id, delta) {
+  const item = window.VKCart.getItems().find(c => c.id === id);
+  const newQty = (item ? item.qty : 0) + delta;
+  window.VKCart.updateQty(id, newQty);
+  if (newQty <= 0) {
+    document.getElementById(`add-${id}`).style.display = '';
+    document.getElementById(`qty-${id}`).classList.remove('visible');
+  } else {
+    document.getElementById(`qnum-${id}`).textContent = newQty;
+  }
+  updateCartUI();
+}
+
+// ===== CART UI =====
+function updateCartUI() {
+  const count = window.VKCart.count();
+  document.getElementById('cartCount').textContent = count;
+  renderCartDrawer();
+}
+
+function renderCartDrawer() {
+  const items = window.VKCart.getItems();
+  const itemsDiv = document.getElementById('cartItems');
+  const footerDiv = document.getElementById('cartFooter');
+  if (items.length === 0) {
+    itemsDiv.innerHTML = '<div class="cart-empty"><div style="font-size:2.5rem">🛒</div><p>Your basket is empty.<br/>Add some pickles!</p></div>';
+    footerDiv.style.display = 'none';
+  } else {
+    itemsDiv.innerHTML = items.map(it => `
+      <div class="cart-item">
+        <div class="cart-item-img"><img src="${it.image}" alt="${it.name}" loading="lazy"/></div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${it.name}</div>
+          <div class="cart-item-weight">${it.weight}</div>
+          <div class="cart-item-footer">
+            <span class="cart-item-price">₹${it.price * it.qty}</span>
+            <div style="display:flex;align-items:center;gap:4px">
+              <div class="cart-qty">
+                <button class="cq-btn" onclick="cartChangeQty('${it.id}',-1)">−</button>
+                <span class="cq-num">${it.qty}</span>
+                <button class="cq-btn" onclick="cartChangeQty('${it.id}',1)">+</button>
+              </div>
+              <button class="cart-remove" onclick="cartRemove('${it.id}')">✕</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    footerDiv.style.display = '';
+    const total = window.VKCart.total();
+    document.getElementById('cartTotal').textContent = `₹${total}`;
+    document.getElementById('cartDeliveryNote').textContent = total >= 299 ? '✅ Free delivery applied!' : `Add ₹${299 - total} more for free delivery`;
+    // Build WhatsApp message
+    const msg = encodeURIComponent('Hi Venu! I would like to order:\n' + items.map(i => `• ${i.name} (${i.weight}) x${i.qty} = ₹${i.price * i.qty}`).join('\n') + `\n\nTotal: ₹${total}\n\nPlease confirm delivery.`);
+    const waUrl = `https://wa.me/919876543210?text=${msg}`;
+    document.getElementById('cartWhatsApp').href = waUrl;
+    document.getElementById('cartWaBtn').onclick = () => window.open(waUrl, '_blank');
+  }
+  // Sync product grid qty controls
+  PRODUCTS.forEach(p => {
+    const addBtn = document.getElementById(`add-${p.id}`);
+    const qtyCtrl = document.getElementById(`qty-${p.id}`);
+    const qnum = document.getElementById(`qnum-${p.id}`);
+    if (!addBtn) return;
+    const inCart = items.find(c => c.id === p.id);
+    if (inCart) {
+      addBtn.style.display = 'none';
+      qtyCtrl.classList.add('visible');
+      qnum.textContent = inCart.qty;
+    } else {
+      addBtn.style.display = '';
+      qtyCtrl.classList.remove('visible');
     }
+  });
+}
 
-    function filterStore(cat) {
-      currentFilter = cat;
-      document.querySelectorAll('.store-filter-btn').forEach(btn => {
-        if (btn.getAttribute('data-filter') === cat) {
-          btn.className = "store-filter-btn active px-4 py-2 rounded-xl text-xs font-bold bg-brand-500 text-white shadow-sm flex-shrink-0";
-        } else {
-          btn.className = "store-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition-colors flex-shrink-0";
-        }
-      });
+function cartChangeQty(id, delta) {
+  const item = window.VKCart.getItems().find(c => c.id === id);
+  if (!item) return;
+  window.VKCart.updateQty(id, item.qty + delta);
+  updateCartUI();
+}
 
-      if (cat === 'all') {
-        renderStoreCards(VENU_PRODUCTS);
-      } else {
-        const filtered = VENU_PRODUCTS.filter(p => p.category === cat);
-        renderStoreCards(filtered);
-      }
-    }
+function cartRemove(id) {
+  window.VKCart.removeItem(id);
+  updateCartUI();
+}
 
-    function searchStore() {
-      const q = document.getElementById('store-search').value.toLowerCase().trim();
-      let list = VENU_PRODUCTS;
+function openCart() {
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartDrawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderCartDrawer();
+}
 
-      if (currentFilter !== 'all') {
-        list = list.filter(p => p.category === currentFilter);
-      }
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-      if (q) {
-        list = list.filter(p => 
-          p.title.toLowerCase().includes(q) || 
-          p.desc.toLowerCase().includes(q) || 
-          p.ingredients.toLowerCase().includes(q)
-        );
-      }
+// ===== FILTERS =====
+document.querySelectorAll('.filter-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    renderProducts();
+  });
+});
 
-      renderStoreCards(list);
-    }
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchQuery = e.target.value.toLowerCase().trim();
+  renderProducts();
+});
 
-    function openQuickView(id) {
-      const p = VENU_PRODUCTS.find(item => item.id === id);
-      if (!p) return;
+// ===== HAMBURGER =====
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileNav').classList.toggle('open');
+});
 
-      document.getElementById('qv-img').src = p.image;
-      document.getElementById('qv-title').innerText = p.title;
-      document.getElementById('qv-hindi').innerText = p.hindi;
-      document.getElementById('qv-desc').innerText = p.desc;
-      document.getElementById('qv-spice').innerText = p.spice;
-      document.getElementById('qv-badge').innerText = p.badge;
-      document.getElementById('qv-badge').className = `px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${p.badgeBg}`;
-      document.getElementById('qv-oil').innerText = p.oil;
-      document.getElementById('qv-weight').innerText = p.weight;
-      document.getElementById('qv-ingredients').innerText = p.ingredients;
-      document.getElementById('qv-price').innerText = `₹${p.price}`;
-
-      const addBtn = document.getElementById('qv-add-btn');
-      addBtn.onclick = () => {
-        addToCart(p.id);
-        closeQuickView();
-      };
-
-      const modal = document.getElementById('quickview-modal');
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-    }
-
-    function closeQuickView() {
-      const modal = document.getElementById('quickview-modal');
-      modal.classList.add('opacity-0', 'pointer-events-none');
-    }
-
-    function toggleMobileNav() {
-      const nav = document.getElementById('mobile-nav');
-      nav.classList.toggle('hidden');
-    }
-  </script>
+// ===== INIT =====
+window.VKCart.onUpdate = updateCartUI;
+renderProducts();
+updateCartUI();
+</script>
 </body>
 </html>

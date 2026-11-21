@@ -234,7 +234,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
 }
 .wa-quick-btn:hover{opacity:0.92}
 
-/* ===== HORIZONTAL SWIPE FILTER BAR ===== */
+/* ===== HORIZONTAL FILTER BAR WITH ANIMATED ARROWS ===== */
 .filter-wrap{
   background:var(--bg-main);
   position:sticky;
@@ -249,6 +249,17 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   justify-content:space-between;
   gap:16px;
 }
+
+/* Scroll Wrapper with flanking arrows */
+.filter-scroll-wrapper{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex:1;
+  min-width:0;
+  position:relative;
+}
+
 .filter-scroll{
   display:flex;
   align-items:center;
@@ -258,6 +269,8 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   padding:2px 0;
+  flex:1;
+  scroll-behavior:smooth;
 }
 .filter-scroll::-webkit-scrollbar{display:none}
 
@@ -280,6 +293,39 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   box-shadow:0 2px 8px rgba(27,94,32,0.18);
 }
 
+/* Animated Minimalist Arrow Buttons */
+.scroll-arrow-btn{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:#FFF;
+  border:1.5px solid var(--border-light);
+  color:var(--green-dark);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+  cursor:pointer;
+  transition:all .18s ease;
+  flex-shrink:0;
+}
+.scroll-arrow-btn:hover{
+  border-color:var(--green);
+  color:var(--green);
+  background:var(--green-subtle);
+  transform:scale(1.08);
+}
+.scroll-arrow-btn:active{transform:scale(0.92)}
+
+@keyframes arrowHintRight {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+.hint-arrow-right{
+  animation: arrowHintRight 2.2s infinite ease-in-out;
+}
+.hint-arrow-right:hover{animation: none}
+
 .search-field{
   display:flex;
   align-items:center;
@@ -297,7 +343,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   border:none;
   outline:none;
   font-family:inherit;
-  font-size:16px; /* Prevents auto-zoom on iOS */
+  font-size:16px; /* Prevents auto-zoom on mobile */
   color:var(--text-primary);
   width:100%;
   background:transparent;
@@ -734,18 +780,33 @@ footer{
   </div>
 </section>
 
-<!-- Filter Bar -->
+<!-- Filter Bar with Animated Left/Right Navigation Arrows -->
 <div class="filter-wrap">
   <div class="container">
     <div class="filter-flex">
-      <div class="filter-scroll">
-        <button class="filter-btn active" data-filter="all">All Varieties (7)</button>
-        <button class="filter-btn" data-filter="mango">Mango</button>
-        <button class="filter-btn" data-filter="chilli">Chilli</button>
-        <button class="filter-btn" data-filter="lemon">Lemon (Zero Oil)</button>
-        <button class="filter-btn" data-filter="garlic">Garlic</button>
-        <button class="filter-btn" data-filter="mixed">Mixed Veg</button>
+      
+      <div class="filter-scroll-wrapper">
+        <!-- Left Arrow -->
+        <button class="scroll-arrow-btn" id="filterScrollLeft" aria-label="Scroll left" style="opacity:0.35;pointer-events:none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+
+        <!-- Filter Scroll Track -->
+        <div class="filter-scroll" id="filterScroll">
+          <button class="filter-btn active" data-filter="all">All Varieties (7)</button>
+          <button class="filter-btn" data-filter="mango">Mango</button>
+          <button class="filter-btn" data-filter="chilli">Chilli</button>
+          <button class="filter-btn" data-filter="lemon">Lemon (Zero Oil)</button>
+          <button class="filter-btn" data-filter="garlic">Garlic</button>
+          <button class="filter-btn" data-filter="mixed">Mixed Veg</button>
+        </div>
+
+        <!-- Right Arrow with Gentle Hint Animation -->
+        <button class="scroll-arrow-btn hint-arrow-right" id="filterScrollRight" aria-label="Scroll right">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
+
       <div class="search-field">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <input type="text" id="searchInput" placeholder="Search by name or spice..."/>
@@ -1078,6 +1139,46 @@ function closeCart() {
   document.body.style.overflow = '';
 }
 
+// ===== FILTER SCROLL & ARROWS FUNCTIONALITY =====
+const filterScroll = document.getElementById('filterScroll');
+const leftBtn = document.getElementById('filterScrollLeft');
+const rightBtn = document.getElementById('filterScrollRight');
+
+function updateFilterArrows() {
+  if (!filterScroll || !leftBtn || !rightBtn) return;
+  const scrollLeft = filterScroll.scrollLeft;
+  const maxScroll = filterScroll.scrollWidth - filterScroll.clientWidth;
+  
+  if (scrollLeft > 10) {
+    leftBtn.style.opacity = '1';
+    leftBtn.style.pointerEvents = 'auto';
+  } else {
+    leftBtn.style.opacity = '0.35';
+    leftBtn.style.pointerEvents = 'none';
+  }
+
+  if (scrollLeft < maxScroll - 10) {
+    rightBtn.style.opacity = '1';
+    rightBtn.style.pointerEvents = 'auto';
+    rightBtn.classList.add('hint-arrow-right');
+  } else {
+    rightBtn.style.opacity = '0.35';
+    rightBtn.style.pointerEvents = 'none';
+    rightBtn.classList.remove('hint-arrow-right');
+  }
+}
+
+if (leftBtn && rightBtn && filterScroll) {
+  leftBtn.addEventListener('click', () => {
+    filterScroll.scrollBy({ left: -180, behavior: 'smooth' });
+  });
+  rightBtn.addEventListener('click', () => {
+    filterScroll.scrollBy({ left: 180, behavior: 'smooth' });
+  });
+  filterScroll.addEventListener('scroll', updateFilterArrows);
+  window.addEventListener('resize', updateFilterArrows);
+}
+
 // Filters
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -1085,8 +1186,24 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.classList.add('active');
     activeFilter = btn.dataset.filter;
     renderProducts();
+    // Scroll clicked pill into comfortable view
+    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   });
 });
+
+// Check URL search params for deep linking from homepage
+const urlFilter = new URLSearchParams(window.location.search).get('filter');
+if (urlFilter) {
+  const targetBtn = document.querySelector(`.filter-btn[data-filter="${urlFilter}"]`);
+  if (targetBtn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    targetBtn.classList.add('active');
+    activeFilter = urlFilter;
+    setTimeout(() => {
+      targetBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }, 200);
+  }
+}
 
 document.getElementById('searchInput').addEventListener('input', e => {
   searchQuery = e.target.value.toLowerCase().trim();
@@ -1102,6 +1219,7 @@ document.getElementById('hamburger').addEventListener('click', () => {
 if (window.VKCart) window.VKCart.onUpdate = updateCartUI;
 renderProducts();
 updateCartUI();
+setTimeout(updateFilterArrows, 300);
 </script>
 </body>
 </html>

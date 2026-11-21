@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#103D14"/>
 <title>Product Details – Venu's Kitchen</title>
-<meta name="description" content="Detailed ingredients, health benefits, dietary warnings, and curing details for Venu's Kitchen authentic homemade pickles."/>
+<meta name="description" content="Authentic handcrafted homemade pickles. Sun-cured in mustard oil, chemical-free, verified health & medical advisory, fast local delivery."/>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="apple-touch-icon" href="favicon.svg"/>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -19,12 +25,13 @@ body{
   line-height:1.55;
   overflow-x:hidden;
   width:100%;
+  padding-bottom:76px; /* space for mobile sticky bar */
 }
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;border:none;outline:none;background:none}
 
-/* ===== TOKENS ===== */
+/* ===== DESIGN TOKENS ===== */
 :root{
   --green:#1B5E20;
   --green-dark:#103D14;
@@ -79,19 +86,7 @@ header{
   gap:12px;
 }
 .logo{display:flex;align-items:center;gap:10px}
-.logo-icon{
-  width:38px;
-  height:38px;
-  background:var(--green);
-  border-radius:10px;
-  color:#FFF;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:'Playfair Display',serif;
-  font-weight:700;
-  font-size:1.25rem;
-}
+.logo-img{width:38px;height:38px;border-radius:10px;flex-shrink:0}
 .logo-text{display:flex;flex-direction:column;line-height:1.15}
 .logo-title{
   font-family:'Playfair Display',serif;
@@ -196,7 +191,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
 .breadcrumb-inner a:hover{text-decoration:underline}
 .breadcrumb-sep{color:var(--border-light)}
 
-/* ===== PDP LAYOUT (SPACIOUS & ELEGANT) ===== */
+/* ===== PDP LAYOUT ===== */
 .pdp-section{padding:36px 0 64px}
 .pdp-grid{
   display:grid;
@@ -205,7 +200,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   align-items:start;
 }
 
-/* Left Column: Media */
+/* Left: Media */
 .pdp-gallery{
   position:sticky;
   top:84px;
@@ -271,13 +266,12 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
 .assurance-pill span{display:block;font-size:1.25rem;margin-bottom:3px}
 .assurance-pill strong{font-size:0.76rem;color:var(--green-dark);display:block;line-height:1.2}
 
-/* Right Column: Info & Action */
+/* Right: Info & Purchase */
 .pdp-info-col{
   display:flex;
   flex-direction:column;
   gap:24px;
 }
-
 .pdp-title-block{
   display:flex;
   flex-direction:column;
@@ -313,7 +307,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   border-radius:4px;
 }
 
-/* Price & Buy Card (Sleek & Clean) */
+/* Buy Panel */
 .buy-panel-card{
   background:var(--bg-card);
   border:1px solid var(--border-light);
@@ -359,7 +353,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
 }
 .delivery-badge-box svg{color:var(--green);flex-shrink:0}
 
-/* Action Controls */
+/* Actions */
 .buy-actions-row{
   display:flex;
   gap:12px;
@@ -436,7 +430,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   line-height:1.4;
 }
 
-/* Content Panels */
+/* Info Panel */
 .pdp-info-panel{
   background:var(--bg-card);
   border:1px solid var(--border-light);
@@ -459,7 +453,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   line-height:1.65;
 }
 
-/* ===== DOCTOR & MEDICAL ADVISORY SECTION (SPACIOUS & ELEGANT) ===== */
+/* ===== DOCTOR & MEDICAL ADVISORY SECTION ===== */
 .advisory-card{
   background:var(--bg-card);
   border:1px solid var(--border-light);
@@ -499,7 +493,6 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   gap:16px;
 }
 
-/* Clean Alert Boxes */
 .clean-alert{
   border-radius:var(--radius-sm);
   padding:16px;
@@ -548,7 +541,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
 }
 .alert-chef-tip strong{color:var(--green-dark)}
 
-/* Clean Specifications Table */
+/* Clean Table */
 .spec-list-table{
   width:100%;
   border-collapse:collapse;
@@ -568,7 +561,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   font-weight:600;
 }
 
-/* Clean Ingredients Grid (Takes much less space) */
+/* Ingredients Grid */
 .ingredients-compact-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -590,15 +583,13 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   flex-shrink:0;
 }
 
-/* ===== RELATED PRODUCTS (HORIZONTAL SWIPE ON MOBILE) ===== */
+/* Related Pickles Carousel */
 .related-wrapper{
   margin-top:56px;
   border-top:1px solid var(--border-light);
   padding-top:36px;
 }
-.related-header{
-  margin-bottom:20px;
-}
+.related-header{margin-bottom:20px}
 .related-header h3{
   font-family:'Playfair Display',serif;
   font-size:1.35rem;
@@ -660,7 +651,73 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
 .related-price{font-weight:700;font-size:0.92rem;color:var(--green-dark)}
 .related-view{font-size:0.76rem;color:var(--green);font-weight:600}
 
-/* ===== FOOTER ===== */
+/* ===== MOBILE STICKY BOTTOM ACTION BAR ===== */
+.mobile-sticky-action-bar{
+  display:none;
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(255,255,255,0.98);
+  backdrop-filter:blur(8px);
+  border-top:1px solid var(--border-light);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  z-index:9000;
+  box-shadow:0 -4px 16px rgba(0,0,0,0.06);
+}
+.mobile-sticky-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  max-width:480px;
+  margin:0 auto;
+}
+.mobile-sticky-price{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+.mobile-sticky-price strong{
+  font-size:1.25rem;
+  font-weight:700;
+  color:var(--green-dark);
+}
+.mobile-sticky-price span{
+  font-size:0.72rem;
+  color:var(--text-muted);
+}
+.mobile-sticky-buttons{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex:1;
+  justify-content:flex-end;
+}
+.mobile-sticky-add-btn{
+  background:var(--green);
+  color:#FFF;
+  font-size:0.84rem;
+  font-weight:600;
+  padding:10px 16px;
+  border-radius:var(--radius-sm);
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.mobile-sticky-wa-btn{
+  background:#25D366;
+  color:#FFF;
+  font-size:0.84rem;
+  font-weight:600;
+  padding:10px 14px;
+  border-radius:var(--radius-sm);
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+/* Footer */
 footer{
   background:#0E3411;
   color:rgba(255,255,255,0.7);
@@ -676,7 +733,7 @@ footer{
 }
 .footer-row a{color:var(--gold-light)}
 
-/* ===== MOBILE RESPONSIVE ENHANCEMENTS ===== */
+/* ===== RESPONSIVE ===== */
 @media(max-width:960px){
   .pdp-grid{grid-template-columns:1fr;gap:32px}
   .pdp-gallery{position:static}
@@ -693,7 +750,7 @@ footer{
   .basket-btn{padding:8px 12px}
   .logo-title{font-size:1.02rem}
   .logo-subtitle{display:none}
-  .logo-icon{width:34px;height:34px;font-size:1.15rem}
+  .logo-img{width:34px;height:34px}
 
   .pdp-section{padding:20px 0 48px}
   .pdp-main-img{height:280px}
@@ -708,7 +765,6 @@ footer{
   
   .ingredients-compact-grid{grid-template-columns:1fr;gap:6px}
 
-  /* Horizontal swipeable related products (No vertical congestion) */
   .related-scroller{
     display:flex;
     overflow-x:auto;
@@ -724,6 +780,8 @@ footer{
     flex:0 0 200px;
     scroll-snap-align:start;
   }
+
+  .mobile-sticky-action-bar{display:block}
 }
 </style>
 </head>
@@ -739,7 +797,7 @@ footer{
   <div class="container">
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-icon">V</div>
+        <img src="logo.svg" alt="Venu's Kitchen Logo" class="logo-img" width="38" height="38"/>
         <div class="logo-text">
           <span class="logo-title">Venu's Kitchen</span>
           <span class="logo-subtitle">Homemade Pickles</span>
@@ -821,12 +879,12 @@ footer{
           <div class="pdp-product-hindi" id="productHindi">Achar Name</div>
           <div class="pdp-meta-row">
             <span class="rating-stars-clean">★★★★★ 4.9</span>
-            <span id="ratingCountText">(186 customer reviews)</span>
+            <span id="ratingCountText">(186 verified reviews)</span>
             <span class="fssai-micro-badge">FSSAI: 23324009000123</span>
           </div>
         </div>
 
-        <!-- Buy Panel (Clean & Ergonomic) -->
+        <!-- Buy Panel -->
         <div class="buy-panel-card">
           <div class="price-display-row">
             <span class="price-primary" id="productPrice">₹0</span>
@@ -861,7 +919,7 @@ footer{
           <p class="panel-text" id="productDesc">Detailed description...</p>
         </div>
 
-        <!-- DOCTOR & MEDICAL ADVISORY (CLEAN, SPACIOUS, UNCLUTTERED) -->
+        <!-- DOCTOR & MEDICAL ADVISORY -->
         <div class="advisory-card">
           <div class="advisory-header">
             <h3 class="advisory-title">🩺 Dietary Compatibility & Health Guide</h3>
@@ -869,7 +927,6 @@ footer{
           </div>
           <div class="advisory-body">
             
-            <!-- Who can eat -->
             <div class="clean-alert alert-green">
               <div class="alert-sym">✅</div>
               <div class="alert-detail">
@@ -878,7 +935,6 @@ footer{
               </div>
             </div>
 
-            <!-- Health warnings -->
             <div class="clean-alert alert-amber">
               <div class="alert-sym">⚠️</div>
               <div class="alert-detail">
@@ -887,7 +943,6 @@ footer{
               </div>
             </div>
 
-            <!-- Serving tip -->
             <div class="alert-chef-tip">
               <strong>💡 Culinary Serving Tip:</strong>
               <span id="healthTipText">Enjoy in moderation with whole meals.</span>
@@ -896,7 +951,7 @@ footer{
           </div>
         </div>
 
-        <!-- Compact Ingredients List (Takes minimal space) -->
+        <!-- Compact Ingredients Grid -->
         <div class="pdp-info-panel">
           <h3 class="panel-heading">🌱 Pure Kitchen Ingredients</h3>
           <p class="panel-text" id="ingredientsSummary">All natural, cold-pressed oils and hand-roasted spices.</p>
@@ -926,13 +981,30 @@ footer{
       <div class="related-header">
         <h3>Explore Other Traditional Varieties</h3>
       </div>
-      <div class="related-scroller" id="relatedGrid">
-        <!-- Rendered by JS -->
-      </div>
+      <div class="related-scroller" id="relatedGrid"></div>
     </div>
 
   </div>
 </section>
+
+<!-- Mobile Sticky Bottom Action Bar -->
+<div class="mobile-sticky-action-bar">
+  <div class="mobile-sticky-inner">
+    <div class="mobile-sticky-price">
+      <strong id="stickyPrice">₹240</strong>
+      <span id="stickyWeight">500g Jar</span>
+    </div>
+    <div class="mobile-sticky-buttons">
+      <button class="mobile-sticky-add-btn" id="stickyAddBtn" onclick="document.getElementById('btnAddToCart').click()">
+        + Add
+      </button>
+      <a href="#" id="stickyWaBtn" target="_blank" class="mobile-sticky-wa-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- Footer -->
 <footer>
@@ -1191,7 +1263,7 @@ if (!CATALOG[currentId]) currentId = 'p1';
 
 const prod = CATALOG[currentId];
 
-// Update DOM elements cleanly
+// DOM
 document.title = `${prod.name} – Venu's Kitchen`;
 document.getElementById('breadcrumbName').textContent = prod.name;
 document.getElementById('productImage').src = prod.image;
@@ -1208,12 +1280,16 @@ document.getElementById('specWeight').textContent = prod.weight;
 document.getElementById('specCure').textContent = prod.cure;
 document.getElementById('specOil').textContent = prod.oil;
 
-// Suitable & Warning lists
+// Sticky Bar
+document.getElementById('stickyPrice').textContent = `₹${prod.price}`;
+document.getElementById('stickyWeight').textContent = prod.weight;
+
+// Lists
 document.getElementById('healthSuitableList').innerHTML = prod.suitable.map(s => `<li>${s}</li>`).join('');
 document.getElementById('healthWarningList').innerHTML = prod.warnings.map(w => `<li>${w}</li>`).join('');
 document.getElementById('healthTipText').innerHTML = prod.tip;
 
-// Compact Ingredients Grid
+// Ingredients
 document.getElementById('ingredientsSummary').textContent = `Handcrafted with ${prod.ingredients.length} pure kitchen ingredients without chemical preservatives:`;
 document.getElementById('ingredientsGrid').innerHTML = prod.ingredients.map(ing => `
   <div class="ing-item"><div class="ing-dot"></div><span>${ing}</span></div>
@@ -1221,7 +1297,9 @@ document.getElementById('ingredientsGrid').innerHTML = prod.ingredients.map(ing 
 
 // WhatsApp Direct Link
 const waMsg = encodeURIComponent(`Hi Venu! I would like to order: ${prod.name} (${prod.weight}) - ₹${prod.price}.\nPlease confirm delivery.`);
-document.getElementById('btnWhatsAppDirect').href = `https://wa.me/919876543210?text=${waMsg}`;
+const waLink = `https://wa.me/919876543210?text=${waMsg}`;
+document.getElementById('btnWhatsAppDirect').href = waLink;
+document.getElementById('stickyWaBtn').href = waLink;
 
 // Stepper
 let currentQty = 1;
@@ -1253,9 +1331,11 @@ btnAdd.addEventListener('click', () => {
   }
   btnAdd.textContent = '✓ Added to Basket!';
   btnAdd.classList.add('added');
+  document.getElementById('stickyAddBtn').textContent = '✓ Added!';
   setTimeout(() => {
     btnAdd.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add to Basket';
     btnAdd.classList.remove('added');
+    document.getElementById('stickyAddBtn').textContent = '+ Add';
   }, 1600);
   updateCartUI();
 });

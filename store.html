@@ -2,23 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
 <title>Our Pickles – Venu's Kitchen</title>
 <meta name="description" content="Browse all 7 authentic homemade pickle varieties by Venu's Kitchen. Sun-cured, chemical-free, delivered fresh within 45 minutes."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-/* ===== RESET & BASE ===== */
+/* ===== RESET & ROOT ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',sans-serif;background:#FAFAF5;color:#1a1a1a;line-height:1.6;overflow-x:hidden;width:100%}
+html{scroll-behavior:smooth;font-size:16px;-webkit-tap-highlight-color:transparent}
+body{font-family:'Inter',sans-serif;background:#FAFAF5;color:#1e293b;line-height:1.6;overflow-x:hidden;width:100%}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;border:none;outline:none}
 ul{list-style:none}
 
-/* ===== TOKENS ===== */
 :root{
   --green:#1D5C2E;
   --green-dark:#153F20;
@@ -28,198 +27,184 @@ ul{list-style:none}
   --cream:#FAFAF5;
   --cream-mid:#F3F0E6;
   --cream-dark:#E8E2D0;
-  --text:#1a1a1a;
-  --text-mid:#4a4a4a;
-  --text-soft:#7a7a6a;
+  --text:#1e293b;
+  --text-mid:#475569;
+  --text-soft:#64748b;
   --white:#ffffff;
-  --shadow-sm:0 1px 4px rgba(0,0,0,0.08);
-  --shadow-md:0 4px 16px rgba(0,0,0,0.10);
-  --shadow-lg:0 8px 32px rgba(0,0,0,0.13);
-  --radius:10px;
-  --radius-lg:16px;
+  --radius:12px;
+  --radius-lg:18px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md:0 4px 14px rgba(0,0,0,0.07);
+  --shadow-lg:0 8px 28px rgba(0,0,0,0.11);
 }
 
-/* ===== UTILITY ===== */
-.container{width:100%;max-width:1140px;margin:0 auto;padding:0 20px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:var(--radius);font-size:0.9rem;font-weight:600;transition:all .2s ease;white-space:nowrap}
-.btn-primary{background:var(--green);color:var(--white)}
-.btn-primary:hover{background:var(--green-dark);transform:translateY(-1px)}
-.btn-outline{background:transparent;color:var(--green);border:1.5px solid var(--green)}
-.btn-outline:hover{background:var(--green);color:var(--white)}
-.btn-sm{padding:7px 12px;font-size:0.8rem;border-radius:8px}
+/* ===== CONTAINER ===== */
+.container{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
 
 /* ===== ANNOUNCEMENT BAR ===== */
 .announcement{background:var(--green-dark);color:var(--white);text-align:center;font-size:0.78rem;padding:7px 16px;letter-spacing:0.02em}
 .announcement strong{color:var(--gold-light)}
 
-/* ===== HEADER (MOBILE-PROOF, ZERO OVERFLOW) ===== */
+/* ===== HEADER ===== */
 header{background:var(--white);border-bottom:1px solid var(--cream-dark);position:sticky;top:0;z-index:1000;box-shadow:var(--shadow-sm);width:100%}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:66px;gap:10px;width:100%}
-.logo{display:flex;align-items:center;gap:8px;flex-shrink:0;min-width:0}
-.logo-mark{width:40px;height:40px;background:var(--green);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--white);font-weight:700;flex-shrink:0}
-.logo-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
-.logo-name{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;color:var(--green-dark);white-space:nowrap}
-.logo-sub{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);white-space:nowrap}
-nav{display:flex;align-items:center;gap:4px}
-nav a{padding:8px 12px;border-radius:8px;font-size:0.86rem;font-weight:500;color:var(--text-mid);transition:all .15s}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px;width:100%}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{width:38px;height:38px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--white);font-weight:700}
+.logo-text{display:flex;flex-direction:column;line-height:1.15}
+.logo-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--green-dark)}
+.logo-sub{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft)}
+nav{display:flex;align-items:center;gap:6px}
+nav a{padding:8px 14px;border-radius:8px;font-size:0.88rem;font-weight:500;color:var(--text-mid);transition:all .15s}
 nav a:hover,nav a.active{background:var(--cream-mid);color:var(--green)}
-.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.basket-btn{display:flex;align-items:center;gap:6px;background:var(--green);color:var(--white);padding:8px 14px;border-radius:var(--radius);font-size:0.85rem;font-weight:600;transition:all .2s;cursor:pointer;border:none}
+.header-actions{display:flex;align-items:center;gap:10px}
+.basket-btn{display:flex;align-items:center;gap:8px;background:var(--green);color:var(--white);padding:8px 16px;border-radius:var(--radius);font-size:0.85rem;font-weight:600;transition:all .2s;cursor:pointer}
 .basket-btn:hover{background:var(--green-dark)}
-.basket-count{background:var(--gold);color:var(--white);border-radius:50%;width:19px;height:19px;font-size:0.68rem;display:flex;align-items:center;justify-content:center;font-weight:700}
-.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:38px;height:38px;background:none;border:1.5px solid var(--cream-dark);border-radius:8px;padding:6px;flex-shrink:0}
-.hamburger span{width:20px;height:2px;background:var(--green);border-radius:2px;display:block}
-.mobile-nav{display:none;flex-direction:column;background:var(--white);border-top:1px solid var(--cream-dark);padding:14px 16px;gap:4px}
-.mobile-nav a{padding:10px 12px;border-radius:8px;font-size:0.92rem;font-weight:500;color:var(--text-mid)}
+.basket-count{background:var(--gold);color:var(--white);border-radius:50%;width:20px;height:20px;font-size:0.7rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:40px;height:40px;background:none;border:1.5px solid var(--cream-dark);border-radius:9px;padding:6px}
+.hamburger span{width:20px;height:2px;background:var(--green);border-radius:2px}
+.mobile-nav{display:none;flex-direction:column;background:var(--white);border-top:1px solid var(--cream-dark);padding:14px 20px;gap:6px}
+.mobile-nav a{padding:10px 14px;border-radius:8px;font-size:0.92rem;font-weight:500;color:var(--text-mid)}
 .mobile-nav a:hover{background:var(--cream-mid);color:var(--green)}
 .mobile-nav.open{display:flex}
 
-/* ===== STORE BANNER ===== */
-.store-banner{background:var(--green-dark);padding:32px 0 28px}
-.store-banner h1{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.2rem);color:var(--white);margin-bottom:6px}
-.store-banner p{font-size:0.88rem;color:rgba(255,255,255,0.7)}
-.store-banner-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.store-stats{display:flex;gap:20px;flex-wrap:wrap}
-.store-stat{text-align:center;background:rgba(255,255,255,0.08);border-radius:var(--radius);padding:8px 16px}
-.store-stat strong{display:block;font-size:1.2rem;font-weight:700;color:var(--gold-light)}
-.store-stat span{font-size:0.72rem;color:rgba(255,255,255,0.6)}
+/* ===== STORE HERO HEADER (CLEAN & SPACIOUS) ===== */
+.store-hero{background:var(--green-dark);color:var(--white);padding:32px 0 28px}
+.store-hero-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.store-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.2rem);color:var(--white);margin-bottom:6px}
+.store-hero p{font-size:0.9rem;color:rgba(255,255,255,0.75)}
+.prelaunch-pill-notice{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.18);border:1px solid rgba(201,168,76,0.4);color:var(--gold-light);padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:600}
 
-/* ===== PRE-LAUNCH NOTICE ===== */
-.prelaunch-bar{background:var(--cream-mid);border-bottom:1px solid var(--cream-dark);padding:12px 0}
-.prelaunch-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.prelaunch-text{display:flex;align-items:center;gap:10px;font-size:0.84rem;color:var(--text-mid)}
-.prelaunch-text .badge{background:#FFF3CD;border:1px solid #FFCD39;color:#856404;font-size:0.7rem;font-weight:700;padding:3px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:0.06em;white-space:nowrap}
-.prelaunch-text strong{color:var(--green-dark)}
-.prelaunch-actions{display:flex;gap:10px;align-items:center}
-.wa-btn{display:inline-flex;align-items:center;gap:7px;background:#25D366;color:var(--white);padding:8px 14px;border-radius:var(--radius);font-size:0.8rem;font-weight:600;transition:background .2s}
-.wa-btn:hover{background:#1DB954}
+/* ===== UNCONGESTED FILTER & SEARCH BAR ===== */
+.store-toolbar{background:var(--white);border-bottom:1px solid var(--cream-dark);padding:14px 0;position:sticky;top:64px;z-index:100;box-shadow:var(--shadow-sm)}
+.toolbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
-/* ===== FILTER BAR ===== */
-.filter-bar{background:var(--white);border-bottom:1px solid var(--cream-dark);padding:12px 0;position:sticky;top:66px;z-index:100}
-.filter-inner{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.filter-label{font-size:0.8rem;font-weight:600;color:var(--text-soft);flex-shrink:0}
-.filter-pills{display:flex;gap:6px;flex-wrap:wrap;flex:1}
-.filter-pill{padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:600;border:1.5px solid var(--cream-dark);background:var(--white);color:var(--text-mid);cursor:pointer;transition:all .15s}
-.filter-pill:hover,.filter-pill.active{background:var(--green);color:var(--white);border-color:var(--green)}
-.search-box{display:flex;align-items:center;gap:8px;border:1.5px solid var(--cream-dark);border-radius:var(--radius);padding:6px 12px;background:var(--white);min-width:170px;flex-shrink:0}
-.search-box input{border:none;outline:none;font-family:inherit;font-size:0.82rem;color:var(--text);background:transparent;width:100%}
-.search-box input::placeholder{color:var(--text-soft)}
-.search-box svg{color:var(--text-soft);flex-shrink:0}
+/* Horizontal Scrollable Rail for Categories (Never Wraps awkwardly) */
+.category-rail{display:flex;align-items:center;gap:8px;overflow-x:auto;padding:2px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.category-rail::-webkit-scrollbar{display:none}
+.cat-pill{padding:8px 18px;border-radius:50px;font-size:0.82rem;font-weight:600;border:1.5px solid var(--cream-dark);background:var(--white);color:var(--text-mid);cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0}
+.cat-pill:hover,.cat-pill.active{background:var(--green);color:var(--white);border-color:var(--green)}
+
+/* Search Box */
+.search-wrapper{display:flex;align-items:center;gap:8px;border:1.5px solid var(--cream-dark);border-radius:50px;padding:8px 16px;background:var(--cream-mid);min-width:220px;flex-shrink:0}
+.search-wrapper input{border:none;outline:none;font-family:inherit;font-size:0.84rem;color:var(--text);background:transparent;width:100%}
+.search-wrapper input::placeholder{color:var(--text-soft)}
+.search-wrapper svg{color:var(--text-soft);flex-shrink:0}
 
 /* ===== PRODUCT GRID ===== */
 .store-main{padding:36px 0 64px}
-.products-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:10px}
-.products-header h2{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--green-dark)}
-.products-count{font-size:0.82rem;color:var(--text-soft)}
-.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.store-main-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.store-main-header h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--green-dark)}
+.products-count{font-size:0.84rem;color:var(--text-soft)}
 
-/* ===== PRODUCT CARD (AMAZON-STYLE LINKABLE) ===== */
-.product-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--cream-dark);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+
+/* ===== PRODUCT CARD (AIRY & CLICKABLE) ===== */
+.product-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--cream-dark);transition:all .25s ease;display:flex;flex-direction:column;box-shadow:var(--shadow-sm)}
 .product-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+
 .product-img-link{height:220px;overflow:hidden;position:relative;background:var(--cream-mid);display:block;cursor:pointer}
 .product-img-link img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
-.product-card:hover .product-img-link img{transform:scale(1.05)}
-.product-badge{position:absolute;top:10px;left:10px;font-size:0.68rem;font-weight:700;padding:4px 9px;border-radius:50px;letter-spacing:0.06em;text-transform:uppercase}
+.product-card:hover .product-img-link img{transform:scale(1.04)}
+
+.product-badge{position:absolute;top:12px;left:12px;font-size:0.7rem;font-weight:700;padding:5px 12px;border-radius:50px;letter-spacing:0.06em;text-transform:uppercase}
 .badge-bestseller{background:var(--green);color:var(--white)}
 .badge-popular{background:var(--gold);color:var(--white)}
 .badge-new{background:#2563EB;color:var(--white)}
 .badge-zero-oil{background:#0F766E;color:var(--white)}
-.spice-row{position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,0.65);color:var(--white);border-radius:50px;font-size:0.68rem;font-weight:600;padding:3px 9px;display:flex;align-items:center;gap:4px}
-.product-body{padding:16px;display:flex;flex-direction:column;gap:0;flex:1}
-.product-title-link{display:block;margin-bottom:3px}
-.product-name{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--green-dark);line-height:1.3;transition:color .15s}
+
+.spice-row{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,0.65);backdrop-filter:blur(4px);color:var(--white);border-radius:50px;font-size:0.72rem;font-weight:600;padding:4px 10px;display:flex;align-items:center;gap:4px}
+
+.product-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.product-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--green-dark);line-height:1.3;margin-bottom:4px;transition:color .15s}
 .product-name:hover{color:var(--gold)}
-.product-hindi{font-size:0.76rem;color:var(--text-soft);margin-bottom:8px}
-.product-desc{font-size:0.82rem;color:var(--text-mid);line-height:1.55;margin-bottom:12px;flex:1}
-.product-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
-.tag{background:var(--cream-mid);color:var(--text-mid);font-size:0.7rem;font-weight:500;padding:3px 8px;border-radius:50px}
-.health-hint-link{display:inline-flex;align-items:center;gap:5px;font-size:0.76rem;color:var(--green);font-weight:600;margin-bottom:12px;text-decoration:none}
-.health-hint-link:hover{text-decoration:underline}
-.product-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid var(--cream-dark);padding-top:12px;margin-top:auto}
+.product-hindi{font-size:0.78rem;color:var(--text-soft);margin-bottom:10px}
+.product-desc{font-size:0.85rem;color:var(--text-mid);line-height:1.6;margin-bottom:14px;flex:1}
+
+.health-callout-link{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--green);font-weight:600;margin-bottom:14px;padding:6px 12px;background:rgba(29,92,46,0.06);border-radius:6px;width:fit-content;transition:background .15s}
+.health-callout-link:hover{background:rgba(29,92,46,0.12)}
+
+.product-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--cream-dark);padding-top:14px;margin-top:auto}
 .product-price-block{display:flex;flex-direction:column}
-.product-price{font-size:1.15rem;font-weight:700;color:var(--green)}
-.product-weight{font-size:0.74rem;color:var(--text-soft)}
-.btn-group-card{display:flex;align-items:center;gap:6px}
-.btn-details-link{background:transparent;color:var(--green);border:1.5px solid var(--green);padding:7px 11px;border-radius:var(--radius);font-size:0.78rem;font-weight:600;transition:all .15s;text-align:center}
+.product-price{font-size:1.25rem;font-weight:700;color:var(--green)}
+.product-weight{font-size:0.76rem;color:var(--text-soft)}
+
+.btn-group-card{display:flex;align-items:center;gap:8px}
+.btn-details-link{background:transparent;color:var(--green);border:1.5px solid var(--green);padding:8px 14px;border-radius:var(--radius);font-size:0.82rem;font-weight:600;transition:all .15s}
 .btn-details-link:hover{background:var(--green);color:var(--white)}
-.add-btn{background:var(--green);color:var(--white);border:none;padding:8px 12px;border-radius:var(--radius);font-size:0.78rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;white-space:nowrap}
+
+.add-btn{background:var(--green);color:var(--white);border:none;padding:9px 16px;border-radius:var(--radius);font-size:0.82rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;white-space:nowrap}
 .add-btn:hover{background:var(--green-dark)}
+
 .qty-ctrl{display:none;align-items:center;gap:0;border:1.5px solid var(--green);border-radius:var(--radius);overflow:hidden}
 .qty-ctrl.visible{display:flex}
-.qty-btn{background:var(--green);color:var(--white);border:none;width:30px;height:32px;font-size:0.95rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.qty-btn{background:var(--green);color:var(--white);border:none;width:32px;height:34px;font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .qty-btn:hover{background:var(--green-dark)}
-.qty-num{padding:0 10px;font-size:0.85rem;font-weight:600;color:var(--green);background:var(--white);min-width:30px;text-align:center}
+.qty-num{padding:0 10px;font-size:0.88rem;font-weight:600;color:var(--green);background:var(--white);min-width:30px;text-align:center}
 
 /* ===== CART DRAWER ===== */
 .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:9000;opacity:0;pointer-events:none;transition:opacity .25s}
 .cart-overlay.open{opacity:1;pointer-events:all}
 .cart-drawer{position:fixed;top:0;right:-420px;width:min(420px,100vw);height:100%;background:var(--white);z-index:9001;display:flex;flex-direction:column;transition:right .3s cubic-bezier(0.4,0,0.2,1);box-shadow:-8px 0 32px rgba(0,0,0,0.12)}
 .cart-drawer.open{right:0}
-.cart-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--cream-dark)}
-.cart-header h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--green-dark)}
-.cart-close{background:var(--cream-mid);border:none;width:34px;height:34px;border-radius:8px;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-mid)}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:20px;border-bottom:1px solid var(--cream-dark)}
+.cart-header h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--green-dark)}
+.cart-close{background:var(--cream-mid);border:none;width:36px;height:36px;border-radius:8px;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-mid)}
 .cart-close:hover{background:var(--cream-dark)}
-.cart-items{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:12px}
+.cart-items{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
 .cart-empty{text-align:center;padding:60px 20px;color:var(--text-soft)}
-.cart-empty p{margin-top:10px;font-size:0.88rem}
-.cart-item{display:flex;gap:12px;align-items:flex-start;padding-bottom:12px;border-bottom:1px solid var(--cream-dark)}
-.cart-item-img{width:56px;height:56px;border-radius:8px;overflow:hidden;flex-shrink:0;background:var(--cream-mid)}
+.cart-empty p{margin-top:12px;font-size:0.9rem}
+.cart-item{display:flex;gap:12px;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid var(--cream-dark)}
+.cart-item-img{width:60px;height:60px;border-radius:10px;overflow:hidden;flex-shrink:0;background:var(--cream-mid)}
 .cart-item-img img{width:100%;height:100%;object-fit:cover}
 .cart-item-info{flex:1;min-width:0}
-.cart-item-name{font-weight:600;font-size:0.86rem;color:var(--text);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cart-item-weight{font-size:0.72rem;color:var(--text-soft)}
+.cart-item-name{font-weight:600;font-size:0.88rem;color:var(--text);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cart-item-weight{font-size:0.75rem;color:var(--text-soft)}
 .cart-item-footer{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
-.cart-item-price{font-weight:700;font-size:0.92rem;color:var(--green)}
-.cart-qty{display:flex;align-items:center;gap:0;border:1.5px solid var(--cream-dark);border-radius:7px;overflow:hidden}
-.cq-btn{background:var(--cream-mid);border:none;width:26px;height:26px;font-size:0.95rem;font-weight:700;cursor:pointer;color:var(--text)}
+.cart-item-price{font-weight:700;font-size:0.95rem;color:var(--green)}
+.cart-qty{display:flex;align-items:center;gap:0;border:1.5px solid var(--cream-dark);border-radius:8px;overflow:hidden}
+.cq-btn{background:var(--cream-mid);border:none;width:28px;height:28px;font-size:0.95rem;font-weight:700;cursor:pointer;color:var(--text)}
 .cq-btn:hover{background:var(--cream-dark)}
-.cq-num{padding:0 8px;font-size:0.82rem;font-weight:600;color:var(--text);min-width:26px;text-align:center}
+.cq-num{padding:0 8px;font-size:0.85rem;font-weight:600;color:var(--text);min-width:28px;text-align:center}
 .cart-remove{background:none;border:none;color:var(--text-soft);cursor:pointer;font-size:0.75rem;padding:0 4px;margin-left:4px}
 .cart-remove:hover{color:#dc2626}
-.cart-footer{padding:16px 20px;border-top:1px solid var(--cream-dark);background:var(--cream-mid)}
+.cart-footer{padding:20px;border-top:1px solid var(--cream-dark);background:var(--cream-mid)}
 .cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.cart-total-label{font-size:0.85rem;color:var(--text-mid)}
-.cart-total-val{font-weight:700;font-size:1.1rem;color:var(--green-dark)}
-.cart-delivery-note{font-size:0.75rem;color:var(--text-soft);margin-bottom:12px}
-.btn-checkout-disabled{width:100%;padding:14px;background:#d1d5db;color:#4b5563;border-radius:var(--radius);font-weight:700;font-size:0.92rem;cursor:not-allowed;border:none;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px}
-.checkout-notice{background:var(--white);border-left:3px solid var(--gold);border-radius:var(--radius);padding:10px 12px;font-size:0.76rem;color:var(--text-mid);line-height:1.5}
-.checkout-notice strong{color:var(--green-dark);display:block;margin-bottom:3px}
+.cart-total-label{font-size:0.88rem;color:var(--text-mid)}
+.cart-total-val{font-weight:700;font-size:1.15rem;color:var(--green-dark)}
+.cart-delivery-note{font-size:0.76rem;color:var(--text-soft);margin-bottom:14px}
+.btn-checkout-disabled{width:100%;padding:14px;background:#d1d5db;color:#4b5563;border-radius:var(--radius);font-weight:700;font-size:0.92rem;cursor:not-allowed;border:none;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px}
+.checkout-notice{background:var(--white);border-left:3px solid var(--gold);border-radius:var(--radius);padding:12px;font-size:0.78rem;color:var(--text-mid);line-height:1.5}
+.checkout-notice strong{color:var(--green-dark);display:block;margin-bottom:4px}
 .checkout-notice a{color:var(--green);font-weight:600;text-decoration:underline}
-.cart-wa-btn{width:100%;padding:12px;background:#25D366;color:var(--white);border-radius:var(--radius);font-weight:700;font-size:0.88rem;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;transition:background .2s}
+.cart-wa-btn{width:100%;padding:13px;background:#25D366;color:var(--white);border-radius:var(--radius);font-weight:700;font-size:0.9rem;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;transition:background .2s}
 .cart-wa-btn:hover{background:#1DB954}
 
 /* ===== FOOTER STRIP ===== */
-.store-footer-strip{background:var(--green-dark);color:rgba(255,255,255,0.75);padding:24px 0}
+.store-footer-strip{background:var(--green-dark);color:rgba(255,255,255,0.75);padding:26px 0}
 .store-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.store-footer-inner p{font-size:0.82rem}
+.store-footer-inner p{font-size:0.85rem}
 .store-footer-inner strong{color:var(--gold-light)}
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .products-grid{grid-template-columns:repeat(2,1fr)}
+/* ===== RESPONSIVE POLISH ===== */
+@media(max-width:960px){
+  .products-grid{grid-template-columns:repeat(2,1fr);gap:20px}
 }
 @media(max-width:768px){
-  .container{padding:0 12px}
-  .header-inner{height:60px;gap:8px}
-  .logo-sub{display:none}
-  .logo-name{font-size:1.02rem}
-  .logo-mark{width:36px;height:36px;font-size:1.15rem}
+  .container{padding:0 16px}
+  .header-inner{height:60px}
   nav{display:none}
   .hamburger{display:flex}
   .basket-label{display:none}
-  .basket-btn{padding:8px 10px}
-  .store-banner-inner{flex-direction:column;align-items:flex-start}
-  .store-stats{gap:10px;width:100%;justify-content:space-between}
-  .store-stat{flex:1;padding:8px 6px}
-  .filter-inner{gap:8px}
-  .search-box{width:100%;min-width:0}
-  .prelaunch-inner{flex-direction:column;align-items:flex-start}
-  .store-footer-inner{flex-direction:column;text-align:center}
-  .filter-bar{top:60px}
-}
-@media(max-width:600px){
-  .products-grid{grid-template-columns:1fr}
-  .product-img-link{height:200px}
+  .basket-btn{padding:8px 12px}
+  .logo-sub{display:none}
+  .logo-name{font-size:1.05rem}
+  .store-hero{padding:24px 0}
+  .store-toolbar{top:60px;padding:10px 0}
+  .toolbar-inner{flex-direction:column;align-items:stretch;gap:10px}
+  .search-wrapper{width:100%}
+  .products-grid{grid-template-columns:1fr;gap:20px}
+  .product-img-link{height:210px}
+  .product-body{padding:16px}
 }
 @media(max-width:420px){
   .cart-drawer{width:100vw}
@@ -272,72 +257,49 @@ nav a:hover,nav a.active{background:var(--cream-mid);color:var(--green)}
   </div>
 </header>
 
-<!-- Store Banner -->
-<div class="store-banner">
+<!-- Store Hero Header -->
+<div class="store-hero">
   <div class="container">
-    <div class="store-banner-inner">
+    <div class="store-hero-inner">
       <div>
-        <h1>Our Pickle Collection</h1>
-        <p>7 authentic varieties · Click any pickle to view full health & medical guide</p>
+        <h1>Traditional Pickle Collection</h1>
+        <p>7 authentic varieties · Sun-cured for 21 days · Food-grade glass jars</p>
       </div>
-      <div class="store-stats">
-        <div class="store-stat"><strong>7</strong><span>Varieties</span></div>
-        <div class="store-stat"><strong>21</strong><span>Days Cured</span></div>
-        <div class="store-stat"><strong>45min</strong><span>Delivery</span></div>
+      <div class="prelaunch-pill-notice">
+        <span>🔔 Pre-Launch Store · WhatsApp Assisted Orders</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Pre-launch Notice -->
-<div class="prelaunch-bar">
+<!-- Category Rail & Search Toolbar (Smooth Horizontal Swipe on Mobile) -->
+<div class="store-toolbar">
   <div class="container">
-    <div class="prelaunch-inner">
-      <div class="prelaunch-text">
-        <span class="badge">Pre-Launch</span>
-        <span>🔔 <strong>Online checkout is launching soon.</strong> Add to basket and order instantly via WhatsApp.</span>
+    <div class="toolbar-inner">
+      <div class="category-rail">
+        <button class="cat-pill active" data-filter="all">All Pickles (7)</button>
+        <button class="cat-pill" data-filter="mango">Mango</button>
+        <button class="cat-pill" data-filter="chilli">Chilli</button>
+        <button class="cat-pill" data-filter="lemon">Lemon (Zero Oil)</button>
+        <button class="cat-pill" data-filter="garlic">Garlic</button>
+        <button class="cat-pill" data-filter="mixed">Mixed Veg</button>
       </div>
-      <div class="prelaunch-actions">
-        <a href="https://wa.me/919876543210" class="wa-btn" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-          Order via WhatsApp
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Filter Bar -->
-<div class="filter-bar">
-  <div class="container">
-    <div class="filter-inner">
-      <span class="filter-label">Filter:</span>
-      <div class="filter-pills">
-        <button class="filter-pill active" data-filter="all">All (7)</button>
-        <button class="filter-pill" data-filter="mango">Mango</button>
-        <button class="filter-pill" data-filter="chilli">Chilli</button>
-        <button class="filter-pill" data-filter="lemon">Lemon</button>
-        <button class="filter-pill" data-filter="garlic">Garlic</button>
-        <button class="filter-pill" data-filter="mixed">Mixed</button>
-      </div>
-      <div class="search-box">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="text" id="searchInput" placeholder="Search pickles..."/>
+      <div class="search-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="searchInput" placeholder="Search by name or ingredient..."/>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Products -->
+<!-- Products Grid -->
 <main class="store-main">
   <div class="container">
-    <div class="products-header">
-      <h2>All Pickle Varieties</h2>
+    <div class="store-main-header">
+      <h2>Handcrafted Pickles</h2>
       <span class="products-count" id="productsCount">Showing 7 products</span>
     </div>
-    <div class="products-grid" id="productsGrid">
-      <!-- Cards injected by JS -->
-    </div>
+    <div class="products-grid" id="productsGrid"></div>
   </div>
 </main>
 
@@ -347,7 +309,7 @@ nav a:hover,nav a.active{background:var(--cream-mid);color:var(--green)}
     <div class="store-footer-inner">
       <p>© 2025 <strong>Venu's Kitchen</strong> · FSSAI Reg: 23324009000123</p>
       <p><strong>+91 98765 43210</strong> · Mon–Sun 9 AM – 8 PM</p>
-      <a href="index.html" style="color:var(--gold-light);font-size:0.82rem;font-weight:600">← Back to Home</a>
+      <a href="index.html" style="color:var(--gold-light);font-size:0.85rem;font-weight:600">← Back to Home</a>
     </div>
   </div>
 </div>
@@ -394,99 +356,92 @@ const PRODUCTS = [
     id: 'p1',
     name: 'Traditional Raw Mango',
     hindi: 'पारंपरिक आम का अचार (Aam Ka Achar)',
-    desc: 'Sun-dried raw mango pieces in mustard oil with hand-ground spices. The authentic north Indian style pickle with deep, tangy flavour.',
+    desc: 'Sun-dried Ramkela mango in mustard oil with hand-ground methi and saunf. Deep, authentic north Indian flavour.',
     price: 240,
     weight: '500g',
     spice: '🌶️🌶️ Medium',
     image: 'https://images.unsplash.com/photo-1632239108478-568f362ac3ac?auto=format&fit=crop&w=600&q=80',
     badge: 'bestseller',
     badgeText: 'Bestseller',
-    category: 'mango',
-    tags: ['Mustard Oil', 'Vegan', 'Sun-Cured']
+    category: 'mango'
   },
   {
     id: 'p2',
     name: 'Banarasi Stuffed Red Chilli',
     hindi: 'बनारसी भरवा लाल मिर्च (Bharwa Lal Mirch)',
-    desc: 'Whole red chillis stuffed with mustard, fennel & coriander mix, slow-cured in mustard oil. A Banarasi household classic.',
+    desc: 'Whole red chillis stuffed with amchur, fennel, coriander & mustard powder, slow-cured in wood-pressed oil.',
     price: 280,
     weight: '400g',
     spice: '🌶️🌶️🌶️ Hot',
     image: 'https://images.unsplash.com/photo-1645679059045-65ff3a440554?auto=format&fit=crop&w=600&q=80',
     badge: 'popular',
     badgeText: 'Popular',
-    category: 'chilli',
-    tags: ['Stuffed', 'Mustard Oil', 'Aromatic']
+    category: 'chilli'
   },
   {
     id: 'p3',
     name: 'Spicy Green Chilli',
     hindi: 'चटपटा हरी मिर्च का अचार (Hari Mirch Ka Achar)',
-    desc: 'Fresh green chillis pickled with asafoetida, fenugreek, and mustard seeds. Ready in 7 days, tastes like it was made for years.',
+    desc: 'Fresh crisp green chillis pickled with yellow mustard, lemon juice, turmeric, and asafoetida. Fiery kick.',
     price: 190,
     weight: '350g',
     spice: '🌶️🌶️🌶️🌶️ Very Hot',
     image: 'https://images.unsplash.com/photo-1643594697730-bb034a399a4b?auto=format&fit=crop&w=600&q=80',
     badge: null,
     badgeText: '',
-    category: 'chilli',
-    tags: ['Mustard Oil', 'Vegan', 'Spicy']
+    category: 'chilli'
   },
   {
     id: 'p4',
     name: 'Sun-Cured Lemon (Zero Oil)',
     hindi: 'कागज़ी नींबू का अचार - बिना तेल (Bina Tel Nimbu)',
-    desc: 'Quartered lemons preserved with salt, turmeric, and spices — no oil added at all. Light, zesty, and perfect with dal-rice.',
+    desc: '100% Oil-free! Quartered lemons preserved with rock salt, ajwain, and roasted cumin. Excellent for digestion.',
     price: 210,
     weight: '400g',
     spice: '🌶️ Mild',
     image: 'https://images.unsplash.com/photo-1525027684690-6de2d445842b?auto=format&fit=crop&w=600&q=80',
     badge: 'zero-oil',
     badgeText: 'Zero Oil',
-    category: 'lemon',
-    tags: ['Zero Oil', 'Vegan', 'Digestive']
+    category: 'lemon'
   },
   {
     id: 'p5',
     name: 'Mixed Vegetable Pachranga',
     hindi: 'पारंपरिक पचरंगा अचार (Panch Rang Achar)',
-    desc: 'Five vegetables — raw mango, carrot, turnip, lotus stem, and lemon — pickled together in one traditional jar. A complete achar.',
+    desc: 'Five winter vegetables: raw mango, carrot, shalgam, lotus stem, and cauliflower pickled together.',
     price: 230,
     weight: '500g',
     spice: '🌶️🌶️ Medium',
     image: 'https://images.unsplash.com/photo-1519147683487-66e0c2d0b5a0?auto=format&fit=crop&w=600&q=80',
     badge: null,
     badgeText: '',
-    category: 'mixed',
-    tags: ['5 Vegetables', 'Mustard Oil', 'Sun-Cured']
+    category: 'mixed'
   },
   {
     id: 'p6',
     name: 'Slow-Tempered Garlic',
     hindi: 'देसी लहसुन का अचार (Lahsun Ka Achar)',
-    desc: 'Whole garlic cloves slow-tempered in spiced mustard oil for 21 days. Rich, slightly pungent, and deeply savoury.',
+    desc: 'Whole peeled garlic cloves slow-tempered in spiced mustard oil for 21 days. Deep savory umami relish.',
     price: 260,
     weight: '350g',
     spice: '🌶️🌶️ Medium',
     image: 'https://images.unsplash.com/photo-1706167754852-128daa40126a?auto=format&fit=crop&w=600&q=80',
     badge: 'new',
     badgeText: 'New',
-    category: 'garlic',
-    tags: ['Garlic', 'Mustard Oil', '21-Day Cure']
+    category: 'garlic'
   },
   {
     id: 'p7',
     name: 'Sweet Mango Chhunda',
     hindi: 'गुजराती आम का मीठा छुंदा (Aam Ka Chhunda)',
-    desc: 'Grated raw mango cooked with jaggery and spices into a sweet-sour relish. Great with parathas and puris.',
+    desc: 'Grated raw mango cooked in sun with organic desi jaggery and roasted jeera. Great with parathas and theplas.',
     price: 220,
     weight: '400g',
-    spice: '🌶️ Mild',
+    spice: '🌶️ Mild Sweet',
     image: 'https://images.unsplash.com/photo-1576920803950-3f066b308938?auto=format&fit=crop&w=600&q=80',
     badge: 'popular',
     badgeText: 'Popular',
-    category: 'mango',
-    tags: ['Sweet', 'Desi Jaggery', 'Kids Favorite']
+    category: 'mango'
   }
 ];
 
@@ -502,25 +457,24 @@ function renderProducts() {
     return matchFilter && matchSearch;
   });
   document.getElementById('productsCount').textContent = `Showing ${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
-  grid.innerHTML = filtered.map((p, i) => {
+  grid.innerHTML = filtered.map(p => {
     const cartItems = window.VKCart.getItems();
     const inCart = cartItems.find(c => c.id === p.id);
     const qty = inCart ? inCart.qty : 0;
     return `
-    <div class="product-card" style="animation-delay:${i * 0.07}s" data-id="${p.id}">
-      <a href="product.html?id=${p.id}" class="product-img-link" title="Click to view full health & medical guide for ${p.name}">
+    <div class="product-card" data-id="${p.id}">
+      <a href="product.html?id=${p.id}" class="product-img-link" title="Click to view details & health guide for ${p.name}">
         <img src="${p.image}" alt="${p.name}" loading="lazy"/>
         ${p.badge ? `<span class="product-badge badge-${p.badge}">${p.badgeText}</span>` : ''}
         <div class="spice-row">${p.spice}</div>
       </a>
       <div class="product-body">
-        <a href="product.html?id=${p.id}" class="product-title-link">
+        <a href="product.html?id=${p.id}">
           <h3 class="product-name">${p.name}</h3>
         </a>
         <p class="product-hindi">${p.hindi}</p>
         <p class="product-desc">${p.desc}</p>
-        <div class="product-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-        <a href="product.html?id=${p.id}" class="health-hint-link">🩺 Health & Dietary Guide →</a>
+        <a href="product.html?id=${p.id}" class="health-callout-link">🩺 Health & Dietary Guide →</a>
         <div class="product-footer">
           <div class="product-price-block">
             <span class="product-price">₹${p.price}</span>
@@ -605,13 +559,11 @@ function renderCartDrawer() {
     const total = window.VKCart.total();
     document.getElementById('cartTotal').textContent = `₹${total}`;
     document.getElementById('cartDeliveryNote').textContent = total >= 299 ? '✅ Free delivery applied!' : `Add ₹${299 - total} more for free delivery`;
-    // Build WhatsApp message
     const msg = encodeURIComponent('Hi Venu! I would like to order:\n' + items.map(i => `• ${i.name} (${i.weight}) x${i.qty} = ₹${i.price * i.qty}`).join('\n') + `\n\nTotal: ₹${total}\n\nPlease confirm delivery.`);
     const waUrl = `https://wa.me/919876543210?text=${msg}`;
     document.getElementById('cartWhatsApp').href = waUrl;
     document.getElementById('cartWaBtn').onclick = () => window.open(waUrl, '_blank');
   }
-  // Sync product grid qty controls
   PRODUCTS.forEach(p => {
     const addBtn = document.getElementById(`add-${p.id}`);
     const qtyCtrl = document.getElementById(`qty-${p.id}`);
@@ -654,27 +606,28 @@ function closeCart() {
   document.body.style.overflow = '';
 }
 
-// ===== FILTERS =====
-document.querySelectorAll('.filter-pill').forEach(btn => {
+// Category filter
+document.querySelectorAll('.cat-pill').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     activeFilter = btn.dataset.filter;
     renderProducts();
   });
 });
 
+// Search
 document.getElementById('searchInput').addEventListener('input', e => {
   searchQuery = e.target.value.toLowerCase().trim();
   renderProducts();
 });
 
-// ===== HAMBURGER =====
+// Hamburger
 document.getElementById('hamburger').addEventListener('click', () => {
   document.getElementById('mobileNav').classList.toggle('open');
 });
 
-// ===== INIT =====
+// Init
 window.VKCart.onUpdate = updateCartUI;
 renderProducts();
 updateCartUI();

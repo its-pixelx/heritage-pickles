@@ -313,6 +313,13 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   margin-bottom:36px;
   text-align:center;
 }
+.section-header-flex{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  margin-bottom:28px;
+  gap:16px;
+}
 .section-kicker{
   font-size:0.75rem;
   font-weight:700;
@@ -331,14 +338,104 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   font-size:0.92rem;
   color:var(--text-secondary);
   max-width:540px;
-  margin:8px auto 0;
+  margin:8px 0 0;
+}
+.section-header .section-desc{margin:8px auto 0}
+
+/* ===== ANIMATED SCROLL ARROWS & CAROUSEL BUTTONS ===== */
+.filter-scroll-wrapper{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  position:relative;
+  width:100%;
+}
+.filter-scroll{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:4px 0;
+  flex:1;
+  scroll-behavior:smooth;
+}
+.filter-scroll::-webkit-scrollbar{display:none}
+
+.filter-btn{
+  padding:8px 16px;
+  border-radius:50px;
+  font-size:0.82rem;
+  font-weight:600;
+  background:#FFF;
+  color:var(--text-secondary);
+  border:1px solid var(--border-light);
+  transition:all .18s;
+  flex-shrink:0;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.filter-btn:hover{border-color:var(--green);color:var(--green)}
+.filter-btn.active{
+  background:var(--green);
+  color:#FFF;
+  border-color:var(--green);
+  box-shadow:0 2px 8px rgba(27,94,32,0.18);
 }
 
-/* ===== BESTSELLERS GRID ===== */
+.cat-strip-wrap{
+  background:#FFF;
+  border-bottom:1px solid var(--border-light);
+  padding:14px 0;
+}
+
+.scroll-arrow-btn, .carousel-arrow-btn{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#FFF;
+  border:1.5px solid var(--border-light);
+  color:var(--green-dark);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+  cursor:pointer;
+  transition:all .18s ease;
+  flex-shrink:0;
+}
+.scroll-arrow-btn:hover, .carousel-arrow-btn:hover{
+  border-color:var(--green);
+  color:var(--green);
+  background:var(--green-subtle);
+  transform:scale(1.08);
+}
+.scroll-arrow-btn:active, .carousel-arrow-btn:active{transform:scale(0.92)}
+
+.carousel-nav-arrows{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+@keyframes arrowHintRight {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+.hint-arrow-right{
+  animation: arrowHintRight 2.2s infinite ease-in-out;
+}
+.hint-arrow-right:hover{animation: none}
+
+/* ===== BESTSELLERS GRID & CAROUSEL ===== */
 .products-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:26px;
+  scroll-behavior:smooth;
 }
 .product-card{
   background:var(--bg-card);
@@ -523,20 +620,32 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
 .del-card h4{font-size:0.92rem;color:var(--green-dark);margin-bottom:6px}
 .del-card p{font-size:0.84rem;color:var(--text-secondary);line-height:1.55}
 
-/* ===== TESTIMONIALS ===== */
-.reviews-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
+/* ===== TESTIMONIALS CAROUSEL ===== */
+.reviews-scroll{
+  display:flex;
   gap:22px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  padding:4px 2px 14px;
 }
+.reviews-scroll::-webkit-scrollbar{display:none}
 .review-card{
   background:#FFF;
   border:1px solid var(--border-light);
   border-radius:var(--radius-md);
   padding:22px;
+  flex:0 0 calc(33.333% - 15px);
+  min-width:280px;
+  display:flex;
+  flex-direction:column;
+  box-shadow:var(--shadow-subtle);
+  transition:transform .18s ease;
 }
+.review-card:hover{transform:translateY(-2px)}
 .stars{color:var(--gold);font-size:0.9rem;margin-bottom:8px}
-.review-quote{font-size:0.86rem;color:var(--text-secondary);line-height:1.6;font-style:italic;margin-bottom:14px}
+.review-quote{font-size:0.86rem;color:var(--text-secondary);line-height:1.6;font-style:italic;margin-bottom:14px;flex:1}
 .reviewer-info strong{display:block;font-size:0.85rem;color:var(--text-primary)}
 .reviewer-info span{font-size:0.74rem;color:var(--text-muted)}
 
@@ -597,9 +706,33 @@ footer{
   .products-grid{grid-template-columns:repeat(2,1fr)}
   .features-grid{grid-template-columns:repeat(2,1fr)}
   .delivery-grid{grid-template-columns:1fr}
-  .reviews-grid{grid-template-columns:1fr}
+  .reviews-scroll .review-card{flex:0 0 310px}
   .trust-strip-grid{grid-template-columns:repeat(2,1fr);gap:14px}
   .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+}
+
+@media(max-width:768px){
+  /* Horizontal scroll track on mobile for clean un-congested UX */
+  .products-grid{
+    display:flex;
+    overflow-x:auto;
+    gap:18px;
+    padding-bottom:12px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    scroll-snap-type:x mandatory;
+  }
+  .products-grid::-webkit-scrollbar{display:none}
+  .products-grid .product-card{
+    flex:0 0 85%;
+    max-width:320px;
+    scroll-snap-align:start;
+  }
+  .reviews-scroll .review-card{
+    flex:0 0 85%;
+    max-width:320px;
+    scroll-snap-align:start;
+  }
 }
 
 @media(max-width:680px){
@@ -620,7 +753,6 @@ footer{
   
   .trust-strip-grid{grid-template-columns:1fr;gap:10px}
   .section{padding:48px 0}
-  .products-grid{grid-template-columns:1fr;gap:18px}
   .features-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
 }
@@ -728,15 +860,53 @@ footer{
   </div>
 </div>
 
+<!-- Explore Categories Bar with Animated Scroll Chevrons -->
+<div class="cat-strip-wrap">
+  <div class="container">
+    <div class="filter-scroll-wrapper">
+      <!-- Left Arrow -->
+      <button class="scroll-arrow-btn" id="homeCatScrollLeft" aria-label="Scroll left" style="opacity:0.35;pointer-events:none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <!-- Pill Track -->
+      <div class="filter-scroll" id="homeCatScroll">
+        <a href="store.html" class="filter-btn active">All Pickles (7)</a>
+        <a href="store.html?filter=mango" class="filter-btn">Raw Mango</a>
+        <a href="store.html?filter=chilli" class="filter-btn">Stuffed Red Chilli</a>
+        <a href="store.html?filter=lemon" class="filter-btn">Zero-Oil Lemon</a>
+        <a href="store.html?filter=garlic" class="filter-btn">Desi Garlic</a>
+        <a href="store.html?filter=mixed" class="filter-btn">Mixed Vegetable</a>
+        <a href="store.html" class="filter-btn">Browse Full Store →</a>
+      </div>
+
+      <!-- Right Arrow with Gentle Hint Animation -->
+      <button class="scroll-arrow-btn hint-arrow-right" id="homeCatScrollRight" aria-label="Scroll right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- Featured Bestsellers -->
 <section class="section" id="bestsellers">
   <div class="container">
-    <div class="section-header">
-      <span class="section-kicker">Kitchen Favorites</span>
-      <h2 class="section-title">Most Loved Pickles</h2>
-      <p class="section-desc">Tap any jar to review ingredients, sun-curing details, and doctor-verified health advisories.</p>
+    <div class="section-header-flex">
+      <div>
+        <span class="section-kicker">Kitchen Favorites</span>
+        <h2 class="section-title">Most Loved Pickles</h2>
+        <p class="section-desc">Tap any jar to review ingredients, sun-curing details, and doctor-verified health advisories.</p>
+      </div>
+      <div class="carousel-nav-arrows">
+        <button class="carousel-arrow-btn" id="bestsellerScrollLeft" aria-label="Previous pickle" style="opacity:0.35;pointer-events:none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel-arrow-btn hint-arrow-right" id="bestsellerScrollRight" aria-label="Next pickle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
     </div>
-    <div class="products-grid">
+    <div class="products-grid" id="bestsellersGrid">
       
       <!-- Card 1 -->
       <article class="product-card">
@@ -907,11 +1077,22 @@ footer{
 <!-- Testimonials -->
 <section class="section alt-bg">
   <div class="container">
-    <div class="section-header">
-      <span class="section-kicker">Verified Feedback</span>
-      <h2 class="section-title">Customer Reviews</h2>
+    <div class="section-header-flex">
+      <div>
+        <span class="section-kicker">Verified Feedback</span>
+        <h2 class="section-title">Customer Reviews</h2>
+        <p class="section-desc">Real feedback from families in South Enclave, Malviya Nagar & Green Park.</p>
+      </div>
+      <div class="carousel-nav-arrows">
+        <button class="carousel-arrow-btn" id="reviewScrollLeft" aria-label="Previous review" style="opacity:0.35;pointer-events:none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel-arrow-btn hint-arrow-right" id="reviewScrollRight" aria-label="Next review">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
     </div>
-    <div class="reviews-grid">
+    <div class="reviews-scroll" id="reviewsScroll">
       <div class="review-card">
         <div class="stars">★★★★★</div>
         <p class="review-quote">"The raw mango pickle is exactly like my grandmother made. Genuine sun-cured flavor without any synthetic sourness."</p>
@@ -934,6 +1115,22 @@ footer{
         <div class="reviewer-info">
           <strong>Priya Sharma</strong>
           <span>Sector 14</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"The garlic pickle is seasoned to perfection. Desi cloves with zero acidity or chemical aftertaste. Truly authentic!"</p>
+        <div class="reviewer-info">
+          <strong>Col. R. K. Batra (Retd.)</strong>
+          <span>South Enclave</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"Clean ingredients and completely glass-packaged. Rare to find such hygienic, traditional home kitchen food nowadays."</p>
+        <div class="reviewer-info">
+          <strong>Meenakshi Sundaram</strong>
+          <span>Hauz Khas</span>
         </div>
       </div>
     </div>
@@ -990,6 +1187,58 @@ function updateCartUI() {
   }
 }
 updateCartUI();
+
+// Generic Helper for Scrollable Tracks with Left/Right Arrows & Edge Detection
+function setupScrollArrows(trackId, leftBtnId, rightBtnId, scrollStep = 240) {
+  const track = document.getElementById(trackId);
+  const leftBtn = document.getElementById(leftBtnId);
+  const rightBtn = document.getElementById(rightBtnId);
+  if (!track || !leftBtn || !rightBtn) return;
+
+  function updateArrows() {
+    const sl = track.scrollLeft;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+
+    if (sl > 10) {
+      leftBtn.style.opacity = '1';
+      leftBtn.style.pointerEvents = 'auto';
+    } else {
+      leftBtn.style.opacity = '0.35';
+      leftBtn.style.pointerEvents = 'none';
+    }
+
+    if (sl < maxScroll - 10) {
+      rightBtn.style.opacity = '1';
+      rightBtn.style.pointerEvents = 'auto';
+      rightBtn.classList.add('hint-arrow-right');
+    } else {
+      rightBtn.style.opacity = '0.35';
+      rightBtn.style.pointerEvents = 'none';
+      rightBtn.classList.remove('hint-arrow-right');
+    }
+  }
+
+  leftBtn.addEventListener('click', () => {
+    track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+  });
+
+  rightBtn.addEventListener('click', () => {
+    track.scrollBy({ left: scrollStep, behavior: 'smooth' });
+  });
+
+  track.addEventListener('scroll', updateArrows);
+  window.addEventListener('resize', updateArrows);
+  setTimeout(updateArrows, 250);
+}
+
+// 1. Home Category Explore Bar
+setupScrollArrows('homeCatScroll', 'homeCatScrollLeft', 'homeCatScrollRight', 180);
+
+// 2. Bestsellers Pickle Cards
+setupScrollArrows('bestsellersGrid', 'bestsellerScrollLeft', 'bestsellerScrollRight', 280);
+
+// 3. Customer Reviews Carousel
+setupScrollArrows('reviewsScroll', 'reviewScrollLeft', 'reviewScrollRight', 310);
 </script>
 </body>
 </html>

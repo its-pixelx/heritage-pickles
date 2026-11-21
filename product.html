@@ -2,23 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
 <title>Product Details – Venu's Kitchen</title>
 <meta name="description" content="Detailed ingredients, health benefits, dietary warnings, and curing details for Venu's Kitchen authentic homemade pickles."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-/* ===== RESET & BASE ===== */
+/* ===== RESET & ROOT ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',sans-serif;background:#FAFAF5;color:#1a1a1a;line-height:1.6;overflow-x:hidden}
+html{scroll-behavior:smooth;font-size:16px;-webkit-tap-highlight-color:transparent}
+body{font-family:'Inter',sans-serif;background:#FAFAF5;color:#1e293b;line-height:1.6;overflow-x:hidden;width:100%;padding-bottom:70px}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;border:none;outline:none}
 ul{list-style:none}
 
-/* ===== TOKENS ===== */
 :root{
   --green:#1D5C2E;
   --green-dark:#153F20;
@@ -28,196 +27,201 @@ ul{list-style:none}
   --cream:#FAFAF5;
   --cream-mid:#F3F0E6;
   --cream-dark:#E8E2D0;
-  --text:#1a1a1a;
-  --text-mid:#4a4a4a;
-  --text-soft:#7a7a6a;
+  --text:#1e293b;
+  --text-mid:#475569;
+  --text-soft:#64748b;
   --white:#ffffff;
-  --red-bg:#FFF1F2;
-  --red-border:#FECDD3;
-  --red-text:#9F1239;
-  --green-bg:#F0FDF4;
-  --green-border:#BBF7D0;
-  --green-text:#166534;
-  --yellow-bg:#FEFCE8;
-  --yellow-border:#FEF08A;
-  --yellow-text:#854D0E;
-  --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
-  --shadow-md:0 4px 16px rgba(0,0,0,0.08);
-  --shadow-lg:0 8px 30px rgba(0,0,0,0.12);
-  --radius:10px;
-  --radius-lg:16px;
+  --border:#e2e8f0;
+  --radius:12px;
+  --radius-lg:18px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md:0 4px 14px rgba(0,0,0,0.07);
 }
 
-/* ===== CONTAINER & BUTTONS ===== */
-.container{width:100%;max-width:1140px;margin:0 auto;padding:0 20px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:var(--radius);font-size:0.92rem;font-weight:600;transition:all .2s ease;white-space:nowrap}
-.btn-primary{background:var(--green);color:var(--white)}
-.btn-primary:hover{background:var(--green-dark);transform:translateY(-1px)}
-.btn-outline{background:transparent;color:var(--green);border:1.5px solid var(--green)}
-.btn-outline:hover{background:var(--green);color:var(--white)}
+/* ===== CONTAINER ===== */
+.container{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
 
 /* ===== ANNOUNCEMENT BAR ===== */
 .announcement{background:var(--green-dark);color:var(--white);text-align:center;font-size:0.78rem;padding:7px 16px;letter-spacing:0.02em}
 .announcement strong{color:var(--gold-light)}
 
-/* ===== HEADER (FIXED MOBILE SIZING) ===== */
+/* ===== HEADER (SPACIOUS & RESPONSIVE) ===== */
 header{background:var(--white);border-bottom:1px solid var(--cream-dark);position:sticky;top:0;z-index:1000;box-shadow:var(--shadow-sm);width:100%}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px;width:100%}
-.logo{display:flex;align-items:center;gap:8px;flex-shrink:0;min-width:0}
-.logo-mark{width:40px;height:40px;background:var(--green);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--white);font-weight:700;flex-shrink:0}
-.logo-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
-.logo-name{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;color:var(--green-dark);white-space:nowrap}
-.logo-sub{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);white-space:nowrap}
-nav{display:flex;align-items:center;gap:4px}
-nav a{padding:8px 12px;border-radius:8px;font-size:0.86rem;font-weight:500;color:var(--text-mid);transition:all .15s}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px;width:100%}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{width:38px;height:38px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--white);font-weight:700}
+.logo-text{display:flex;flex-direction:column;line-height:1.15}
+.logo-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--green-dark)}
+.logo-sub{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft)}
+nav{display:flex;align-items:center;gap:6px}
+nav a{padding:8px 14px;border-radius:8px;font-size:0.88rem;font-weight:500;color:var(--text-mid);transition:all .15s}
 nav a:hover,nav a.active{background:var(--cream-mid);color:var(--green)}
-.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.basket-btn{display:flex;align-items:center;gap:6px;background:var(--green);color:var(--white);padding:8px 14px;border-radius:var(--radius);font-size:0.85rem;font-weight:600;transition:all .2s;cursor:pointer;border:none}
+.header-actions{display:flex;align-items:center;gap:10px}
+.basket-btn{display:flex;align-items:center;gap:8px;background:var(--green);color:var(--white);padding:8px 16px;border-radius:var(--radius);font-size:0.85rem;font-weight:600;transition:all .2s;cursor:pointer}
 .basket-btn:hover{background:var(--green-dark)}
-.basket-count{background:var(--gold);color:var(--white);border-radius:50%;width:19px;height:19px;font-size:0.68rem;display:flex;align-items:center;justify-content:center;font-weight:700}
-.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:38px;height:38px;background:none;border:1.5px solid var(--cream-dark);border-radius:8px;padding:6px;flex-shrink:0}
-.hamburger span{width:20px;height:2px;background:var(--green);border-radius:2px;display:block}
-.mobile-nav{display:none;flex-direction:column;background:var(--white);border-top:1px solid var(--cream-dark);padding:14px 16px;gap:4px}
-.mobile-nav a{padding:10px 12px;border-radius:8px;font-size:0.92rem;font-weight:500;color:var(--text-mid)}
+.basket-count{background:var(--gold);color:var(--white);border-radius:50%;width:20px;height:20px;font-size:0.7rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:40px;height:40px;background:none;border:1.5px solid var(--cream-dark);border-radius:9px;padding:6px}
+.hamburger span{width:20px;height:2px;background:var(--green);border-radius:2px}
+.mobile-nav{display:none;flex-direction:column;background:var(--white);border-top:1px solid var(--cream-dark);padding:14px 20px;gap:6px}
+.mobile-nav a{padding:10px 14px;border-radius:8px;font-size:0.92rem;font-weight:500;color:var(--text-mid)}
 .mobile-nav a:hover{background:var(--cream-mid);color:var(--green)}
 .mobile-nav.open{display:flex}
 
 /* ===== BREADCRUMB ===== */
-.breadcrumb-bar{background:var(--white);border-bottom:1px solid var(--cream-dark);padding:12px 0;font-size:0.82rem;color:var(--text-soft)}
+.breadcrumb-bar{background:var(--white);border-bottom:1px solid var(--cream-dark);padding:10px 0;font-size:0.82rem;color:var(--text-soft)}
 .breadcrumb-bar a{color:var(--green);font-weight:500}
 .breadcrumb-bar a:hover{text-decoration:underline}
 .breadcrumb-bar span{margin:0 8px;color:var(--cream-dark)}
 
 /* ===== PDP LAYOUT ===== */
-.pdp-wrap{padding:36px 0 60px}
-.pdp-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:start}
+.pdp-wrap{padding:32px 0 60px}
+.pdp-grid{display:grid;grid-template-columns:1.05fr 1.2fr;gap:48px;align-items:start}
 
-/* Left: Gallery & Trust */
+/* Media Column */
 .pdp-media{position:sticky;top:84px;display:flex;flex-direction:column;gap:16px}
 .pdp-img-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--cream-dark);box-shadow:var(--shadow-sm);position:relative}
-.pdp-img-main{width:100%;height:440px;object-fit:cover;display:block;background:var(--cream-mid)}
-.pdp-badge-pill{position:absolute;top:16px;left:16px;background:var(--green);color:var(--white);font-size:0.75rem;font-weight:700;padding:5px 12px;border-radius:50px;letter-spacing:0.06em;text-transform:uppercase}
-.pdp-spice-meter{position:absolute;bottom:16px;left:16px;background:rgba(0,0,0,0.65);backdrop-filter:blur(4px);color:var(--white);padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:600}
-.pdp-guarantee-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.guarantee-box{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius);padding:12px;text-align:center}
-.guarantee-box span{display:block;font-size:1.2rem;margin-bottom:4px}
-.guarantee-box strong{display:block;font-size:0.75rem;color:var(--green-dark);line-height:1.2}
+.pdp-img-main{width:100%;height:460px;object-fit:cover;background:var(--cream-mid)}
+.pdp-badge-pill{position:absolute;top:16px;left:16px;background:var(--green);color:var(--white);font-size:0.75rem;font-weight:700;padding:6px 14px;border-radius:50px;letter-spacing:0.06em;text-transform:uppercase}
+.pdp-spice-meter{position:absolute;bottom:16px;left:16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(6px);color:var(--white);padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:600}
+.pdp-guarantee-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.guarantee-box{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius);padding:14px 10px;text-align:center}
+.guarantee-box span{display:block;font-size:1.3rem;margin-bottom:4px}
+.guarantee-box strong{display:block;font-size:0.78rem;color:var(--green-dark);line-height:1.2}
 
-/* Right: Product Details */
-.pdp-info{display:flex;flex-direction:column;gap:20px}
-.pdp-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.5vw,2.3rem);color:var(--green-dark);line-height:1.2;margin-bottom:6px}
-.pdp-hindi{font-size:1rem;color:var(--gold);font-weight:600;margin-bottom:10px}
-.pdp-rating-row{display:flex;align-items:center;gap:10px;font-size:0.86rem;color:var(--text-soft)}
+/* Details Column */
+.pdp-info{display:flex;flex-direction:column;gap:24px}
+
+/* Title Block */
+.pdp-header{display:flex;flex-direction:column;gap:6px}
+.pdp-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.5vw,2.3rem);color:var(--green-dark);line-height:1.2}
+.pdp-hindi{font-size:1rem;color:var(--gold);font-weight:600}
+.pdp-rating-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:0.86rem;margin-top:4px}
 .rating-stars{color:var(--gold);font-size:0.95rem;letter-spacing:1px}
 .rating-count{color:var(--text-mid);font-weight:500}
-.rating-sep{color:var(--cream-dark)}
-.fssai-pill{background:var(--cream-mid);color:var(--green-dark);font-size:0.74rem;font-weight:600;padding:3px 8px;border-radius:4px;border:1px solid var(--cream-dark)}
+.fssai-pill{background:var(--cream-mid);color:var(--green-dark);font-size:0.74rem;font-weight:600;padding:3px 10px;border-radius:6px;border:1px solid var(--cream-dark)}
 
-/* Price & Buy Block */
-.pdp-price-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:16px}
-.price-row{display:flex;align-items:baseline;gap:12px}
-.price-main{font-size:2rem;font-weight:700;color:var(--green)}
-.price-tax{font-size:0.8rem;color:var(--text-soft)}
-.pdp-weight{background:var(--cream-mid);padding:4px 10px;border-radius:6px;font-size:0.8rem;font-weight:600;color:var(--text-mid)}
-.delivery-estimate{display:flex;align-items:center;gap:8px;font-size:0.84rem;color:var(--text-mid);background:var(--cream-mid);padding:10px 14px;border-radius:8px}
+/* Price & Buy Card (UNCONGESTED) */
+.pdp-price-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:18px}
+.price-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.price-main{font-size:2.1rem;font-weight:700;color:var(--green);display:flex;align-items:baseline;gap:8px}
+.price-tax{font-size:0.8rem;color:var(--text-soft);font-weight:400}
+.pdp-weight{background:var(--cream-mid);padding:6px 14px;border-radius:8px;font-size:0.84rem;font-weight:600;color:var(--green-dark);border:1px solid var(--cream-dark)}
+.delivery-estimate{display:flex;align-items:center;gap:10px;font-size:0.86rem;color:var(--text-mid);background:var(--cream-mid);padding:12px 16px;border-radius:10px}
 .delivery-estimate svg{color:var(--green);flex-shrink:0}
 
-/* Actions */
-.pdp-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.qty-selector{display:flex;align-items:center;border:1.5px solid var(--green);border-radius:var(--radius);overflow:hidden;height:46px}
-.qty-btn{width:40px;height:100%;background:var(--cream-mid);color:var(--green-dark);font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+/* Actions Row */
+.pdp-actions{display:flex;gap:12px;align-items:center}
+.qty-selector{display:flex;align-items:center;border:1.5px solid var(--green);border-radius:var(--radius);overflow:hidden;height:48px;flex-shrink:0}
+.qty-btn{width:42px;height:100%;background:var(--cream-mid);color:var(--green-dark);font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center}
 .qty-btn:hover{background:var(--cream-dark)}
 .qty-input{width:46px;height:100%;border:none;background:var(--white);text-align:center;font-weight:700;font-size:0.95rem;color:var(--text)}
-.btn-add-pdp{flex:1;min-width:180px;height:46px;background:var(--green);color:var(--white);font-size:0.92rem;font-weight:600;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s}
+.btn-add-pdp{flex:1;height:48px;background:var(--green);color:var(--white);font-size:0.95rem;font-weight:600;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;box-shadow:0 2px 8px rgba(29,92,46,0.2)}
 .btn-add-pdp:hover{background:var(--green-dark)}
 .btn-add-pdp.added{background:var(--gold)}
-.btn-wa-order{width:100%;height:46px;background:#25D366;color:var(--white);font-size:0.92rem;font-weight:600;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s}
+.btn-wa-order{width:100%;height:48px;background:#25D366;color:var(--white);font-size:0.92rem;font-weight:600;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s;box-shadow:0 2px 8px rgba(37,211,102,0.25)}
 .btn-wa-order:hover{background:#1DB954}
 .checkout-prelaunch-note{font-size:0.78rem;color:var(--text-soft);text-align:center;line-height:1.4}
 
-/* ===== CRITICAL HEALTH & MEDICAL WARNING SECTION (AMAZON STYLE) ===== */
-.health-guide-card{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--cream-dark);background:var(--white);box-shadow:var(--shadow-sm)}
-.health-guide-header{background:var(--cream-mid);padding:14px 20px;border-bottom:1px solid var(--cream-dark);display:flex;align-items:center;justify-content:space-between}
-.health-guide-header h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--green-dark);display:flex;align-items:center;gap:8px}
-.health-body{padding:20px;display:flex;flex-direction:column;gap:16px}
+/* Sections / Cards */
+.content-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm)}
+.content-card h3{font-family:'Playfair Display',serif;font-size:1.18rem;color:var(--green-dark);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.content-card p{font-size:0.9rem;color:var(--text-mid);line-height:1.7}
 
-/* Alert Boxes */
-.alert-box{border-radius:var(--radius);padding:16px 18px;display:flex;gap:14px;align-items:flex-start}
-.alert-icon{font-size:1.3rem;line-height:1;flex-shrink:0;margin-top:2px}
-.alert-content h4{font-size:0.9rem;font-weight:700;margin-bottom:6px}
-.alert-content p,.alert-content ul{font-size:0.84rem;line-height:1.6}
-.alert-content ul{margin-top:6px;padding-left:18px;list-style:disc}
-.alert-content li{margin-bottom:4px}
+/* ===== HEALTH, DIETARY & MEDICAL ADVISORY (UNCONGESTED & SPACIOUS) ===== */
+.health-guide-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+.health-guide-header{background:var(--cream-mid);padding:18px 24px;border-bottom:1px solid var(--cream-dark);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.health-guide-header h3{font-family:'Playfair Display',serif;font-size:1.18rem;color:var(--green-dark);display:flex;align-items:center;gap:8px}
+.health-badge-verified{font-size:0.75rem;font-weight:700;color:var(--green);background:rgba(29,92,46,0.1);padding:4px 10px;border-radius:50px}
+.health-body{padding:24px;display:flex;flex-direction:column;gap:18px}
 
-.alert-suitable{background:var(--green-bg);border:1px solid var(--green-border);color:var(--green-text)}
-.alert-suitable h4{color:var(--green-text)}
-.alert-suitable li{color:#14532D}
+.alert-clean{border-radius:var(--radius);padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
+.alert-icon{font-size:1.4rem;line-height:1;flex-shrink:0;margin-top:2px}
+.alert-text{flex:1}
+.alert-text h4{font-size:0.95rem;font-weight:700;margin-bottom:8px}
+.alert-text ul{padding-left:18px;list-style:disc}
+.alert-text li{font-size:0.88rem;line-height:1.65;margin-bottom:6px}
+.alert-text p{font-size:0.88rem;line-height:1.65}
 
-.alert-caution{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:var(--yellow-text)}
-.alert-caution h4{color:var(--yellow-text)}
-.alert-caution li{color:#713F12}
+.alert-clean-suitable{background:#F0FDF4;border:1.5px solid #BBF7D0;color:#166534}
+.alert-clean-suitable h4{color:#15803D}
+.alert-clean-suitable li{color:#166534}
 
-.alert-warning{background:var(--red-bg);border:1px solid var(--red-border);color:var(--red-text)}
-.alert-warning h4{color:var(--red-text)}
-.alert-warning li{color:#881337}
+.alert-clean-warning{background:#FFF1F2;border:1.5px solid #FECDD3;color:#9F1239}
+.alert-clean-warning h4{color:#BE123C}
+.alert-clean-warning li{color:#9F1239}
+
+.alert-clean-tip{background:#FEFCE8;border:1.5px solid #FEF08A;color:#854D0E}
+.alert-clean-tip h4{color:#A16207}
+
+/* ===== INGREDIENTS LIST (CLEAN 2-COLUMN GRID, NO STAIRCASE) ===== */
+.ingredients-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.ing-item{display:flex;align-items:center;gap:8px;background:var(--cream-mid);border:1px solid var(--cream-dark);border-radius:8px;padding:9px 12px;font-size:0.84rem;font-weight:500;color:var(--text)}
+.ing-item span{color:var(--green);font-weight:700}
 
 /* Table specs */
-.specs-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:0.85rem}
+.specs-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:0.88rem}
 .specs-table tr{border-bottom:1px solid var(--cream-dark)}
-.specs-table td{padding:10px 12px}
-.specs-table td:first-child{color:var(--text-soft);font-weight:500;width:35%}
+.specs-table td{padding:12px 6px}
+.specs-table td:first-child{color:var(--text-soft);font-weight:500;width:38%}
 .specs-table td:last-child{color:var(--text);font-weight:600}
 
-/* Ingredients & Tips */
-.pdp-accordion-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius);padding:18px 20px}
-.pdp-accordion-card h4{font-size:0.92rem;font-weight:700;color:var(--green-dark);margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.pdp-accordion-card p{font-size:0.85rem;color:var(--text-mid);line-height:1.65}
-.ingredient-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.ing-tag{background:var(--cream-mid);color:var(--text);font-size:0.75rem;padding:4px 10px;border-radius:50px;border:1px solid var(--cream-dark)}
-
-/* Other Pickles */
-.related-section{margin-top:60px;border-top:1px solid var(--cream-dark);padding-top:40px}
+/* ===== RELATED PICKLES (SWIPEABLE CAROUSEL ON MOBILE) ===== */
+.related-section{margin-top:48px;border-top:1px solid var(--cream-dark);padding-top:36px}
 .related-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--green-dark);margin-bottom:20px}
-.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.related-scroll{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .rel-card{background:var(--white);border-radius:var(--radius);overflow:hidden;border:1px solid var(--cream-dark);transition:all .2s;display:flex;flex-direction:column}
 .rel-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.rel-img{height:140px;overflow:hidden;background:var(--cream-mid)}
+.rel-img{height:150px;overflow:hidden;background:var(--cream-mid)}
 .rel-img img{width:100%;height:100%;object-fit:cover}
-.rel-body{padding:12px 14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
-.rel-name{font-family:'Playfair Display',serif;font-size:0.92rem;color:var(--green-dark);margin-bottom:4px}
-.rel-price{font-size:0.92rem;font-weight:700;color:var(--green)}
+.rel-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.rel-name{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--green-dark);margin-bottom:4px}
+.rel-price{font-size:0.95rem;font-weight:700;color:var(--green)}
 
-/* Footer */
+/* ===== STICKY BOTTOM BAR (MOBILE THUMB CONVENIENCE) ===== */
+.sticky-mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--cream-dark);padding:10px 16px;z-index:999;box-shadow:0 -4px 16px rgba(0,0,0,0.08);align-items:center;justify-content:space-between;gap:12px}
+.sticky-mobile-info{display:flex;flex-direction:column}
+.sticky-mobile-price{font-size:1.18rem;font-weight:700;color:var(--green)}
+.sticky-mobile-weight{font-size:0.74rem;color:var(--text-soft)}
+.sticky-mobile-btns{display:flex;gap:8px;align-items:center}
+.sticky-btn-add{background:var(--green);color:var(--white);padding:10px 16px;border-radius:var(--radius);font-size:0.85rem;font-weight:600;display:flex;align-items:center;gap:6px}
+.sticky-btn-wa{background:#25D366;color:var(--white);padding:10px 12px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center}
+
+/* ===== FOOTER ===== */
 footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margin-top:40px}
 .footer-simple{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:0.85rem}
 .footer-simple a{color:var(--gold-light)}
 
-/* ===== RESPONSIVE & MOBILE FIXES ===== */
-@media(max-width:900px){
-  .pdp-grid{grid-template-columns:1fr;gap:32px}
+/* ===== RESPONSIVE POLISH ===== */
+@media(max-width:960px){
+  .pdp-grid{grid-template-columns:1fr;gap:36px}
   .pdp-media{position:static}
-  .pdp-img-main{height:340px}
-  .related-grid{grid-template-columns:repeat(2,1fr)}
+  .pdp-img-main{height:360px}
+  .related-scroll{grid-template-columns:repeat(2,1fr)}
 }
 
-@media(max-width:640px){
-  .container{padding:0 12px}
-  .header-inner{height:60px;gap:8px}
-  .logo-sub{display:none}
-  .logo-name{font-size:1rem}
-  .logo-mark{width:36px;height:36px;font-size:1.15rem}
+@media(max-width:768px){
+  .container{padding:0 16px}
+  .header-inner{height:60px}
   nav{display:none}
   .hamburger{display:flex}
   .basket-label{display:none}
-  .basket-btn{padding:8px 10px}
+  .basket-btn{padding:8px 12px}
+  .logo-sub{display:none}
+  .logo-name{font-size:1.05rem}
+  .pdp-wrap{padding:20px 0 40px}
   .pdp-img-main{height:280px}
-  .pdp-header h1{font-size:1.5rem}
-  .price-main{font-size:1.6rem}
-  .pdp-guarantee-row{grid-template-columns:1fr 1fr 1fr;gap:6px}
-  .guarantee-box{padding:8px 4px}
-  .guarantee-box span{font-size:1rem}
-  .guarantee-box strong{font-size:0.68rem}
-  .related-grid{grid-template-columns:1fr}
+  .pdp-price-card{padding:18px}
+  .content-card{padding:18px}
+  .health-body{padding:16px}
+  .ingredients-grid{grid-template-columns:1fr}
+  
+  /* Horizontal Swiper for Related Products on Mobile */
+  .related-scroll{display:flex;overflow-x:auto;gap:12px;padding-bottom:12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .related-scroll::-webkit-scrollbar{display:none}
+  .rel-card{flex:0 0 220px;scroll-snap-align:start}
+  
+  /* Show Sticky Bottom Bar on Mobile */
+  .sticky-mobile-bar{display:flex}
 }
 </style>
 </head>
@@ -314,7 +318,6 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margi
           <div class="pdp-rating-row">
             <span class="rating-stars">★★★★★</span>
             <span class="rating-count" id="ratingText">4.9 · 142 Reviews</span>
-            <span class="rating-sep">·</span>
             <span class="fssai-pill">FSSAI: 23324009000123</span>
           </div>
         </div>
@@ -322,13 +325,15 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margi
         <!-- Price & Instant Ordering Card -->
         <div class="pdp-price-card">
           <div class="price-row">
-            <span class="price-main" id="productPrice">₹0</span>
-            <span class="price-tax">Incl. of all taxes</span>
+            <div class="price-main">
+              <span id="productPrice">₹0</span>
+              <span class="price-tax">Incl. of all taxes</span>
+            </div>
             <span class="pdp-weight" id="productWeight">500g Jar</span>
           </div>
           <div class="delivery-estimate">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <div><strong>Hyperlocal Delivery:</strong> Delivered in 45–60 mins within 8 km</div>
+            <div><strong>Hyperlocal Delivery:</strong> Within 45–60 mins in 8 km radius</div>
           </div>
           <div class="pdp-actions">
             <div class="qty-selector">
@@ -342,63 +347,66 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margi
             </button>
           </div>
           <a href="#" id="btnWhatsAppDirect" target="_blank" class="btn-wa-order">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-            Direct WhatsApp Order (Pre-Launch Option)
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            Order via WhatsApp (Pre-Launch)
           </a>
           <p class="checkout-prelaunch-note">🔒 Online store checkout is launching soon. WhatsApp orders are confirmed within 10 minutes.</p>
         </div>
 
         <!-- Description -->
-        <div class="pdp-accordion-card">
-          <h4>📖 Flavor Profile & Description</h4>
+        <div class="content-card">
+          <h3>📖 Flavor Profile & Description</h3>
           <p id="productDesc">Detailed description here...</p>
         </div>
 
-        <!-- CRITICAL HEALTH, DIETARY & MEDICAL WARNING SECTION -->
+        <!-- SPACIOUS HEALTH, DIETARY & MEDICAL ADVISORY -->
         <div class="health-guide-card">
           <div class="health-guide-header">
             <h3>🩺 Health, Dietary & Medical Advisory</h3>
-            <span style="font-size:0.75rem;font-weight:600;color:var(--text-soft)">Doctor & Nutrition Verified</span>
+            <span class="health-badge-verified">Doctor & Nutrition Verified</span>
           </div>
           <div class="health-body">
             
             <!-- Suitable for -->
-            <div class="alert-box alert-suitable">
+            <div class="alert-clean alert-clean-suitable">
               <div class="alert-icon">✅</div>
-              <div class="alert-content">
+              <div class="alert-text">
                 <h4>Who Can Enjoy & Dietary Compatibility:</h4>
-                <ul id="healthSuitableList">
-                  <li>Suitable for healthy adults and teens seeking authentic probiotic benefits.</li>
-                </ul>
+                <ul id="healthSuitableList"></ul>
               </div>
             </div>
 
             <!-- Caution & Warnings -->
-            <div class="alert-box alert-warning">
+            <div class="alert-clean alert-clean-warning">
               <div class="alert-icon">⚠️</div>
-              <div class="alert-content">
+              <div class="alert-text">
                 <h4>Medical Warnings & Who Should Avoid or Limit:</h4>
-                <ul id="healthWarningList">
-                  <li>Medical precautions listed here...</li>
-                </ul>
+                <ul id="healthWarningList"></ul>
               </div>
             </div>
 
             <!-- Serving Guidance -->
-            <div class="alert-box alert-caution">
+            <div class="alert-clean alert-clean-tip">
               <div class="alert-icon">💡</div>
-              <div class="alert-content">
+              <div class="alert-text">
                 <h4>Recommended Serving & Consumption Tip:</h4>
-                <p id="healthTipText">Take in moderation as an accompaniment to whole meals.</p>
+                <p id="healthTipText"></p>
               </div>
             </div>
 
           </div>
         </div>
 
+        <!-- Pure Ingredients (Clean 2-Col Grid) -->
+        <div class="content-card">
+          <h3>🌱 Pure Ingredients</h3>
+          <p id="ingredientsSummary" style="margin-bottom:12px">All-natural kitchen ingredients:</p>
+          <div class="ingredients-grid" id="ingredientTags"></div>
+        </div>
+
         <!-- Product Specifications Table -->
-        <div class="pdp-accordion-card">
-          <h4>📋 Standard Specifications</h4>
+        <div class="content-card">
+          <h3>📋 Standard Specifications</h3>
           <table class="specs-table">
             <tbody>
               <tr><td>Net Weight</td><td id="specWeight">500g</td></tr>
@@ -411,16 +419,9 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margi
           </table>
         </div>
 
-        <!-- Ingredients List -->
-        <div class="pdp-accordion-card">
-          <h4>🌱 Pure Ingredients</h4>
-          <p id="ingredientsSummary">Loading natural ingredients...</p>
-          <div class="ingredient-tags" id="ingredientTags"></div>
-        </div>
-
         <!-- Storage Instructions -->
-        <div class="pdp-accordion-card">
-          <h4>💡 Traditional Kitchen Storage Rules</h4>
+        <div class="content-card">
+          <h3>💡 Traditional Kitchen Storage Rules</h3>
           <p>
             • Always use a <strong>completely clean and dry spoon</strong>.<br/>
             • <strong>Do not refrigerate</strong>: natural cold-pressed oil can solidify and reduce aroma.<br/>
@@ -432,14 +433,31 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margi
       </div>
     </div>
 
-    <!-- Related Pickles -->
+    <!-- Related Pickles (Horizontal Swiper on Mobile) -->
     <div class="related-section">
       <h3 class="related-title">Explore Other Traditional Varieties</h3>
-      <div class="related-grid" id="relatedGrid"></div>
+      <div class="related-scroll" id="relatedGrid"></div>
     </div>
 
   </div>
 </main>
+
+<!-- Sticky Mobile Action Bar -->
+<div class="sticky-mobile-bar" id="stickyMobileBar">
+  <div class="sticky-mobile-info">
+    <span class="sticky-mobile-price" id="stickyPrice">₹0</span>
+    <span class="sticky-mobile-weight" id="stickyWeight">500g Jar</span>
+  </div>
+  <div class="sticky-mobile-btns">
+    <button class="sticky-btn-add" id="stickyBtnAdd">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Add
+    </button>
+    <a href="#" id="stickyBtnWa" target="_blank" class="sticky-btn-wa" title="Order via WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    </a>
+  </div>
+</div>
 
 <!-- Footer -->
 <footer>
@@ -467,7 +485,7 @@ const CATALOG = {
     spice: '🌶️🌶️ Medium Spice',
     cure: '21 Days Sun Cured',
     oil: '100% Pure Cold-Pressed Kachi Ghani Mustard Oil',
-    rating: '4.9 · 186 Verified Customer Reviews',
+    rating: '4.9 · 186 Verified Reviews',
     desc: 'Crafted with handpicked green Ramkela mangoes from local orchards. Coarsely cut, marinated with freshly roasted methi, saunf, and kalonji, and sun-cured for three full weeks. Delivers that unforgettable sharp, tangy home-kitchen punch that elevates any dal-chawal or paratha meal.',
     ingredients: [
       'Raw Ramkela Mango',
@@ -477,7 +495,7 @@ const CATALOG = {
       'Nigella Seeds (Kalonji)',
       'Turmeric Powder (Haldi)',
       'Degi Red Chilli',
-      'Natural Rock Salt (Sendha Namak)',
+      'Rock Salt (Sendha Namak)',
       'Hing (Asafoetida)'
     ],
     suitable: [
@@ -504,7 +522,7 @@ const CATALOG = {
     spice: '🌶️🌶️🌶️ Hot & Pungent',
     cure: '25 Days Solar Cured',
     oil: 'Wood-Pressed Mustard Oil',
-    rating: '4.8 · 142 Verified Customer Reviews',
+    rating: '4.8 · 142 Verified Reviews',
     desc: 'Long, deep-red Banarasi chillies hollowed out by hand and stuffed with an intensely fragrant blend of roasted coriander, amchur, fennel, and yellow mustard powder, then slow-steeped in mustard oil. Rich, warm, and deeply comforting.',
     ingredients: [
       'Whole Banarasi Red Chillies',
@@ -546,7 +564,7 @@ const CATALOG = {
       'Yellow Mustard Seeds',
       'Fresh Lemon Juice',
       'Pure Hing (Asafoetida)',
-      'Turmeric',
+      'Turmeric Powder',
       'Rock Salt',
       'Mustard Oil'
     ],
@@ -575,7 +593,7 @@ const CATALOG = {
     rating: '4.9 · 210 Reviews',
     desc: 'Prepared without a single drop of oil. Thin-skinned Kagzi lemons are quartered and slow-cured in jars under the hot sun with carom seeds (ajwain), black pepper, black salt, and roasted cumin. As it ages, it darkens into a velvety, gut-soothing digestive relish.',
     ingredients: [
-      'Fresh Thin-Skinned Kagzi Lemons',
+      'Fresh Kagzi Lemons',
       'Black Salt (Kala Namak)',
       'Sendha Namak (Rock Salt)',
       'Ajwain (Carom Seeds)',
@@ -693,14 +711,12 @@ const CATALOG = {
   }
 };
 
-// ===== RENDER PRODUCT PAGE =====
+// Render
 const params = new URLSearchParams(window.location.search);
 let currentId = params.get('id') || 'p1';
 if (!CATALOG[currentId]) currentId = 'p1';
-
 const prod = CATALOG[currentId];
 
-// Update DOM
 document.title = `${prod.name} – Venu's Kitchen`;
 document.getElementById('breadcrumbName').textContent = prod.name;
 document.getElementById('productImage').src = prod.image;
@@ -712,29 +728,29 @@ document.getElementById('productHindi').textContent = prod.hindi;
 document.getElementById('ratingText').textContent = prod.rating;
 document.getElementById('productPrice').textContent = `₹${prod.price}`;
 document.getElementById('productWeight').textContent = prod.weight;
+document.getElementById('stickyPrice').textContent = `₹${prod.price}`;
+document.getElementById('stickyWeight').textContent = prod.weight;
 document.getElementById('productDesc').textContent = prod.desc;
 document.getElementById('specWeight').textContent = prod.weight;
 document.getElementById('specCure').textContent = prod.cure;
 document.getElementById('specOil').textContent = prod.oil;
 
-// Suitable list
 document.getElementById('healthSuitableList').innerHTML = prod.suitable.map(s => `<li>${s}</li>`).join('');
-
-// Warning list
 document.getElementById('healthWarningList').innerHTML = prod.warnings.map(w => `<li>${w}</li>`).join('');
-
-// Tip
 document.getElementById('healthTipText').innerHTML = prod.tip;
 
-// Ingredients
-document.getElementById('ingredientsSummary').textContent = `Made with ${prod.ingredients.length} authentic kitchen ingredients: ${prod.ingredients.join(', ')}.`;
-document.getElementById('ingredientTags').innerHTML = prod.ingredients.map(ing => `<span class="ing-tag">${ing}</span>`).join('');
+// Ingredients grid (2-column clean check items, never staircase pills)
+document.getElementById('ingredientTags').innerHTML = prod.ingredients.map(ing => `
+  <div class="ing-item"><span>✓</span> ${ing}</div>
+`).join('');
 
-// Direct WhatsApp link
+// WhatsApp Order Links
 const waMsg = encodeURIComponent(`Hi Venu! I would like to order: ${prod.name} (${prod.weight}) - ₹${prod.price}.\nPlease confirm delivery within your sector.`);
-document.getElementById('btnWhatsAppDirect').href = `https://wa.me/919876543210?text=${waMsg}`;
+const waUrl = `https://wa.me/919876543210?text=${waMsg}`;
+document.getElementById('btnWhatsAppDirect').href = waUrl;
+document.getElementById('stickyBtnWa').href = waUrl;
 
-// Quantity handler
+// Qty
 let currentQty = 1;
 const qtyInput = document.getElementById('qtyInput');
 document.getElementById('qtyPlus').addEventListener('click', () => {
@@ -748,9 +764,7 @@ document.getElementById('qtyMinus').addEventListener('click', () => {
   }
 });
 
-// Add to Cart handler
-const btnAdd = document.getElementById('btnAddToCart');
-btnAdd.addEventListener('click', () => {
+function handleAddToCart() {
   for (let i = 0; i < currentQty; i++) {
     window.VKCart.addItem({
       id: prod.id,
@@ -760,14 +774,20 @@ btnAdd.addEventListener('click', () => {
       image: prod.image
     });
   }
+  const btnAdd = document.getElementById('btnAddToCart');
+  const stickyBtn = document.getElementById('stickyBtnAdd');
   btnAdd.textContent = '✓ Added to Basket!';
+  stickyBtn.textContent = '✓ Added!';
   btnAdd.classList.add('added');
   setTimeout(() => {
     btnAdd.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add to Basket';
+    stickyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add';
     btnAdd.classList.remove('added');
   }, 1800);
   updateCartUI();
-});
+}
+document.getElementById('btnAddToCart').addEventListener('click', handleAddToCart);
+document.getElementById('stickyBtnAdd').addEventListener('click', handleAddToCart);
 
 // Related Pickles
 const relatedIds = Object.keys(CATALOG).filter(id => id !== currentId).slice(0, 4);

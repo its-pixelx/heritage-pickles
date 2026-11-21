@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#103D14"/>
 <title>Our Pickles – Venu's Kitchen</title>
 <meta name="description" content="Authentic homemade pickles handcrafted in small batches. Sun-cured, chemical-free, delivered fresh in 45 minutes."/>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="apple-touch-icon" href="favicon.svg"/>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -78,24 +84,8 @@ header{
   height:64px;
   gap:12px;
 }
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.logo-icon{
-  width:38px;
-  height:38px;
-  background:var(--green);
-  border-radius:10px;
-  color:#FFF;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:'Playfair Display',serif;
-  font-weight:700;
-  font-size:1.25rem;
-}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-img{width:38px;height:38px;border-radius:10px;flex-shrink:0}
 .logo-text{display:flex;flex-direction:column;line-height:1.15}
 .logo-title{
   font-family:'Playfair Display',serif;
@@ -182,10 +172,8 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
 .mobile-nav a:hover{background:var(--green-subtle);color:var(--green)}
 .mobile-nav.open{display:flex}
 
-/* ===== STORE HEADER (SPACIOUS & ELEGANT) ===== */
-.store-intro{
-  padding:36px 0 20px;
-}
+/* ===== STORE INTRO ===== */
+.store-intro{padding:36px 0 20px}
 .store-intro-header{
   display:flex;
   align-items:flex-end;
@@ -207,7 +195,6 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   margin-top:6px;
 }
 
-/* Subtle Launch Note Banner */
 .prelaunch-banner{
   background:var(--gold-subtle);
   border:1px solid rgba(196,154,69,0.3);
@@ -247,7 +234,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
 }
 .wa-quick-btn:hover{opacity:0.92}
 
-/* ===== HORIZONTAL SWIPE FILTER BAR (NO CONGESTION) ===== */
+/* ===== HORIZONTAL SWIPE FILTER BAR ===== */
 .filter-wrap{
   background:var(--bg-main);
   position:sticky;
@@ -310,12 +297,12 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   border:none;
   outline:none;
   font-family:inherit;
-  font-size:0.82rem;
+  font-size:16px; /* Prevents auto-zoom on iOS */
   color:var(--text-primary);
   width:100%;
   background:transparent;
 }
-.search-field input::placeholder{color:var(--text-muted)}
+.search-field input::placeholder{color:var(--text-muted);font-size:0.84rem}
 .search-field svg{color:var(--text-muted);flex-shrink:0}
 
 /* ===== PRODUCT GRID ===== */
@@ -334,7 +321,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   gap:26px;
 }
 
-/* ===== MODERN E-COMMERCE PRODUCT CARD ===== */
+/* ===== MODERN PRODUCT CARD ===== */
 .product-card{
   background:var(--bg-card);
   border-radius:var(--radius-md);
@@ -349,7 +336,6 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   transform:translateY(-4px);
   box-shadow:var(--shadow-card);
 }
-
 .card-img-wrap{
   position:relative;
   width:100%;
@@ -365,9 +351,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   object-fit:cover;
   transition:transform .45s ease;
 }
-.product-card:hover .card-img-wrap img{
-  transform:scale(1.05);
-}
+.product-card:hover .card-img-wrap img{transform:scale(1.05)}
 
 .badge-float{
   position:absolute;
@@ -379,8 +363,8 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   font-weight:700;
   padding:4px 10px;
   border-radius:50px;
-  letter-spacing:0.04em;
   text-transform:uppercase;
+  letter-spacing:0.04em;
   box-shadow:0 2px 6px rgba(0,0,0,0.12);
 }
 .badge-gold{background:var(--gold)}
@@ -430,7 +414,6 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   margin-bottom:14px;
   flex:1;
 }
-
 .card-health-row{
   display:flex;
   align-items:center;
@@ -442,8 +425,6 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   padding-bottom:14px;
   border-bottom:1px solid var(--border-subtle);
 }
-.card-health-row svg{flex-shrink:0}
-
 .card-footer{
   display:flex;
   align-items:center;
@@ -458,10 +439,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   color:var(--green-dark);
   line-height:1.1;
 }
-.price-unit{
-  font-size:0.74rem;
-  color:var(--text-muted);
-}
+.price-unit{font-size:0.74rem;color:var(--text-muted)}
 
 .card-actions{display:flex;align-items:center;gap:8px}
 .btn-view-details{
@@ -516,7 +494,7 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   color:var(--green-dark);
 }
 
-/* ===== CART SLIDE-IN DRAWER ===== */
+/* ===== CART DRAWER ===== */
 .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:9500;opacity:0;pointer-events:none;transition:opacity .25s}
 .cart-overlay.open{opacity:1;pointer-events:all}
 .cart-drawer{
@@ -647,7 +625,7 @@ footer{
 }
 .footer-row a{color:var(--gold-light)}
 
-/* ===== MOBILE RESPONSIVE ENHANCEMENTS ===== */
+/* ===== MOBILE RESPONSIVE ===== */
 @media(max-width:960px){
   .products-grid{grid-template-columns:repeat(2,1fr);gap:20px}
 }
@@ -661,7 +639,7 @@ footer{
   .basket-btn{padding:8px 12px}
   .logo-title{font-size:1.02rem}
   .logo-subtitle{display:none}
-  .logo-icon{width:34px;height:34px;font-size:1.15rem}
+  .logo-img{width:34px;height:34px}
 
   .store-intro{padding:24px 0 16px}
   .store-title{font-size:1.6rem}
@@ -673,7 +651,6 @@ footer{
   }
   .wa-quick-btn{width:100%;justify-content:center}
 
-  /* Filter row sleek on mobile */
   .filter-wrap{top:58px;padding:10px 0}
   .filter-flex{flex-direction:column;align-items:stretch;gap:10px}
   .search-field{width:100%}
@@ -699,7 +676,7 @@ footer{
   <div class="container">
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-icon">V</div>
+        <img src="logo.svg" alt="Venu's Kitchen Logo" class="logo-img" width="38" height="38"/>
         <div class="logo-text">
           <span class="logo-title">Venu's Kitchen</span>
           <span class="logo-subtitle">Homemade Pickles</span>
@@ -743,7 +720,7 @@ footer{
       </div>
     </div>
 
-    <!-- Clean Pre-launch Pill Banner -->
+    <!-- Pre-launch Banner -->
     <div class="prelaunch-banner">
       <div class="prelaunch-left">
         <span class="pill-tag">Pre-Launch</span>
@@ -757,7 +734,7 @@ footer{
   </div>
 </section>
 
-<!-- Sleek Horizontal Scroll Filter (Thumb Friendly) -->
+<!-- Filter Bar -->
 <div class="filter-wrap">
   <div class="container">
     <div class="filter-flex">
@@ -784,13 +761,11 @@ footer{
       <span id="productsCount">Showing 7 products</span>
       <span>100% Glass Jar Packaging</span>
     </div>
-    <div class="products-grid" id="productsGrid">
-      <!-- Injected by JS -->
-    </div>
+    <div class="products-grid" id="productsGrid"></div>
   </div>
 </main>
 
-<!-- Cart Drawer -->
+<!-- Cart Slide-in Drawer -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 <div class="cart-drawer" id="cartDrawer">
   <div class="cart-top">
@@ -834,7 +809,6 @@ footer{
 
 <script src="cart.js"></script>
 <script>
-// Master Pickle Products
 const PRODUCTS = [
   {
     id: 'p1',

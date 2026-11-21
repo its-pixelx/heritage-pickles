@@ -1,47 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Venu's Kitchen | Authentic Homemade Pickles & Local Cloud Kitchen</title>
+  <title>Venu's Kitchen | Authentic Homemade Pickles & Express Cloud Kitchen</title>
   
-  <meta name="description" content="Venu's Kitchen - Premium homemade Indian pickles prepared in traditional small batches using cold-pressed oils. Local doorstep delivery within 45-60 minutes.">
-  <meta name="keywords" content="Venu's Kitchen, homemade pickle, mango pickle, lime pickle, stuffed red chilli pickle, garlic pickle, cloud kitchen delivery">
+  <meta name="description" content="Venu's Kitchen - Authentic homemade Indian pickles sun-cured in ceramic martabans with cold-pressed oils. Local doorstep delivery within 45-60 minutes.">
+  <meta name="keywords" content="Venu's Kitchen, homemade pickles, artisanal achar, mango pickle, stuffed red chilli, cloud kitchen, local food delivery">
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts: Inter for clean, standard, official typography -->
+  <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
+  <!-- Tailwind Configuration -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              200: '#bbf7d0',
-              600: '#16a34a',
-              700: '#15803d',
-              800: '#166534',
-              900: '#14532d',
-              950: '#052e16',
-            },
             amberBrand: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
               600: '#d97706',
               700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+              950: '#451a03',
+            },
+            garnet: {
+              800: '#881337',
+              900: '#701a31',
+              950: '#4c0519',
             }
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-            serif: ['Merriweather', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+          },
+          animation: {
+            'float-slow': 'float 4.5s ease-in-out infinite',
+            'float-delayed': 'float 4.5s ease-in-out infinite 2.25s',
+            'pulse-subtle': 'pulseSubtle 2.5s infinite',
+            'shimmer': 'shimmer 3s infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            pulseSubtle: {
+              '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+              '50%': { opacity: '0.85', transform: 'scale(1.03)' },
+            },
+            shimmer: {
+              '100%': { transform: 'translateX(100%)' },
+            }
           }
         }
       }
@@ -50,275 +74,488 @@
 
   <style>
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
     .custom-scrollbar::-webkit-scrollbar {
       width: 6px;
     }
     .custom-scrollbar::-webkit-scrollbar-track {
-      background: #f1f5f9;
+      background: #fdfbf7;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 3px;
+      background: #f59e0b;
+      border-radius: 4px;
+    }
+    .glass-header {
+      background: rgba(255, 253, 248, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.12) 0%, rgba(254, 243, 199, 0.05) 50%, transparent 80%);
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
+<body class="bg-[#FAF8F5] text-stone-900 antialiased min-h-screen flex flex-col selection:bg-amber-200 selection:text-amber-950">
 
-  <!-- TOP OFFICIAL ANNOUNCEMENT BAR -->
-  <div class="bg-brand-900 text-white text-xs py-2 px-4 border-b border-brand-800">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
-        <span class="font-medium">Venu's Kitchen Local Hub • Hyper-local delivery within 45–60 minutes in designated sectors</span>
+  <!-- TOP OFFICIAL ANNOUNCEMENT BAR (SPACIOUS & BEAUTIFULLY FORMATTED) -->
+  <div class="bg-gradient-to-r from-garnet-950 via-stone-900 to-garnet-950 text-white text-xs py-2.5 px-4 sm:px-8 border-b border-stone-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+      
+      <!-- Left Notice -->
+      <div class="flex items-center gap-2.5">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+        </span>
+        <span class="font-semibold tracking-wide text-amber-100">
+          Venu's Kitchen Express Hub: Hyper-Local Delivery within 45–60 Mins in Designated Sectors
+        </span>
       </div>
-      <div class="flex items-center gap-4 text-slate-300 text-[11px]">
-        <span>100% Food-Grade Glass Jars</span>
-        <span class="hidden md:inline">•</span>
-        <span class="hidden md:inline">Zero Chemical Preservatives</span>
-        <span class="hidden md:inline">•</span>
-        <span class="text-amber-300 font-semibold">Direct Kitchen Helpline: +91 98765 43210</span>
+
+      <!-- Right Contact & Standards -->
+      <div class="flex items-center gap-5 text-stone-300 text-[11px] font-medium">
+        <span class="hidden lg:inline-flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-amber-400"></i>
+          100% Glass Martabans
+        </span>
+        <span class="hidden lg:inline-flex items-center gap-1.5">
+          <i data-lucide="sun" class="w-3.5 h-3.5 text-amber-400"></i>
+          21-Day Sun Cured
+        </span>
+        <a href="tel:+919876543210" class="text-amber-300 hover:text-amber-200 font-bold flex items-center gap-1.5 bg-white/10 px-3 py-1 rounded-full transition-colors">
+          <i data-lucide="phone-call" class="w-3 h-3 text-amber-400"></i>
+          <span>Kitchen: +91 98765 43210</span>
+        </a>
       </div>
+
     </div>
   </div>
 
-  <!-- MAIN NAVIGATION HEADER -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+  <!-- NAVIGATION BAR (CLEAN, SPACIOUS, DISTINCT HERO VS STORE TABS) -->
+  <header class="sticky top-0 z-40 glass-header border-b border-amber-200/70 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-22 py-3 flex items-center justify-between gap-4">
       
-      <!-- Logo and Business Identity -->
-      <a href="#" class="flex items-center gap-3">
-        <div class="w-11 h-11 rounded-lg bg-brand-800 text-white flex items-center justify-center font-serif font-bold text-xl shadow-sm">
-          VK
+      <!-- Brand Logo & Tagline -->
+      <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-600 to-garnet-900 text-white flex items-center justify-center font-serif font-black text-2xl shadow-md group-hover:scale-105 transition-transform duration-300 border border-amber-300/40">
+          V
         </div>
-        <div>
-          <span class="font-serif font-bold text-xl sm:text-2xl text-slate-900 tracking-tight block leading-none">
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-2xl text-stone-950 tracking-tight leading-none group-hover:text-amber-800 transition-colors">
             Venu's Kitchen
           </span>
-          <span class="text-[11px] uppercase tracking-wider text-slate-500 font-semibold block mt-1">
-            Homemade Pickles & Cloud Kitchen
+          <span class="text-[11px] uppercase tracking-wider font-bold text-amber-800 mt-1 flex items-center gap-1.5">
+            <span>Homemade Pickles</span>
+            <span class="w-1 h-1 rounded-full bg-amber-500"></span>
+            <span class="text-stone-500 font-medium">Cloud Kitchen Hub</span>
           </span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Menu -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
-        <a href="#store" class="hover:text-brand-800 transition-colors">Our Pickles</a>
-        <a href="#delivery" class="hover:text-brand-800 transition-colors">Delivery Coverage</a>
-        <a href="#standards" class="hover:text-brand-800 transition-colors">Quality Standards</a>
-        <a href="#about" class="hover:text-brand-800 transition-colors">About Us</a>
-        <a href="#contact" class="hover:text-brand-800 transition-colors">Contact</a>
+      <!-- Main Navigation Links (Distinct Hero Home vs Full Store Page) -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-stone-800">
+        <a href="index.html" class="text-amber-800 font-bold border-b-2 border-amber-700 pb-1 flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-4 h-4 text-amber-600"></i>
+          <span>Home</span>
+        </a>
+        <a href="store.html" class="hover:text-amber-700 transition-colors flex items-center gap-1.5 font-bold text-amber-950 bg-amber-100/70 hover:bg-amber-100 px-3.5 py-1.5 rounded-full border border-amber-300/60 shadow-sm">
+          <i data-lucide="store" class="w-4 h-4 text-amber-700"></i>
+          <span>Pickle Store (7 Varieties)</span>
+        </a>
+        <a href="#delivery-section" class="hover:text-amber-700 transition-colors">45-Min Delivery</a>
+        <a href="#heritage-section" class="hover:text-amber-700 transition-colors">The Craft</a>
+        <a href="#reviews-section" class="hover:text-amber-700 transition-colors">Reviews</a>
       </nav>
 
-      <!-- Cart Trigger & Action Buttons -->
+      <!-- Cart Trigger & Mobile Menu Toggle -->
       <div class="flex items-center gap-3">
-        <button onclick="toggleCart(true)" class="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-brand-800 hover:bg-brand-900 text-white text-xs font-semibold shadow-sm transition-all">
+        <!-- Cart Drawer Button -->
+        <button onclick="toggleCartDrawer(true)" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-700 to-garnet-900 hover:from-amber-800 hover:to-garnet-950 text-white font-semibold text-xs sm:text-sm shadow-md shadow-amber-900/15 active:scale-95 transition-all">
           <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-          <span>Basket</span>
-          <span id="nav-cart-count" class="bg-brand-600 text-white px-2 py-0.5 rounded-full text-[11px] font-bold">0</span>
+          <span class="hidden sm:inline">Order Basket</span>
+          <span class="cart-counter-badge bg-amber-400 text-stone-950 font-black px-2 py-0.5 rounded-full text-xs">0</span>
         </button>
 
-        <!-- Mobile menu toggle -->
-        <button onclick="toggleMobileNav()" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 border border-slate-200">
-          <i data-lucide="menu" class="w-5 h-5"></i>
+        <!-- Mobile Menu Button -->
+        <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl text-stone-800 hover:bg-amber-100/60 border border-stone-200">
+          <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
       </div>
 
     </div>
 
-    <!-- Mobile Nav Dropdown -->
-    <div id="mobile-nav" class="hidden md:hidden border-t border-slate-200 bg-white px-4 py-3 space-y-2 text-sm font-medium text-slate-800">
-      <a href="#store" onclick="toggleMobileNav()" class="block py-2 border-b border-slate-100">Our Pickles (Pantry)</a>
-      <a href="#delivery" onclick="toggleMobileNav()" class="block py-2 border-b border-slate-100">Delivery Coverage (45-60 min)</a>
-      <a href="#standards" onclick="toggleMobileNav()" class="block py-2 border-b border-slate-100">Quality & Safety Standards</a>
-      <a href="#about" onclick="toggleMobileNav()" class="block py-2 border-b border-slate-100">About Venu's Kitchen</a>
-      <a href="#contact" onclick="toggleMobileNav()" class="block py-2">Contact & Helpline</a>
+    <!-- Mobile Nav Drawer -->
+    <div id="mobile-menu-drawer" class="hidden md:hidden border-t border-amber-200/80 bg-amber-50/95 px-6 py-4 flex-col gap-3 text-sm font-semibold text-stone-900 shadow-xl">
+      <a href="index.html" onclick="toggleMobileMenu()" class="py-2 text-amber-800 font-bold border-b border-amber-200 flex items-center justify-between">
+        <span>Home (Hero Page)</span>
+        <span class="text-xs bg-amber-200 px-2 py-0.5 rounded-full text-amber-950">Active</span>
+      </a>
+      <a href="store.html" onclick="toggleMobileMenu()" class="py-2.5 px-3 bg-amber-600 text-white rounded-xl font-bold flex items-center justify-between shadow-sm">
+        <span class="flex items-center gap-2">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          <span>Open Pickle Store (7 Jars)</span>
+        </span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="#delivery-section" onclick="toggleMobileMenu()" class="py-2 border-b border-amber-200">45-Minute Delivery Fleet</a>
+      <a href="#heritage-section" onclick="toggleMobileMenu()" class="py-2 border-b border-amber-200">The 21-Day Sun Curing Craft</a>
+      <a href="#reviews-section" onclick="toggleMobileMenu()" class="py-2">Customer Tasting Reviews</a>
     </div>
   </header>
 
+  <!-- MAIN HERO SECTION -->
   <main class="flex-grow">
+    
+    <!-- HERO BANNER SECTION -->
+    <section class="relative overflow-hidden py-14 lg:py-24 hero-glow border-b border-amber-200/60">
+      
+      <!-- Background Ambient Blobs -->
+      <div class="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-amber-200/35 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-garnet-800/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
-    <!-- HERO SECTION (OFFICIAL, STANDARD, PROFESSIONAL) -->
-    <section class="bg-white border-b border-slate-200 py-12 lg:py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          <!-- Left Column: Official Value Proposition -->
-          <div class="lg:col-span-7 space-y-5">
+          <!-- Hero Copy Left (7 cols) -->
+          <div class="lg:col-span-7 space-y-6 text-left">
             
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold">
-              <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
-              <span>Authentic Homemade Preparation • FSSAI Standards Compliant</span>
+            <!-- Quality Badge -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-amber-100/90 border border-amber-300 text-amber-950 text-xs sm:text-sm font-bold shadow-sm">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-600 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-600"></span>
+              </span>
+              <span>100% Homemade • Sun-Cured in Ceramic Barnis • Zero Artificial Vinegar</span>
             </div>
 
-            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-              Traditional Homemade Pickles. <br>
-              <span class="text-brand-800 font-normal">Freshly Packed & Delivered Locally.</span>
+            <!-- Grand Headline -->
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-stone-950 leading-[1.12] tracking-tight">
+              The Lost Art of <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-700 via-amber-800 to-garnet-900">
+                Homemade Pickles,
+              </span><br>
+              Delivered in 45 Mins.
             </h1>
 
-            <p class="text-slate-600 text-base leading-relaxed max-w-2xl">
-              Venu's Kitchen prepares authentic regional pickles in small, hygienic domestic batches. Prepared strictly with cold-pressed mustard oil, sun-dried natural spices, and packed inside sterilized glass jars. Available for express delivery within our local operating radius.
+            <!-- Narrative Subheading -->
+            <p class="text-base sm:text-lg text-stone-700 max-w-2xl font-normal leading-relaxed">
+              At <strong class="font-semibold text-stone-900">Venu's Kitchen</strong>, every single jar is slow-matured under the raw sun for 21 days in genuine ceramic martabans. Preserved naturally with cold-pressed mustard oil and hand-pounded spices — dispatched straight from our cloud kitchen to your dining table.
             </p>
 
-            <!-- Delivery Radius Verification Box -->
-            <div class="p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200 max-w-xl">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
-                  <i data-lucide="map-pin" class="w-4 h-4 text-brand-800"></i>
+            <!-- Dual Action CTAs -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+              <a href="store.html" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-700 via-amber-800 to-garnet-900 hover:from-amber-800 hover:to-garnet-950 text-white font-bold text-base shadow-xl shadow-amber-900/25 flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-95 group">
+                <i data-lucide="shopping-bag" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+                <span>Explore Store (7 Jars)</span>
+                <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+              </a>
+
+              <a href="#delivery-section" class="px-6 py-4 rounded-2xl bg-white hover:bg-amber-50 text-stone-800 font-bold text-sm border border-stone-300 shadow-sm flex items-center justify-center gap-2 transition-all">
+                <i data-lucide="map-pin" class="w-4 h-4 text-amber-700"></i>
+                <span>Check Delivery Radius</span>
+              </a>
+            </div>
+
+            <!-- Interactive Delivery Radius Verification Card -->
+            <div class="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-amber-200/80 shadow-lg max-w-xl">
+              <div class="flex items-center justify-between mb-2.5">
+                <span class="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center gap-1.5">
+                  <i data-lucide="navigation" class="w-4 h-4 text-amber-700"></i>
                   Local Delivery Radius Verification
                 </span>
-                <span class="text-[11px] text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                  ⚡ 45–60 Min Transit
+                <span class="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                  ⚡ 45–60 Min Dispatch
                 </span>
               </div>
-              <p class="text-xs text-slate-500 mb-3">Enter your area, colony, or pincode to check immediate delivery availability.</p>
+              <p class="text-xs text-stone-500 mb-3">Enter your colony or pincode to check immediate cloud kitchen door delivery.</p>
               
-              <form onsubmit="event.preventDefault(); verifyPincode();" class="flex gap-2">
-                <input type="text" id="pincode-input" placeholder="e.g. Sector 15, Hauz Khas, 110017" class="flex-grow px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-800 text-slate-900 bg-white" required>
-                <button type="submit" class="px-5 py-2.5 rounded-lg bg-brand-800 hover:bg-brand-900 text-white text-xs font-semibold transition-colors">
-                  Verify Area
+              <form onsubmit="event.preventDefault(); verifyHeroPincode();" class="flex flex-col sm:flex-row gap-2">
+                <input type="text" id="hero-pincode" placeholder="e.g. Hauz Khas, Saket, Sector 15, 110017" class="flex-grow px-4 py-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-600 bg-stone-50/60 font-medium text-stone-900" required>
+                <button type="submit" class="px-6 py-2.5 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs sm:text-sm transition-colors shadow-sm flex items-center justify-center gap-1.5 whitespace-nowrap">
+                  <span>Verify Area</span>
+                  <i data-lucide="check" class="w-4 h-4"></i>
                 </button>
               </form>
-              <div id="pincode-result" class="hidden mt-3 p-3 rounded-lg text-xs"></div>
+              <div id="hero-pincode-result" class="hidden mt-3 p-3 rounded-xl text-xs font-semibold"></div>
             </div>
 
-            <!-- Key Fact Highlights -->
-            <div class="grid grid-cols-3 gap-4 pt-2 border-t border-slate-100 max-w-xl">
-              <div>
-                <span class="block font-bold text-slate-900 text-lg sm:text-xl">100% Glass</span>
-                <span class="text-xs text-slate-500">Sterilized Jar Packaging</span>
+            <!-- Key Fact Metrics -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-3 border-t border-amber-200/60">
+              <div class="border-l-2 border-amber-600 pl-3">
+                <span class="font-serif font-black text-2xl text-stone-900 block">21 Days</span>
+                <span class="text-xs text-stone-600">Sun-Matured Naturally</span>
               </div>
-              <div>
-                <span class="block font-bold text-slate-900 text-lg sm:text-xl">Zero Vinegar</span>
-                <span class="text-xs text-slate-500">Natural Sun Preservation</span>
+              <div class="border-l-2 border-garnet-800 pl-3">
+                <span class="font-serif font-black text-2xl text-stone-900 block">45-60m</span>
+                <span class="text-xs text-stone-600">Doorstep Local Transit</span>
               </div>
-              <div>
-                <span class="block font-bold text-slate-900 text-lg sm:text-xl">45-60 Mins</span>
-                <span class="text-xs text-slate-500">Local Express Dispatch</span>
+              <div class="border-l-2 border-amber-700 pl-3">
+                <span class="font-serif font-black text-2xl text-stone-900 block">100% Glass</span>
+                <span class="text-xs text-stone-600">Induction Foil Sealed</span>
+              </div>
+              <div class="border-l-2 border-emerald-600 pl-3">
+                <span class="font-serif font-black text-2xl text-stone-900 block">4.9 ★</span>
+                <span class="text-xs text-stone-600">850+ Local Foodies</span>
               </div>
             </div>
 
           </div>
 
-          <!-- Right Column: Official Pickle Jar Photography -->
-          <div class="lg:col-span-5">
-            <div class="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
-              <div class="rounded-xl overflow-hidden aspect-[4/3] bg-slate-100 relative">
-                <img src="https://images.unsplash.com/photo-1519147683487-66e0c2d0b5a0?auto=format&fit=crop&w=1000&q=80" alt="Authentic Homemade Pickle Jars" class="w-full h-full object-cover">
-                <div class="absolute bottom-3 left-3 bg-slate-900/85 text-white px-3 py-1.5 rounded-md text-xs font-medium">
-                  Fresh Batch Cured in Glass Jars
+          <!-- Hero Graphic Right (5 cols) - ANIMATED REAL PICKLE JAR SHOWCASE -->
+          <div class="lg:col-span-5 relative flex justify-center">
+            
+            <!-- Showcase Card with Floating Glass Elements -->
+            <div class="relative w-full max-w-md bg-white rounded-3xl p-4 sm:p-6 shadow-2xl border border-amber-200/90 animate-float-slow">
+              
+              <!-- Card Header -->
+              <div class="flex items-center justify-between pb-3 border-b border-stone-100">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-bold text-stone-900 font-serif">Today's Maturation Batch</span>
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300">VK-Batch #12</span>
+                </div>
+                <span class="text-xs font-bold text-emerald-700 flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  In Kitchen Cellar
+                </span>
+              </div>
+
+              <!-- Main Hero Jar Image -->
+              <div class="relative my-4 rounded-2xl overflow-hidden aspect-[4/3] shadow-inner group">
+                <img src="https://images.unsplash.com/photo-1519147683487-66e0c2d0b5a0?auto=format&fit=crop&w=1000&q=80" alt="Venu's Kitchen Artisanal Pickle Jars" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950/75 via-transparent to-transparent flex items-end p-4">
+                  <div>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-600 text-white uppercase tracking-wider">Traditional Achar</span>
+                    <h3 class="text-white font-serif font-bold text-lg mt-0.5">Authentic Homemade Pickles</h3>
+                    <p class="text-amber-200 text-xs">Cured with Cold-Pressed Mustard Oil & Rock Salt</p>
+                  </div>
                 </div>
               </div>
-              <div class="p-3 bg-slate-50 rounded-lg mt-3 flex items-center justify-between text-xs text-slate-600">
-                <span class="font-medium text-slate-800">Batch Code: VK-2026-B12</span>
-                <span class="text-emerald-700 font-semibold">● In Stock & Ready for Packaging</span>
+
+              <!-- Floating Micro-Badge: Hyper-Local Fleet Status -->
+              <div class="absolute -bottom-5 -left-4 sm:-left-6 bg-white rounded-2xl p-3 shadow-xl border border-stone-200 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
+                  <i data-lucide="bike" class="w-5 h-5 text-amber-700"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-xs font-bold text-stone-900">Hyper-Local Fleet</span>
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  </div>
+                  <p class="text-[11px] text-stone-500 font-medium">Delivering in 45-60 mins</p>
+                </div>
               </div>
+
+              <!-- Floating Micro-Badge: 100% Pure Glass Seal -->
+              <div class="absolute -top-4 -right-3 bg-stone-900 text-amber-300 rounded-2xl px-3.5 py-2 shadow-xl border border-stone-700 flex items-center gap-2">
+                <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+                <div class="text-[11px] font-bold leading-tight">
+                  Food-Grade Glass<br><span class="text-white/80 font-normal">Tamper Sealed</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNATURE VARIETIES PREVIEW SECTION (LEADS DIRECTLY TO STORE) -->
+    <section class="py-16 bg-white border-b border-amber-200/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-800 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+              Venu's Kitchen Pantry Preview
+            </span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 mt-2">
+              Our Bestselling Homemade Pickles
+            </h2>
+            <p class="text-sm text-stone-600 mt-1 max-w-xl">
+              Preview our most cherished recipes. Visit the dedicated store page to view all 7 varieties with ingredients and tasting notes.
+            </p>
+          </div>
+
+          <!-- Go To Full Store CTA -->
+          <a href="store.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs shadow-md transition-all whitespace-nowrap self-start md:self-auto">
+            <span>View All 7 Pickles in Store</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- 3 Featured Bestseller Jars -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Bestseller 1: Mango -->
+          <div class="bg-[#FAF8F5] rounded-3xl p-5 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-white mb-4 relative">
+                <img src="https://images.unsplash.com/photo-1632239108478-568f362ac3ac?auto=format&fit=crop&w=800&q=80" alt="Traditional Raw Mango Pickle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-3 left-3 bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">Bestseller</span>
+                <span class="absolute bottom-3 right-3 bg-stone-900/80 text-white text-[10px] font-bold px-2 py-0.5 rounded">500g Glass Jar</span>
+              </div>
+              <div class="text-[11px] font-bold text-amber-800 uppercase tracking-wide">Cold-Pressed Mustard Oil</div>
+              <h3 class="font-serif font-bold text-xl text-stone-950 mt-1">Traditional Raw Mango Pickle</h3>
+              <p class="text-xs text-stone-500 italic mb-2">दादी का पारंपरिक आम का अचार</p>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">
+                Sun-cured raw Ramkela mango slices infused with freshly roasted fenugreek, fennel, kalonji, and pure mustard oil.
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] text-stone-500 uppercase font-semibold block">Jar Price</span>
+                <span class="font-serif font-bold text-2xl text-stone-900">₹240</span>
+              </div>
+              <button onclick="addToCart(1)" class="px-4 py-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add to Basket
+              </button>
+            </div>
+          </div>
+
+          <!-- Bestseller 2: Stuffed Red Chili -->
+          <div class="bg-[#FAF8F5] rounded-3xl p-5 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-white mb-4 relative">
+                <img src="https://images.unsplash.com/photo-1645679059045-65ff3a440554?auto=format&fit=crop&w=800&q=80" alt="Banarasi Stuffed Red Chilli Pickle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-3 left-3 bg-red-100 text-red-900 border border-red-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">Chef's Special</span>
+                <span class="absolute bottom-3 right-3 bg-stone-900/80 text-white text-[10px] font-bold px-2 py-0.5 rounded">400g Glass Jar</span>
+              </div>
+              <div class="text-[11px] font-bold text-red-800 uppercase tracking-wide">Fiery & Pungent</div>
+              <h3 class="font-serif font-bold text-xl text-stone-950 mt-1">Banarasi Stuffed Red Chilli</h3>
+              <p class="text-xs text-stone-500 italic mb-2">बनारसी भरवा लाल मिर्च</p>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">
+                Whole sun-dried red chilies packed by hand with a rich tangy masala of dry mango powder and roasted mustard kernels.
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] text-stone-500 uppercase font-semibold block">Jar Price</span>
+                <span class="font-serif font-bold text-2xl text-stone-900">₹280</span>
+              </div>
+              <button onclick="addToCart(2)" class="px-4 py-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add to Basket
+              </button>
+            </div>
+          </div>
+
+          <!-- Bestseller 3: Sun-Cured Lemon -->
+          <div class="bg-[#FAF8F5] rounded-3xl p-5 border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-white mb-4 relative">
+                <img src="https://images.unsplash.com/photo-1525027684690-6de2d445842b?auto=format&fit=crop&w=800&q=80" alt="Sun-Cured Lemon Pickle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-3 left-3 bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm">Zero-Oil Recipe</span>
+                <span class="absolute bottom-3 right-3 bg-stone-900/80 text-white text-[10px] font-bold px-2 py-0.5 rounded">400g Glass Jar</span>
+              </div>
+              <div class="text-[11px] font-bold text-emerald-800 uppercase tracking-wide">100% Zero Added Oil</div>
+              <h3 class="font-serif font-bold text-xl text-stone-950 mt-1">Sun-Cured Lemon Pickle</h3>
+              <p class="text-xs text-stone-500 italic mb-2">नींबू का खट्टा-मीठा अचार</p>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed">
+                Thin-skin Kagzi lemons slow-aged under natural sunlight with ajwain, Himalayan black salt, and pure jaggery.
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-stone-200/80 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] text-stone-500 uppercase font-semibold block">Jar Price</span>
+                <span class="font-serif font-bold text-2xl text-stone-900">₹210</span>
+              </div>
+              <button onclick="addToCart(4)" class="px-4 py-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm active:scale-95 transition-all">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add to Basket
+              </button>
             </div>
           </div>
 
         </div>
-      </div>
-    </section>
 
-    <!-- STORE SECTION: 7 REAL PICKLE VARIETIES IN JARS -->
-    <section id="store" class="py-14 bg-slate-50 border-b border-slate-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-brand-800">Official Pantry Catalog</span>
-            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
-              Select Your Homemade Pickle Variety
-            </h2>
-            <p class="text-sm text-slate-600 mt-1">Available in 350g, 400g, and 500g sterilized food-grade glass jars.</p>
+        <!-- Big Banner to Full Store -->
+        <div class="mt-12 p-8 rounded-3xl bg-gradient-to-r from-garnet-950 via-stone-900 to-garnet-950 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-1 text-center md:text-left">
+            <span class="text-xs font-bold text-amber-300 uppercase tracking-widest">Full Artisanal Range</span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold">Discover All 7 Varieties of Venu's Pickles</h3>
+            <p class="text-xs text-stone-300">Including Spicy Green Chilli, Mixed Veg Pachranga, Slow-Tempered Garlic & Sweet Mango Chhunda.</p>
           </div>
-          
-          <!-- Category Filter -->
-          <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0" id="filter-container">
-            <button onclick="applyFilter('all')" class="cat-pill active px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-brand-800 text-white border border-brand-800" data-cat="all">All Jars</button>
-            <button onclick="applyFilter('mango')" class="cat-pill px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100" data-cat="mango">Mango</button>
-            <button onclick="applyFilter('chilli')" class="cat-pill px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100" data-cat="chilli">Chilli & Garlic</button>
-            <button onclick="applyFilter('lemon-mixed')" class="cat-pill px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100" data-cat="lemon-mixed">Lemon & Mixed Veg</button>
-          </div>
-        </div>
-
-        <!-- Products Grid (7 Genuine Pickle Varieties) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6" id="products-list">
-          <!-- Populated by JavaScript -->
+          <a href="store.html" class="px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-black text-sm flex items-center gap-2 shadow-lg transition-transform hover:scale-105 whitespace-nowrap">
+            <span>Open Pickle Store</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
         </div>
 
       </div>
     </section>
 
-    <!-- HYPER-LOCAL DELIVERY & PACKAGING SPECIFICATION -->
-    <section id="delivery" class="py-14 bg-white border-b border-slate-200">
+    <!-- HYPER-LOCAL DELIVERY SECTION -->
+    <section id="delivery-section" class="py-16 bg-[#FAF8F5] border-b border-amber-200/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="max-w-3xl mb-10">
-          <span class="text-xs font-bold uppercase tracking-wider text-brand-800">Operational Logistics</span>
-          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mt-1 mb-2">
-            Local Kitchen Delivery Radius & Fleet Standards
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-amber-800 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+            Dedicated Local Dispatch
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 mt-2 mb-3">
+            Doorstep Delivery in 45–60 Minutes
           </h2>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            To ensure zero leakage, peak freshness, and preserve the delicate pungency of cold-pressed oils, Venu's Kitchen operates strictly on a point-to-point local delivery model.
+          <p class="text-sm text-stone-600">
+            We operate within an 8 km kitchen circle so your pickles arrive fresh without being tossed in regional freight warehouses.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           
-          <div class="p-5 rounded-xl border border-slate-200 bg-slate-50">
-            <div class="w-10 h-10 rounded-lg bg-brand-800 text-white flex items-center justify-center mb-3">
-              <i data-lucide="package-check" class="w-5 h-5"></i>
+          <div class="p-6 rounded-2xl bg-white border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-lg mb-4">
+              1
             </div>
-            <h3 class="font-bold text-slate-900 text-base mb-1.5">1. Induction Sealed Glass</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Every jar features an airtight foil induction seal under the metal cap to ensure leak-proof handling during transport and preserve the authentic aroma.
+            <h3 class="font-serif font-bold text-xl text-stone-900 mb-2">Sealed to Order</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Jars are retrieved from our sun-curing cellar and sealed with food-grade tamper-evident induction foil to eliminate oil leakage.
             </p>
           </div>
 
-          <div class="p-5 rounded-xl border border-slate-200 bg-slate-50">
-            <div class="w-10 h-10 rounded-lg bg-brand-800 text-white flex items-center justify-center mb-3">
-              <i data-lucide="clock" class="w-5 h-5"></i>
+          <div class="p-6 rounded-2xl bg-white border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-lg mb-4">
+              2
             </div>
-            <h3 class="font-bold text-slate-900 text-base mb-1.5">2. 45–60 Minute Express Dispatch</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Orders within our 8 km kitchen circle are assigned to direct hyperlocal courier riders (Dunzo, Porter, Shadowfax) for immediate doorstep handover.
+            <h3 class="font-serif font-bold text-xl text-stone-900 mb-2">Local Rider Pickup</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Dispatched directly with point-to-point local logistics partners (Dunzo, Porter, Shadowfax) stationed at our kitchen base.
             </p>
           </div>
 
-          <div class="p-5 rounded-xl border border-slate-200 bg-slate-50">
-            <div class="w-10 h-10 rounded-lg bg-brand-800 text-white flex items-center justify-center mb-3">
-              <i data-lucide="shield-check" class="w-5 h-5"></i>
+          <div class="p-6 rounded-2xl bg-white border border-stone-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-lg mb-4">
+              3
             </div>
-            <h3 class="font-bold text-slate-900 text-base mb-1.5">3. Clean Room Packing</h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Jars are filled in an inspected, hygienic kitchen environment using sterilized utensils and food-grade glass martabans.
+            <h3 class="font-serif font-bold text-xl text-stone-900 mb-2">45-60 Min Delivery</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Arrives safely at your doorstep ready for dinner, retaining the sharp aroma of freshly cold-pressed mustard oil.
             </p>
           </div>
 
         </div>
 
-        <!-- Locality Coverage Table -->
-        <div class="rounded-xl border border-slate-200 overflow-hidden">
-          <div class="bg-slate-100 px-4 py-3 border-b border-slate-200 font-semibold text-xs text-slate-800 uppercase tracking-wide">
-            Designated Local Delivery Zones (Central Hub Radius)
+        <!-- Designated Zones Table -->
+        <div class="rounded-2xl border border-stone-200 overflow-hidden bg-white shadow-sm">
+          <div class="bg-amber-100/70 px-6 py-4 border-b border-amber-200 font-bold text-xs text-stone-900 uppercase tracking-wider flex items-center gap-2">
+            <i data-lucide="map" class="w-4 h-4 text-amber-700"></i>
+            <span>Venu's Kitchen Active Delivery Hubs & Timing</span>
           </div>
-          <div class="divide-y divide-slate-200 text-xs text-slate-700 bg-white">
-            <div class="grid grid-cols-1 sm:grid-cols-3 p-3.5 hover:bg-slate-50">
-              <span class="font-semibold text-slate-900">Zone A (0 – 3 KM)</span>
-              <span>Colonies: Sector 14, 15, 16, Hauz Khas, Green Park</span>
-              <span class="text-emerald-700 font-bold">Estimated Transit: 30 – 40 mins</span>
+          <div class="divide-y divide-stone-100 text-xs text-stone-700">
+            <div class="grid grid-cols-1 sm:grid-cols-3 p-4 hover:bg-stone-50">
+              <span class="font-bold text-stone-900">Zone 1 (0 – 3 KM Radius)</span>
+              <span>Hauz Khas, Green Park, SDA Enclave, Sector 14-16</span>
+              <span class="text-emerald-700 font-bold">Transit Time: 30 – 40 mins</span>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 p-3.5 hover:bg-slate-50">
-              <span class="font-semibold text-slate-900">Zone B (3 – 6 KM)</span>
-              <span>Colonies: Saket, Malviya Nagar, Pushp Vihar, GK-1</span>
-              <span class="text-emerald-700 font-bold">Estimated Transit: 40 – 50 mins</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 p-4 hover:bg-stone-50">
+              <span class="font-bold text-stone-900">Zone 2 (3 – 6 KM Radius)</span>
+              <span>Saket, Malviya Nagar, Greater Kailash 1, Pushp Vihar</span>
+              <span class="text-emerald-700 font-bold">Transit Time: 40 – 50 mins</span>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 p-3.5 hover:bg-slate-50">
-              <span class="font-semibold text-slate-900">Zone C (6 – 8 KM)</span>
-              <span>Colonies: Greater Kailash 2, Vasant Kunj, Defence Colony</span>
-              <span class="text-emerald-700 font-bold">Estimated Transit: 50 – 60 mins</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 p-4 hover:bg-stone-50">
+              <span class="font-bold text-stone-900">Zone 3 (6 – 8 KM Radius)</span>
+              <span>Greater Kailash 2, Defence Colony, Vasant Kunj</span>
+              <span class="text-emerald-700 font-bold">Transit Time: 50 – 60 mins</span>
             </div>
           </div>
         </div>
@@ -326,156 +563,198 @@
       </div>
     </section>
 
-    <!-- QUALITY AND HYGIENE STANDARDS -->
-    <section id="standards" class="py-14 bg-slate-50 border-b border-slate-200">
+    <!-- HERITAGE & QUALITY SECTION -->
+    <section id="heritage-section" class="py-16 bg-white border-b border-amber-200/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-brand-800">Hygiene & Safety Protocols</span>
-            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mt-1 mb-4">
-              Commitment to Authentic, Chemical-Free Preservation
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-6 space-y-5">
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-800 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+              Traditional Craftsmanship
+            </span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 leading-tight">
+              Why Factory Pickles Cannot Match Venu's Kitchen
             </h2>
-            <div class="space-y-4 text-sm text-slate-600">
-              <p>
-                Commercial pickles manufactured in factories often substitute traditional mustard oil with cheaper refined palm oil and add synthetic acetic acid (chemical vinegar) to force rapid fermentation.
-              </p>
-              <p>
-                At <strong>Venu's Kitchen</strong>, we adhere strictly to the centuries-old Indian sun-maturation method:
-              </p>
-              <ul class="space-y-2 text-xs font-medium text-slate-800">
-                <li class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
-                  <span>Pure cold-pressed mustard and sesame oils (Kacchi Ghani).</span>
-                </li>
-                <li class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
-                  <span>Hand-pounded spices (Fenugreek, Fennel, Kalonji, Turmeric).</span>
-                </li>
-                <li class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
-                  <span>Zero artificial food colors, zero synthetic preservatives.</span>
-                </li>
-                <li class="flex items-center gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
-                  <span>Natural shelf life of 12 months preserved with rock salt and oil.</span>
-                </li>
-              </ul>
+            <p class="text-sm text-stone-600 leading-relaxed font-normal">
+              Commercial pickle manufacturers boil vegetables in synthetic acetic acid (chemical vinegar) and use cheap refined palm oil to mass-produce jars in hours. At Venu's Kitchen, we refuse shortcuts. We follow the authentic 21-day rooftop sun-maturation process using pure cold-pressed mustard oil and rock salt.
+            </p>
+
+            <div class="space-y-3 pt-2">
+              <div class="flex items-start gap-3 p-3.5 rounded-xl bg-amber-50/70 border border-amber-200">
+                <i data-lucide="check-circle" class="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5"></i>
+                <div class="text-xs">
+                  <span class="font-bold text-stone-900 block">Pure Cold-Pressed Mustard Oil (Kacchi Ghani)</span>
+                  Preserves authentic pungency and natural crunch without artificial chemicals.
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 rounded-xl bg-amber-50/70 border border-amber-200">
+                <i data-lucide="check-circle" class="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5"></i>
+                <div class="text-xs">
+                  <span class="font-bold text-stone-900 block">21-Day Sun-Curing in Ceramic Martabans</span>
+                  Enzymes develop naturally under sunlight, producing deep flavor that improves with age.
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3 p-3.5 rounded-xl bg-amber-50/70 border border-amber-200">
+                <i data-lucide="check-circle" class="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5"></i>
+                <div class="text-xs">
+                  <span class="font-bold text-stone-900 block">100% Food-Grade Glass Jars</span>
+                  Never stored or shipped in plastic buckets. Non-reactive, hygienic, and eco-friendly.
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Official Specifications Box -->
-          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
-            <h3 class="font-bold text-slate-900 text-sm border-b border-slate-100 pb-2">
-              Packaging & Shelf Life Specifications
-            </h3>
-            <div class="grid grid-cols-2 gap-4 text-xs">
-              <div class="p-3 bg-slate-50 rounded-lg">
-                <span class="text-slate-500 block">Container Material</span>
-                <span class="font-bold text-slate-800">Food-Grade Glass Jar</span>
-              </div>
-              <div class="p-3 bg-slate-50 rounded-lg">
-                <span class="text-slate-500 block">Closure Type</span>
-                <span class="font-bold text-slate-800">Lug Cap with Induction Seal</span>
-              </div>
-              <div class="p-3 bg-slate-50 rounded-lg">
-                <span class="text-slate-500 block">Net Weights</span>
-                <span class="font-bold text-slate-800">350g / 400g / 500g</span>
-              </div>
-              <div class="p-3 bg-slate-50 rounded-lg">
-                <span class="text-slate-500 block">Best Before</span>
-                <span class="font-bold text-slate-800">12 Months from Batch Date</span>
-              </div>
-            </div>
-            <div class="text-[11px] text-slate-500 leading-normal pt-2 border-t border-slate-100">
-              *Storage Recommendation: Use a clean, dry spoon. Keep the jar in a cool place and ensure the oil layer remains over the pickled vegetables.
+          <div class="lg:col-span-6">
+            <div class="rounded-3xl overflow-hidden border border-stone-200 shadow-xl aspect-[4/3] bg-stone-100">
+              <img src="https://images.unsplash.com/photo-1519147683487-66e0c2d0b5a0?auto=format&fit=crop&w=1000&q=80" alt="Ceramic pickle jars" class="w-full h-full object-cover">
             </div>
           </div>
+
         </div>
 
       </div>
     </section>
 
-    <!-- ABOUT VENU'S KITCHEN -->
-    <section id="about" class="py-14 bg-white border-b border-slate-200">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-        <span class="text-xs font-bold uppercase tracking-wider text-brand-800">Kitchen Story</span>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900">About Venu's Kitchen</h2>
-        <p class="text-sm text-slate-600 leading-relaxed">
-          Venu's Kitchen was established to revive genuine home-style achaar for households that miss the authenticity of grandmother's recipes. Every batch is seasoned with precision, sun-matured on open terraces, and bottled fresh. We serve our neighbourhood with honesty, strict hygiene, and prompt delivery.
-        </p>
+    <!-- REVIEWS & TESTIMONIALS -->
+    <section id="reviews-section" class="py-16 bg-[#FAF8F5]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-amber-800 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+            Foodie Love
+          </span>
+          <h2 class="font-serif text-3xl font-bold text-stone-950 mt-2 mb-2">
+            What Our Neighbourhood Customers Say
+          </h2>
+          <p class="text-xs sm:text-sm text-stone-600">
+            Real feedback from early tasting customers in South Delhi and surrounding sectors.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="p-6 rounded-2xl bg-white border border-stone-200 shadow-sm flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="text-amber-500 font-bold text-sm tracking-widest">★★★★★</div>
+              <p class="text-xs text-stone-700 leading-relaxed italic">
+                "The Banarasi Stuffed Red Chilli brought back memories of my grandmother's cooking. The mustard oil pungency is 100% authentic and delivered within 40 minutes!"
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-stone-100">
+              <h4 class="font-bold text-xs text-stone-900">Dr. Rajesh Swaminathan</h4>
+              <p class="text-[11px] text-stone-500">Hauz Khas Enclave</p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-stone-200 shadow-sm flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="text-amber-500 font-bold text-sm tracking-widest">★★★★★</div>
+              <p class="text-xs text-stone-700 leading-relaxed italic">
+                "Finally a cloud kitchen that makes real achaar without drowning it in chemical vinegar. The Zero-Oil Lemon Pickle is fantastic for digestion!"
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-stone-100">
+              <h4 class="font-bold text-xs text-stone-900">Ananya Sen</h4>
+              <p class="text-[11px] text-stone-500">Saket District Center</p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-stone-200 shadow-sm flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="text-amber-500 font-bold text-sm tracking-widest">★★★★★</div>
+              <p class="text-xs text-stone-700 leading-relaxed italic">
+                "Sealed glass jar, zero oil leakage in delivery bag, and the mango pickle has that crisp bite that you only get from genuine sun-curing. 10/10!"
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-stone-100">
+              <h4 class="font-bold text-xs text-stone-900">Vikramaditya Roy</h4>
+              <p class="text-[11px] text-stone-500">Greater Kailash II</p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
   </main>
 
-  <!-- SLIDE-OVER BASKET (CART DRAWER) -->
-  <div id="cart-overlay" onclick="toggleCart(false)" class="fixed inset-0 bg-slate-900/50 z-50 opacity-0 pointer-events-none transition-opacity"></div>
-  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-xl flex flex-col transform translate-x-full transition-transform duration-300 border-l border-slate-200">
+  <!-- CART SLIDE-OVER DRAWER (SYNCHRONIZED WITH SHARED CART.JS) -->
+  <div id="cart-overlay" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-stone-950/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  
+  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out border-l border-stone-200">
     
-    <!-- Drawer Header -->
-    <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+    <!-- Header -->
+    <div class="p-5 border-b border-stone-200 flex items-center justify-between bg-amber-50/80">
       <div class="flex items-center gap-2">
-        <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-800"></i>
-        <h3 class="font-bold text-slate-900 text-base">Your Order Basket</h3>
-        <span id="cart-drawer-count" class="text-xs text-slate-500">(0 items)</span>
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-800"></i>
+        <h3 class="font-serif font-bold text-lg text-stone-900">Your Pickle Basket</h3>
+        <span class="cart-counter-badge px-2 py-0.5 rounded-full text-xs font-bold bg-amber-200 text-stone-900">0</span>
       </div>
-      <button onclick="toggleCart(false)" class="p-1.5 rounded-lg text-slate-600 hover:bg-slate-200">
+      <button onclick="toggleCartDrawer(false)" class="p-2 rounded-xl text-stone-600 hover:bg-stone-200/60 transition-colors">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
     </div>
 
-    <!-- Basket Items Container -->
-    <div id="cart-items-list" class="flex-grow overflow-y-auto p-4 space-y-3 custom-scrollbar">
-      <div id="cart-empty" class="py-16 text-center text-slate-500 text-xs">
-        Your basket is currently empty.<br>Select from our authentic pickle varieties.
-      </div>
+    <!-- Express ETA Notification -->
+    <div class="px-5 py-2.5 bg-emerald-50 border-b border-emerald-100 flex items-center justify-between text-xs text-emerald-900 font-semibold">
+      <span class="flex items-center gap-1.5">
+        <i data-lucide="zap" class="w-4 h-4 text-emerald-600 fill-emerald-600"></i>
+        <span>Doorstep Express: 45–60 Mins</span>
+      </span>
+      <span class="text-[10px] bg-emerald-200 px-2 py-0.5 rounded font-bold">8km Hub</span>
     </div>
 
-    <!-- Drawer Footer: Subtotal and REQUIRED DISABLED BUY OPTION -->
-    <div class="p-4 border-t border-slate-200 bg-slate-50 space-y-3">
+    <!-- Items List -->
+    <div id="cart-drawer-items" class="flex-grow overflow-y-auto p-5 space-y-3 custom-scrollbar"></div>
+
+    <!-- Footer with DISABLED CHECKOUT REQUIREMENT -->
+    <div class="p-5 border-t border-stone-200 bg-[#FAF8F5] space-y-3.5">
       
-      <div class="space-y-1.5 text-xs text-slate-600">
+      <div class="space-y-1.5 text-xs text-stone-600">
         <div class="flex justify-between">
-          <span>Items Total:</span>
-          <span class="font-bold text-slate-900" id="cart-subtotal">₹0</span>
+          <span>Items Subtotal:</span>
+          <span class="font-bold text-stone-900" id="drawer-subtotal">₹0</span>
         </div>
         <div class="flex justify-between">
-          <span>Glass Jar Packaging:</span>
-          <span class="text-emerald-700 font-bold">Standard Compliant</span>
+          <span>Glass Jar Packaging & Induction Seal:</span>
+          <span class="text-emerald-700 font-bold">Compliant & Free</span>
         </div>
         <div class="flex justify-between">
-          <span>Local 45-60m Dispatch:</span>
-          <span class="text-emerald-700 font-bold">Calculated on Zone</span>
+          <span>Hyper-Local 45-Min Rider Dispatch:</span>
+          <span class="text-emerald-700 font-bold">Included</span>
         </div>
-        <div class="flex justify-between pt-2 border-t border-slate-200 text-sm font-bold text-slate-900">
-          <span>Estimated Subtotal:</span>
-          <span class="text-brand-900 text-base" id="cart-total">₹0</span>
+        <div class="flex justify-between pt-2 border-t border-stone-200 text-sm font-bold text-stone-950">
+          <span>Total Payable:</span>
+          <span class="font-serif text-lg text-amber-900" id="drawer-grand-total">₹0</span>
         </div>
       </div>
 
-      <!-- OFFICIAL NOTICE: WEBSITE UNDER PREPARATION -->
-      <div class="p-3 rounded-lg bg-amber-50 border border-amber-200 text-amber-900 text-xs space-y-1">
+      <!-- OFFICIAL PRE-LAUNCH NOTICE -->
+      <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-950 text-xs space-y-1">
         <div class="font-bold flex items-center gap-1.5">
           <i data-lucide="info" class="w-4 h-4 text-amber-700"></i>
           <span>Official Notice: Store Setup & Pre-Launch Phase</span>
         </div>
-        <p class="text-[11px] text-amber-800 leading-normal">
-          Online automated payment gateway is currently under configuration and testing. Direct online payment checkout is disabled until public release.
+        <p class="text-[11px] text-amber-900/90 leading-relaxed">
+          The online payment gateway is currently under final integration and testing. The buy option is temporarily locked until official launch day.
         </p>
       </div>
 
-      <!-- BUY / CHECKOUT BUTTON: APPEARS CLEARLY, BUT DISABLED AS REQUIRED -->
-      <button id="checkout-button" disabled class="w-full py-3 px-4 rounded-lg bg-slate-200 text-slate-500 font-bold text-xs uppercase tracking-wide cursor-not-allowed border border-slate-300 flex items-center justify-center gap-2 select-none" aria-disabled="true">
-        <i data-lucide="lock" class="w-4 h-4 text-slate-400"></i>
+      <!-- DISABLED BUY / CHECKOUT BUTTON WITH PROMINENT NOTICE -->
+      <button disabled class="w-full py-3.5 px-4 rounded-xl font-bold text-xs tracking-wider uppercase bg-stone-200 text-stone-500 cursor-not-allowed border border-stone-300 flex items-center justify-center gap-2 select-none shadow-inner" aria-disabled="true">
+        <i data-lucide="lock" class="w-4 h-4 text-stone-400"></i>
         <span>Proceed to Checkout (Disabled • Store Under Setup)</span>
       </button>
 
       <!-- Direct Assistance Option -->
       <div class="text-center pt-1">
-        <a href="https://wa.me/919876543210?text=Hello%20Venu's%20Kitchen,%20I%20am%20interested%20in%20ordering%20homemade%20pickles" target="_blank" class="text-xs text-brand-800 hover:text-brand-900 font-semibold underline flex items-center justify-center gap-1">
-          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-          <span>Need bulk / direct advance order? Contact via WhatsApp</span>
+        <a href="https://wa.me/919876543210?text=Hello%20Venu's%20Kitchen,%20I%20am%20interested%20in%20ordering%20homemade%20pickles" target="_blank" class="text-xs text-amber-800 hover:text-amber-900 font-bold underline flex items-center justify-center gap-1.5">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+          <span>Direct Advance Orders via WhatsApp (+91 98765 43210)</span>
         </a>
       </div>
 
@@ -483,111 +762,61 @@
 
   </div>
 
-  <!-- PRODUCT DETAIL MODAL -->
-  <div id="detail-modal" class="fixed inset-0 bg-slate-900/60 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity">
-    <div class="bg-white rounded-xl max-w-lg w-full p-6 shadow-xl relative border border-slate-200 max-h-[90vh] overflow-y-auto">
-      <button onclick="closeDetailModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-
-      <div class="aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 mb-4 border border-slate-200">
-        <img id="modal-img" src="" alt="Pickle Jar" class="w-full h-full object-cover">
-      </div>
-
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <span id="modal-cat" class="text-xs font-semibold text-brand-800 uppercase tracking-wide">Category</span>
-          <span id="modal-weight" class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Weight</span>
-        </div>
-        <h3 id="modal-title" class="font-serif text-xl font-bold text-slate-900">Product Title</h3>
-        <p id="modal-desc" class="text-xs text-slate-600 leading-relaxed">Description</p>
-        
-        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 space-y-1 text-xs">
-          <div class="font-semibold text-slate-800">Ingredients:</div>
-          <p id="modal-ingredients" class="text-slate-600">Ingredients list</p>
-        </div>
-
-        <div class="flex items-center justify-between pt-2">
-          <div>
-            <span class="text-[11px] text-slate-500 uppercase block">Standard Price</span>
-            <span id="modal-price" class="font-bold text-xl text-slate-900">₹0</span>
-          </div>
-          <button id="modal-add-btn" class="px-5 py-2.5 rounded-lg bg-brand-800 hover:bg-brand-900 text-white text-xs font-semibold">
-            Add to Basket
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOAST NOTIFICATION -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-4 py-3 rounded-lg shadow-lg text-xs font-medium flex items-center gap-2 opacity-0 pointer-events-none transition-all transform translate-y-3">
-    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
-    <span id="toast-text">Item updated in basket.</span>
-  </div>
-
-  <!-- OFFICIAL FOOTER -->
-  <footer id="contact" class="bg-slate-900 text-slate-300 text-xs py-12 border-t border-slate-800">
+  <!-- FOOTER -->
+  <footer class="bg-stone-950 text-stone-300 text-xs py-12 border-t border-stone-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-slate-800">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 pb-8 border-b border-stone-800">
         
-        <!-- Column 1: Identity -->
         <div class="space-y-3">
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded bg-brand-800 text-white flex items-center justify-center font-bold font-serif text-sm">
-              VK
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold font-serif text-lg">
+              V
             </div>
-            <span class="font-serif font-bold text-base text-white">Venu's Kitchen</span>
+            <span class="font-serif font-bold text-lg text-white">Venu's Kitchen</span>
           </div>
-          <p class="text-slate-400 leading-relaxed text-[11px]">
-            Homemade traditional Indian pickles prepared in small, hygienic batches. Packed in sterilized glass jars and delivered directly within our local delivery circle.
+          <p class="text-stone-400 text-[11px] leading-relaxed">
+            Authentic traditional homemade pickles slow sun-matured for 21 days in genuine ceramic barnis. Express doorstep delivery within 45–60 mins.
           </p>
-          <div class="text-[11px] text-slate-400">
-            FSSAI Reg. Acknowledgement: <span class="text-slate-200">23324009000123</span>
+          <div class="text-[11px] text-stone-400">
+            FSSAI Reg. Acknowledgement: <span class="text-stone-200 font-mono">23324009000123</span>
           </div>
         </div>
 
-        <!-- Column 2: Varieties -->
         <div class="space-y-2">
-          <h4 class="font-bold text-white uppercase tracking-wider text-[11px]">Pickle Jars</h4>
-          <ul class="space-y-1.5 text-slate-400 text-[11px]">
-            <li>Traditional Raw Mango Pickle</li>
-            <li>Banarasi Stuffed Red Chilli Pickle</li>
-            <li>Spicy Green Chilli Pickle</li>
-            <li>Sun-Cured Lemon Pickle</li>
-            <li>Mixed Vegetable Pachranga</li>
-            <li>Slow-Tempered Garlic Pickle</li>
-            <li>Sweet Mango Chhunda</li>
+          <h4 class="font-bold text-white uppercase tracking-wider text-[11px]">Pages</h4>
+          <ul class="space-y-1.5 text-stone-400 text-[11px]">
+            <li><a href="index.html" class="text-amber-400 hover:underline">Home (Hero Experience)</a></li>
+            <li><a href="store.html" class="hover:text-amber-400 transition-colors">Pickle Store (7 Varieties)</a></li>
+            <li><a href="#delivery-section" class="hover:text-amber-400 transition-colors">45-Min Local Fleet</a></li>
+            <li><a href="#heritage-section" class="hover:text-amber-400 transition-colors">Sun-Curing Heritage</a></li>
           </ul>
         </div>
 
-        <!-- Column 3: Logistics & Hours -->
         <div class="space-y-2">
           <h4 class="font-bold text-white uppercase tracking-wider text-[11px]">Operating Hours</h4>
-          <ul class="space-y-1.5 text-slate-400 text-[11px]">
+          <ul class="space-y-1.5 text-stone-400 text-[11px]">
             <li>Monday – Saturday: 10:00 AM – 8:30 PM</li>
             <li>Sunday: 10:00 AM – 7:00 PM</li>
-            <li class="pt-1 text-emerald-400 font-semibold">Local Radius: 8 KM Operating Zone</li>
+            <li class="pt-1 text-emerald-400 font-semibold">Local Hub: 8 KM Operating Zone</li>
             <li>Dispatch SLA: 45 to 60 Minutes</li>
           </ul>
         </div>
 
-        <!-- Column 4: Contact -->
         <div class="space-y-2">
-          <h4 class="font-bold text-white uppercase tracking-wider text-[11px]">Kitchen Contact</h4>
-          <p class="text-slate-400 text-[11px] leading-relaxed">
+          <h4 class="font-bold text-white uppercase tracking-wider text-[11px]">Kitchen Hub Contact</h4>
+          <p class="text-stone-400 text-[11px] leading-relaxed">
             Kitchen Unit #4, Sector 15 Commercial Hub, South Enclave, New Delhi - 110017
           </p>
           <div class="space-y-1 pt-1 text-[11px]">
-            <p>Phone: <span class="text-white">+91 98765 43210</span></p>
-            <p>Inquiries: <span class="text-white">orders@venuskitchen.in</span></p>
+            <p>Direct Phone: <span class="text-white">+91 98765 43210</span></p>
+            <p>Email: <span class="text-white">orders@venuskitchen.in</span></p>
           </div>
         </div>
 
       </div>
 
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-stone-500 text-[11px]">
         <p>© 2026 Venu's Kitchen. All rights reserved. Registered Domestic Food Operator.</p>
         <p>Published on GitHub Pages via Main Branch</p>
       </div>
@@ -595,297 +824,35 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- SCRIPT -->
+  <script src="cart.js"></script>
   <script>
-    // 7 Genuine Pickle Varieties (All in Jars)
-    const PRODUCTS = [
-      {
-        id: 1,
-        title: "Traditional Raw Mango Pickle",
-        hindi: "पारंपरिक आम का अचार",
-        category: "mango",
-        weight: "500g Glass Jar",
-        price: 240,
-        oil: "Cold-Pressed Mustard Oil",
-        ingredients: "Selected Ramkela Green Mangoes, Pure Mustard Oil, Fenugreek, Fennel Seeds, Kalonji, Turmeric, Rock Salt.",
-        desc: "Sun-cured raw mango slices infused with freshly roasted heirloom spices and pure kacchi ghani mustard oil. Authentic, sharp, and traditional.",
-        image: "https://images.unsplash.com/photo-1632239108478-568f362ac3ac?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        id: 2,
-        title: "Banarasi Stuffed Red Chilli Pickle",
-        hindi: "बनारसी भरवा लाल मिर्च",
-        category: "chilli",
-        weight: "400g Glass Jar",
-        price: 280,
-        oil: "Pure Kacchi Ghani Mustard Oil",
-        ingredients: "Whole Sun-Dried Banarasi Red Chilies, Amchur, Ground Mustard Powder, Roasted Saunf, Mustard Oil, Salt.",
-        desc: "Whole large red chilies packed by hand with a rich tangy masala of dry mango powder and roasted mustard kernels.",
-        image: "https://images.unsplash.com/photo-1645679059045-65ff3a440554?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        id: 3,
-        title: "Spicy Green Chilli Pickle",
-        hindi: "तीखी हरी मिर्च का अचार",
-        category: "chilli",
-        weight: "350g Glass Jar",
-        price: 190,
-        oil: "Mustard Oil & Lemon Dressing",
-        ingredients: "Fresh Crisp Green Chilies, Crushed Yellow Mustard, Lemon Juice, Turmeric, Asafoetida, Mustard Oil, Salt.",
-        desc: "Hand-sliced fresh green chilies tempered with yellow mustard and lemon. Crisp, pungent, and freshly prepared.",
-        image: "https://images.unsplash.com/photo-1643594697730-bb034a399a4b?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        id: 4,
-        title: "Sun-Cured Lemon Pickle",
-        hindi: "नींबू का खट्टा-मीठा अचार (बिना तेल)",
-        category: "lemon-mixed",
-        weight: "400g Glass Jar",
-        price: 210,
-        oil: "Zero Oil Recipe",
-        ingredients: "Thin-Skin Kagzi Lemons, Rock Salt, Himalayan Black Salt, Ajwain, Black Pepper, Organic Jaggery.",
-        desc: "Prepared with zero added oil. Slow-aged in glass jars under natural sunlight with ajwain and rock salt. Excellent for digestion.",
-        image: "https://images.unsplash.com/photo-1525027684690-6de2d445842b?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        id: 5,
-        title: "Mixed Vegetable Pachranga Pickle",
-        hindi: "पंचरंगा मिक्स वेज अचार",
-        category: "lemon-mixed",
-        weight: "500g Glass Jar",
-        price: 230,
-        oil: "Cold-Pressed Mustard Oil",
-        ingredients: "Farm-Fresh Cauliflower, Carrots, Turnips, Green Peas, Ginger, Mustard Oil, Spices, Salt.",
-        desc: "Winter special medley of crisp seasonal vegetables cured with aromatic pickling spices and pure mustard oil.",
-        image: "https://images.unsplash.com/photo-1519147683487-66e0c2d0b5a0?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        id: 6,
-        title: "Slow-Tempered Garlic Pickle",
-        hindi: "देसी लहसुन का अचार",
-        category: "chilli",
-        weight: "350g Glass Jar",
-        price: 260,
-        oil: "Sesame & Mustard Oil",
-        ingredients: "Peeled Mountain Garlic, Whole Cumin, Crushed Red Chilli, Asafoetida, Gingelly Oil, Rock Salt.",
-        desc: "Whole garlic cloves lightly roasted in iron pans and preserved in sesame-mustard oil. Intense, pungent flavor.",
-        image: "https://images.unsplash.com/photo-1706167754852-128daa40126a?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        id: 7,
-        title: "Sweet Mango Chhunda",
-        hindi: "गुजराती आम का छुंदा",
-        category: "mango",
-        weight: "400g Glass Jar",
-        price: 220,
-        oil: "Zero Oil (Sugar Cured)",
-        ingredients: "Grated Raw Mango, Pure Cane Sugar, Kashmiri Red Chilli, Roasted Cumin Seeds, Cardamom, Saffron.",
-        desc: "Grated green mango slow-cooked in natural sunlight with pure cane sugar and roasted cumin. Delicious accompaniment to rotis and snacks.",
-        image: "https://images.unsplash.com/photo-1576920803950-3f066b308938?auto=format&fit=crop&w=800&q=80"
-      }
-    ];
-
-    let cart = [];
-
     document.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
-      renderProducts(PRODUCTS);
+      if (window.lucide) lucide.createIcons();
     });
 
-    function renderProducts(items) {
-      const container = document.getElementById('products-list');
-      container.innerHTML = items.map(p => `
-        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:border-slate-300 transition-all flex flex-col justify-between">
-          <div>
-            <!-- Jar Image -->
-            <div class="aspect-[4/3] bg-slate-100 overflow-hidden relative border-b border-slate-100">
-              <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover">
-              <div class="absolute top-2.5 right-2.5 bg-slate-900/80 text-white px-2 py-0.5 rounded text-[10px] font-semibold">
-                ${p.weight}
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="p-4 space-y-2">
-              <div class="text-[11px] text-brand-800 font-bold uppercase tracking-wider">
-                ${p.oil}
-              </div>
-              <h3 class="font-serif font-bold text-slate-900 text-base leading-snug">
-                ${p.title}
-              </h3>
-              <p class="text-[11px] text-slate-500 font-medium italic">${p.hindi}</p>
-              <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                ${p.desc}
-              </p>
-            </div>
-          </div>
-
-          <!-- Bottom Price & Buttons -->
-          <div class="p-4 pt-2 border-t border-slate-100 flex items-center justify-between">
-            <div>
-              <span class="text-[10px] text-slate-500 uppercase block font-medium">Jar Price</span>
-              <span class="font-bold text-lg text-slate-900">₹${p.price}</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <button onclick="openDetail(${p.id})" class="px-2.5 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-100 text-xs font-semibold">
-                Details
-              </button>
-              <button onclick="addToCart(${p.id})" class="px-3 py-1.5 rounded-lg bg-brand-800 hover:bg-brand-900 text-white text-xs font-semibold flex items-center gap-1 shadow-sm">
-                <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add
-              </button>
-            </div>
-          </div>
-        </div>
-      `).join('');
-      lucide.createIcons();
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-menu-drawer');
+      drawer.classList.toggle('hidden');
+      drawer.classList.toggle('flex');
     }
 
-    function applyFilter(cat) {
-      document.querySelectorAll('.cat-pill').forEach(btn => {
-        if (btn.getAttribute('data-cat') === cat) {
-          btn.className = "cat-pill active px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-brand-800 text-white border border-brand-800";
-        } else {
-          btn.className = "cat-pill px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-300 hover:bg-slate-100";
-        }
-      });
-
-      if (cat === 'all') {
-        renderProducts(PRODUCTS);
-      } else {
-        const filtered = PRODUCTS.filter(p => p.category === cat);
-        renderProducts(filtered);
-      }
-    }
-
-    function addToCart(id) {
-      const p = PRODUCTS.find(x => x.id === id);
-      if (!p) return;
-
-      const existing = cart.find(x => x.id === id);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({ ...p, qty: 1 });
-      }
-
-      updateCart();
-      showToast(`Added 1 jar of ${p.title}`);
-    }
-
-    function changeQty(id, delta) {
-      const item = cart.find(x => x.id === id);
-      if (!item) return;
-
-      item.qty += delta;
-      if (item.qty <= 0) {
-        cart = cart.filter(x => x.id !== id);
-      }
-      updateCart();
-    }
-
-    function updateCart() {
-      const count = cart.reduce((sum, item) => sum + item.qty, 0);
-      const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-
-      document.getElementById('nav-cart-count').innerText = count;
-      document.getElementById('cart-drawer-count').innerText = `(${count} items)`;
-      document.getElementById('cart-subtotal').innerText = `₹${total}`;
-      document.getElementById('cart-total').innerText = `₹${total}`;
-
-      const container = document.getElementById('cart-items-list');
-      const emptyNotice = document.getElementById('cart-empty');
-
-      if (cart.length === 0) {
-        container.innerHTML = '';
-        container.appendChild(emptyNotice);
-        emptyNotice.classList.remove('hidden');
-      } else {
-        emptyNotice.classList.add('hidden');
-        container.innerHTML = cart.map(i => `
-          <div class="flex items-center gap-3 p-3 rounded-lg border border-slate-200 bg-white">
-            <img src="${i.image}" alt="${i.title}" class="w-12 h-12 rounded object-cover border border-slate-200">
-            <div class="flex-grow min-w-0">
-              <h4 class="font-semibold text-xs text-slate-900 truncate">${i.title}</h4>
-              <span class="text-[10px] text-slate-500">${i.weight} • ₹${i.price}</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <button onclick="changeQty(${i.id}, -1)" class="w-6 h-6 rounded bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 flex items-center justify-center">-</button>
-              <span class="text-xs font-bold text-slate-800">${i.qty}</span>
-              <button onclick="changeQty(${i.id}, 1)" class="w-6 h-6 rounded bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 flex items-center justify-center">+</button>
-            </div>
-            <div class="text-xs font-bold text-slate-900 w-12 text-right">
-              ₹${i.price * i.qty}
-            </div>
-          </div>
-        `).join('');
-      }
-
-      lucide.createIcons();
-    }
-
-    function toggleCart(open) {
-      const drawer = document.getElementById('cart-drawer');
-      const overlay = document.getElementById('cart-overlay');
-      if (open) {
-        overlay.classList.remove('opacity-0', 'pointer-events-none');
-        drawer.classList.remove('translate-x-full');
-      } else {
-        overlay.classList.add('opacity-0', 'pointer-events-none');
-        drawer.classList.add('translate-x-full');
-      }
-    }
-
-    function openDetail(id) {
-      const p = PRODUCTS.find(x => x.id === id);
-      if (!p) return;
-
-      document.getElementById('modal-img').src = p.image;
-      document.getElementById('modal-title').innerText = p.title;
-      document.getElementById('modal-cat').innerText = p.oil;
-      document.getElementById('modal-weight').innerText = p.weight;
-      document.getElementById('modal-desc').innerText = p.desc;
-      document.getElementById('modal-ingredients').innerText = p.ingredients;
-      document.getElementById('modal-price').innerText = `₹${p.price}`;
-
-      const btn = document.getElementById('modal-add-btn');
-      btn.onclick = () => {
-        addToCart(p.id);
-        closeDetailModal();
-      };
-
-      const modal = document.getElementById('detail-modal');
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-    }
-
-    function closeDetailModal() {
-      const modal = document.getElementById('detail-modal');
-      modal.classList.add('opacity-0', 'pointer-events-none');
-    }
-
-    function verifyPincode() {
-      const input = document.getElementById('pincode-input').value.trim();
-      const res = document.getElementById('pincode-result');
+    function verifyHeroPincode() {
+      const input = document.getElementById('hero-pincode').value.trim();
+      const res = document.getElementById('hero-pincode-result');
       if (!input) return;
 
       res.classList.remove('hidden');
-      res.className = "mt-3 p-3 rounded-lg text-xs bg-emerald-50 border border-emerald-200 text-emerald-900";
-      res.innerHTML = `<strong>Service Available:</strong> Area "${input}" is confirmed within Venu's Kitchen 8km operational radius. Estimated transit time: <strong>40–50 minutes</strong>.`;
-    }
-
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      document.getElementById('toast-text').innerText = msg;
-      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
-      toast.classList.add('opacity-100', 'translate-y-0');
-
-      setTimeout(() => {
-        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
-      }, 3000);
-    }
-
-    function toggleMobileNav() {
-      const nav = document.getElementById('mobile-nav');
-      nav.classList.toggle('hidden');
+      res.className = "mt-3 p-3.5 rounded-xl text-xs bg-emerald-50 border border-emerald-200 text-emerald-950 font-semibold";
+      res.innerHTML = `
+        <div class="flex items-center gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+          <div>
+            <strong>Express Service Confirmed!</strong> Area "<u>${input}</u>" is within Venu's Kitchen 8km operational radius. Doorstep transit arrives in <strong>38–48 minutes</strong>.
+          </div>
+        </div>
+      `;
+      if (window.lucide) lucide.createIcons();
     }
   </script>
 </body>

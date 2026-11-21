@@ -7,229 +7,731 @@
 <meta name="description" content="Detailed ingredients, health benefits, dietary warnings, and curing details for Venu's Kitchen authentic homemade pickles."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-/* ===== RESET & ROOT ===== */
+/* ===== BASE & RESETS ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px;-webkit-tap-highlight-color:transparent}
-body{font-family:'Inter',sans-serif;background:#FAFAF5;color:#1e293b;line-height:1.6;overflow-x:hidden;width:100%;padding-bottom:70px}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:#FAF8F5;
+  color:#1F2937;
+  line-height:1.55;
+  overflow-x:hidden;
+  width:100%;
+}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
-button{cursor:pointer;font-family:inherit;border:none;outline:none}
-ul{list-style:none}
+button{cursor:pointer;font-family:inherit;border:none;outline:none;background:none}
 
+/* ===== TOKENS ===== */
 :root{
-  --green:#1D5C2E;
-  --green-dark:#153F20;
-  --green-light:#2D7A42;
-  --gold:#C9A84C;
-  --gold-light:#E8C97A;
-  --cream:#FAFAF5;
-  --cream-mid:#F3F0E6;
-  --cream-dark:#E8E2D0;
-  --text:#1e293b;
-  --text-mid:#475569;
-  --text-soft:#64748b;
-  --white:#ffffff;
-  --border:#e2e8f0;
-  --radius:12px;
-  --radius-lg:18px;
-  --shadow-sm:0 1px 3px rgba(0,0,0,0.05);
-  --shadow-md:0 4px 14px rgba(0,0,0,0.07);
+  --green:#1B5E20;
+  --green-dark:#103D14;
+  --green-light:#2E7D32;
+  --green-subtle:#E8F5E9;
+  --gold:#C49A45;
+  --gold-light:#DFBE7A;
+  --gold-subtle:#FFF8E7;
+  --bg-main:#FAF8F5;
+  --bg-card:#FFFFFF;
+  --border-light:#EDE8E1;
+  --border-subtle:#F3EFEA;
+  --text-primary:#182019;
+  --text-secondary:#5A655B;
+  --text-muted:#8C968D;
+  --shadow-subtle:0 2px 10px rgba(0,0,0,0.04);
+  --shadow-card:0 4px 20px rgba(27,94,32,0.06);
+  --radius-sm:8px;
+  --radius-md:14px;
+  --radius-lg:20px;
 }
 
-/* ===== CONTAINER ===== */
-.container{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+.container{width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
 
 /* ===== ANNOUNCEMENT BAR ===== */
-.announcement{background:var(--green-dark);color:var(--white);text-align:center;font-size:0.78rem;padding:7px 16px;letter-spacing:0.02em}
+.announcement{
+  background:var(--green-dark);
+  color:#FFFFFF;
+  font-size:0.75rem;
+  padding:7px 16px;
+  text-align:center;
+  font-weight:500;
+  letter-spacing:0.02em;
+}
 .announcement strong{color:var(--gold-light)}
 
-/* ===== HEADER (SPACIOUS & RESPONSIVE) ===== */
-header{background:var(--white);border-bottom:1px solid var(--cream-dark);position:sticky;top:0;z-index:1000;box-shadow:var(--shadow-sm);width:100%}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px;width:100%}
-.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.logo-mark{width:38px;height:38px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--white);font-weight:700}
+/* ===== CLEAN HEADER ===== */
+header{
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border-light);
+  position:sticky;
+  top:0;
+  z-index:900;
+  width:100%;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:64px;
+  gap:12px;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{
+  width:38px;
+  height:38px;
+  background:var(--green);
+  border-radius:10px;
+  color:#FFF;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  font-size:1.25rem;
+}
 .logo-text{display:flex;flex-direction:column;line-height:1.15}
-.logo-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--green-dark)}
-.logo-sub{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft)}
+.logo-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.12rem;
+  font-weight:700;
+  color:var(--green-dark);
+}
+.logo-subtitle{
+  font-size:0.65rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--text-muted);
+}
 nav{display:flex;align-items:center;gap:6px}
-nav a{padding:8px 14px;border-radius:8px;font-size:0.88rem;font-weight:500;color:var(--text-mid);transition:all .15s}
-nav a:hover,nav a.active{background:var(--cream-mid);color:var(--green)}
+nav a{
+  padding:8px 14px;
+  border-radius:var(--radius-sm);
+  font-size:0.88rem;
+  font-weight:500;
+  color:var(--text-secondary);
+  transition:all .15s;
+}
+nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
+
 .header-actions{display:flex;align-items:center;gap:10px}
-.basket-btn{display:flex;align-items:center;gap:8px;background:var(--green);color:var(--white);padding:8px 16px;border-radius:var(--radius);font-size:0.85rem;font-weight:600;transition:all .2s;cursor:pointer}
+.basket-btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:var(--green);
+  color:#FFF;
+  padding:9px 16px;
+  border-radius:var(--radius-sm);
+  font-size:0.85rem;
+  font-weight:600;
+  transition:background .2s;
+}
 .basket-btn:hover{background:var(--green-dark)}
-.basket-count{background:var(--gold);color:var(--white);border-radius:50%;width:20px;height:20px;font-size:0.7rem;display:flex;align-items:center;justify-content:center;font-weight:700}
-.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:40px;height:40px;background:none;border:1.5px solid var(--cream-dark);border-radius:9px;padding:6px}
-.hamburger span{width:20px;height:2px;background:var(--green);border-radius:2px}
-.mobile-nav{display:none;flex-direction:column;background:var(--white);border-top:1px solid var(--cream-dark);padding:14px 20px;gap:6px}
-.mobile-nav a{padding:10px 14px;border-radius:8px;font-size:0.92rem;font-weight:500;color:var(--text-mid)}
-.mobile-nav a:hover{background:var(--cream-mid);color:var(--green)}
+.basket-badge{
+  background:var(--gold);
+  color:#FFF;
+  border-radius:50%;
+  width:20px;
+  height:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.7rem;
+  font-weight:700;
+}
+.hamburger{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:4.5px;
+  width:40px;
+  height:40px;
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-sm);
+  padding:8px;
+}
+.hamburger span{
+  width:20px;
+  height:2px;
+  background:var(--green-dark);
+  border-radius:2px;
+}
+.mobile-nav{
+  display:none;
+  flex-direction:column;
+  background:#FFF;
+  border-top:1px solid var(--border-light);
+  padding:14px 20px;
+  gap:4px;
+}
+.mobile-nav a{
+  padding:11px 12px;
+  border-radius:var(--radius-sm);
+  font-size:0.92rem;
+  font-weight:500;
+  color:var(--text-secondary);
+}
+.mobile-nav a:hover{background:var(--green-subtle);color:var(--green)}
 .mobile-nav.open{display:flex}
 
 /* ===== BREADCRUMB ===== */
-.breadcrumb-bar{background:var(--white);border-bottom:1px solid var(--cream-dark);padding:10px 0;font-size:0.82rem;color:var(--text-soft)}
-.breadcrumb-bar a{color:var(--green);font-weight:500}
-.breadcrumb-bar a:hover{text-decoration:underline}
-.breadcrumb-bar span{margin:0 8px;color:var(--cream-dark)}
+.breadcrumb-wrap{
+  background:#FFF;
+  border-bottom:1px solid var(--border-light);
+  padding:12px 0;
+  font-size:0.82rem;
+  color:var(--text-muted);
+}
+.breadcrumb-inner{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.breadcrumb-inner a{color:var(--green);font-weight:500}
+.breadcrumb-inner a:hover{text-decoration:underline}
+.breadcrumb-sep{color:var(--border-light)}
 
-/* ===== PDP LAYOUT ===== */
-.pdp-wrap{padding:32px 0 60px}
-.pdp-grid{display:grid;grid-template-columns:1.05fr 1.2fr;gap:48px;align-items:start}
-
-/* Media Column */
-.pdp-media{position:sticky;top:84px;display:flex;flex-direction:column;gap:16px}
-.pdp-img-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--cream-dark);box-shadow:var(--shadow-sm);position:relative}
-.pdp-img-main{width:100%;height:460px;object-fit:cover;background:var(--cream-mid)}
-.pdp-badge-pill{position:absolute;top:16px;left:16px;background:var(--green);color:var(--white);font-size:0.75rem;font-weight:700;padding:6px 14px;border-radius:50px;letter-spacing:0.06em;text-transform:uppercase}
-.pdp-spice-meter{position:absolute;bottom:16px;left:16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(6px);color:var(--white);padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:600}
-.pdp-guarantee-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.guarantee-box{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius);padding:14px 10px;text-align:center}
-.guarantee-box span{display:block;font-size:1.3rem;margin-bottom:4px}
-.guarantee-box strong{display:block;font-size:0.78rem;color:var(--green-dark);line-height:1.2}
-
-/* Details Column */
-.pdp-info{display:flex;flex-direction:column;gap:24px}
-
-/* Title Block */
-.pdp-header{display:flex;flex-direction:column;gap:6px}
-.pdp-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.5vw,2.3rem);color:var(--green-dark);line-height:1.2}
-.pdp-hindi{font-size:1rem;color:var(--gold);font-weight:600}
-.pdp-rating-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:0.86rem;margin-top:4px}
-.rating-stars{color:var(--gold);font-size:0.95rem;letter-spacing:1px}
-.rating-count{color:var(--text-mid);font-weight:500}
-.fssai-pill{background:var(--cream-mid);color:var(--green-dark);font-size:0.74rem;font-weight:600;padding:3px 10px;border-radius:6px;border:1px solid var(--cream-dark)}
-
-/* Price & Buy Card (UNCONGESTED) */
-.pdp-price-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:18px}
-.price-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.price-main{font-size:2.1rem;font-weight:700;color:var(--green);display:flex;align-items:baseline;gap:8px}
-.price-tax{font-size:0.8rem;color:var(--text-soft);font-weight:400}
-.pdp-weight{background:var(--cream-mid);padding:6px 14px;border-radius:8px;font-size:0.84rem;font-weight:600;color:var(--green-dark);border:1px solid var(--cream-dark)}
-.delivery-estimate{display:flex;align-items:center;gap:10px;font-size:0.86rem;color:var(--text-mid);background:var(--cream-mid);padding:12px 16px;border-radius:10px}
-.delivery-estimate svg{color:var(--green);flex-shrink:0}
-
-/* Actions Row */
-.pdp-actions{display:flex;gap:12px;align-items:center}
-.qty-selector{display:flex;align-items:center;border:1.5px solid var(--green);border-radius:var(--radius);overflow:hidden;height:48px;flex-shrink:0}
-.qty-btn{width:42px;height:100%;background:var(--cream-mid);color:var(--green-dark);font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center}
-.qty-btn:hover{background:var(--cream-dark)}
-.qty-input{width:46px;height:100%;border:none;background:var(--white);text-align:center;font-weight:700;font-size:0.95rem;color:var(--text)}
-.btn-add-pdp{flex:1;height:48px;background:var(--green);color:var(--white);font-size:0.95rem;font-weight:600;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;box-shadow:0 2px 8px rgba(29,92,46,0.2)}
-.btn-add-pdp:hover{background:var(--green-dark)}
-.btn-add-pdp.added{background:var(--gold)}
-.btn-wa-order{width:100%;height:48px;background:#25D366;color:var(--white);font-size:0.92rem;font-weight:600;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s;box-shadow:0 2px 8px rgba(37,211,102,0.25)}
-.btn-wa-order:hover{background:#1DB954}
-.checkout-prelaunch-note{font-size:0.78rem;color:var(--text-soft);text-align:center;line-height:1.4}
-
-/* Sections / Cards */
-.content-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm)}
-.content-card h3{font-family:'Playfair Display',serif;font-size:1.18rem;color:var(--green-dark);margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.content-card p{font-size:0.9rem;color:var(--text-mid);line-height:1.7}
-
-/* ===== HEALTH, DIETARY & MEDICAL ADVISORY (UNCONGESTED & SPACIOUS) ===== */
-.health-guide-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
-.health-guide-header{background:var(--cream-mid);padding:18px 24px;border-bottom:1px solid var(--cream-dark);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.health-guide-header h3{font-family:'Playfair Display',serif;font-size:1.18rem;color:var(--green-dark);display:flex;align-items:center;gap:8px}
-.health-badge-verified{font-size:0.75rem;font-weight:700;color:var(--green);background:rgba(29,92,46,0.1);padding:4px 10px;border-radius:50px}
-.health-body{padding:24px;display:flex;flex-direction:column;gap:18px}
-
-.alert-clean{border-radius:var(--radius);padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
-.alert-icon{font-size:1.4rem;line-height:1;flex-shrink:0;margin-top:2px}
-.alert-text{flex:1}
-.alert-text h4{font-size:0.95rem;font-weight:700;margin-bottom:8px}
-.alert-text ul{padding-left:18px;list-style:disc}
-.alert-text li{font-size:0.88rem;line-height:1.65;margin-bottom:6px}
-.alert-text p{font-size:0.88rem;line-height:1.65}
-
-.alert-clean-suitable{background:#F0FDF4;border:1.5px solid #BBF7D0;color:#166534}
-.alert-clean-suitable h4{color:#15803D}
-.alert-clean-suitable li{color:#166534}
-
-.alert-clean-warning{background:#FFF1F2;border:1.5px solid #FECDD3;color:#9F1239}
-.alert-clean-warning h4{color:#BE123C}
-.alert-clean-warning li{color:#9F1239}
-
-.alert-clean-tip{background:#FEFCE8;border:1.5px solid #FEF08A;color:#854D0E}
-.alert-clean-tip h4{color:#A16207}
-
-/* ===== INGREDIENTS LIST (CLEAN 2-COLUMN GRID, NO STAIRCASE) ===== */
-.ingredients-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
-.ing-item{display:flex;align-items:center;gap:8px;background:var(--cream-mid);border:1px solid var(--cream-dark);border-radius:8px;padding:9px 12px;font-size:0.84rem;font-weight:500;color:var(--text)}
-.ing-item span{color:var(--green);font-weight:700}
-
-/* Table specs */
-.specs-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:0.88rem}
-.specs-table tr{border-bottom:1px solid var(--cream-dark)}
-.specs-table td{padding:12px 6px}
-.specs-table td:first-child{color:var(--text-soft);font-weight:500;width:38%}
-.specs-table td:last-child{color:var(--text);font-weight:600}
-
-/* ===== RELATED PICKLES (SWIPEABLE CAROUSEL ON MOBILE) ===== */
-.related-section{margin-top:48px;border-top:1px solid var(--cream-dark);padding-top:36px}
-.related-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--green-dark);margin-bottom:20px}
-.related-scroll{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.rel-card{background:var(--white);border-radius:var(--radius);overflow:hidden;border:1px solid var(--cream-dark);transition:all .2s;display:flex;flex-direction:column}
-.rel-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.rel-img{height:150px;overflow:hidden;background:var(--cream-mid)}
-.rel-img img{width:100%;height:100%;object-fit:cover}
-.rel-body{padding:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
-.rel-name{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--green-dark);margin-bottom:4px}
-.rel-price{font-size:0.95rem;font-weight:700;color:var(--green)}
-
-/* ===== STICKY BOTTOM BAR (MOBILE THUMB CONVENIENCE) ===== */
-.sticky-mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--cream-dark);padding:10px 16px;z-index:999;box-shadow:0 -4px 16px rgba(0,0,0,0.08);align-items:center;justify-content:space-between;gap:12px}
-.sticky-mobile-info{display:flex;flex-direction:column}
-.sticky-mobile-price{font-size:1.18rem;font-weight:700;color:var(--green)}
-.sticky-mobile-weight{font-size:0.74rem;color:var(--text-soft)}
-.sticky-mobile-btns{display:flex;gap:8px;align-items:center}
-.sticky-btn-add{background:var(--green);color:var(--white);padding:10px 16px;border-radius:var(--radius);font-size:0.85rem;font-weight:600;display:flex;align-items:center;gap:6px}
-.sticky-btn-wa{background:#25D366;color:var(--white);padding:10px 12px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center}
-
-/* ===== FOOTER ===== */
-footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margin-top:40px}
-.footer-simple{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:0.85rem}
-.footer-simple a{color:var(--gold-light)}
-
-/* ===== RESPONSIVE POLISH ===== */
-@media(max-width:960px){
-  .pdp-grid{grid-template-columns:1fr;gap:36px}
-  .pdp-media{position:static}
-  .pdp-img-main{height:360px}
-  .related-scroll{grid-template-columns:repeat(2,1fr)}
+/* ===== PDP LAYOUT (SPACIOUS & ELEGANT) ===== */
+.pdp-section{padding:36px 0 64px}
+.pdp-grid{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:48px;
+  align-items:start;
 }
 
-@media(max-width:768px){
+/* Left Column: Media */
+.pdp-gallery{
+  position:sticky;
+  top:84px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.pdp-image-box{
+  background:var(--bg-card);
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  position:relative;
+  box-shadow:var(--shadow-subtle);
+}
+.pdp-main-img{
+  width:100%;
+  height:440px;
+  object-fit:cover;
+  display:block;
+  background:#F3EFEA;
+}
+.pdp-tag-badge{
+  position:absolute;
+  top:16px;
+  left:16px;
+  background:var(--green);
+  color:#FFF;
+  font-size:0.75rem;
+  font-weight:700;
+  padding:5px 12px;
+  border-radius:50px;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+.pdp-spice-tag{
+  position:absolute;
+  bottom:16px;
+  left:16px;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(6px);
+  color:var(--text-primary);
+  font-size:0.78rem;
+  font-weight:600;
+  padding:5px 12px;
+  border-radius:50px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+.assurance-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.assurance-pill{
+  background:var(--bg-card);
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-sm);
+  padding:12px 10px;
+  text-align:center;
+}
+.assurance-pill span{display:block;font-size:1.25rem;margin-bottom:3px}
+.assurance-pill strong{font-size:0.76rem;color:var(--green-dark);display:block;line-height:1.2}
+
+/* Right Column: Info & Action */
+.pdp-info-col{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.pdp-title-block{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.pdp-product-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.75rem,3.2vw,2.3rem);
+  color:var(--green-dark);
+  line-height:1.2;
+}
+.pdp-product-hindi{
+  font-size:0.95rem;
+  color:var(--gold);
+  font-weight:600;
+}
+.pdp-meta-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:0.85rem;
+  color:var(--text-secondary);
+  flex-wrap:wrap;
+  margin-top:2px;
+}
+.rating-stars-clean{color:var(--gold);font-weight:700}
+.fssai-micro-badge{
+  background:var(--green-subtle);
+  color:var(--green-dark);
+  font-size:0.72rem;
+  font-weight:600;
+  padding:3px 8px;
+  border-radius:4px;
+}
+
+/* Price & Buy Card (Sleek & Clean) */
+.buy-panel-card{
+  background:var(--bg-card);
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-md);
+  padding:22px;
+  box-shadow:var(--shadow-subtle);
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.price-display-row{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.price-primary{
+  font-size:2rem;
+  font-weight:700;
+  color:var(--green-dark);
+  line-height:1;
+}
+.price-tax-label{font-size:0.8rem;color:var(--text-muted)}
+.weight-pill{
+  background:var(--bg-main);
+  border:1px solid var(--border-light);
+  padding:4px 10px;
+  border-radius:6px;
+  font-size:0.8rem;
+  font-weight:600;
+  color:var(--text-secondary);
+}
+
+.delivery-badge-box{
+  background:var(--bg-main);
+  border-radius:var(--radius-sm);
+  padding:10px 14px;
+  font-size:0.82rem;
+  color:var(--text-secondary);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.delivery-badge-box svg{color:var(--green);flex-shrink:0}
+
+/* Action Controls */
+.buy-actions-row{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.qty-stepper{
+  display:flex;
+  align-items:center;
+  border:1.5px solid var(--border-light);
+  border-radius:var(--radius-sm);
+  overflow:hidden;
+  height:46px;
+  background:#FFF;
+}
+.stepper-btn{
+  width:40px;
+  height:100%;
+  background:var(--bg-main);
+  color:var(--green-dark);
+  font-size:1.1rem;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.stepper-btn:hover{background:var(--border-light)}
+.stepper-val{
+  width:44px;
+  height:100%;
+  border:none;
+  text-align:center;
+  font-weight:700;
+  font-size:0.95rem;
+  color:var(--text-primary);
+}
+.btn-primary-basket{
+  flex:1;
+  min-width:180px;
+  height:46px;
+  background:var(--green);
+  color:#FFF;
+  font-size:0.92rem;
+  font-weight:600;
+  border-radius:var(--radius-sm);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  transition:all .15s;
+}
+.btn-primary-basket:hover{background:var(--green-dark)}
+.btn-primary-basket.added{background:var(--gold)}
+
+.btn-whatsapp-order{
+  width:100%;
+  height:46px;
+  background:#25D366;
+  color:#FFF;
+  font-size:0.92rem;
+  font-weight:600;
+  border-radius:var(--radius-sm);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  transition:opacity .15s;
+}
+.btn-whatsapp-order:hover{opacity:0.92}
+.prelaunch-disclaimer{
+  font-size:0.76rem;
+  color:var(--text-muted);
+  text-align:center;
+  line-height:1.4;
+}
+
+/* Content Panels */
+.pdp-info-panel{
+  background:var(--bg-card);
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-md);
+  padding:20px 22px;
+  box-shadow:var(--shadow-subtle);
+}
+.panel-heading{
+  font-family:'Playfair Display',serif;
+  font-size:1.08rem;
+  color:var(--green-dark);
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.panel-text{
+  font-size:0.86rem;
+  color:var(--text-secondary);
+  line-height:1.65;
+}
+
+/* ===== DOCTOR & MEDICAL ADVISORY SECTION (SPACIOUS & ELEGANT) ===== */
+.advisory-card{
+  background:var(--bg-card);
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+  box-shadow:var(--shadow-subtle);
+}
+.advisory-header{
+  background:var(--bg-main);
+  padding:14px 20px;
+  border-bottom:1px solid var(--border-light);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.advisory-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.08rem;
+  color:var(--green-dark);
+}
+.verified-tag{
+  font-size:0.74rem;
+  font-weight:600;
+  color:var(--text-secondary);
+  background:#FFF;
+  border:1px solid var(--border-light);
+  padding:3px 10px;
+  border-radius:50px;
+}
+
+.advisory-body{
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+/* Clean Alert Boxes */
+.clean-alert{
+  border-radius:var(--radius-sm);
+  padding:16px;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.alert-sym{font-size:1.25rem;line-height:1;flex-shrink:0}
+.alert-detail h4{
+  font-size:0.88rem;
+  font-weight:700;
+  margin-bottom:6px;
+}
+.alert-detail ul{
+  padding-left:18px;
+  font-size:0.83rem;
+  line-height:1.55;
+  list-style:disc;
+}
+.alert-detail li{margin-bottom:5px}
+
+.alert-green{
+  background:#F2FAF3;
+  border:1px solid #C8E6C9;
+  color:#1B5E20;
+}
+.alert-green h4{color:#1B5E20}
+.alert-green li{color:#2E4F32}
+
+.alert-amber{
+  background:#FFFBEB;
+  border:1px solid #FDE68A;
+  color:#92400E;
+}
+.alert-amber h4{color:#92400E}
+.alert-amber li{color:#78350F}
+
+.alert-chef-tip{
+  background:var(--bg-main);
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-sm);
+  padding:14px 16px;
+  font-size:0.83rem;
+  color:var(--text-secondary);
+  line-height:1.55;
+}
+.alert-chef-tip strong{color:var(--green-dark)}
+
+/* Clean Specifications Table */
+.spec-list-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.84rem;
+  margin-top:6px;
+}
+.spec-list-table tr{border-bottom:1px solid var(--border-subtle)}
+.spec-list-table tr:last-child{border-bottom:none}
+.spec-list-table td{padding:10px 8px}
+.spec-list-table td:first-child{
+  color:var(--text-muted);
+  font-weight:500;
+  width:36%;
+}
+.spec-list-table td:last-child{
+  color:var(--text-primary);
+  font-weight:600;
+}
+
+/* Clean Ingredients Grid (Takes much less space) */
+.ingredients-compact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px 14px;
+  margin-top:12px;
+}
+.ing-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.82rem;
+  color:var(--text-secondary);
+}
+.ing-dot{
+  width:6px;
+  height:6px;
+  background:var(--green);
+  border-radius:50%;
+  flex-shrink:0;
+}
+
+/* ===== RELATED PRODUCTS (HORIZONTAL SWIPE ON MOBILE) ===== */
+.related-wrapper{
+  margin-top:56px;
+  border-top:1px solid var(--border-light);
+  padding-top:36px;
+}
+.related-header{
+  margin-bottom:20px;
+}
+.related-header h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.35rem;
+  color:var(--green-dark);
+}
+.related-scroller{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.related-mini-card{
+  background:var(--bg-card);
+  border:1px solid var(--border-light);
+  border-radius:var(--radius-sm);
+  overflow:hidden;
+  transition:all .18s ease;
+  display:flex;
+  flex-direction:column;
+}
+.related-mini-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-subtle);
+}
+.related-thumb{
+  width:100%;
+  height:130px;
+  overflow:hidden;
+  background:#F3EFEA;
+}
+.related-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.related-body{
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  justify-content:space-between;
+}
+.related-title{
+  font-family:'Playfair Display',serif;
+  font-size:0.92rem;
+  font-weight:700;
+  color:var(--green-dark);
+  margin-bottom:2px;
+  line-height:1.25;
+}
+.related-weight{font-size:0.74rem;color:var(--text-muted)}
+.related-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:10px;
+  padding-top:8px;
+  border-top:1px solid var(--border-subtle);
+}
+.related-price{font-weight:700;font-size:0.92rem;color:var(--green-dark)}
+.related-view{font-size:0.76rem;color:var(--green);font-weight:600}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#0E3411;
+  color:rgba(255,255,255,0.7);
+  padding:32px 0 24px;
+}
+.footer-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  font-size:0.84rem;
+}
+.footer-row a{color:var(--gold-light)}
+
+/* ===== MOBILE RESPONSIVE ENHANCEMENTS ===== */
+@media(max-width:960px){
+  .pdp-grid{grid-template-columns:1fr;gap:32px}
+  .pdp-gallery{position:static}
+  .pdp-main-img{height:340px}
+  .related-scroller{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:680px){
   .container{padding:0 16px}
-  .header-inner{height:60px}
+  .header-inner{height:58px}
   nav{display:none}
   .hamburger{display:flex}
   .basket-label{display:none}
   .basket-btn{padding:8px 12px}
-  .logo-sub{display:none}
-  .logo-name{font-size:1.05rem}
-  .pdp-wrap{padding:20px 0 40px}
-  .pdp-img-main{height:280px}
-  .pdp-price-card{padding:18px}
-  .content-card{padding:18px}
-  .health-body{padding:16px}
-  .ingredients-grid{grid-template-columns:1fr}
+  .logo-title{font-size:1.02rem}
+  .logo-subtitle{display:none}
+  .logo-icon{width:34px;height:34px;font-size:1.15rem}
+
+  .pdp-section{padding:20px 0 48px}
+  .pdp-main-img{height:280px}
+  .pdp-product-title{font-size:1.55rem}
+  .price-primary{font-size:1.75rem}
   
-  /* Horizontal Swiper for Related Products on Mobile */
-  .related-scroll{display:flex;overflow-x:auto;gap:12px;padding-bottom:12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-  .related-scroll::-webkit-scrollbar{display:none}
-  .rel-card{flex:0 0 220px;scroll-snap-align:start}
+  .buy-panel-card{padding:16px}
+  .buy-actions-row{gap:8px}
+  .pdp-info-panel{padding:16px}
+  .advisory-body{padding:14px}
+  .clean-alert{padding:12px;gap:10px}
   
-  /* Show Sticky Bottom Bar on Mobile */
-  .sticky-mobile-bar{display:flex}
+  .ingredients-compact-grid{grid-template-columns:1fr;gap:6px}
+
+  /* Horizontal swipeable related products (No vertical congestion) */
+  .related-scroller{
+    display:flex;
+    overflow-x:auto;
+    white-space:nowrap;
+    gap:14px;
+    padding-bottom:12px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    scroll-snap-type:x mandatory;
+  }
+  .related-scroller::-webkit-scrollbar{display:none}
+  .related-mini-card{
+    flex:0 0 200px;
+    scroll-snap-align:start;
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- Announcement Bar -->
+<!-- Announcement -->
 <div class="announcement">
-  🚚 <strong>Fast 45-60 Min Delivery</strong> in designated sectors · Orders above ₹299 get free shipping
+  🚚 <strong>Express Local Delivery</strong> within 8 km · Free for orders above ₹299
 </div>
 
 <!-- Header -->
@@ -237,10 +739,10 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margi
   <div class="container">
     <div class="header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-mark">V</div>
+        <div class="logo-icon">V</div>
         <div class="logo-text">
-          <span class="logo-name">Venu's Kitchen</span>
-          <span class="logo-sub">Homemade Pickles</span>
+          <span class="logo-title">Venu's Kitchen</span>
+          <span class="logo-subtitle">Homemade Pickles</span>
         </div>
       </a>
       <nav>
@@ -251,12 +753,12 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margi
         <a href="index.html#contact">Contact</a>
       </nav>
       <div class="header-actions">
-        <a href="store.html" class="basket-btn" id="basketBtn">
+        <a href="store.html" class="basket-btn">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span class="basket-label">Basket</span>
-          <span class="basket-count" id="cartCount">0</span>
+          <span class="basket-badge" id="cartCount">0</span>
         </a>
-        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -266,205 +768,178 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margi
     <a href="index.html">Home</a>
     <a href="store.html">Our Pickles (Store)</a>
     <a href="index.html#delivery">Delivery Coverage (8 km)</a>
-    <a href="index.html#about">Our Kitchen & Story</a>
+    <a href="index.html#about">Our Kitchen Story</a>
     <a href="index.html#contact">Contact & Help</a>
   </div>
 </header>
 
 <!-- Breadcrumb -->
-<div class="breadcrumb-bar">
+<div class="breadcrumb-wrap">
   <div class="container">
-    <a href="index.html">Home</a>
-    <span>/</span>
-    <a href="store.html">Our Pickles</a>
-    <span>/</span>
-    <span id="breadcrumbName" style="color:var(--text);font-weight:600">Loading Product...</span>
+    <div class="breadcrumb-inner">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="store.html">Our Pickles</a>
+      <span class="breadcrumb-sep">/</span>
+      <span id="breadcrumbName" style="color:var(--text-primary);font-weight:600">Pickle Details</span>
+    </div>
   </div>
 </div>
 
-<!-- Main PDP Content -->
-<main class="pdp-wrap">
+<!-- Main Section -->
+<section class="pdp-section">
   <div class="container">
     <div class="pdp-grid">
 
-      <!-- LEFT: Media Gallery & Assurance -->
-      <div class="pdp-media">
-        <div class="pdp-img-card">
-          <img id="productImage" src="" alt="Pickle Jar" class="pdp-img-main" loading="eager"/>
-          <span class="pdp-badge-pill" id="productBadge">Handcrafted</span>
-          <div class="pdp-spice-meter" id="productSpice">🌶️ Medium</div>
+      <!-- LEFT: Gallery & Assurances -->
+      <div class="pdp-gallery">
+        <div class="pdp-image-box">
+          <img id="productImage" src="" alt="Pickle Jar" class="pdp-main-img" loading="eager"/>
+          <span class="pdp-tag-badge" id="productBadge">Handcrafted</span>
+          <span class="pdp-spice-tag" id="productSpice">🌶️ Medium</span>
         </div>
-        <div class="pdp-guarantee-row">
-          <div class="guarantee-box">
+        <div class="assurance-strip">
+          <div class="assurance-pill">
             <span>🫙</span>
             <strong>100% Glass Jar</strong>
           </div>
-          <div class="guarantee-box">
+          <div class="assurance-pill">
             <span>☀️</span>
             <strong>21-Day Sun Cured</strong>
           </div>
-          <div class="guarantee-box">
+          <div class="assurance-pill">
             <span>🌿</span>
             <strong>Zero Chemicals</strong>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT: Details, Medical / Dietary Alerts & Purchase -->
-      <div class="pdp-info">
-        <div class="pdp-header">
-          <h1 id="productTitle">Pickle Name</h1>
-          <div class="pdp-hindi" id="productHindi">Achar Name</div>
-          <div class="pdp-rating-row">
-            <span class="rating-stars">★★★★★</span>
-            <span class="rating-count" id="ratingText">4.9 · 142 Reviews</span>
-            <span class="fssai-pill">FSSAI: 23324009000123</span>
+      <!-- RIGHT: Details, Medical Advisory & Purchase -->
+      <div class="pdp-info-col">
+        <div class="pdp-title-block">
+          <h1 class="pdp-product-title" id="productTitle">Pickle Name</h1>
+          <div class="pdp-product-hindi" id="productHindi">Achar Name</div>
+          <div class="pdp-meta-row">
+            <span class="rating-stars-clean">★★★★★ 4.9</span>
+            <span id="ratingCountText">(186 customer reviews)</span>
+            <span class="fssai-micro-badge">FSSAI: 23324009000123</span>
           </div>
         </div>
 
-        <!-- Price & Instant Ordering Card -->
-        <div class="pdp-price-card">
-          <div class="price-row">
-            <div class="price-main">
-              <span id="productPrice">₹0</span>
-              <span class="price-tax">Incl. of all taxes</span>
-            </div>
-            <span class="pdp-weight" id="productWeight">500g Jar</span>
+        <!-- Buy Panel (Clean & Ergonomic) -->
+        <div class="buy-panel-card">
+          <div class="price-display-row">
+            <span class="price-primary" id="productPrice">₹0</span>
+            <span class="price-tax-label">Incl. of all taxes</span>
+            <span class="weight-pill" id="productWeight">500g Jar</span>
           </div>
-          <div class="delivery-estimate">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <div><strong>Hyperlocal Delivery:</strong> Within 45–60 mins in 8 km radius</div>
+          <div class="delivery-badge-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span><strong>Local Delivery:</strong> Fresh delivery within 45–60 mins (8 km)</span>
           </div>
-          <div class="pdp-actions">
-            <div class="qty-selector">
-              <button class="qty-btn" id="qtyMinus">−</button>
-              <input type="text" class="qty-input" id="qtyInput" value="1" readonly/>
-              <button class="qty-btn" id="qtyPlus">+</button>
+          <div class="buy-actions-row">
+            <div class="qty-stepper">
+              <button class="stepper-btn" id="qtyMinus">−</button>
+              <input type="text" class="stepper-val" id="qtyInput" value="1" readonly/>
+              <button class="stepper-btn" id="qtyPlus">+</button>
             </div>
-            <button class="btn-add-pdp" id="btnAddToCart">
+            <button class="btn-primary-basket" id="btnAddToCart">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               Add to Basket
             </button>
           </div>
-          <a href="#" id="btnWhatsAppDirect" target="_blank" class="btn-wa-order">
-            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-            Order via WhatsApp (Pre-Launch)
+          <a href="#" id="btnWhatsAppDirect" target="_blank" class="btn-whatsapp-order">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            Order on WhatsApp
           </a>
-          <p class="checkout-prelaunch-note">🔒 Online store checkout is launching soon. WhatsApp orders are confirmed within 10 minutes.</p>
+          <p class="prelaunch-disclaimer">Online payment checkout is launching soon. Orders via WhatsApp are confirmed within 10 minutes.</p>
         </div>
 
         <!-- Description -->
-        <div class="content-card">
-          <h3>📖 Flavor Profile & Description</h3>
-          <p id="productDesc">Detailed description here...</p>
+        <div class="pdp-info-panel">
+          <h3 class="panel-heading">📖 Flavor Profile & Heritage Story</h3>
+          <p class="panel-text" id="productDesc">Detailed description...</p>
         </div>
 
-        <!-- SPACIOUS HEALTH, DIETARY & MEDICAL ADVISORY -->
-        <div class="health-guide-card">
-          <div class="health-guide-header">
-            <h3>🩺 Health, Dietary & Medical Advisory</h3>
-            <span class="health-badge-verified">Doctor & Nutrition Verified</span>
+        <!-- DOCTOR & MEDICAL ADVISORY (CLEAN, SPACIOUS, UNCLUTTERED) -->
+        <div class="advisory-card">
+          <div class="advisory-header">
+            <h3 class="advisory-title">🩺 Dietary Compatibility & Health Guide</h3>
+            <span class="verified-tag">Doctor & Nutrition Verified</span>
           </div>
-          <div class="health-body">
+          <div class="advisory-body">
             
-            <!-- Suitable for -->
-            <div class="alert-clean alert-clean-suitable">
-              <div class="alert-icon">✅</div>
-              <div class="alert-text">
-                <h4>Who Can Enjoy & Dietary Compatibility:</h4>
+            <!-- Who can eat -->
+            <div class="clean-alert alert-green">
+              <div class="alert-sym">✅</div>
+              <div class="alert-detail">
+                <h4>Who Can Enjoy & Benefits:</h4>
                 <ul id="healthSuitableList"></ul>
               </div>
             </div>
 
-            <!-- Caution & Warnings -->
-            <div class="alert-clean alert-clean-warning">
-              <div class="alert-icon">⚠️</div>
-              <div class="alert-text">
-                <h4>Medical Warnings & Who Should Avoid or Limit:</h4>
+            <!-- Health warnings -->
+            <div class="clean-alert alert-amber">
+              <div class="alert-sym">⚠️</div>
+              <div class="alert-detail">
+                <h4>Medical Precautions & Dietary Restrictions:</h4>
                 <ul id="healthWarningList"></ul>
               </div>
             </div>
 
-            <!-- Serving Guidance -->
-            <div class="alert-clean alert-clean-tip">
-              <div class="alert-icon">💡</div>
-              <div class="alert-text">
-                <h4>Recommended Serving & Consumption Tip:</h4>
-                <p id="healthTipText"></p>
-              </div>
+            <!-- Serving tip -->
+            <div class="alert-chef-tip">
+              <strong>💡 Culinary Serving Tip:</strong>
+              <span id="healthTipText">Enjoy in moderation with whole meals.</span>
             </div>
 
           </div>
         </div>
 
-        <!-- Pure Ingredients (Clean 2-Col Grid) -->
-        <div class="content-card">
-          <h3>🌱 Pure Ingredients</h3>
-          <p id="ingredientsSummary" style="margin-bottom:12px">All-natural kitchen ingredients:</p>
-          <div class="ingredients-grid" id="ingredientTags"></div>
+        <!-- Compact Ingredients List (Takes minimal space) -->
+        <div class="pdp-info-panel">
+          <h3 class="panel-heading">🌱 Pure Kitchen Ingredients</h3>
+          <p class="panel-text" id="ingredientsSummary">All natural, cold-pressed oils and hand-roasted spices.</p>
+          <div class="ingredients-compact-grid" id="ingredientsGrid"></div>
         </div>
 
-        <!-- Product Specifications Table -->
-        <div class="content-card">
-          <h3>📋 Standard Specifications</h3>
-          <table class="specs-table">
+        <!-- Specifications -->
+        <div class="pdp-info-panel">
+          <h3 class="panel-heading">📋 Standard Specifications</h3>
+          <table class="spec-list-table">
             <tbody>
               <tr><td>Net Weight</td><td id="specWeight">500g</td></tr>
               <tr><td>Container</td><td>Airtight Food-Grade Glass Jar</td></tr>
               <tr><td>Shelf Life</td><td>12 Months from Batch Date</td></tr>
               <tr><td>Curing Time</td><td id="specCure">21 Days Sun Cured</td></tr>
-              <tr><td>Base Oil Used</td><td id="specOil">Pure Cold-Pressed Mustard Oil</td></tr>
-              <tr><td>Preservatives</td><td>Zero Chemicals · Natural Salt & Oil Preservation Only</td></tr>
+              <tr><td>Base Oil Used</td><td id="specOil">Pure Mustard Oil</td></tr>
+              <tr><td>Preservatives</td><td>Zero Chemicals · Natural Salt & Oil Preservation</td></tr>
             </tbody>
           </table>
-        </div>
-
-        <!-- Storage Instructions -->
-        <div class="content-card">
-          <h3>💡 Traditional Kitchen Storage Rules</h3>
-          <p>
-            • Always use a <strong>completely clean and dry spoon</strong>.<br/>
-            • <strong>Do not refrigerate</strong>: natural cold-pressed oil can solidify and reduce aroma.<br/>
-            • Keep the jar sealed airtight and store in a cool, dry cupboard away from moisture.<br/>
-            • Ensure the top surface of the pickle remains submerged in oil to preserve freshness naturally.
-          </p>
         </div>
 
       </div>
     </div>
 
-    <!-- Related Pickles (Horizontal Swiper on Mobile) -->
-    <div class="related-section">
-      <h3 class="related-title">Explore Other Traditional Varieties</h3>
-      <div class="related-scroll" id="relatedGrid"></div>
+    <!-- Related Pickles (Horizontal Swipeable Row) -->
+    <div class="related-wrapper">
+      <div class="related-header">
+        <h3>Explore Other Traditional Varieties</h3>
+      </div>
+      <div class="related-scroller" id="relatedGrid">
+        <!-- Rendered by JS -->
+      </div>
     </div>
 
   </div>
-</main>
-
-<!-- Sticky Mobile Action Bar -->
-<div class="sticky-mobile-bar" id="stickyMobileBar">
-  <div class="sticky-mobile-info">
-    <span class="sticky-mobile-price" id="stickyPrice">₹0</span>
-    <span class="sticky-mobile-weight" id="stickyWeight">500g Jar</span>
-  </div>
-  <div class="sticky-mobile-btns">
-    <button class="sticky-btn-add" id="stickyBtnAdd">
-      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      Add
-    </button>
-    <a href="#" id="stickyBtnWa" target="_blank" class="sticky-btn-wa" title="Order via WhatsApp">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-    </a>
-  </div>
-</div>
+</section>
 
 <!-- Footer -->
 <footer>
   <div class="container">
-    <div class="footer-simple">
+    <div class="footer-row">
       <div>© 2025 <strong>Venu's Kitchen</strong> · FSSAI Reg. 23324009000123</div>
-      <div>Kitchen: Sector 15 Commercial Hub, South Enclave, New Delhi</div>
+      <div>Kitchen Helpline: <strong>+91 98765 43210</strong> (9 AM – 8 PM)</div>
       <div><a href="store.html">← Back to Store</a> | <a href="index.html">Home</a></div>
     </div>
   </div>
@@ -472,7 +947,6 @@ footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margi
 
 <script src="cart.js"></script>
 <script>
-// ===== MASTER PRODUCT DATABASE (WITH DETAILED MEDICAL & HEALTH ADVISORY) =====
 const CATALOG = {
   p1: {
     id: 'p1',
@@ -485,7 +959,7 @@ const CATALOG = {
     spice: '🌶️🌶️ Medium Spice',
     cure: '21 Days Sun Cured',
     oil: '100% Pure Cold-Pressed Kachi Ghani Mustard Oil',
-    rating: '4.9 · 186 Verified Reviews',
+    rating: '(186 verified reviews)',
     desc: 'Crafted with handpicked green Ramkela mangoes from local orchards. Coarsely cut, marinated with freshly roasted methi, saunf, and kalonji, and sun-cured for three full weeks. Delivers that unforgettable sharp, tangy home-kitchen punch that elevates any dal-chawal or paratha meal.',
     ingredients: [
       'Raw Ramkela Mango',
@@ -495,26 +969,26 @@ const CATALOG = {
       'Nigella Seeds (Kalonji)',
       'Turmeric Powder (Haldi)',
       'Degi Red Chilli',
-      'Rock Salt (Sendha Namak)',
+      'Natural Rock Salt (Sendha Namak)',
       'Hing (Asafoetida)'
     ],
     suitable: [
-      'Healthy adults, young adults, and children wanting real traditional food.',
-      '100% Vegan, Dairy-Free, and Preservative-Free.',
-      'Acts as a natural digestive stimulant after hearty North Indian meals.'
+      'Suitable for healthy adults and children wanting traditional gut-probiotic taste.',
+      '100% Vegan, Dairy-Free, and Chemical Preservative-Free.',
+      'Acts as a natural digestive stimulant after hearty Indian meals.'
     ],
     warnings: [
-      '<strong>High Blood Pressure (Hypertension):</strong> Traditional pickles require salt for natural curing. Contains natural rock salt. Consume strictly in moderation (max 1 teaspoon / 5–10g per day).',
-      '<strong>Acid Reflux & Active Gastritis:</strong> Contains pure mustard oil and spices. Individuals with active peptic ulcers, GERD, or acute hyperacidity should avoid consuming on an empty stomach.',
-      '<strong>Mustard Allergy:</strong> Contains mustard seeds and cold-pressed mustard oil. Avoid if you have known brassica or mustard hypersensitivity.',
-      '<strong>Severe Kidney Disorders:</strong> Patients on strict sodium-restricted diets must consult their nephrologist or dietitian before consumption.'
+      '<strong>High Blood Pressure (Hypertension):</strong> Contains natural rock salt required for fermentation. Consume strictly in moderation (max 1 teaspoon / 5–10g daily).',
+      '<strong>Acid Reflux & Gastritis:</strong> Contains pure mustard oil and spices. Avoid consuming on an empty stomach if prone to peptic ulcers or acute acidity.',
+      '<strong>Mustard Allergy:</strong> Contains mustard seeds and cold-pressed mustard oil. Avoid if allergic to brassica foods.',
+      '<strong>Kidney Restrictions:</strong> Consult your physician if on strict low-sodium dietary protocols.'
     ],
-    tip: 'Pair a small teaspoon with hot dal-tadka and steamed basmati rice or a stuffed aloo paratha. Never eat raw pickle directly on an empty stomach if prone to acidity.'
+    tip: 'Pair 1 small spoonful with hot dal-tadka and steamed basmati rice or a stuffed aloo paratha. Never eat raw pickle on an empty stomach.'
   },
   p2: {
     id: 'p2',
     name: 'Banarasi Stuffed Red Chilli Pickle',
-    hindi: 'बनारसी भरवा लाल मिर्च का अचार (Bharwa Lal Mirch)',
+    hindi: 'बनारसी भरवा लाल मिर्च (Bharwa Lal Mirch)',
     price: 280,
     weight: '400g Glass Jar',
     image: 'https://images.unsplash.com/photo-1645679059045-65ff3a440554?auto=format&fit=crop&w=800&q=80',
@@ -522,13 +996,13 @@ const CATALOG = {
     spice: '🌶️🌶️🌶️ Hot & Pungent',
     cure: '25 Days Solar Cured',
     oil: 'Wood-Pressed Mustard Oil',
-    rating: '4.8 · 142 Verified Reviews',
+    rating: '(142 verified reviews)',
     desc: 'Long, deep-red Banarasi chillies hollowed out by hand and stuffed with an intensely fragrant blend of roasted coriander, amchur, fennel, and yellow mustard powder, then slow-steeped in mustard oil. Rich, warm, and deeply comforting.',
     ingredients: [
       'Whole Banarasi Red Chillies',
       'Amchur (Dry Mango Powder)',
       'Roasted Coriander Powder',
-      'Yellow Mustard Dal (Rai Kuria)',
+      'Yellow Mustard Dal',
       'Ajwain (Carom Seeds)',
       'Fennel Seeds',
       'Black Salt & Rock Salt',
@@ -540,16 +1014,16 @@ const CATALOG = {
       'Excellent companion for plain parathas, poori bhaji, and khichdi.'
     ],
     warnings: [
-      '<strong>Severe Gastrointestinal Irritation:</strong> High capsaicin from whole dried red chillies. Strictly not advised for patients with acute stomach ulcers, Crohn\'s flare-ups, or severe GERD.',
-      '<strong>Hemorrhoids / Piles:</strong> Strong hot spices can irritate the lower digestive tract. Avoid during active inflammatory episodes.',
-      '<strong>Hypertension:</strong> Contains seasoned rock salt and black salt. Restrict portion to 1/3 of a chilli pod at a time.'
+      '<strong>Severe Gastrointestinal Irritation:</strong> High capsaicin from whole dried red chillies. Not advised for patients with acute stomach ulcers or severe GERD.',
+      '<strong>Hemorrhoids / Piles:</strong> Strong hot spices can irritate the lower digestive tract. Avoid during active flare-ups.',
+      '<strong>Hypertension:</strong> Contains rock salt. Limit portion to 1/3 of a pod per serving.'
     ],
-    tip: 'Slit a small 1-inch piece of the stuffed pod and mix it evenly into your rice or paratha bite rather than chewing a whole pod directly.'
+    tip: 'Slit a small piece of the stuffed pod and mix it evenly into your rice or paratha bite rather than chewing a whole pod directly.'
   },
   p3: {
     id: 'p3',
     name: 'Spicy Green Chilli Pickle',
-    hindi: 'चटपटा हरी मिर्च का अचार (Hari Mirch Ka Achar)',
+    hindi: 'चटपटा हरी मिर्च का अचार (Hari Mirch)',
     price: 190,
     weight: '350g Glass Jar',
     image: 'https://images.unsplash.com/photo-1643594697730-bb034a399a4b?auto=format&fit=crop&w=800&q=80',
@@ -557,7 +1031,7 @@ const CATALOG = {
     spice: '🌶️🌶️🌶️🌶️ Very Hot',
     cure: '10 Days Natural Fermentation',
     oil: 'Cold-Pressed Mustard Oil',
-    rating: '4.7 · 98 Reviews',
+    rating: '(98 verified reviews)',
     desc: 'Crisp green chillies slit fresh and cured with crushed yellow mustard seeds, lemon juice, turmeric, and asafoetida. It gives an immediate zesty, pungent kick that revives simple meals.',
     ingredients: [
       'Fresh Green Chillies',
@@ -569,20 +1043,20 @@ const CATALOG = {
       'Mustard Oil'
     ],
     suitable: [
-      'Spice lovers seeking raw green chilli zest and high natural Vitamin C.',
+      'Spice lovers seeking raw green chilli zest and natural Vitamin C.',
       'Ideal with curd-rice, dal-chawal, or mathri snacks.'
     ],
     warnings: [
-      '<strong>Irritable Bowel Syndrome (IBS) & Diarrhea:</strong> Fiery capsaicin stimulates rapid gastrointestinal peristalsis and may provoke cramps in sensitive individuals.',
+      '<strong>Irritable Bowel Syndrome (IBS):</strong> High capsaicin can trigger rapid bowel motility and stomach cramps in sensitive stomachs.',
       '<strong>Heartburn:</strong> Do not consume with late dinner; can trigger night-time reflux.',
-      '<strong>Not for Young Children:</strong> High spice intensity is unsuitable for toddlers and young children.'
+      '<strong>Young Children:</strong> Not suitable for toddlers due to intense heat.'
     ],
-    tip: 'Perfect when paired with cooling foods like curd-rice (dahi chawal) or plain buttered rotis.'
+    tip: 'Pair with cooling foods like curd-rice (dahi chawal) or plain buttered rotis.'
   },
   p4: {
     id: 'p4',
     name: 'Sun-Cured Lemon Pickle (Zero Oil)',
-    hindi: 'कागज़ी नींबू का अचार - बिना तेल (Bina Tel Nimbu)',
+    hindi: 'कागज़ी नींबू का अचार - बिना तेल (Zero Oil)',
     price: 210,
     weight: '400g Glass Jar',
     image: 'https://images.unsplash.com/photo-1525027684690-6de2d445842b?auto=format&fit=crop&w=800&q=80',
@@ -590,7 +1064,7 @@ const CATALOG = {
     spice: '🌶️ Mild & Tangy',
     cure: '30 Days Solar Fermentation',
     oil: 'None (100% Oil-Free Recipe)',
-    rating: '4.9 · 210 Reviews',
+    rating: '(210 verified reviews)',
     desc: 'Prepared without a single drop of oil. Thin-skinned Kagzi lemons are quartered and slow-cured in jars under the hot sun with carom seeds (ajwain), black pepper, black salt, and roasted cumin. As it ages, it darkens into a velvety, gut-soothing digestive relish.',
     ingredients: [
       'Fresh Kagzi Lemons',
@@ -602,19 +1076,19 @@ const CATALOG = {
     ],
     suitable: [
       '<strong>Heart Patients & Low-Fat Diets:</strong> 0% Added Oil, 0% Saturated Fat, 0% Cholesterol.',
-      '<strong>Relief from Nausea & Motion Sickness:</strong> Highly effective natural remedy for travel nausea, sluggish digestion, and post-fever appetite loss.',
-      '<strong>Senior Citizens:</strong> Gentle on the stomach with ajwain carminative benefits.'
+      '<strong>Relief from Nausea & Motion Sickness:</strong> Highly effective natural home remedy for travel nausea and post-fever appetite recovery.',
+      '<strong>Senior Citizens:</strong> Very gentle on the stomach with ajwain digestive benefits.'
     ],
     warnings: [
-      '<strong>Tooth Enamel Sensitivity:</strong> High natural citric acid from lemon rind. If you have worn dental enamel or sensitive teeth, rinse your mouth with plain water after eating.',
-      '<strong>Sodium Watchers:</strong> Even though it has zero oil, salt is required for preservation. Keep to 1 small piece per meal.'
+      '<strong>Tooth Enamel Sensitivity:</strong> High natural citric acid from lemon rind. Rinse your mouth with plain water after eating.',
+      '<strong>Sodium Watchers:</strong> Salt is required for preservation. Keep to 1 small piece per meal.'
     ],
     tip: 'The best companion for plain moong dal khichdi or soft curd rice when recovering from stomach upsets.'
   },
   p5: {
     id: 'p5',
     name: 'Mixed Vegetable Pachranga',
-    hindi: 'पारंपरिक पचरंगा अचार (Panch Rang Achar)',
+    hindi: 'पारंपरिक पचरंगा अचार (Panch Rang)',
     price: 230,
     weight: '500g Glass Jar',
     image: 'https://images.unsplash.com/photo-1519147683487-66e0c2d0b5a0?auto=format&fit=crop&w=800&q=80',
@@ -622,7 +1096,7 @@ const CATALOG = {
     spice: '🌶️🌶️ Medium Spice',
     cure: '18 Days Sun Cured',
     oil: 'Cold-Pressed Mustard Oil',
-    rating: '4.8 · 164 Reviews',
+    rating: '(164 verified reviews)',
     desc: 'The grand classic of five hearty winter ingredients: crunchy carrots, turnip (shalgam), crunchy lotus stem (kamal kakdi), raw mango, and fresh cauliflower pieces soaked in aromatic spiced oil.',
     ingredients: [
       'Raw Mango Pieces',
@@ -636,18 +1110,18 @@ const CATALOG = {
     ],
     suitable: [
       'Great for whole-family dining with varied crunchy vegetable textures.',
-      'Provides varied vegetable fiber with daily meals.'
+      'Provides varied vegetable dietary fiber with daily meals.'
     ],
     warnings: [
-      '<strong>Bloating & Gout Tendency:</strong> Contains cauliflower and turnip which can produce intestinal gas in individuals prone to flatulence or severe IBS.',
-      '<strong>Hypertension:</strong> Moderate your intake to 1 tablespoon daily.'
+      '<strong>Bloating & Gout Tendency:</strong> Contains cauliflower and turnip which can produce gas in individuals prone to flatulence or severe IBS.',
+      '<strong>Hypertension:</strong> Standard preservation salt levels; moderate daily intake to 1 tablespoon.'
     ],
     tip: 'Stir the jar gently before serving so the spiced mustard oil coats every vegetable piece uniformly.'
   },
   p6: {
     id: 'p6',
     name: 'Slow-Tempered Garlic Pickle',
-    hindi: 'देसी लहसुन का अचार (Desi Lahsun Ka Achar)',
+    hindi: 'देसी लहसुन का अचार (Lahsun)',
     price: 260,
     weight: '350g Glass Jar',
     image: 'https://images.unsplash.com/photo-1706167754852-128daa40126a?auto=format&fit=crop&w=800&q=80',
@@ -655,7 +1129,7 @@ const CATALOG = {
     spice: '🌶️🌶️ Medium Savoury',
     cure: '21 Days Slow Tempering',
     oil: 'Cold-Pressed Mustard Oil',
-    rating: '4.9 · 119 Reviews',
+    rating: '(119 verified reviews)',
     desc: 'Whole peeled desi garlic cloves gently tempered with mustard seeds and fenugreek, then aged in sunlight until the sharp pungency mellows into a rich, buttery, deeply savory garlic delicacy.',
     ingredients: [
       'Peeled Whole Desi Garlic',
@@ -672,7 +1146,7 @@ const CATALOG = {
     ],
     warnings: [
       '<strong>Pre-Surgery & Blood Thinners:</strong> Garlic possesses natural anti-platelet (blood thinning) properties. Avoid excessive consumption if taking prescription anticoagulants (e.g. Warfarin, Aspirin) or prior to scheduled surgery.',
-      '<strong>Heartburn & Esophageal Irritation:</strong> Garlic can relax the lower esophageal sphincter in some people, causing mild acid reflux if eaten late at night.',
+      '<strong>Heartburn:</strong> Garlic can relax the lower esophageal sphincter, causing mild acid reflux if eaten late at night.',
       '<strong>Low Blood Pressure (Hypotension):</strong> May mildly lower blood pressure; consume in normal culinary portions.'
     ],
     tip: 'Eat 2 to 3 cloves daily along with lunchtime roti or warm rice for maximum herbal and culinary satisfaction.'
@@ -680,7 +1154,7 @@ const CATALOG = {
   p7: {
     id: 'p7',
     name: 'Sweet Mango Chhunda',
-    hindi: 'गुजराती आम का मीठा छुंदा (Aam Ka Chhunda)',
+    hindi: 'गुजराती आम का मीठा छुंदा (Chhunda)',
     price: 220,
     weight: '400g Glass Jar',
     image: 'https://images.unsplash.com/photo-1576920803950-3f066b308938?auto=format&fit=crop&w=800&q=80',
@@ -688,7 +1162,7 @@ const CATALOG = {
     spice: '🌶️ Mild Sweet',
     cure: '15 Days Solar Cooking',
     oil: 'Zero Oil (No Oil Added)',
-    rating: '4.9 · 230 Reviews',
+    rating: '(230 verified reviews)',
     desc: 'Grated Rajapuri raw mangoes cooked naturally in clear sunlight with pure desi jaggery (gud), roasted jeera, and mild red chilli flakes. No chemical preservatives, no refined white sugar.',
     ingredients: [
       'Grated Raw Rajapuri Mango',
@@ -704,19 +1178,20 @@ const CATALOG = {
       'Zero oil, vegetarian, and natural iron from organic jaggery.'
     ],
     warnings: [
-      '🚨 <strong>DIABETES ADVISORY:</strong> Contains concentrated natural jaggery (gud) and mango fructose. Strictly not recommended for individuals with Type 1 or Type 2 Diabetes without medical consultation.',
-      '<strong>Calorie Counting:</strong> Higher natural carbohydrate and calorie content than savoury pickles. Consume mindfully if on strict ketogenic or diabetic diets.'
+      '🚨 <strong>DIABETES ADVISORY:</strong> Contains concentrated natural jaggery (gud) and mango fruit sugars. Strictly not recommended for individuals with Type 1 or Type 2 Diabetes without medical consultation.',
+      '<strong>Calorie Counting:</strong> Higher natural carbohydrate and calorie content than savoury pickles. Consume mindfully.'
     ],
     tip: 'Spread 1 spoonful across a hot thepla or chapati, roll it up, and enjoy as an authentic on-the-go snack!'
   }
 };
 
-// Render
 const params = new URLSearchParams(window.location.search);
 let currentId = params.get('id') || 'p1';
 if (!CATALOG[currentId]) currentId = 'p1';
+
 const prod = CATALOG[currentId];
 
+// Update DOM elements cleanly
 document.title = `${prod.name} – Venu's Kitchen`;
 document.getElementById('breadcrumbName').textContent = prod.name;
 document.getElementById('productImage').src = prod.image;
@@ -725,32 +1200,30 @@ document.getElementById('productBadge').textContent = prod.badge;
 document.getElementById('productSpice').textContent = prod.spice;
 document.getElementById('productTitle').textContent = prod.name;
 document.getElementById('productHindi').textContent = prod.hindi;
-document.getElementById('ratingText').textContent = prod.rating;
+document.getElementById('ratingCountText').textContent = prod.rating;
 document.getElementById('productPrice').textContent = `₹${prod.price}`;
 document.getElementById('productWeight').textContent = prod.weight;
-document.getElementById('stickyPrice').textContent = `₹${prod.price}`;
-document.getElementById('stickyWeight').textContent = prod.weight;
 document.getElementById('productDesc').textContent = prod.desc;
 document.getElementById('specWeight').textContent = prod.weight;
 document.getElementById('specCure').textContent = prod.cure;
 document.getElementById('specOil').textContent = prod.oil;
 
+// Suitable & Warning lists
 document.getElementById('healthSuitableList').innerHTML = prod.suitable.map(s => `<li>${s}</li>`).join('');
 document.getElementById('healthWarningList').innerHTML = prod.warnings.map(w => `<li>${w}</li>`).join('');
 document.getElementById('healthTipText').innerHTML = prod.tip;
 
-// Ingredients grid (2-column clean check items, never staircase pills)
-document.getElementById('ingredientTags').innerHTML = prod.ingredients.map(ing => `
-  <div class="ing-item"><span>✓</span> ${ing}</div>
+// Compact Ingredients Grid
+document.getElementById('ingredientsSummary').textContent = `Handcrafted with ${prod.ingredients.length} pure kitchen ingredients without chemical preservatives:`;
+document.getElementById('ingredientsGrid').innerHTML = prod.ingredients.map(ing => `
+  <div class="ing-item"><div class="ing-dot"></div><span>${ing}</span></div>
 `).join('');
 
-// WhatsApp Order Links
-const waMsg = encodeURIComponent(`Hi Venu! I would like to order: ${prod.name} (${prod.weight}) - ₹${prod.price}.\nPlease confirm delivery within your sector.`);
-const waUrl = `https://wa.me/919876543210?text=${waMsg}`;
-document.getElementById('btnWhatsAppDirect').href = waUrl;
-document.getElementById('stickyBtnWa').href = waUrl;
+// WhatsApp Direct Link
+const waMsg = encodeURIComponent(`Hi Venu! I would like to order: ${prod.name} (${prod.weight}) - ₹${prod.price}.\nPlease confirm delivery.`);
+document.getElementById('btnWhatsAppDirect').href = `https://wa.me/919876543210?text=${waMsg}`;
 
-// Qty
+// Stepper
 let currentQty = 1;
 const qtyInput = document.getElementById('qtyInput');
 document.getElementById('qtyPlus').addEventListener('click', () => {
@@ -764,46 +1237,44 @@ document.getElementById('qtyMinus').addEventListener('click', () => {
   }
 });
 
-function handleAddToCart() {
-  for (let i = 0; i < currentQty; i++) {
-    window.VKCart.addItem({
-      id: prod.id,
-      name: prod.name,
-      price: prod.price,
-      weight: prod.weight,
-      image: prod.image
-    });
+// Add to Cart
+const btnAdd = document.getElementById('btnAddToCart');
+btnAdd.addEventListener('click', () => {
+  if (window.VKCart) {
+    for (let i = 0; i < currentQty; i++) {
+      window.VKCart.addItem({
+        id: prod.id,
+        name: prod.name,
+        price: prod.price,
+        weight: prod.weight,
+        image: prod.image
+      });
+    }
   }
-  const btnAdd = document.getElementById('btnAddToCart');
-  const stickyBtn = document.getElementById('stickyBtnAdd');
   btnAdd.textContent = '✓ Added to Basket!';
-  stickyBtn.textContent = '✓ Added!';
   btnAdd.classList.add('added');
   setTimeout(() => {
     btnAdd.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add to Basket';
-    stickyBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add';
     btnAdd.classList.remove('added');
-  }, 1800);
+  }, 1600);
   updateCartUI();
-}
-document.getElementById('btnAddToCart').addEventListener('click', handleAddToCart);
-document.getElementById('stickyBtnAdd').addEventListener('click', handleAddToCart);
+});
 
-// Related Pickles
+// Related Pickles (Horizontal scroll on mobile)
 const relatedIds = Object.keys(CATALOG).filter(id => id !== currentId).slice(0, 4);
 document.getElementById('relatedGrid').innerHTML = relatedIds.map(rid => {
   const r = CATALOG[rid];
   return `
-    <a href="product.html?id=${r.id}" class="rel-card">
-      <div class="rel-img"><img src="${r.image}" alt="${r.name}" loading="lazy"/></div>
-      <div class="rel-body">
+    <a href="product.html?id=${r.id}" class="related-mini-card">
+      <div class="related-thumb"><img src="${r.image}" alt="${r.name}" loading="lazy"/></div>
+      <div class="related-body">
         <div>
-          <h4 class="rel-name">${r.name}</h4>
-          <span style="font-size:0.75rem;color:var(--text-soft)">${r.weight}</span>
+          <h4 class="related-title">${r.name}</h4>
+          <span class="related-weight">${r.weight}</span>
         </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
-          <span class="rel-price">₹${r.price}</span>
-          <span style="font-size:0.78rem;color:var(--green);font-weight:600">View Details →</span>
+        <div class="related-footer">
+          <span class="related-price">₹${r.price}</span>
+          <span class="related-view">View →</span>
         </div>
       </div>
     </a>

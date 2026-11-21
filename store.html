@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="favicon.svg"/>
 
 <!-- Universal Cart Engine -->
-<script src="cart.js?v=2.2"></script>
+<script src="cart.js?v=2.3"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -813,6 +813,7 @@ footer{
       <div class="search-field">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         <input type="text" id="searchInput" placeholder="Search by name or spice..."/>
+        <button id="searchClear" aria-label="Clear search" style="display:none;background:none;border:none;color:var(--text-muted);font-size:0.85rem;padding:0 6px;cursor:pointer">✕</button>
       </div>
     </div>
   </div>
@@ -871,7 +872,7 @@ footer{
   </div>
 </footer>
 
-<script src="cart.js?v=2.2"></script>
+<script src="cart.js?v=2.3"></script>
 <script>
 const PRODUCTS = [
   {
@@ -979,6 +980,18 @@ function renderProducts() {
   });
   document.getElementById('productsCount').textContent = `Showing ${filtered.length} authentic pickle${filtered.length !== 1 ? 's' : ''}`;
   
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column:1 / -1;text-align:center;padding:52px 20px;background:#FFF;border:1.5px dashed var(--border-light);border-radius:var(--radius-md)">
+        <div style="font-size:2.5rem;margin-bottom:12px">🔍</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--green-dark);margin-bottom:6px">No Pickles Found</h3>
+        <p style="font-size:0.88rem;color:var(--text-secondary);max-width:400px;margin:0 auto 16px;line-height:1.55">We couldn't find any pickle matching your search. Try resetting your search filter to browse our full collection.</p>
+        <button onclick="resetFilters()" style="padding:10px 22px;background:var(--green);color:#FFF;border-radius:var(--radius-sm);font-weight:600;font-size:0.86rem;cursor:pointer">Show All 7 Varieties</button>
+      </div>
+    `;
+    return;
+  }
+
   grid.innerHTML = filtered.map(p => {
     const cartItems = window.VKCart ? window.VKCart.getItems() : [];
     const inCart = cartItems.find(c => c.id === p.id);
@@ -1208,14 +1221,51 @@ if (urlFilter) {
   }
 }
 
-document.getElementById('searchInput').addEventListener('input', e => {
-  searchQuery = e.target.value.toLowerCase().trim();
+const searchInput = document.getElementById('searchInput');
+const searchClear = document.getElementById('searchClear');
+
+if (searchInput) {
+  searchInput.addEventListener('input', e => {
+    searchQuery = e.target.value.toLowerCase().trim();
+    if (searchClear) searchClear.style.display = searchQuery ? 'block' : 'none';
+    renderProducts();
+  });
+}
+
+if (searchClear) {
+  searchClear.addEventListener('click', () => {
+    searchInput.value = '';
+    searchQuery = '';
+    searchClear.style.display = 'none';
+    renderProducts();
+    searchInput.focus();
+  });
+}
+
+function resetFilters() {
+  activeFilter = 'all';
+  searchQuery = '';
+  if (searchInput) searchInput.value = '';
+  if (searchClear) searchClear.style.display = 'none';
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+  if (allBtn) {
+    allBtn.classList.add('active');
+    allBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
   renderProducts();
-});
+}
 
 // Hamburger
 document.getElementById('hamburger').addEventListener('click', () => {
   document.getElementById('mobileNav').classList.toggle('open');
+});
+
+// Close Mobile Nav on Link Tap
+document.querySelectorAll('#mobileNav a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('mobileNav').classList.remove('open');
+  });
 });
 
 // Init

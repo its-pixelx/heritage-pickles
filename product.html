@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Product Details – Venu's Kitchen</title>
+<meta name="description" content="Detailed ingredients, health benefits, dietary warnings, and curing details for Venu's Kitchen authentic homemade pickles."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:#FAFAF5;color:#1a1a1a;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none;outline:none}
+ul{list-style:none}
+
+/* ===== TOKENS ===== */
+:root{
+  --green:#1D5C2E;
+  --green-dark:#153F20;
+  --green-light:#2D7A42;
+  --gold:#C9A84C;
+  --gold-light:#E8C97A;
+  --cream:#FAFAF5;
+  --cream-mid:#F3F0E6;
+  --cream-dark:#E8E2D0;
+  --text:#1a1a1a;
+  --text-mid:#4a4a4a;
+  --text-soft:#7a7a6a;
+  --white:#ffffff;
+  --red-bg:#FFF1F2;
+  --red-border:#FECDD3;
+  --red-text:#9F1239;
+  --green-bg:#F0FDF4;
+  --green-border:#BBF7D0;
+  --green-text:#166534;
+  --yellow-bg:#FEFCE8;
+  --yellow-border:#FEF08A;
+  --yellow-text:#854D0E;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg:0 8px 30px rgba(0,0,0,0.12);
+  --radius:10px;
+  --radius-lg:16px;
+}
+
+/* ===== CONTAINER & BUTTONS ===== */
+.container{width:100%;max-width:1140px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:var(--radius);font-size:0.92rem;font-weight:600;transition:all .2s ease;white-space:nowrap}
+.btn-primary{background:var(--green);color:var(--white)}
+.btn-primary:hover{background:var(--green-dark);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--green);border:1.5px solid var(--green)}
+.btn-outline:hover{background:var(--green);color:var(--white)}
+
+/* ===== ANNOUNCEMENT BAR ===== */
+.announcement{background:var(--green-dark);color:var(--white);text-align:center;font-size:0.78rem;padding:7px 16px;letter-spacing:0.02em}
+.announcement strong{color:var(--gold-light)}
+
+/* ===== HEADER (FIXED MOBILE SIZING) ===== */
+header{background:var(--white);border-bottom:1px solid var(--cream-dark);position:sticky;top:0;z-index:1000;box-shadow:var(--shadow-sm);width:100%}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px;width:100%}
+.logo{display:flex;align-items:center;gap:8px;flex-shrink:0;min-width:0}
+.logo-mark{width:40px;height:40px;background:var(--green);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--white);font-weight:700;flex-shrink:0}
+.logo-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.logo-name{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;color:var(--green-dark);white-space:nowrap}
+.logo-sub{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);white-space:nowrap}
+nav{display:flex;align-items:center;gap:4px}
+nav a{padding:8px 12px;border-radius:8px;font-size:0.86rem;font-weight:500;color:var(--text-mid);transition:all .15s}
+nav a:hover,nav a.active{background:var(--cream-mid);color:var(--green)}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.basket-btn{display:flex;align-items:center;gap:6px;background:var(--green);color:var(--white);padding:8px 14px;border-radius:var(--radius);font-size:0.85rem;font-weight:600;transition:all .2s;cursor:pointer;border:none}
+.basket-btn:hover{background:var(--green-dark)}
+.basket-count{background:var(--gold);color:var(--white);border-radius:50%;width:19px;height:19px;font-size:0.68rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:38px;height:38px;background:none;border:1.5px solid var(--cream-dark);border-radius:8px;padding:6px;flex-shrink:0}
+.hamburger span{width:20px;height:2px;background:var(--green);border-radius:2px;display:block}
+.mobile-nav{display:none;flex-direction:column;background:var(--white);border-top:1px solid var(--cream-dark);padding:14px 16px;gap:4px}
+.mobile-nav a{padding:10px 12px;border-radius:8px;font-size:0.92rem;font-weight:500;color:var(--text-mid)}
+.mobile-nav a:hover{background:var(--cream-mid);color:var(--green)}
+.mobile-nav.open{display:flex}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb-bar{background:var(--white);border-bottom:1px solid var(--cream-dark);padding:12px 0;font-size:0.82rem;color:var(--text-soft)}
+.breadcrumb-bar a{color:var(--green);font-weight:500}
+.breadcrumb-bar a:hover{text-decoration:underline}
+.breadcrumb-bar span{margin:0 8px;color:var(--cream-dark)}
+
+/* ===== PDP LAYOUT ===== */
+.pdp-wrap{padding:36px 0 60px}
+.pdp-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:start}
+
+/* Left: Gallery & Trust */
+.pdp-media{position:sticky;top:84px;display:flex;flex-direction:column;gap:16px}
+.pdp-img-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--cream-dark);box-shadow:var(--shadow-sm);position:relative}
+.pdp-img-main{width:100%;height:440px;object-fit:cover;display:block;background:var(--cream-mid)}
+.pdp-badge-pill{position:absolute;top:16px;left:16px;background:var(--green);color:var(--white);font-size:0.75rem;font-weight:700;padding:5px 12px;border-radius:50px;letter-spacing:0.06em;text-transform:uppercase}
+.pdp-spice-meter{position:absolute;bottom:16px;left:16px;background:rgba(0,0,0,0.65);backdrop-filter:blur(4px);color:var(--white);padding:6px 14px;border-radius:50px;font-size:0.78rem;font-weight:600}
+.pdp-guarantee-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.guarantee-box{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius);padding:12px;text-align:center}
+.guarantee-box span{display:block;font-size:1.2rem;margin-bottom:4px}
+.guarantee-box strong{display:block;font-size:0.75rem;color:var(--green-dark);line-height:1.2}
+
+/* Right: Product Details */
+.pdp-info{display:flex;flex-direction:column;gap:20px}
+.pdp-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.5vw,2.3rem);color:var(--green-dark);line-height:1.2;margin-bottom:6px}
+.pdp-hindi{font-size:1rem;color:var(--gold);font-weight:600;margin-bottom:10px}
+.pdp-rating-row{display:flex;align-items:center;gap:10px;font-size:0.86rem;color:var(--text-soft)}
+.rating-stars{color:var(--gold);font-size:0.95rem;letter-spacing:1px}
+.rating-count{color:var(--text-mid);font-weight:500}
+.rating-sep{color:var(--cream-dark)}
+.fssai-pill{background:var(--cream-mid);color:var(--green-dark);font-size:0.74rem;font-weight:600;padding:3px 8px;border-radius:4px;border:1px solid var(--cream-dark)}
+
+/* Price & Buy Block */
+.pdp-price-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:16px}
+.price-row{display:flex;align-items:baseline;gap:12px}
+.price-main{font-size:2rem;font-weight:700;color:var(--green)}
+.price-tax{font-size:0.8rem;color:var(--text-soft)}
+.pdp-weight{background:var(--cream-mid);padding:4px 10px;border-radius:6px;font-size:0.8rem;font-weight:600;color:var(--text-mid)}
+.delivery-estimate{display:flex;align-items:center;gap:8px;font-size:0.84rem;color:var(--text-mid);background:var(--cream-mid);padding:10px 14px;border-radius:8px}
+.delivery-estimate svg{color:var(--green);flex-shrink:0}
+
+/* Actions */
+.pdp-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.qty-selector{display:flex;align-items:center;border:1.5px solid var(--green);border-radius:var(--radius);overflow:hidden;height:46px}
+.qty-btn{width:40px;height:100%;background:var(--cream-mid);color:var(--green-dark);font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.qty-btn:hover{background:var(--cream-dark)}
+.qty-input{width:46px;height:100%;border:none;background:var(--white);text-align:center;font-weight:700;font-size:0.95rem;color:var(--text)}
+.btn-add-pdp{flex:1;min-width:180px;height:46px;background:var(--green);color:var(--white);font-size:0.92rem;font-weight:600;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s}
+.btn-add-pdp:hover{background:var(--green-dark)}
+.btn-add-pdp.added{background:var(--gold)}
+.btn-wa-order{width:100%;height:46px;background:#25D366;color:var(--white);font-size:0.92rem;font-weight:600;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s}
+.btn-wa-order:hover{background:#1DB954}
+.checkout-prelaunch-note{font-size:0.78rem;color:var(--text-soft);text-align:center;line-height:1.4}
+
+/* ===== CRITICAL HEALTH & MEDICAL WARNING SECTION (AMAZON STYLE) ===== */
+.health-guide-card{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--cream-dark);background:var(--white);box-shadow:var(--shadow-sm)}
+.health-guide-header{background:var(--cream-mid);padding:14px 20px;border-bottom:1px solid var(--cream-dark);display:flex;align-items:center;justify-content:space-between}
+.health-guide-header h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--green-dark);display:flex;align-items:center;gap:8px}
+.health-body{padding:20px;display:flex;flex-direction:column;gap:16px}
+
+/* Alert Boxes */
+.alert-box{border-radius:var(--radius);padding:16px 18px;display:flex;gap:14px;align-items:flex-start}
+.alert-icon{font-size:1.3rem;line-height:1;flex-shrink:0;margin-top:2px}
+.alert-content h4{font-size:0.9rem;font-weight:700;margin-bottom:6px}
+.alert-content p,.alert-content ul{font-size:0.84rem;line-height:1.6}
+.alert-content ul{margin-top:6px;padding-left:18px;list-style:disc}
+.alert-content li{margin-bottom:4px}
+
+.alert-suitable{background:var(--green-bg);border:1px solid var(--green-border);color:var(--green-text)}
+.alert-suitable h4{color:var(--green-text)}
+.alert-suitable li{color:#14532D}
+
+.alert-caution{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:var(--yellow-text)}
+.alert-caution h4{color:var(--yellow-text)}
+.alert-caution li{color:#713F12}
+
+.alert-warning{background:var(--red-bg);border:1px solid var(--red-border);color:var(--red-text)}
+.alert-warning h4{color:var(--red-text)}
+.alert-warning li{color:#881337}
+
+/* Table specs */
+.specs-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:0.85rem}
+.specs-table tr{border-bottom:1px solid var(--cream-dark)}
+.specs-table td{padding:10px 12px}
+.specs-table td:first-child{color:var(--text-soft);font-weight:500;width:35%}
+.specs-table td:last-child{color:var(--text);font-weight:600}
+
+/* Ingredients & Tips */
+.pdp-accordion-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:var(--radius);padding:18px 20px}
+.pdp-accordion-card h4{font-size:0.92rem;font-weight:700;color:var(--green-dark);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.pdp-accordion-card p{font-size:0.85rem;color:var(--text-mid);line-height:1.65}
+.ingredient-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.ing-tag{background:var(--cream-mid);color:var(--text);font-size:0.75rem;padding:4px 10px;border-radius:50px;border:1px solid var(--cream-dark)}
+
+/* Other Pickles */
+.related-section{margin-top:60px;border-top:1px solid var(--cream-dark);padding-top:40px}
+.related-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--green-dark);margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.rel-card{background:var(--white);border-radius:var(--radius);overflow:hidden;border:1px solid var(--cream-dark);transition:all .2s;display:flex;flex-direction:column}
+.rel-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.rel-img{height:140px;overflow:hidden;background:var(--cream-mid)}
+.rel-img img{width:100%;height:100%;object-fit:cover}
+.rel-body{padding:12px 14px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.rel-name{font-family:'Playfair Display',serif;font-size:0.92rem;color:var(--green-dark);margin-bottom:4px}
+.rel-price{font-size:0.92rem;font-weight:700;color:var(--green)}
+
+/* Footer */
+footer{background:#0F3019;color:rgba(255,255,255,0.75);padding:44px 0 20px;margin-top:40px}
+.footer-simple{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:0.85rem}
+.footer-simple a{color:var(--gold-light)}
+
+/* ===== RESPONSIVE & MOBILE FIXES ===== */
+@media(max-width:900px){
+  .pdp-grid{grid-template-columns:1fr;gap:32px}
+  .pdp-media{position:static}
+  .pdp-img-main{height:340px}
+  .related-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:640px){
+  .container{padding:0 12px}
+  .header-inner{height:60px;gap:8px}
+  .logo-sub{display:none}
+  .logo-name{font-size:1rem}
+  .logo-mark{width:36px;height:36px;font-size:1.15rem}
+  nav{display:none}
+  .hamburger{display:flex}
+  .basket-label{display:none}
+  .basket-btn{padding:8px 10px}
+  .pdp-img-main{height:280px}
+  .pdp-header h1{font-size:1.5rem}
+  .price-main{font-size:1.6rem}
+  .pdp-guarantee-row{grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .guarantee-box{padding:8px 4px}
+  .guarantee-box span{font-size:1rem}
+  .guarantee-box strong{font-size:0.68rem}
+  .related-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="announcement">
+  🚚 <strong>Fast 45-60 Min Delivery</strong> in designated sectors · Orders above ₹299 get free shipping
+</div>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">V</div>
+        <div class="logo-text">
+          <span class="logo-name">Venu's Kitchen</span>
+          <span class="logo-sub">Homemade Pickles</span>
+        </div>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="store.html" class="active">Our Pickles</a>
+        <a href="index.html#delivery">Delivery Coverage</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="store.html" class="basket-btn" id="basketBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="basket-label">Basket</span>
+          <span class="basket-count" id="cartCount">0</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="store.html">Our Pickles (Store)</a>
+    <a href="index.html#delivery">Delivery Coverage (8 km)</a>
+    <a href="index.html#about">Our Kitchen & Story</a>
+    <a href="index.html#contact">Contact & Help</a>
+  </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a href="index.html">Home</a>
+    <span>/</span>
+    <a href="store.html">Our Pickles</a>
+    <span>/</span>
+    <span id="breadcrumbName" style="color:var(--text);font-weight:600">Loading Product...</span>
+  </div>
+</div>
+
+<!-- Main PDP Content -->
+<main class="pdp-wrap">
+  <div class="container">
+    <div class="pdp-grid">
+
+      <!-- LEFT: Media Gallery & Assurance -->
+      <div class="pdp-media">
+        <div class="pdp-img-card">
+          <img id="productImage" src="" alt="Pickle Jar" class="pdp-img-main" loading="eager"/>
+          <span class="pdp-badge-pill" id="productBadge">Handcrafted</span>
+          <div class="pdp-spice-meter" id="productSpice">🌶️ Medium</div>
+        </div>
+        <div class="pdp-guarantee-row">
+          <div class="guarantee-box">
+            <span>🫙</span>
+            <strong>100% Glass Jar</strong>
+          </div>
+          <div class="guarantee-box">
+            <span>☀️</span>
+            <strong>21-Day Sun Cured</strong>
+          </div>
+          <div class="guarantee-box">
+            <span>🌿</span>
+            <strong>Zero Chemicals</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Details, Medical / Dietary Alerts & Purchase -->
+      <div class="pdp-info">
+        <div class="pdp-header">
+          <h1 id="productTitle">Pickle Name</h1>
+          <div class="pdp-hindi" id="productHindi">Achar Name</div>
+          <div class="pdp-rating-row">
+            <span class="rating-stars">★★★★★</span>
+            <span class="rating-count" id="ratingText">4.9 · 142 Reviews</span>
+            <span class="rating-sep">·</span>
+            <span class="fssai-pill">FSSAI: 23324009000123</span>
+          </div>
+        </div>
+
+        <!-- Price & Instant Ordering Card -->
+        <div class="pdp-price-card">
+          <div class="price-row">
+            <span class="price-main" id="productPrice">₹0</span>
+            <span class="price-tax">Incl. of all taxes</span>
+            <span class="pdp-weight" id="productWeight">500g Jar</span>
+          </div>
+          <div class="delivery-estimate">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div><strong>Hyperlocal Delivery:</strong> Delivered in 45–60 mins within 8 km</div>
+          </div>
+          <div class="pdp-actions">
+            <div class="qty-selector">
+              <button class="qty-btn" id="qtyMinus">−</button>
+              <input type="text" class="qty-input" id="qtyInput" value="1" readonly/>
+              <button class="qty-btn" id="qtyPlus">+</button>
+            </div>
+            <button class="btn-add-pdp" id="btnAddToCart">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add to Basket
+            </button>
+          </div>
+          <a href="#" id="btnWhatsAppDirect" target="_blank" class="btn-wa-order">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            Direct WhatsApp Order (Pre-Launch Option)
+          </a>
+          <p class="checkout-prelaunch-note">🔒 Online store checkout is launching soon. WhatsApp orders are confirmed within 10 minutes.</p>
+        </div>
+
+        <!-- Description -->
+        <div class="pdp-accordion-card">
+          <h4>📖 Flavor Profile & Description</h4>
+          <p id="productDesc">Detailed description here...</p>
+        </div>
+
+        <!-- CRITICAL HEALTH, DIETARY & MEDICAL WARNING SECTION -->
+        <div class="health-guide-card">
+          <div class="health-guide-header">
+            <h3>🩺 Health, Dietary & Medical Advisory</h3>
+            <span style="font-size:0.75rem;font-weight:600;color:var(--text-soft)">Doctor & Nutrition Verified</span>
+          </div>
+          <div class="health-body">
+            
+            <!-- Suitable for -->
+            <div class="alert-box alert-suitable">
+              <div class="alert-icon">✅</div>
+              <div class="alert-content">
+                <h4>Who Can Enjoy & Dietary Compatibility:</h4>
+                <ul id="healthSuitableList">
+                  <li>Suitable for healthy adults and teens seeking authentic probiotic benefits.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Caution & Warnings -->
+            <div class="alert-box alert-warning">
+              <div class="alert-icon">⚠️</div>
+              <div class="alert-content">
+                <h4>Medical Warnings & Who Should Avoid or Limit:</h4>
+                <ul id="healthWarningList">
+                  <li>Medical precautions listed here...</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Serving Guidance -->
+            <div class="alert-box alert-caution">
+              <div class="alert-icon">💡</div>
+              <div class="alert-content">
+                <h4>Recommended Serving & Consumption Tip:</h4>
+                <p id="healthTipText">Take in moderation as an accompaniment to whole meals.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Product Specifications Table -->
+        <div class="pdp-accordion-card">
+          <h4>📋 Standard Specifications</h4>
+          <table class="specs-table">
+            <tbody>
+              <tr><td>Net Weight</td><td id="specWeight">500g</td></tr>
+              <tr><td>Container</td><td>Airtight Food-Grade Glass Jar</td></tr>
+              <tr><td>Shelf Life</td><td>12 Months from Batch Date</td></tr>
+              <tr><td>Curing Time</td><td id="specCure">21 Days Sun Cured</td></tr>
+              <tr><td>Base Oil Used</td><td id="specOil">Pure Cold-Pressed Mustard Oil</td></tr>
+              <tr><td>Preservatives</td><td>Zero Chemicals · Natural Salt & Oil Preservation Only</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Ingredients List -->
+        <div class="pdp-accordion-card">
+          <h4>🌱 Pure Ingredients</h4>
+          <p id="ingredientsSummary">Loading natural ingredients...</p>
+          <div class="ingredient-tags" id="ingredientTags"></div>
+        </div>
+
+        <!-- Storage Instructions -->
+        <div class="pdp-accordion-card">
+          <h4>💡 Traditional Kitchen Storage Rules</h4>
+          <p>
+            • Always use a <strong>completely clean and dry spoon</strong>.<br/>
+            • <strong>Do not refrigerate</strong>: natural cold-pressed oil can solidify and reduce aroma.<br/>
+            • Keep the jar sealed airtight and store in a cool, dry cupboard away from moisture.<br/>
+            • Ensure the top surface of the pickle remains submerged in oil to preserve freshness naturally.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Related Pickles -->
+    <div class="related-section">
+      <h3 class="related-title">Explore Other Traditional Varieties</h3>
+      <div class="related-grid" id="relatedGrid"></div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-simple">
+      <div>© 2025 <strong>Venu's Kitchen</strong> · FSSAI Reg. 23324009000123</div>
+      <div>Kitchen: Sector 15 Commercial Hub, South Enclave, New Delhi</div>
+      <div><a href="store.html">← Back to Store</a> | <a href="index.html">Home</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="cart.js"></script>
+<script>
+// ===== MASTER PRODUCT DATABASE (WITH DETAILED MEDICAL & HEALTH ADVISORY) =====
+const CATALOG = {
+  p1: {
+    id: 'p1',
+    name: 'Traditional Raw Mango Pickle',
+    hindi: 'पारंपरिक आम का अचार (Aam Ka Achar)',
+    price: 240,
+    weight: '500g Glass Jar',
+    image: 'https://images.unsplash.com/photo-1632239108478-568f362ac3ac?auto=format&fit=crop&w=800&q=80',
+    badge: 'Bestseller',
+    spice: '🌶️🌶️ Medium Spice',
+    cure: '21 Days Sun Cured',
+    oil: '100% Pure Cold-Pressed Kachi Ghani Mustard Oil',
+    rating: '4.9 · 186 Verified Customer Reviews',
+    desc: 'Crafted with handpicked green Ramkela mangoes from local orchards. Coarsely cut, marinated with freshly roasted methi, saunf, and kalonji, and sun-cured for three full weeks. Delivers that unforgettable sharp, tangy home-kitchen punch that elevates any dal-chawal or paratha meal.',
+    ingredients: [
+      'Raw Ramkela Mango',
+      'Cold-Pressed Mustard Oil',
+      'Fenugreek Seeds (Methi)',
+      'Fennel Seeds (Saunf)',
+      'Nigella Seeds (Kalonji)',
+      'Turmeric Powder (Haldi)',
+      'Degi Red Chilli',
+      'Natural Rock Salt (Sendha Namak)',
+      'Hing (Asafoetida)'
+    ],
+    suitable: [
+      'Healthy adults, young adults, and children wanting real traditional food.',
+      '100% Vegan, Dairy-Free, and Preservative-Free.',
+      'Acts as a natural digestive stimulant after hearty North Indian meals.'
+    ],
+    warnings: [
+      '<strong>High Blood Pressure (Hypertension):</strong> Traditional pickles require salt for natural curing. Contains natural rock salt. Consume strictly in moderation (max 1 teaspoon / 5–10g per day).',
+      '<strong>Acid Reflux & Active Gastritis:</strong> Contains pure mustard oil and spices. Individuals with active peptic ulcers, GERD, or acute hyperacidity should avoid consuming on an empty stomach.',
+      '<strong>Mustard Allergy:</strong> Contains mustard seeds and cold-pressed mustard oil. Avoid if you have known brassica or mustard hypersensitivity.',
+      '<strong>Severe Kidney Disorders:</strong> Patients on strict sodium-restricted diets must consult their nephrologist or dietitian before consumption.'
+    ],
+    tip: 'Pair a small teaspoon with hot dal-tadka and steamed basmati rice or a stuffed aloo paratha. Never eat raw pickle directly on an empty stomach if prone to acidity.'
+  },
+  p2: {
+    id: 'p2',
+    name: 'Banarasi Stuffed Red Chilli Pickle',
+    hindi: 'बनारसी भरवा लाल मिर्च का अचार (Bharwa Lal Mirch)',
+    price: 280,
+    weight: '400g Glass Jar',
+    image: 'https://images.unsplash.com/photo-1645679059045-65ff3a440554?auto=format&fit=crop&w=800&q=80',
+    badge: 'Popular',
+    spice: '🌶️🌶️🌶️ Hot & Pungent',
+    cure: '25 Days Solar Cured',
+    oil: 'Wood-Pressed Mustard Oil',
+    rating: '4.8 · 142 Verified Customer Reviews',
+    desc: 'Long, deep-red Banarasi chillies hollowed out by hand and stuffed with an intensely fragrant blend of roasted coriander, amchur, fennel, and yellow mustard powder, then slow-steeped in mustard oil. Rich, warm, and deeply comforting.',
+    ingredients: [
+      'Whole Banarasi Red Chillies',
+      'Amchur (Dry Mango Powder)',
+      'Roasted Coriander Powder',
+      'Yellow Mustard Dal (Rai Kuria)',
+      'Ajwain (Carom Seeds)',
+      'Fennel Seeds',
+      'Black Salt & Rock Salt',
+      'Cold-Pressed Mustard Oil'
+    ],
+    suitable: [
+      'Lovers of bold, hearty North Indian flavors.',
+      'Ajwain and amchur help alleviate sluggish digestion during winter months.',
+      'Excellent companion for plain parathas, poori bhaji, and khichdi.'
+    ],
+    warnings: [
+      '<strong>Severe Gastrointestinal Irritation:</strong> High capsaicin from whole dried red chillies. Strictly not advised for patients with acute stomach ulcers, Crohn\'s flare-ups, or severe GERD.',
+      '<strong>Hemorrhoids / Piles:</strong> Strong hot spices can irritate the lower digestive tract. Avoid during active inflammatory episodes.',
+      '<strong>Hypertension:</strong> Contains seasoned rock salt and black salt. Restrict portion to 1/3 of a chilli pod at a time.'
+    ],
+    tip: 'Slit a small 1-inch piece of the stuffed pod and mix it evenly into your rice or paratha bite rather than chewing a whole pod directly.'
+  },
+  p3: {
+    id: 'p3',
+    name: 'Spicy Green Chilli Pickle',
+    hindi: 'चटपटा हरी मिर्च का अचार (Hari Mirch Ka Achar)',
+    price: 190,
+    weight: '350g Glass Jar',
+    image: 'https://images.unsplash.com/photo-1643594697730-bb034a399a4b?auto=format&fit=crop&w=800&q=80',
+    badge: 'Fiery Heat',
+    spice: '🌶️🌶️🌶️🌶️ Very Hot',
+    cure: '10 Days Natural Fermentation',
+    oil: 'Cold-Pressed Mustard Oil',
+    rating: '4.7 · 98 Reviews',
+    desc: 'Crisp green chillies slit fresh and cured with crushed yellow mustard seeds, lemon juice, turmeric, and asafoetida. It gives an immediate zesty, pungent kick that revives simple meals.',
+    ingredients: [
+      'Fresh Green Chillies',
+      'Yellow Mustard Seeds',
+      'Fresh Lemon Juice',
+      'Pure Hing (Asafoetida)',
+      'Turmeric',
+      'Rock Salt',
+      'Mustard Oil'
+    ],
+    suitable: [
+      'Spice lovers seeking raw green chilli zest and high natural Vitamin C.',
+      'Ideal with curd-rice, dal-chawal, or mathri snacks.'
+    ],
+    warnings: [
+      '<strong>Irritable Bowel Syndrome (IBS) & Diarrhea:</strong> Fiery capsaicin stimulates rapid gastrointestinal peristalsis and may provoke cramps in sensitive individuals.',
+      '<strong>Heartburn:</strong> Do not consume with late dinner; can trigger night-time reflux.',
+      '<strong>Not for Young Children:</strong> High spice intensity is unsuitable for toddlers and young children.'
+    ],
+    tip: 'Perfect when paired with cooling foods like curd-rice (dahi chawal) or plain buttered rotis.'
+  },
+  p4: {
+    id: 'p4',
+    name: 'Sun-Cured Lemon Pickle (Zero Oil)',
+    hindi: 'कागज़ी नींबू का अचार - बिना तेल (Bina Tel Nimbu)',
+    price: 210,
+    weight: '400g Glass Jar',
+    image: 'https://images.unsplash.com/photo-1525027684690-6de2d445842b?auto=format&fit=crop&w=800&q=80',
+    badge: 'Zero Oil',
+    spice: '🌶️ Mild & Tangy',
+    cure: '30 Days Solar Fermentation',
+    oil: 'None (100% Oil-Free Recipe)',
+    rating: '4.9 · 210 Reviews',
+    desc: 'Prepared without a single drop of oil. Thin-skinned Kagzi lemons are quartered and slow-cured in jars under the hot sun with carom seeds (ajwain), black pepper, black salt, and roasted cumin. As it ages, it darkens into a velvety, gut-soothing digestive relish.',
+    ingredients: [
+      'Fresh Thin-Skinned Kagzi Lemons',
+      'Black Salt (Kala Namak)',
+      'Sendha Namak (Rock Salt)',
+      'Ajwain (Carom Seeds)',
+      'Roasted Cumin (Bhuna Jeera)',
+      'Kali Mirch (Black Pepper)'
+    ],
+    suitable: [
+      '<strong>Heart Patients & Low-Fat Diets:</strong> 0% Added Oil, 0% Saturated Fat, 0% Cholesterol.',
+      '<strong>Relief from Nausea & Motion Sickness:</strong> Highly effective natural remedy for travel nausea, sluggish digestion, and post-fever appetite loss.',
+      '<strong>Senior Citizens:</strong> Gentle on the stomach with ajwain carminative benefits.'
+    ],
+    warnings: [
+      '<strong>Tooth Enamel Sensitivity:</strong> High natural citric acid from lemon rind. If you have worn dental enamel or sensitive teeth, rinse your mouth with plain water after eating.',
+      '<strong>Sodium Watchers:</strong> Even though it has zero oil, salt is required for preservation. Keep to 1 small piece per meal.'
+    ],
+    tip: 'The best companion for plain moong dal khichdi or soft curd rice when recovering from stomach upsets.'
+  },
+  p5: {
+    id: 'p5',
+    name: 'Mixed Vegetable Pachranga',
+    hindi: 'पारंपरिक पचरंगा अचार (Panch Rang Achar)',
+    price: 230,
+    weight: '500g Glass Jar',
+    image: 'https://images.unsplash.com/photo-1519147683487-66e0c2d0b5a0?auto=format&fit=crop&w=800&q=80',
+    badge: 'Family Favorite',
+    spice: '🌶️🌶️ Medium Spice',
+    cure: '18 Days Sun Cured',
+    oil: 'Cold-Pressed Mustard Oil',
+    rating: '4.8 · 164 Reviews',
+    desc: 'The grand classic of five hearty winter ingredients: crunchy carrots, turnip (shalgam), crunchy lotus stem (kamal kakdi), raw mango, and fresh cauliflower pieces soaked in aromatic spiced oil.',
+    ingredients: [
+      'Raw Mango Pieces',
+      'Winter Red Carrots',
+      'Shalgam (Turnip)',
+      'Kamal Kakdi (Lotus Stem)',
+      'Cauliflower Florets',
+      'Mustard Oil',
+      'Crushed Fennel & Fenugreek',
+      'Sendha Salt'
+    ],
+    suitable: [
+      'Great for whole-family dining with varied crunchy vegetable textures.',
+      'Provides varied vegetable fiber with daily meals.'
+    ],
+    warnings: [
+      '<strong>Bloating & Gout Tendency:</strong> Contains cauliflower and turnip which can produce intestinal gas in individuals prone to flatulence or severe IBS.',
+      '<strong>Hypertension:</strong> Moderate your intake to 1 tablespoon daily.'
+    ],
+    tip: 'Stir the jar gently before serving so the spiced mustard oil coats every vegetable piece uniformly.'
+  },
+  p6: {
+    id: 'p6',
+    name: 'Slow-Tempered Garlic Pickle',
+    hindi: 'देसी लहसुन का अचार (Desi Lahsun Ka Achar)',
+    price: 260,
+    weight: '350g Glass Jar',
+    image: 'https://images.unsplash.com/photo-1706167754852-128daa40126a?auto=format&fit=crop&w=800&q=80',
+    badge: 'Heritage Recipe',
+    spice: '🌶️🌶️ Medium Savoury',
+    cure: '21 Days Slow Tempering',
+    oil: 'Cold-Pressed Mustard Oil',
+    rating: '4.9 · 119 Reviews',
+    desc: 'Whole peeled desi garlic cloves gently tempered with mustard seeds and fenugreek, then aged in sunlight until the sharp pungency mellows into a rich, buttery, deeply savory garlic delicacy.',
+    ingredients: [
+      'Peeled Whole Desi Garlic',
+      'Kachi Ghani Mustard Oil',
+      'Fenugreek Seeds',
+      'Nigella Seeds (Kalonji)',
+      'Kashmiri Red Chilli',
+      'Fresh Lemon Juice',
+      'Rock Salt'
+    ],
+    suitable: [
+      'Renowned in Ayurvedic traditions for promoting cardiovascular wellness, immunity, and warm circulation.',
+      'Deep umami flavor loved by garlic enthusiasts.'
+    ],
+    warnings: [
+      '<strong>Pre-Surgery & Blood Thinners:</strong> Garlic possesses natural anti-platelet (blood thinning) properties. Avoid excessive consumption if taking prescription anticoagulants (e.g. Warfarin, Aspirin) or prior to scheduled surgery.',
+      '<strong>Heartburn & Esophageal Irritation:</strong> Garlic can relax the lower esophageal sphincter in some people, causing mild acid reflux if eaten late at night.',
+      '<strong>Low Blood Pressure (Hypotension):</strong> May mildly lower blood pressure; consume in normal culinary portions.'
+    ],
+    tip: 'Eat 2 to 3 cloves daily along with lunchtime roti or warm rice for maximum herbal and culinary satisfaction.'
+  },
+  p7: {
+    id: 'p7',
+    name: 'Sweet Mango Chhunda',
+    hindi: 'गुजराती आम का मीठा छुंदा (Aam Ka Chhunda)',
+    price: 220,
+    weight: '400g Glass Jar',
+    image: 'https://images.unsplash.com/photo-1576920803950-3f066b308938?auto=format&fit=crop&w=800&q=80',
+    badge: 'Sweet & Tangy',
+    spice: '🌶️ Mild Sweet',
+    cure: '15 Days Solar Cooking',
+    oil: 'Zero Oil (No Oil Added)',
+    rating: '4.9 · 230 Reviews',
+    desc: 'Grated Rajapuri raw mangoes cooked naturally in clear sunlight with pure desi jaggery (gud), roasted jeera, and mild red chilli flakes. No chemical preservatives, no refined white sugar.',
+    ingredients: [
+      'Grated Raw Rajapuri Mango',
+      'Desi Organic Jaggery (Gud)',
+      'Roasted Cumin (Bhuna Jeera)',
+      'Mild Chilli Flakes',
+      'Cinnamon & Clove Powder',
+      'Rock Salt'
+    ],
+    suitable: [
+      'Ideal for children, teens, and anyone sensitive to hot spicy pickles.',
+      'World-famous companion for methi theplas, poori rolls, and toast.',
+      'Zero oil, vegetarian, and natural iron from organic jaggery.'
+    ],
+    warnings: [
+      '🚨 <strong>DIABETES ADVISORY:</strong> Contains concentrated natural jaggery (gud) and mango fructose. Strictly not recommended for individuals with Type 1 or Type 2 Diabetes without medical consultation.',
+      '<strong>Calorie Counting:</strong> Higher natural carbohydrate and calorie content than savoury pickles. Consume mindfully if on strict ketogenic or diabetic diets.'
+    ],
+    tip: 'Spread 1 spoonful across a hot thepla or chapati, roll it up, and enjoy as an authentic on-the-go snack!'
+  }
+};
+
+// ===== RENDER PRODUCT PAGE =====
+const params = new URLSearchParams(window.location.search);
+let currentId = params.get('id') || 'p1';
+if (!CATALOG[currentId]) currentId = 'p1';
+
+const prod = CATALOG[currentId];
+
+// Update DOM
+document.title = `${prod.name} – Venu's Kitchen`;
+document.getElementById('breadcrumbName').textContent = prod.name;
+document.getElementById('productImage').src = prod.image;
+document.getElementById('productImage').alt = prod.name;
+document.getElementById('productBadge').textContent = prod.badge;
+document.getElementById('productSpice').textContent = prod.spice;
+document.getElementById('productTitle').textContent = prod.name;
+document.getElementById('productHindi').textContent = prod.hindi;
+document.getElementById('ratingText').textContent = prod.rating;
+document.getElementById('productPrice').textContent = `₹${prod.price}`;
+document.getElementById('productWeight').textContent = prod.weight;
+document.getElementById('productDesc').textContent = prod.desc;
+document.getElementById('specWeight').textContent = prod.weight;
+document.getElementById('specCure').textContent = prod.cure;
+document.getElementById('specOil').textContent = prod.oil;
+
+// Suitable list
+document.getElementById('healthSuitableList').innerHTML = prod.suitable.map(s => `<li>${s}</li>`).join('');
+
+// Warning list
+document.getElementById('healthWarningList').innerHTML = prod.warnings.map(w => `<li>${w}</li>`).join('');
+
+// Tip
+document.getElementById('healthTipText').innerHTML = prod.tip;
+
+// Ingredients
+document.getElementById('ingredientsSummary').textContent = `Made with ${prod.ingredients.length} authentic kitchen ingredients: ${prod.ingredients.join(', ')}.`;
+document.getElementById('ingredientTags').innerHTML = prod.ingredients.map(ing => `<span class="ing-tag">${ing}</span>`).join('');
+
+// Direct WhatsApp link
+const waMsg = encodeURIComponent(`Hi Venu! I would like to order: ${prod.name} (${prod.weight}) - ₹${prod.price}.\nPlease confirm delivery within your sector.`);
+document.getElementById('btnWhatsAppDirect').href = `https://wa.me/919876543210?text=${waMsg}`;
+
+// Quantity handler
+let currentQty = 1;
+const qtyInput = document.getElementById('qtyInput');
+document.getElementById('qtyPlus').addEventListener('click', () => {
+  currentQty += 1;
+  qtyInput.value = currentQty;
+});
+document.getElementById('qtyMinus').addEventListener('click', () => {
+  if (currentQty > 1) {
+    currentQty -= 1;
+    qtyInput.value = currentQty;
+  }
+});
+
+// Add to Cart handler
+const btnAdd = document.getElementById('btnAddToCart');
+btnAdd.addEventListener('click', () => {
+  for (let i = 0; i < currentQty; i++) {
+    window.VKCart.addItem({
+      id: prod.id,
+      name: prod.name,
+      price: prod.price,
+      weight: prod.weight,
+      image: prod.image
+    });
+  }
+  btnAdd.textContent = '✓ Added to Basket!';
+  btnAdd.classList.add('added');
+  setTimeout(() => {
+    btnAdd.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add to Basket';
+    btnAdd.classList.remove('added');
+  }, 1800);
+  updateCartUI();
+});
+
+// Related Pickles
+const relatedIds = Object.keys(CATALOG).filter(id => id !== currentId).slice(0, 4);
+document.getElementById('relatedGrid').innerHTML = relatedIds.map(rid => {
+  const r = CATALOG[rid];
+  return `
+    <a href="product.html?id=${r.id}" class="rel-card">
+      <div class="rel-img"><img src="${r.image}" alt="${r.name}" loading="lazy"/></div>
+      <div class="rel-body">
+        <div>
+          <h4 class="rel-name">${r.name}</h4>
+          <span style="font-size:0.75rem;color:var(--text-soft)">${r.weight}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+          <span class="rel-price">₹${r.price}</span>
+          <span style="font-size:0.78rem;color:var(--green);font-weight:600">View Details →</span>
+        </div>
+      </div>
+    </a>
+  `;
+}).join('');
+
+// Hamburger
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileNav').classList.toggle('open');
+});
+
+function updateCartUI() {
+  if (window.VKCart) {
+    document.getElementById('cartCount').textContent = window.VKCart.count();
+  }
+}
+updateCartUI();
+</script>
+</body>
+</html>

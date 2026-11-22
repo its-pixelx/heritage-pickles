@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="favicon.svg"/>
 
 <!-- Universal Cart Engine -->
-<script src="cart.js?v=2.3"></script>
+<script src="cart.js?v=2.4"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -285,15 +285,26 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   background:#FFF;
   color:var(--text-secondary);
   border:1px solid var(--border-light);
-  transition:all .18s;
+  transition:background-color .22s cubic-bezier(0.16,1,0.3,1),
+             color .22s cubic-bezier(0.16,1,0.3,1),
+             border-color .22s cubic-bezier(0.16,1,0.3,1),
+             transform .18s cubic-bezier(0.16,1,0.3,1),
+             box-shadow .22s cubic-bezier(0.16,1,0.3,1);
   flex-shrink:0;
+  user-select:none;
 }
-.filter-btn:hover{border-color:var(--green);color:var(--green)}
+.filter-btn:hover{
+  border-color:var(--green);
+  color:var(--green);
+  transform:translateY(-1px);
+}
+.filter-btn:active{transform:scale(0.95)}
 .filter-btn.active{
   background:var(--green);
   color:#FFF;
   border-color:var(--green);
-  box-shadow:0 2px 8px rgba(27,94,32,0.18);
+  box-shadow:0 3px 10px rgba(27,94,32,0.22);
+  transform:translateY(0);
 }
 
 /* Animated Minimalist Arrow Buttons */
@@ -368,6 +379,11 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:26px;
+  transition:opacity .14s ease-out, transform .14s ease-out;
+}
+.products-grid.grid-filtering{
+  opacity:0.10;
+  transform:scale(0.99) translateY(4px);
 }
 
 /* ===== MODERN PRODUCT CARD ===== */
@@ -380,6 +396,27 @@ nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
   flex-direction:column;
   box-shadow:var(--shadow-subtle);
   transition:transform .2s ease,box-shadow .2s ease;
+}
+.product-card.animate-in{
+  animation:cardPopIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay:calc(var(--card-index, 0) * 45ms);
+}
+@keyframes cardPopIn{
+  0%{
+    opacity:0;
+    transform:translateY(14px) scale(0.96);
+  }
+  65%{
+    opacity:0.96;
+    transform:translateY(-2px) scale(1.006);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .product-card.animate-in{animation:none !important}
 }
 .product-card:hover{
   transform:translateY(-4px);
@@ -872,7 +909,7 @@ footer{
   </div>
 </footer>
 
-<script src="cart.js?v=2.3"></script>
+<script src="cart.js?v=2.4"></script>
 <script>
 const PRODUCTS = [
   {
@@ -971,6 +1008,24 @@ const PRODUCTS = [
 let activeFilter = 'all';
 let searchQuery = '';
 
+function applyFilter(newFilter) {
+  if (activeFilter === newFilter && !searchQuery) return;
+  activeFilter = newFilter;
+
+  const grid = document.getElementById('productsGrid');
+  if (!grid) {
+    renderProducts();
+    return;
+  }
+
+  // Smooth exit fade
+  grid.classList.add('grid-filtering');
+  setTimeout(() => {
+    renderProducts();
+    grid.classList.remove('grid-filtering');
+  }, 110);
+}
+
 function renderProducts() {
   const grid = document.getElementById('productsGrid');
   const filtered = PRODUCTS.filter(p => {
@@ -992,7 +1047,7 @@ function renderProducts() {
     return;
   }
 
-  grid.innerHTML = filtered.map(p => {
+  grid.innerHTML = filtered.map((p, idx) => {
     const cartItems = window.VKCart ? window.VKCart.getItems() : [];
     const inCart = cartItems.find(c => c.id === p.id);
     const qty = inCart ? inCart.qty : 0;
@@ -1003,7 +1058,7 @@ function renderProducts() {
     if (p.badge === 'teal') badgeClass += ' badge-teal';
 
     return `
-    <article class="product-card">
+    <article class="product-card animate-in" style="--card-index:${idx};">
       <a href="product.html?id=${p.id}" class="card-img-wrap" title="View details for ${p.name}">
         <img src="${p.image}" alt="${p.name}" loading="lazy"/>
         ${p.badge ? `<span class="${badgeClass}">${p.badgeText}</span>` : ''}
@@ -1200,8 +1255,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    activeFilter = btn.dataset.filter;
-    renderProducts();
+    applyFilter(btn.dataset.filter);
     // Scroll clicked pill into comfortable view
     btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   });
@@ -1253,7 +1307,16 @@ function resetFilters() {
     allBtn.classList.add('active');
     allBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   }
-  renderProducts();
+  const grid = document.getElementById('productsGrid');
+  if (grid) {
+    grid.classList.add('grid-filtering');
+    setTimeout(() => {
+      renderProducts();
+      grid.classList.remove('grid-filtering');
+    }, 110);
+  } else {
+    renderProducts();
+  }
 }
 
 // Hamburger

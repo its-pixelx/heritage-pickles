@@ -452,7 +452,7 @@
             items.map(i => `• ${i.name} (${i.weight || ''}) x${i.qty} = ₹${i.price * i.qty}`).join('\n') +
             `\n\nTotal: ₹${total}\n\nPlease confirm preparation and delivery.`
           );
-          waBtn.onclick = () => window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+          waBtn.onclick = () => window.open(`https://wa.me/919591212100?text=${msg}`, '_blank');
         }
       }
     }

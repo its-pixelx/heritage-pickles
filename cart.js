@@ -82,33 +82,8 @@
     const style = document.createElement('style');
     style.id = 'vkCartStyles';
     style.textContent = `
-      /* Universal Silky Page Transitions */
+      /* Native Smooth Cross-Document Transitions (Zero White Flash) */
       @view-transition { navigation: auto; }
-      body {
-        transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-      body.page-entering {
-        animation: vkPageFadeIn 0.26s cubic-bezier(0.16, 1, 0.3, 1) both;
-      }
-      body.page-leaving {
-        opacity: 0 !important;
-        transform: translateY(-4px) !important;
-        transition: opacity 0.16s cubic-bezier(0.4, 0, 0.2, 1), transform 0.16s cubic-bezier(0.4, 0, 0.2, 1) !important;
-      }
-      @keyframes vkPageFadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(6px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        body.page-entering { animation: none !important; }
-        body.page-leaving { transition: none !important; }
-      }
 
       .cart-overlay{
         position:fixed;
@@ -569,64 +544,11 @@
   }
   window.updateCartUI = updateAllCartUI;
 
-  // ===== UNIVERSAL SMOOTH PAGE TRANSITIONS =====
-  function setupPageTransitions() {
-    if (document.body) {
-      document.body.classList.add('page-entering');
-    }
-
-    // Handle bfcache restoration (back / forward buttons)
-    window.addEventListener('pageshow', function (e) {
-      document.body.classList.remove('page-leaving');
-      document.body.classList.add('page-entering');
-    });
-
-    // Intercept internal page link clicks for a refined exit fade
-    document.addEventListener('click', function (e) {
-      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      const link = e.target.closest('a');
-      if (!link) return;
-
-      const href = link.getAttribute('href');
-      if (!href) return;
-
-      if (
-        href.startsWith('#') ||
-        href.startsWith('javascript:') ||
-        href.startsWith('mailto:') ||
-        href.startsWith('tel:') ||
-        href.startsWith('https://wa.me') ||
-        href.includes('whatsapp') ||
-        link.target === '_blank' ||
-        link.hasAttribute('download')
-      ) {
-        return;
-      }
-
-      try {
-        const targetUrl = new URL(link.href, window.location.href);
-        const isSameOrigin = targetUrl.origin === window.location.origin;
-        const isInternalPage = href.endsWith('.html') || href.includes('.html?') || href.startsWith('./') || href.startsWith('/');
-
-        if (isSameOrigin || isInternalPage) {
-          if (targetUrl.href === window.location.href) return;
-
-          e.preventDefault();
-          document.body.classList.add('page-leaving');
-          setTimeout(function () {
-            window.location.href = link.href;
-          }, 150);
-        }
-      } catch (err) {}
-    });
-  }
-
   // ===== AUTO-INIT & EVENT INTERCEPTION =====
   function init() {
     injectCartStyles();
     injectCartDrawerHTML();
     updateAllCartUI();
-    setupPageTransitions();
 
     // Universal basket button click handler: intercept any .basket-btn click anywhere
     document.addEventListener('click', function (e) {

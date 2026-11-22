@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="favicon.svg"/>
 
 <!-- Universal Cart Engine -->
-<script src="cart.js?v=2.4"></script>
+<script src="cart.js?v=2.5"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -20,13 +20,20 @@
 <style>
 /* ===== BASE & RESETS ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+html{
+  scroll-behavior:smooth;
+  -webkit-tap-highlight-color:transparent;
+  overflow-x:hidden;
+  max-width:100vw;
+  width:100%;
+}
 body{
   font-family:'Plus Jakarta Sans',sans-serif;
   background:#FAF8F5;
   color:#1F2937;
   line-height:1.55;
   overflow-x:hidden;
+  max-width:100vw;
   width:100%;
 }
 img{max-width:100%;height:auto;display:block}
@@ -110,6 +117,7 @@ nav a{
   font-weight:500;
   color:var(--text-secondary);
   transition:all .15s;
+  white-space:nowrap;
 }
 nav a:hover,nav a.active{color:var(--green);background:var(--green-subtle)}
 
@@ -711,24 +719,42 @@ footer{
 }
 .footer-row a{color:var(--gold-light)}
 
-/* ===== MOBILE RESPONSIVE ===== */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+@media(max-width:1024px){
+  nav{display:none !important}
+  .hamburger{display:flex !important}
+  .basket-label{display:none}
+  .basket-btn{padding:8px 12px;gap:6px}
+  .logo-title{font-size:1.05rem}
+  .logo-subtitle{display:none}
+  .header-actions{gap:8px}
+  .header-inner{height:60px}
+}
+
 @media(max-width:960px){
   .products-grid{grid-template-columns:repeat(2,1fr);gap:20px}
 }
 
-@media(max-width:680px){
+@media(max-width:768px){
   .container{padding:0 16px}
-  .header-inner{height:58px}
-  nav{display:none}
-  .hamburger{display:flex}
-  .basket-label{display:none}
-  .basket-btn{padding:8px 12px}
-  .logo-title{font-size:1.02rem}
-  .logo-subtitle{display:none}
-  .logo-img{width:34px;height:34px}
+}
 
-  .store-intro{padding:24px 0 16px}
-  .store-title{font-size:1.6rem}
+@media(max-width:480px){
+  .container{padding:0 12px}
+  .header-inner{height:54px;gap:6px;width:100%;justify-content:space-between}
+  .logo{gap:6px;flex-shrink:1;min-width:0}
+  .logo-img{width:32px;height:32px;flex-shrink:0}
+  .logo-title{font-size:0.94rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .header-actions{gap:5px;flex-shrink:0;display:flex;align-items:center}
+  .basket-btn{padding:7px 9px;gap:5px;font-size:0.78rem;flex-shrink:0}
+  .basket-badge{width:18px;height:18px;font-size:0.68rem}
+  .hamburger{width:36px;height:36px;padding:6px;flex-shrink:0;display:flex}
+  .hamburger span{width:18px}
+
+  .announcement{font-size:0.72rem;padding:6px 10px;line-height:1.35}
+
+  .store-intro{padding:20px 0 14px}
+  .store-title{font-size:1.55rem}
   .prelaunch-banner{
     flex-direction:column;
     align-items:flex-start;
@@ -737,12 +763,12 @@ footer{
   }
   .wa-quick-btn{width:100%;justify-content:center}
 
-  .filter-wrap{top:58px;padding:10px 0}
+  .filter-wrap{top:54px;padding:8px 0}
   .filter-flex{flex-direction:column;align-items:stretch;gap:10px}
   .search-field{width:100%}
 
-  .store-content{padding:20px 0 60px}
-  .products-grid{grid-template-columns:1fr;gap:18px}
+  .store-content{padding:16px 0 54px}
+  .products-grid{grid-template-columns:1fr;gap:16px}
   .card-img-wrap{padding-top:64%}
   .card-body{padding:16px}
   
@@ -909,7 +935,7 @@ footer{
   </div>
 </footer>
 
-<script src="cart.js?v=2.4"></script>
+<script src="cart.js?v=2.5"></script>
 <script>
 const PRODUCTS = [
   {
